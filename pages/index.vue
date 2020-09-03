@@ -52,14 +52,19 @@
           />
         </div>
 
-        <input type="submit" value="Registrar cuenta" class="bg-gray-900" />
+        <input
+          type="submit"
+          value="Registrar cuenta"
+          class="bg-gray-900"
+          :disabled="registerStatus == 'pending'"
+        />
         <div
           class="p-4 border"
           :class="{
             'border-green-400 bg-green-200 text-green-700': registerStatus == 'success',
             'border-red-400 bg-red-200 text-red-700': registerStatus == 'error',
           }"
-          v-show="registerStatus != null"
+          v-show="registerStatus == 'success' || registerStatus == 'error'"
         >
           <p>{{ registerMessage }}</p>
         </div>
@@ -84,7 +89,7 @@ export default {
   methods: {
     async registerUser() {
       const { name, password, repeatedPassword, email, auxEmail } = this;
-      this.registerStatus = null;
+      this.registerStatus = "pending";
       this.registerMessage = "";
 
       try {
@@ -108,6 +113,10 @@ export default {
             this.registerMessage = "Esa cuenta ya existe.";
           } else if (data.error == "email_exists") {
             this.registerMessage = "Ya existe una cuenta con ese email.";
+          }
+
+          if (data.errors) {
+            this.registerMessage = data.errors[0].msg;
           }
 
           console.log(data);
