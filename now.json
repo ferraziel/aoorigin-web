@@ -8,5 +8,8 @@
         "serverFiles": ["api/**"]
       }
     }
-  ]
+  ],
+  "env": {
+    "BROWSER_BASE_URL": "https://argentum20-web.vercel.app"
+  }
 }
