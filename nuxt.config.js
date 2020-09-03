@@ -66,7 +66,7 @@ export default {
   build: {},
   publicRuntimeConfig: {
     axios: {
-      browserBaseUrl: process.env.BROWSER_BASE_URL || "http://localhost:3000",
+      browserBaseUrl: process.env.API_URL_BROWSER || "http://localhost:3000",
     },
   },
   serverMiddleware: [{ path: "/api", handler: "~/api/index.js" }],
