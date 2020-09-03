@@ -1,6 +1,7 @@
 <template>
   <button
-    class="border border-black relative uppercase tracking-wider focus:outline-none"
+    class="inline-block border border-black relative uppercase tracking-wider focus:outline-none"
+    :disabled="disabled || false"
   >
     <div class="border px-8 py-3">
       <slot />
@@ -9,7 +10,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["disabled"],
+};
 </script>
 
 <style scoped>
@@ -38,12 +41,17 @@ button:active > div {
   border-image-source: linear-gradient(to right, #7b7063, #b6864b, #7b7063);
 }
 
-@keyframes aether-bg {
-  from {
-    background-position-x: 0%;
-  }
-  to {
-    background-position-x: 100%;
-  }
+button:disabled {
+  background: linear-gradient(to top, #333333, #727272);
+}
+
+button:disabled:hover,
+button:disabled:active {
+  box-shadow: initial;
+}
+
+button:disabled:active > div,
+button:disabled:hover > div {
+  border-image-source: initial;
 }
 </style>

@@ -6,7 +6,10 @@
  */
 module.exports = {
   theme: {},
-  variants: {},
+  variants: {
+    backgroundColor: ["hover", "focus", "disabled"],
+    textColor: ["hover", "focus", "disabled"],
+  },
   plugins: [],
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css

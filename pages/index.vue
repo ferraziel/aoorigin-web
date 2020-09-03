@@ -2,13 +2,44 @@
   <main>
     <div class="w-full h-screen flex justify-center items-center">
       <form
-        @submit.prevent="registerUser"
+        @submit.prevent="registerAccount"
         class="flex flex-col gap-y-4 bg-black p-8"
         id="main-form"
       >
         <div class="flex flex-col">
           <label for="name">Nombre de cuenta</label>
-          <input type="text" name="name" id="name" class="text-input" required v-model="name" />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            required
+            pattern="[a-zA-Z0-9\s]+"
+            v-model="$v.name.$model"
+            class="text-input"
+            :class="{ 'input-error': $v.name.$error }"
+          />
+          <div class="text-sm text-red-500">
+            <p v-if="!$v.name.minLength">
+              El nombre debe tener un mínimo de {{ $v.name.$params.minLength.min }} caracteres.
+            </p>
+            <p v-if="!$v.name.maxLength">
+              El nombre debe tener un máximo de {{ $v.name.$params.maxLength.max }} caracteres.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col">
+          <label for="email">Correo electrónico</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            required
+            v-model="$v.email.$model"
+            class="text-input"
+            :class="{ 'input-error': $v.email.$error }"
+          />
+          <div class="text-sm text-red-500" v-if="$v.email.$error">Ingrese un email válido.</div>
         </div>
 
         <div class="flex flex-col">
@@ -17,10 +48,15 @@
             type="password"
             name="password"
             id="password"
-            class="text-input"
             required
-            v-model="password"
+            v-model="$v.password.$model"
+            class="text-input"
+            :class="{ 'input-error': $v.password.$error }"
           />
+          <div class="text-sm text-red-500" v-if="!$v.password.minLength">
+            La contraseña debe tener un mínimo de
+            {{ $v.password.$params.minLength.min }} caracteres.
+          </div>
         </div>
 
         <div class="flex flex-col">
@@ -29,18 +65,17 @@
             type="password"
             name="repeat-password"
             id="repeat-password"
-            class="text-input"
             required
             v-model="repeatedPassword"
+            class="text-input"
+            :class="{ 'input-error': password != repeatedPassword }"
           />
+          <div class="text-sm text-red-500" v-if="password != repeatedPassword">
+            Las contraseñas deben coincidir.
+          </div>
         </div>
 
-        <div class="flex flex-col">
-          <label for="email">Correo electrónico</label>
-          <input type="email" name="email" id="email" class="text-input" required v-model="email" />
-        </div>
-
-        <div class="flex flex-col">
+        <!-- <div class="flex flex-col">
           <label for="aux-email">Correo electrónico auxiliar</label>
           <input
             type="email"
@@ -50,21 +85,22 @@
             required
             v-model="auxEmail"
           />
-        </div>
+        </div>-->
 
-        <input
+        <Btn :disabled="registerStatus == 'PENDING'" class="self-end">Crear Cuenta</Btn>
+        <!-- <input
           type="submit"
           value="Registrar cuenta"
           class="bg-gray-900"
-          :disabled="registerStatus == 'pending'"
-        />
+          :disabled="registerStatus == 'PENDING'"
+        />-->
         <div
           class="p-4 border"
           :class="{
-            'border-green-400 bg-green-200 text-green-700': registerStatus == 'success',
-            'border-red-400 bg-red-200 text-red-700': registerStatus == 'error',
+            'border-green-400 bg-green-200 text-green-700': registerStatus == 'SUCCESS',
+            'border-red-400 bg-red-200 text-red-700': registerStatus == 'ERROR',
           }"
-          v-show="registerStatus == 'success' || registerStatus == 'error'"
+          v-show="registerStatus == 'SUCCESS' || registerStatus == 'ERROR'"
         >
           <p>{{ registerMessage }}</p>
         </div>
@@ -74,6 +110,12 @@
 </template>
 
 <script>
+import { required, minLength, maxLength, email } from "vuelidate/lib/validators";
+
+function sleep(ms, value) {
+  return new Promise((resolve) => setTimeout(resolve, ms, value));
+}
+
 export default {
   data() {
     return {
@@ -86,25 +128,41 @@ export default {
       registerMessage: "",
     };
   },
+  validations: {
+    name: {
+      required,
+      minLength: minLength(3),
+      maxLength: maxLength(40),
+    },
+    password: {
+      required,
+      minLength: minLength(5),
+    },
+    email: {
+      required,
+      email,
+    },
+  },
   methods: {
-    async registerUser() {
-      const { name, password, repeatedPassword, email, auxEmail } = this;
-      this.registerStatus = "pending";
+    async registerAccount() {
+      this.registerStatus = "PENDING";
       this.registerMessage = "";
 
+      const { name, password, repeatedPassword, email } = this;
+
       try {
-        const res = await this.$axios.post("/api/accounts", {
+        await sleep(500);
+        await this.$axios.post("/api/accounts", {
           name,
           password,
           repeatedPassword,
           email,
-          auxEmail,
         });
 
-        this.registerStatus = "success";
+        this.registerStatus = "SUCCESS";
         this.registerMessage = "Cuenta creada exitosamente.";
       } catch (e) {
-        this.registerStatus = "error";
+        this.registerStatus = "ERROR";
 
         if (e.response) {
           const data = e.response.data;
@@ -118,8 +176,6 @@ export default {
           if (data.errors) {
             this.registerMessage = data.errors[0].msg;
           }
-
-          console.log(data);
         }
       }
     },
@@ -134,6 +190,10 @@ body {
 
 .text-input {
   @apply p-2 bg-gray-800;
+}
+
+.input-error {
+  @apply border border-red-500;
 }
 
 #main-form {

@@ -18,7 +18,8 @@
     "md5": "^2.3.0",
     "mysql2": "^2.1.0",
     "nuxt": "^2.14.0",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "vuelidate": "^0.7.5"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^2.1.0",

@@ -33,7 +33,7 @@ const registerAccountValidations = [
     })
     .withMessage("El nombre debe tener un mínimo de 3 caracteres y un máximo de 40"),
   body("email").trim().isEmail().normalizeEmail().withMessage("El email debe ser válido"),
-  body("auxEmail").trim().isEmail().normalizeEmail().withMessage("El email debe ser válido"),
+  // body("auxEmail").trim().isEmail().normalizeEmail().withMessage("El email debe ser válido"),
   body("password")
     .trim()
     .isLength({
