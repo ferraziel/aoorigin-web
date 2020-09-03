@@ -64,5 +64,10 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {},
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseUrl: process.env.BROWSER_BASE_URL || "http://localhost:3000",
+    },
+  },
   serverMiddleware: [{ path: "/api", handler: "~/api/index.js" }],
 };
