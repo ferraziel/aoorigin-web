@@ -1,3 +1,44 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-bold tracking-wider uppercase;
+  }
+}
+
+@layer utilities {
+  @variants hover, focus {
+    @responsive {
+      .text-gr {
+        @apply bg-clip-text text-transparent bg-gradient-to-t;
+      }
+
+      .border-gr {
+        border-image-slice: 1;
+      }
+
+      .gr-gold {
+        @apply from-gold to-white;
+      }
+
+      .gr-silver {
+        @apply from-silver to-white;
+      }
+
+      .border-gr-silver {
+        border-image-source: linear-gradient(to right, #888888, #fff, #888888);
+      }
+
+      .border-gr-gold {
+        border-image-source: linear-gradient(to right, #8c5d00, #ffbe15, #8c5d00);
+      }
+    }
+  }
+}

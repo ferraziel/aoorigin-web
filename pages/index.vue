@@ -1,6 +1,39 @@
 <template>
   <main>
-    <div class="w-full h-screen flex justify-center items-center">
+    <header class="py-48 relative overflow-hidden border-b border-gr border-silver mb-32">
+      <!-- <img
+        src="@/assets/img/game.png"
+        alt="Argentum 20"
+        class="absolute top-0 left-0 w-full h-full object-cover"
+        style="filter: brightness(0.4); z-index: -1;"
+      />-->
+      <div class="container flex justify-center items-center">
+        <div class="flex flex-col items-center">
+          <img src="@/assets/img/argentum20_logo.png" alt="Argentum 20 Logo" class="mb-6" />
+          <h1 class="text-2xl text-gr gr-gold">El Servidor Oficial de AO Clásico</h1>
+          <h2 class="text-lg text-gr gr-silver">Basado en AO Yind</h2>
+        </div>
+      </div>
+    </header>
+    <div class="container flex justify-center">
+      <div class="flex flex-col items-center">
+        <div class="relative mb-2 z-10">
+          <a
+            id="download-btn"
+            href="#"
+            class="inline-block text-2xl font-serif font-bold tracking-wider uppercase px-5 py-3 border-2 border-gr border-gr-silver hover:border-gr-gold bg-gradient-to-t from-gray-900 to-gray-800 hover:from-gray-700"
+          >Descargar el Instalador</a>
+        </div>
+        <!-- <img src="@/assets/img/wings.png" alt class="absolute top-0 inset-x-auto" /> -->
+        <p class="text-sm text-gray-600">Sólo disponible para Windows</p>
+      </div>
+    </div>
+    <div v-if="validatedMail" class="py-4 bg-green-200 text-green-700">
+      <div class="container">
+        <p>Se ha validado el mail correctamente</p>
+      </div>
+    </div>
+    <div class="w-full h-screen justify-center items-center hidden">
       <form
         @submit.prevent="registerAccount"
         class="flex flex-col gap-y-4 bg-black p-8"
@@ -13,18 +46,21 @@
             name="name"
             id="name"
             required
-            pattern="[a-zA-Z0-9\s]+"
             v-model="$v.name.$model"
             class="text-input"
             :class="{ 'input-error': $v.name.$error }"
           />
           <div class="text-sm text-red-500">
-            <p v-if="!$v.name.minLength">
-              El nombre debe tener un mínimo de {{ $v.name.$params.minLength.min }} caracteres.
-            </p>
-            <p v-if="!$v.name.maxLength">
-              El nombre debe tener un máximo de {{ $v.name.$params.maxLength.max }} caracteres.
-            </p>
+            <p
+              v-if="!$v.name.minLength"
+            >El nombre debe tener un mínimo de {{ $v.name.$params.minLength.min }} caracteres.</p>
+            <p
+              v-if="!$v.name.maxLength"
+            >El nombre debe tener un máximo de {{ $v.name.$params.maxLength.max }} caracteres.</p>
+            <p v-if="!$v.name.alphaNumWithSpaces">El nombre sólo puede contener letras y números.</p>
+            <p
+              v-if="!$v.name.noBeginningOrEndSpaces"
+            >El nombre no puede tener espacios al comienzo o al final.</p>
           </div>
         </div>
 
@@ -70,9 +106,10 @@
             class="text-input"
             :class="{ 'input-error': password != repeatedPassword }"
           />
-          <div class="text-sm text-red-500" v-if="password != repeatedPassword">
-            Las contraseñas deben coincidir.
-          </div>
+          <div
+            class="text-sm text-red-500"
+            v-if="password != repeatedPassword"
+          >Las contraseñas deben coincidir.</div>
         </div>
 
         <!-- <div class="flex flex-col">
@@ -110,11 +147,14 @@
 </template>
 
 <script>
-import { required, minLength, maxLength, email } from "vuelidate/lib/validators";
+import { required, minLength, maxLength, email, alphaNum, helpers } from "vuelidate/lib/validators";
 
 function sleep(ms, value) {
   return new Promise((resolve) => setTimeout(resolve, ms, value));
 }
+
+const alphaNumWithSpaces = (value) => !helpers.req(value) || /^[a-z0-9 ]+$/i.test(value);
+const noBeginningOrEndSpaces = (value) => !helpers.req(value) || value == value.trim();
 
 export default {
   data() {
@@ -126,11 +166,14 @@ export default {
       auxEmail: "",
       registerStatus: null,
       registerMessage: "",
+      validatedMail: false,
     };
   },
   validations: {
     name: {
       required,
+      alphaNumWithSpaces,
+      noBeginningOrEndSpaces,
       minLength: minLength(3),
       maxLength: maxLength(40),
     },
@@ -142,6 +185,17 @@ export default {
       required,
       email,
     },
+  },
+  mounted() {
+    const validatedMailParam = this.$route.query.validated;
+
+    if (validatedMailParam == "true") {
+      this.validatedMail = true;
+
+      setTimeout(() => {
+        this.validatedMail = false;
+      }, 3000);
+    }
   },
   methods: {
     async registerAccount() {
@@ -184,25 +238,29 @@ export default {
 </script>
 
 <style>
-body {
-  @apply text-white bg-gray-900;
+header {
+  background-image: url("/assets/img/game.png");
+  @apply bg-cover bg-center;
 }
 
-.text-input {
-  @apply p-2 bg-gray-800;
+#download-btn {
+  transition: all 200ms ease-out;
+  box-shadow: 0 0 20px rgba(199, 131, 0, 0.4);
 }
 
-.input-error {
-  @apply border border-red-500;
+#download-btn::before {
+  @apply absolute top-0;
+  content: url("/assets/img/wings.png");
+  left: 50%;
+  transform: translateY(-99px) translateX(-50%);
+  z-index: -1;
 }
 
-#main-form {
-  @apply w-full;
+#download-btn:hover {
+  box-shadow: 0 0 40px rgba(199, 131, 0, 0.7), inset 0 0 35px -10px rgba(0, 0, 0, 0.75);
 }
 
-@screen sm {
-  #main-form {
-    width: 450px;
-  }
+#download-btn:active {
+  box-shadow: inset 0 0;
 }
 </style>
