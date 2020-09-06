@@ -49,7 +49,13 @@ body {
   @apply border-gr-gold outline-none;
 }
 
-.input-error {
+.text-input.input-error {
+  border-image-slice: intial;
+  border-image-source: initial;
+  @apply border-red-500;
+}
+
+.text-input.input-error:focus {
   @apply border-red-500;
 }
 

@@ -46,6 +46,19 @@ const router = express.Router();
 
 app.use(bodyParser.json());
 
+const passwordMinLength = body("password")
+  .trim()
+  .isLength({
+    min: 5,
+  })
+  .withMessage("La contraseña debe tener un mínimo de 5 caracteres.");
+
+const emailValid = body("email")
+  .trim()
+  .isEmail()
+  .normalizeEmail()
+  .withMessage("El email debe ser válido.");
+
 const registerAccountValidations = [
   body("name")
     .trim()
@@ -56,14 +69,8 @@ const registerAccountValidations = [
     .withMessage("El nombre debe tener un mínimo de 3 caracteres y un máximo de 40.")
     .matches(/^[a-z0-9 ]+$/i)
     .withMessage("El nombre sólo puede contener letras y números."),
-  body("email").trim().isEmail().normalizeEmail().withMessage("El email debe ser válido."),
-  // body("auxEmail").trim().isEmail().normalizeEmail().withMessage("El email debe ser válido"),
-  body("password")
-    .trim()
-    .isLength({
-      min: 5,
-    })
-    .withMessage("La contraseña debe tener un mínimo de 5 caracteres."),
+  emailValid, // body("auxEmail").trim().isEmail().normalizeEmail().withMessage("El email debe ser válido"),
+  passwordMinLength,
 ];
 
 router.post("/accounts", registerAccountValidations, async (req, res) => {
@@ -150,6 +157,113 @@ router.get("/validate/:id", async (req, res) => {
   }
 
   return res.redirect("/?validated=true");
+});
+
+router.post("/recovery", [emailValid], async (req, res) => {
+  const { email } = req.body;
+  const hash = uuidv4();
+
+  if (!email) {
+    return res.status(400).json({
+      error: "email_not_sent",
+      message: "No se ha especificado el email.",
+    });
+  }
+
+  try {
+    const emailExistsQuery = await knex("cuentas").count("Email").where("Email", email);
+    const [emailExists] = Object.values(emailExistsQuery[0]);
+
+    if (!emailExists) {
+      return res.status(409).json({
+        error: "email_not_exists",
+        message: "No hay una cuenta asociada a ese email.",
+      });
+    }
+
+    await knex("cuentas")
+      .update({
+        recuperacionHash: hash,
+      })
+      .where("email", email);
+
+    return res.json({
+      status: "success",
+    });
+  } catch (e) {
+    return res.status(500).json({
+      error: "internal_error",
+      message: e,
+    });
+  }
+});
+
+// Checks if hash exists, before attempting to reset password in frontend
+router.get("/recovery/:hash", async (req, res) => {
+  const { hash: sentHash } = req.params;
+  const hashExistsQuery = await knex("cuentas")
+    .count("RecuperacionHash")
+    .where("RecuperacionHash", sentHash);
+
+  const [hashExists] = Object.values(hashExistsQuery[0]);
+
+  if (!hashExists) {
+    return res.status(409).json({
+      error: "hash_not_exists",
+    });
+  }
+
+  return res.json({
+    status: "success",
+  });
+});
+
+router.post("/recovery/:hash", [passwordMinLength], async (req, res) => {
+  const validationErrors = validationResult(req);
+  if (!validationErrors.isEmpty()) {
+    return res.status(400).json({ errors: validationErrors.array() });
+  }
+
+  const { hash: sentHash } = req.params;
+  const { password: newPassword } = req.body;
+
+  if (!newPassword) {
+    return res.status(400).json({
+      error: "password_not_set",
+      message: "No se ha indicado la nueva contraseña.",
+    });
+  }
+
+  try {
+    const hashExistsQuery = await knex("cuentas")
+      .count("RecuperacionHash")
+      .where("RecuperacionHash", sentHash);
+
+    const [hashExists] = Object.values(hashExistsQuery[0]);
+
+    if (!hashExists) {
+      return res.status(409).json({
+        error: "hash_not_exists",
+        message: "Esa cuenta no ha requerido resetear su contraseña.",
+      });
+    }
+
+    await knex("cuentas")
+      .update({
+        password: md5(newPassword),
+        recuperacionHash: "",
+      })
+      .where("RecuperacionHash", sentHash);
+
+    return res.json({
+      status: "success",
+    });
+  } catch (e) {
+    return res.status(500).json({
+      error: "internal_error",
+      message: e,
+    });
+  }
 });
 
 app.use(router);
