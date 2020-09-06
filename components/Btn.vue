@@ -1,9 +1,6 @@
 <template>
-  <button
-    class="inline-block border border-black relative uppercase tracking-wider focus:outline-none"
-    :disabled="disabled || false"
-  >
-    <div class="border px-8 py-3">
+  <button class="inline-block border border-black" :disabled="disabled || false">
+    <div class="btn btn-silver">
       <slot />
     </div>
   </button>
@@ -15,7 +12,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+/*
 button {
   background: linear-gradient(to top, #13282c, #436169);
 }
@@ -53,5 +51,5 @@ button:disabled:active {
 button:disabled:active > div,
 button:disabled:hover > div {
   border-image-source: initial;
-}
+} */
 </style>

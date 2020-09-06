@@ -36,7 +36,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    "~/assets/css/fontawesome.min.css",
+    "~/assets/css/light.min.css",
+    "~/assets/css/brands.min.css",
+  ],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
