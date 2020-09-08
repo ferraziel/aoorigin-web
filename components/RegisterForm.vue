@@ -83,22 +83,7 @@
     </div>
     <!-- <Btn :disabled="registerStatus == 'PENDING'" class="self-start">Crear Cuenta</Btn> -->
 
-    <div
-      class="p-4 border flex items-start gap-x-2"
-      :class="{
-            'border-green-400 bg-green-200 text-green-800': registerStatus == 'OK',
-            'border-red-400 bg-red-200 text-red-800': registerStatus == 'ERROR',
-            'border-blue-400 bg-blue-200 text-blue-800': registerStatus == 'PENDING',
-          }"
-      v-show="registerStatus != null"
-    >
-      <div class="lds-dual-ring" v-if="registerStatus == 'PENDING'"></div>
-      <i class="fal fa-check-circle fa-lg" v-else-if="registerStatus == 'OK'"></i>
-      <i class="fal fa-times-circle fa-lg" v-else-if="registerStatus == 'ERROR'"></i>
-      <div>
-        <p v-html="registerMessage" class="-mt-1"></p>
-      </div>
-    </div>
+    <MessageBox :status="registerStatus" :message="registerMessage" />
   </form>
 </template>
 
@@ -178,6 +163,9 @@ export default {
           } else if (data.error == "email_exists") {
             // TODO: Poner olvidaste contraseña o reenviar código de activación
             this.registerMessage = "Ya existe una cuenta con ese email.";
+          } else if (data.error == "internal_error") {
+            this.registerMessage =
+              "Hubo un error desconocido. Por favor, contactanos por otro medio para pedir asistencia. ¡Respondemos rápido!";
           }
 
           if (data.errors) {
