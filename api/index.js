@@ -19,15 +19,6 @@ let transporter;
 
 if (process.env.NODE_ENV == "production") {
   transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    auth: {
-      user: "lexie.howe56@ethereal.email",
-      pass: "pxdudEAdTy51KvbWXk",
-    },
-  });
-} else {
-  transporter = nodemailer.createTransport({
     host: "c0970374.ferozo.com",
     port: 465,
     secure: true,
@@ -37,6 +28,15 @@ if (process.env.NODE_ENV == "production") {
     },
     tls: {
       rejectUnauthorized: false,
+    },
+  });
+} else {
+  transporter = nodemailer.createTransport({
+    host: "smtp.ethereal.email",
+    port: 587,
+    auth: {
+      user: "lexie.howe56@ethereal.email",
+      pass: "pxdudEAdTy51KvbWXk",
     },
   });
 }
@@ -79,27 +79,27 @@ router.post("/accounts", registerAccountValidations, async (req, res) => {
     return res.status(400).json({ errors: validationErrors.array() });
   }
 
-  const accountName = req.body.name.replace(/\s\s+/g, " ");
-
-  const accountExistsQuery = await knex("cuentas").count("Nombre").where("Nombre", accountName);
-  const [accountExists] = Object.values(accountExistsQuery[0]);
-
-  if (!!accountExists) {
-    return res.status(409).json({
-      error: "account_exists",
-    });
-  }
-
-  const emailExistsQuery = await knex("cuentas").count("Email").where("Email", req.body.email);
-  const [emailExists] = Object.values(emailExistsQuery[0]);
-
-  if (!!emailExists) {
-    return res.status(409).json({
-      error: "email_exists",
-    });
-  }
-
   try {
+    const accountName = req.body.name.replace(/\s\s+/g, " ").toLowerCase();
+
+    const accountExistsQuery = await knex("cuentas").count("Nombre").where("Nombre", accountName);
+    const [accountExists] = Object.values(accountExistsQuery[0]);
+
+    if (!!accountExists) {
+      return res.status(409).json({
+        error: "account_exists",
+      });
+    }
+
+    const emailExistsQuery = await knex("cuentas").count("Email").where("Email", req.body.email);
+    const [emailExists] = Object.values(emailExistsQuery[0]);
+
+    if (!!emailExists) {
+      return res.status(409).json({
+        error: "email_exists",
+      });
+    }
+
     const emailHash = uuidv4();
 
     await knex("cuentas").insert({
