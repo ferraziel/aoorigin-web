@@ -181,6 +181,16 @@ router.post("/recovery", [emailValid], async (req, res) => {
       });
     }
 
+    const hashExistsQuery = await knex("cuentas").count("RecuperacionHash").where("Email", email);
+    const [hashExists] = Object.values(hashExistsQuery[0]);
+
+    if (!!hashExists) {
+      return res.status(409).json({
+        error: "hash_already_exists",
+        message: "Ya se ha enviado la recuperación para esa cuenta.",
+      });
+    }
+
     await knex("cuentas")
       .update({
         recuperacionHash: hash,

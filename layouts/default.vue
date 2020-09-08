@@ -1,5 +1,6 @@
 <template>
   <div class="min-h-screen pb-64" style="background: url('/assets/img/bg_texture.png') repeat">
+    <Nav />
     <Nuxt />
   </div>
 </template>
@@ -8,6 +9,11 @@
 :root {
   --gold: #c78300;
   --silver: #d3d3d3;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
