@@ -131,7 +131,10 @@ router.post("/accounts", registerAccountValidations, async (req, res) => {
       status: "success",
     });
   } catch (e) {
-    return res.error(e);
+    return res.status(500).json({
+      error: "internal_error",
+      message: e,
+    });
   }
 });
 
@@ -152,11 +155,14 @@ router.get("/validate/:id", async (req, res) => {
     await knex("cuentas").where("EmailHash", req.params.id).update({
       validada: 1,
     });
-  } catch (e) {
-    return res.error(e);
-  }
 
-  return res.redirect("/?validated=true");
+    return res.redirect("/?validated=true");
+  } catch (e) {
+    return res.status(500).json({
+      error: "internal_error",
+      message: e,
+    });
+  }
 });
 
 router.post("/recovery", [emailValid], async (req, res) => {
