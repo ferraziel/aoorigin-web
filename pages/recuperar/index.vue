@@ -1,8 +1,12 @@
 <template>
-  <section>
-    <p>Te enviaremos un mail para que recuperes tu contraseña</p>
-    <form @submit.prevent="sendRecovery">
-      <div class="flex flex-col gap-y-2">
+  <section class="container flex flex-col items-center pt-48 gap-y-4">
+    <p class="font-serif text-2xl mb-6">Te enviaremos un mail para que recuperes tu contraseña</p>
+    <form
+      @submit.prevent="sendRecovery"
+      class="flex flex-col items-center gap-y-4 w-full"
+      id="recovery-form"
+    >
+      <div class="flex flex-col items-center gap-y-2 w-full">
         <label for="email">Email asociado a la cuenta</label>
         <input
           type="email"
@@ -10,14 +14,14 @@
           id="email"
           required
           v-model="$v.email.$model"
-          class="text-input"
+          class="text-input text-3xl w-full"
           :class="{ 'input-error': $v.email.$error }"
         />
         <div class="text-sm text-red-500" v-if="$v.email.$error">Ingrese un email válido.</div>
       </div>
       <button class="btn btn-silver">Enviar</button>
+      <MessageBox :status="recoveryStatus" :message="recoveryMessage" />
     </form>
-    <MessageBox :status="recoveryStatus" :message="recoveryMessage" />
   </section>
 </template>
 
@@ -66,4 +70,9 @@ export default {
 </script>
 
 <style>
+@screen sm {
+  #recovery-form {
+    max-width: 640px;
+  }
+}
 </style>
