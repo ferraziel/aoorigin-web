@@ -19,7 +19,7 @@
 
 body {
   @apply text-white;
-  background: url("/assets/img/bg_texture") repeat;
+  background: url("/assets/img/bg_texture.png") repeat;
 }
 
 .text-gr {
