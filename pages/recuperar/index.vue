@@ -29,6 +29,7 @@
 import { required, email } from "vuelidate/lib/validators";
 
 export default {
+  layout: "no-footer",
   data() {
     return {
       email: "",
@@ -70,9 +71,4 @@ export default {
 </script>
 
 <style>
-@screen sm {
-  #recovery-form {
-    max-width: 640px;
-  }
-}
 </style>

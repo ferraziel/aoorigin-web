@@ -79,7 +79,10 @@
 
     <div class="flex justify-between items-start">
       <button class="btn btn-silver self-start" :disabled="registerStatus == 'PENDING'">Crear cuenta</button>
-      <NuxtLink to="/recuperar" class="text-silver underline text-sm">¿Olvidaste tu contraseña?</NuxtLink>
+      <NuxtLink
+        to="/recuperar"
+        class="text-gray-400 hover:text-gray-500 underline text-sm"
+      >¿Olvidaste tu contraseña?</NuxtLink>
     </div>
     <!-- <Btn :disabled="registerStatus == 'PENDING'" class="self-start">Crear Cuenta</Btn> -->
 

@@ -32,20 +32,26 @@ export default {
           "https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Livvic:ital,wght@0,400;0,700;1,400&display=swap",
       },
     ],
+    script: [
+      {
+        src: "https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js",
+        async: true,
+      },
+    ],
   },
   /*
    ** Global CSS
    */
   css: [
-    "~/assets/css/fontawesome.min.css",
-    "~/assets/css/light.min.css",
-    "~/assets/css/brands.min.css",
+    "@/assets/css/fontawesome.min.css",
+    "@/assets/css/light.min.css",
+    "@/assets/css/brands.min.css",
   ],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ["@/plugins/vuePlugins"],
+  plugins: ["@/plugins/vuePlugins", "@/plugins/swiper.client.js"],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -80,5 +86,5 @@ export default {
       browserBaseUrl: process.env.API_URL_BROWSER || "http://localhost:3000",
     },
   },
-  serverMiddleware: [{ path: "/api", handler: "~/api/index.js" }],
+  serverMiddleware: [{ path: "/api", handler: "@/api/index.js" }],
 };

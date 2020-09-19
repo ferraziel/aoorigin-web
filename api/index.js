@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const md5 = require("md5");
 const nodemailer = require("nodemailer");
 const { v4: uuidv4 } = require("uuid");
+const mercadopago = require("mercadopago");
 const knex = require("knex")({
   client: "mysql2",
   connection: {
@@ -12,11 +13,6 @@ const knex = require("knex")({
     database: process.env.DB_NAME,
   },
 });
-
-console.log(process.env.DB_USER);
-console.log(process.env.DB_HOST);
-console.log(process.env.DB_PASSWORD);
-console.log(process.env.DB_NAME);
 
 const { body, validationResult } = require("express-validator");
 
@@ -48,6 +44,11 @@ if (process.env.NODE_ENV == "production") {
 
 const app = express();
 const router = express.Router();
+
+mercadopago.configure({
+  access_token: process.env.MERCADOPAGO_ACCESS_TOKEN,
+  sandbox: true,
+});
 
 app.use(bodyParser.json());
 
@@ -285,6 +286,57 @@ router.post("/recovery/:hash", [passwordMinLength], async (req, res) => {
       message: e,
     });
   }
+});
+
+router.get("/premium/items", async (req, res) => {
+  const items = await knex("items").select();
+  return res.json(items);
+});
+
+router.get("/premium/preference/:itemId", async (req, res) => {
+  const item = await knex("items").where("id", req.params.itemId).first();
+  const userId = 1;
+
+  try {
+    const preference = await mercadopago.preferences.create({
+      items: [
+        {
+          id: item.id,
+          title: item.name,
+          unit_price: item.price,
+          quantity: 1,
+        },
+      ],
+      back_urls: {
+        success: "http://localhost:3000?payment=success",
+      },
+      notification_url: `https://argentum20.com/api/mp/notification?user_id=${userId}`,
+    });
+
+    return res.json({
+      id: preference.body.id,
+      init_point: preference.body.init_point,
+      sandbox_init_point: preference.body.sandbox_init_point,
+    });
+  } catch (e) {
+    return res.status(500).json({
+      error: e.message,
+    });
+  }
+});
+
+router.post("/mp/notification", async (req, res) => {
+  res.status(200);
+
+  const userId = req.query.user_id;
+
+  console.log(req.body);
+
+  await knex("users").where("id", userId).update({
+    premium: 1,
+  });
+
+  return;
 });
 
 app.use(router);

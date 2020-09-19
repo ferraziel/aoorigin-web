@@ -1,8 +1,12 @@
 <template>
-  <section>
-    <p>Ingresa tu nueva contraseña</p>
-    <form @submit.prevent="resetPassword">
-      <div class="flex flex-col gap-y-2">
+  <section class="container flex flex-col items-center pt-48 gap-y-4">
+    <p class="font-serif text-2xl mb-6">Ingresa tu nueva contraseña</p>
+    <form
+      @submit.prevent="resetPassword"
+      class="flex flex-col items-center gap-y-4 w-full"
+      id="recovery-form"
+    >
+      <div class="flex flex-col items-center gap-y-2 w-full">
         <label for="password">Contraseña</label>
         <input
           type="password"
@@ -10,7 +14,7 @@
           id="password"
           required
           v-model="$v.password.$model"
-          class="text-input"
+          class="text-input text-3xl w-full"
           :class="{ 'input-error': $v.password.$error }"
         />
         <div class="text-sm text-red-500" v-if="!$v.password.minLength">
@@ -19,7 +23,7 @@
         </div>
       </div>
 
-      <div class="flex flex-col gap-y-2">
+      <div class="flex flex-col items-center gap-y-2 w-full">
         <label for="repeat-password">Repetir contraseña</label>
         <input
           type="password"
@@ -27,7 +31,7 @@
           id="repeat-password"
           required
           v-model="repeatedPassword"
-          class="text-input"
+          class="text-input text-3xl w-full"
           :class="{ 'input-error': password != repeatedPassword }"
         />
         <div
@@ -46,6 +50,7 @@
 import { required, minLength } from "vuelidate/lib/validators";
 
 export default {
+  layout: "no-footer",
   async asyncData({ redirect, $axios, params }) {
     try {
       // Si la request sale bien, no hacemos nada

@@ -1,7 +1,8 @@
 <template>
-  <div class="min-h-screen pb-64" style="background: url('/assets/img/bg_texture.png') repeat">
+  <div class="min-h-screen" style="background: url('/assets/img/bg_texture.png') repeat">
     <Nav />
     <Nuxt />
+    <Footer />
   </div>
 </template>
 
@@ -88,6 +89,12 @@ body {
 
 .btn-silver:disabled {
   @apply text-gray-700 border-gray-700;
+}
+
+@screen sm {
+  #recovery-form {
+    max-width: 640px;
+  }
 }
 
 .lds-dual-ring {

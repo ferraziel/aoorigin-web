@@ -23,14 +23,14 @@
             target="_blank"
             class="transition-colors duration-150 ease-out hover:text-gold"
           >
-            <i class="fab fa-youtube"></i>
+            <i class="fab fa-discord"></i>
           </a>
           <a
             href="#"
             target="_blank"
             class="transition-colors duration-150 ease-out hover:text-gold"
           >
-            <i class="fab fa-facebook"></i>
+            <i class="fab fa-youtube"></i>
           </a>
           <a
             href="#"
