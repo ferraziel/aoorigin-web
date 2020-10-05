@@ -33,10 +33,10 @@ export default {
       },
     ],
     script: [
-      {
-        src: "https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js",
-        async: true,
-      },
+      // {
+      //   src: "https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js",
+      //   async: true,
+      // },
     ],
   },
   /*
@@ -75,7 +75,9 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: "http://localhost:1338/",
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
@@ -83,8 +85,13 @@ export default {
   build: {},
   publicRuntimeConfig: {
     axios: {
-      browserBaseUrl: process.env.API_URL_BROWSER || "http://localhost:3000",
+      browserBaseUrl: process.env.AXIOS_BROWSER_BASE_URL || "http://localhost:1338/",
     },
   },
-  serverMiddleware: [{ path: "/api", handler: "@/api/index.js" }],
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.AXIOS_BASE_URL || "http://localhost:1338/",
+    },
+  },
+  // serverMiddleware: [{ path: "/api", handler: "@/api/index.js" }],
 };

@@ -39,13 +39,6 @@
           >
             <i class="fab fa-instagram"></i>
           </a>
-          <a
-            href="#"
-            target="_blank"
-            class="transition-colors duration-150 ease-out hover:text-gold"
-          >
-            <i class="fal fa-envelope"></i>
-          </a>
         </div>
       </div>
     </section>
@@ -56,7 +49,8 @@
             id="download-btn"
             href="#"
             class="inline-block text-2xl font-serif font-bold tracking-wider uppercase px-5 py-3 border-2 border-gr border-gr-gold bg-gradient-to-t from-gray-900 to-gray-800 hover:from-gray-700"
-          >Descargar el Instalador</a>
+            >Descargar el Instalador</a
+          >
         </div>
         <!-- <img src="@/assets/img/wings.png" alt class="absolute top-0 inset-x-auto" /> -->
         <p class="text-sm text-gray-600">Sólo disponible para Windows</p>
@@ -71,9 +65,10 @@
           class="w-full border border-gr border-gr-silver mb-4"
         />
         <figcaption class="text-right italic text-lg">
-          <q
-            class="block mb-3"
-          >Se me ocurrió que acá haya una frase épica relacionada a Argentum, quizá algo que indique el renacimiento del servidor oficial.</q>
+          <q class="block mb-3"
+            >Se me ocurrió que acá haya una frase épica relacionada a Argentum, quizá algo que
+            indique el renacimiento del servidor oficial.</q
+          >
           <p>— Gulfas Morgolock</p>
         </figcaption>
       </figure>

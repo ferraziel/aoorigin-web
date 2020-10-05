@@ -34,10 +34,9 @@
           class="text-input text-3xl w-full"
           :class="{ 'input-error': password != repeatedPassword }"
         />
-        <div
-          class="text-sm text-red-500"
-          v-if="password != repeatedPassword"
-        >Las contraseñas deben coincidir.</div>
+        <div class="text-sm text-red-500" v-if="password != repeatedPassword">
+          Las contraseñas deben coincidir.
+        </div>
       </div>
 
       <button class="btn btn-silver">Enviar</button>
@@ -53,9 +52,9 @@ export default {
   layout: "no-footer",
   async asyncData({ redirect, $axios, params }) {
     try {
-      // Si la request sale bien, no hacemos nada
+      // Si la request devuelve un status code 2xx, no hacemos nada
       // y por lo tanto no va al "catch", donde se redirecciona
-      await $axios.$get(`/api/recovery/${params.hash}`);
+      await $axios.get(`accounts/recovery/${params.hash}`);
     } catch (e) {
       return redirect("/");
     }
@@ -71,7 +70,7 @@ export default {
   validations: {
     password: {
       required,
-      minLength: minLength(5),
+      minLength: minLength(4),
     },
   },
   methods: {
@@ -89,7 +88,7 @@ export default {
       this.recoveryMessage = "Enviando...";
 
       try {
-        await this.$axios.post(`/api/recovery/${this.$route.params.hash}`, {
+        await this.$axios.patch(`accounts/recovery/${this.$route.params.hash}`, {
           password: this.password,
         });
 
@@ -102,7 +101,7 @@ export default {
           this.registerMessage = e.response.data.errors[0].msg;
         }
 
-        this.recoveryMessage = e.response.data.message;
+        this.recoveryMessage = e.response.data.msg;
       }
     },
   },

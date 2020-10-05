@@ -328,7 +328,18 @@ router.get("/premium/preference/:itemId", async (req, res) => {
 router.post("/mp/notification", async (req, res) => {
   res.status(200);
 
+  if (!req.query.user_id) return;
+
+  const { action } = req.body;
   const userId = req.query.user_id;
+
+  try {
+    if (action == "payment") {
+      const payment = await mercadopago.payment.get(req.body.id);
+    }
+  } catch (e) {
+    console.log(e);
+  }
 
   console.log(req.body);
 

@@ -55,7 +55,7 @@ export default {
       this.recoveryMessage = "Enviando...";
 
       try {
-        await this.$axios.post("/api/recovery", {
+        await this.$axios.post("accounts/recovery", {
           email: this.email,
         });
 
@@ -63,8 +63,12 @@ export default {
         this.recoveryMessage = "¡Listo! Revisá tu bandeja de entrada.";
       } catch (e) {
         this.recoveryStatus = "ERROR";
-        this.recoveryMessage = e.response.data.message;
+        this.recoveryMessage = e.response.data.msg;
       }
+
+      setTimeout(() => {
+        this.recoveryStatus = null;
+      }, 5000);
     },
   },
 };

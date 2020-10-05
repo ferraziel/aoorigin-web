@@ -3,7 +3,7 @@
     <h3 class="text-2xl text-gr gr-gold mb-4">¡Creá tu cuenta!</h3>
 
     <div class="grid grid-cols-2 gap-8 mb-4">
-      <div class="flex flex-col gap-y-2">
+      <!-- <div class="flex flex-col gap-y-2">
         <label for="name">Nombre de cuenta</label>
         <input
           type="text"
@@ -26,7 +26,7 @@
             v-if="!$v.name.noBeginningOrEndSpaces"
           >El nombre no puede tener espacios al comienzo o al final.</p>
         </div>
-      </div>
+      </div> -->
 
       <div class="flex flex-col gap-y-2">
         <label for="email">Correo electrónico</label>
@@ -70,19 +70,19 @@
           class="text-input"
           :class="{ 'input-error': password != repeatedPassword }"
         />
-        <div
-          class="text-sm text-red-500"
-          v-if="password != repeatedPassword"
-        >Las contraseñas deben coincidir.</div>
+        <div class="text-sm text-red-500" v-if="password != repeatedPassword">
+          Las contraseñas deben coincidir.
+        </div>
       </div>
     </div>
 
     <div class="flex justify-between items-start">
-      <button class="btn btn-silver self-start" :disabled="registerStatus == 'PENDING'">Crear cuenta</button>
-      <NuxtLink
-        to="/recuperar"
-        class="text-gray-400 hover:text-gray-500 underline text-sm"
-      >¿Olvidaste tu contraseña?</NuxtLink>
+      <button class="btn btn-silver self-start" :disabled="registerStatus == 'PENDING'">
+        Crear cuenta
+      </button>
+      <NuxtLink to="/recuperar" class="text-gray-400 hover:text-gray-500 underline text-sm"
+        >¿Olvidaste tu contraseña?</NuxtLink
+      >
     </div>
     <!-- <Btn :disabled="registerStatus == 'PENDING'" class="self-start">Crear Cuenta</Btn> -->
 
@@ -124,7 +124,7 @@ export default {
     },
     password: {
       required,
-      minLength: minLength(5),
+      minLength: minLength(4),
     },
     email: {
       required,
@@ -136,16 +136,14 @@ export default {
       this.registerStatus = "PENDING";
       this.registerMessage = "Creando tu cuenta...";
 
-      const { name, password, repeatedPassword, email } = this;
+      const { password, repeatedPassword, email } = this;
 
       try {
         // await sleep(750);
 
-        await this.$axios.post("/api/accounts", {
-          name,
-          password,
-          repeatedPassword,
+        await this.$axios.post("accounts", {
           email,
+          password,
         });
 
         this.registerStatus = "OK";
@@ -160,13 +158,13 @@ export default {
         if (e.response) {
           const data = e.response.data;
 
-          if (data.error == "account_exists") {
+          if (!data.ok) {
+          }
+
+          if (data.error == "EMAIL_ALREADY_EXISTS") {
             // TODO: Poner olvidaste contraseña o reenviar código de activación
             this.registerMessage = "Esa cuenta ya existe.";
-          } else if (data.error == "email_exists") {
-            // TODO: Poner olvidaste contraseña o reenviar código de activación
-            this.registerMessage = "Ya existe una cuenta con ese email.";
-          } else if (data.error == "internal_error") {
+          } else if (data.error == "INTERNAL_ERROR") {
             this.registerMessage =
               "Hubo un error desconocido. Por favor, contactanos por otro medio para pedir asistencia. ¡Respondemos rápido!";
           }
