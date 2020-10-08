@@ -1,0 +1,37 @@
+[
+  {
+    "name": "premium",
+    "path": "/premium",
+    "component": "C:\\\\web\\\\ao20-web\\\\pages\\\\premium.vue",
+    "chunkName": "pages/premium",
+    "_name": "_7c0b57f6"
+  },
+  {
+    "name": "recuperar",
+    "path": "/recuperar",
+    "component": "C:\\\\web\\\\ao20-web\\\\pages\\\\recuperar\\\\index.vue",
+    "chunkName": "pages/recuperar/index",
+    "_name": "_1a6d0a2b"
+  },
+  {
+    "name": "recuperar-hash",
+    "path": "/recuperar/:hash",
+    "component": "C:\\\\web\\\\ao20-web\\\\pages\\\\recuperar\\\\_hash.vue",
+    "chunkName": "pages/recuperar/_hash",
+    "_name": "_58c955c6"
+  },
+  {
+    "name": "validar-validateCode",
+    "path": "/validar/:validateCode?",
+    "component": "C:\\\\web\\\\ao20-web\\\\pages\\\\validar\\\\_validateCode.vue",
+    "chunkName": "pages/validar/_validateCode",
+    "_name": "_d03a4712"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\web\\\\ao20-web\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_efecb300"
+  }
+]
