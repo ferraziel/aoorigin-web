@@ -149,6 +149,10 @@ export default {
         this.registerStatus = "OK";
         this.registerMessage = `¡Éxito! Te enviamos un correo a <strong>${email}</strong> para que valides tu cuenta.`;
 
+        this.email = "";
+        this.password = "";
+        this.repeatedPassword = "";
+
         setInterval(() => {
           this.resendEmailTime -= 1;
         }, 1000);
@@ -158,15 +162,18 @@ export default {
         if (e.response) {
           const data = e.response.data;
 
-          if (!data.ok) {
-          }
-
-          if (data.error == "EMAIL_ALREADY_EXISTS") {
-            // TODO: Poner olvidaste contraseña o reenviar código de activación
-            this.registerMessage = "Esa cuenta ya existe.";
-          } else if (data.error == "INTERNAL_ERROR") {
-            this.registerMessage =
-              "Hubo un error desconocido. Por favor, contactanos por otro medio para pedir asistencia. ¡Respondemos rápido!";
+          switch (data.error) {
+            case "EMAIL_ALREADY_EXISTS":
+              this.registerMessage = "Esa cuenta ya existe.";
+              break;
+            case "EMAIL_NOT_SENT":
+              this.registerMessage =
+                "Creamos tu cuenta pero no pudimos enviar el email de validación. Contactanos para pedir tu link de validación.";
+              break;
+            case "INTERNAL_ERROR":
+              this.registerMessage =
+                "Hubo un error desconocido. Por favor, contactanos por otro medio para pedir asistencia. ¡Respondemos rápido!";
+              break;
           }
 
           if (data.errors) {

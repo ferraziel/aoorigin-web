@@ -73,19 +73,14 @@
         </figcaption>
       </figure>
     </section>
-    <!-- <div v-if="validatedMail" class="py-4 bg-green-200 text-green-700">
-      <div class="container">
-        <p>Se ha validado el mail correctamente</p>
-      </div>
-    </div>-->
+
+    <MessageBox v-if="validatedMail" status="OK" :isFloating="true">
+      <p class="text-lg -mt-2">Se ha validado el mail correctamente.</p>
+    </MessageBox>
   </main>
 </template>
 
 <script>
-function sleep(ms, value) {
-  return new Promise((resolve) => setTimeout(resolve, ms, value));
-}
-
 export default {
   data() {
     return {
@@ -94,14 +89,12 @@ export default {
     };
   },
   mounted() {
-    const validatedMailParam = this.$route.query.validated;
-
-    if (validatedMailParam == "true") {
+    if (this.$route.query.validada == 1) {
       this.validatedMail = true;
 
       setTimeout(() => {
         this.validatedMail = false;
-      }, 3000);
+      }, 4000);
     }
   },
 };
