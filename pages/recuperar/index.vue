@@ -55,7 +55,7 @@ export default {
       this.recoveryMessage = "Enviando...";
 
       try {
-        await this.$axios.post("accounts/recovery", {
+        await this.$axios.post("/accounts/recovery", {
           email: this.email,
         });
 

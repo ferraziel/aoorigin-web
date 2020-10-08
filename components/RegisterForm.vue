@@ -141,7 +141,7 @@ export default {
       try {
         // await sleep(750);
 
-        await this.$axios.post("accounts", {
+        await this.$axios.post("/accounts", {
           email,
           password,
         });

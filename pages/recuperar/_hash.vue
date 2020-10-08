@@ -54,7 +54,7 @@ export default {
     try {
       // Si la request devuelve un status code 2xx, no hacemos nada
       // y por lo tanto no va al "catch", donde se redirecciona
-      await $axios.get(`accounts/recovery/${params.hash}`);
+      await $axios.get(`/accounts/recovery/${params.hash}`);
     } catch (e) {
       return redirect("/");
     }
@@ -88,12 +88,17 @@ export default {
       this.recoveryMessage = "Enviando...";
 
       try {
-        await this.$axios.patch(`accounts/recovery/${this.$route.params.hash}`, {
+        await this.$axios.patch(`/accounts/recovery/${this.$route.params.hash}`, {
           password: this.password,
         });
 
         this.recoveryStatus = "OK";
-        this.recoveryMessage = "Contraseña reseteada correctamente.";
+        this.recoveryMessage =
+          "Contraseña reseteada correctamente. Te redireccionaremos en 3 segundos...";
+
+        setTimeout(() => {
+          this.$router.replace("/");
+        }, 3000);
       } catch (e) {
         this.recoveryStatus = "ERROR";
 
