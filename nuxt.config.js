@@ -85,12 +85,12 @@ export default {
   build: {},
   publicRuntimeConfig: {
     axios: {
-      browserBaseUrl: process.env.AXIOS_BROWSER_BASE_URL
+      browserBaseUrl: process.env.AXIOS_BROWSER_BASE_URL || "https://ao20-api-testing.herokuapp.com",
     },
   },
   privateRuntimeConfig: {
     axios: {
-      baseURL: process.env.AXIOS_BASE_URL
+      baseURL: process.env.AXIOS_BASE_URL || "https://ao20-api-testing.herokuapp.com",
     },
   },
   // serverMiddleware: [{ path: "/api", handler: "@/api/index.js" }],
