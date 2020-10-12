@@ -77,7 +77,6 @@ export default {
    */
   axios: {
     // Actúa como fallback si no está puesto ningún runtimeConfig
-    baseURL: "https://api.argentum20.com",
   },
   /*
    ** Build configuration
@@ -86,12 +85,12 @@ export default {
   build: {},
   publicRuntimeConfig: {
     axios: {
-      browserBaseUrl: process.env.AXIOS_BROWSER_BASE_URL || "https://api.argentum20.com",
+      browserBaseUrl: process.env.AXIOS_BROWSER_BASE_URL
     },
   },
   privateRuntimeConfig: {
     axios: {
-      baseURL: process.env.AXIOS_BASE_URL || "https://api.argentum20.com",
+      baseURL: process.env.AXIOS_BASE_URL
     },
   },
   // serverMiddleware: [{ path: "/api", handler: "@/api/index.js" }],
