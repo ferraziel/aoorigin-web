@@ -81,7 +81,7 @@ export default {
    */
   axios: {
     // Actúa como fallback si no está puesto ningún runtimeConfig
-    baseURL: "https://api.argentum20.com",
+    baseURL: process.env.AXIOS_BASE_URL,
     // baseURL: "https://ao20-api-testing.herokuapp.com",
     // baseURL: "http://localhost:1338",
   },
