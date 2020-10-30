@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen" style="background: url('/assets/img/bg_texture.png') repeat">
+  <div id="base" class="min-h-screen">
     <Nav />
     <Nuxt />
     <Footer />
@@ -19,6 +19,9 @@
 
 body {
   @apply text-white;
+}
+
+#base {
   background: url("/assets/img/bg_texture.png") repeat;
 }
 

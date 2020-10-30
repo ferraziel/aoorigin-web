@@ -31,6 +31,10 @@ export default {
         href:
           "https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Livvic:ital,wght@0,400;0,700;1,400&display=swap",
       },
+      {
+        rel: "stylesheet",
+        href: "https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css",
+      },
     ],
     script: [
       // {
@@ -77,22 +81,14 @@ export default {
    */
   axios: {
     // Actúa como fallback si no está puesto ningún runtimeConfig
-    baseURL: "https://ao20-api-testing.herokuapp.com",
+    baseURL: "https://api.argentum20.com",
+    // baseURL: "https://ao20-api-testing.herokuapp.com",
+    // baseURL: "http://localhost:1338",
   },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {},
-  publicRuntimeConfig: {
-    axios: {
-      browserBaseUrl: process.env.AXIOS_BROWSER_BASE_URL,
-    },
-  },
-  privateRuntimeConfig: {
-    axios: {
-      baseURL: process.env.AXIOS_BASE_URL,
-    },
-  },
   // serverMiddleware: [{ path: "/api", handler: "@/api/index.js" }],
 };

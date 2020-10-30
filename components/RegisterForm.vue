@@ -153,6 +153,8 @@ export default {
         this.password = "";
         this.repeatedPassword = "";
 
+        this.$v.$reset();
+
         setInterval(() => {
           this.resendEmailTime -= 1;
         }, 1000);
@@ -174,11 +176,18 @@ export default {
               this.registerMessage =
                 "Hubo un error desconocido. Por favor, contactanos por otro medio para pedir asistencia. ¡Respondemos rápido!";
               break;
+            default:
+              this.registerMessage =
+                "Hubo un error desconocido. Por favor, contactanos por otro medio para pedir asistencia. ¡Respondemos rápido!";
+              break;
           }
 
           if (data.errors) {
             this.registerMessage = data.errors[0].msg;
           }
+        } else {
+          this.registerMessage =
+            "Hubo un error desconocido. Por favor, contactanos por otro medio para pedir asistencia. ¡Respondemos rápido!";
         }
       }
     },
@@ -186,5 +195,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
