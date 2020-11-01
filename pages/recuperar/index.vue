@@ -25,7 +25,9 @@
 import { required, email } from "vuelidate/lib/validators";
 
 export default {
-  title: "Recuperar contraseña",
+  head: {
+    title: "Recuperar contraseña",
+  },
   layout: "no-footer",
   data() {
     return {
