@@ -1,5 +1,5 @@
 const description =
-  "MMORPG 2D gratuito de fantasía medieval, hecho en Argentina. Creá un personaje, subí de nivel, combatí, trabajá, ¡y viví aventuras únicas con tus amigos!";
+  "MMORPG 2D gratuito de fantasía medieval, hecho en Argentina. ¡Celebramos 20 años! Creá un personaje, subí de nivel, combatí, trabajá, ¡y viví aventuras únicas con tus amigos!";
 
 export default {
   /*
