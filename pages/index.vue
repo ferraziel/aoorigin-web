@@ -140,8 +140,8 @@
           </div>
           <a
             href="/assets/img/bitcoin_qr.png"
-            target="_blank"
             class="btn btn-silver self-start text-base"
+            data-fancybox="bitcoin"
             >Enviar Bitcoin</a
           >
         </article>

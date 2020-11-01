@@ -1,3 +1,6 @@
+const description =
+  "MMORPG 2D gratuito de fantasía medieval, hecho en Argentina. Creá un personaje, subí de nivel, combatí, trabajá, ¡y viví aventuras únicas con tus amigos!";
+
 export default {
   /*
    ** Nuxt rendering mode
@@ -14,15 +17,42 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: "Argentum 20",
+    titleTemplate: (titleChunk) => {
+      return titleChunk
+        ? `${titleChunk} - Argentum 20 - El MMORPG 2D gratuito argentino`
+        : "Argentum 20 - El MMORPG 2D gratuito argentino";
+    },
+    htmlAttrs: {
+      lang: "es",
+    },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
+        hid: "keywords",
+        name: "keywords",
+        content:
+          "mmorpg, juego, argentino, gratuito, código libre, edad media, medieval, open source, noland studios, argentum online, servidor oficial",
+      },
+      {
         hid: "description",
         name: "description",
-        content: process.env.npm_package_description || "",
+        content: description,
       },
+      {
+        property: "og:description",
+        content: description,
+      },
+      {
+        property: "og:title",
+        content: "Argentum 20 - El MMORPG 2D gratuito argentino",
+      },
+      { property: "og:url", content: "https://argentum20.com" },
+      {
+        property: "og:image",
+        content: "https://argentum20.com/assets/img/og_image.jpg",
+      },
+      { property: "og:type", content: "website" },
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -46,11 +76,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [
-    "@/assets/css/fontawesome.min.css",
-    "@/assets/css/light.min.css",
-    "@/assets/css/brands.min.css",
-  ],
+  css: ["@/assets/css/fontawesome.min.css", "@/assets/css/light.min.css", "@/assets/css/brands.min.css"],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -67,7 +93,14 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     "@nuxtjs/tailwindcss",
+    "@nuxtjs/google-analytics",
   ],
+  googleAnalytics: {
+    id: "G-MYBL6Y0H3T",
+    autoTracking: {
+      screenview: true,
+    },
+  },
   /*
    ** Nuxt.js modules
    */
@@ -90,5 +123,4 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {},
-  // serverMiddleware: [{ path: "/api", handler: "@/api/index.js" }],
 };
