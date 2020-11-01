@@ -47,12 +47,14 @@ export default {
         property: "og:title",
         content: "Argentum 20 - El MMORPG 2D gratuito argentino",
       },
-      { property: "og:url", content: "https://argentum20.com" },
+      { hid: "og:url", property: "og:url", content: "https://argentum20.com" },
       {
         property: "og:image",
         content: "https://argentum20.com/assets/img/og_image.png",
       },
       { property: "og:type", content: "website" },
+      { property: "twitter:card", content: "summary" },
+      { property: "twitter:description", content: description },
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
