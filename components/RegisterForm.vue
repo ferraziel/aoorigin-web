@@ -2,32 +2,7 @@
   <form @submit.prevent="registerAccount" class="flex flex-col gap-y-4">
     <h3 class="text-2xl text-gr gr-gold mb-4">¡Creá tu cuenta!</h3>
 
-    <div class="grid grid-cols-2 gap-8 mb-4">
-      <!-- <div class="flex flex-col gap-y-2">
-        <label for="name">Nombre de cuenta</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          required
-          v-model="$v.name.$model"
-          class="text-input"
-          :class="{ 'input-error': $v.name.$error }"
-        />
-        <div class="text-sm text-red-500">
-          <p
-            v-if="!$v.name.minLength"
-          >El nombre debe tener un mínimo de {{ $v.name.$params.minLength.min }} caracteres.</p>
-          <p
-            v-if="!$v.name.maxLength"
-          >El nombre debe tener un máximo de {{ $v.name.$params.maxLength.max }} caracteres.</p>
-          <p v-if="!$v.name.alphaNumWithSpaces">El nombre sólo puede contener letras y números.</p>
-          <p
-            v-if="!$v.name.noBeginningOrEndSpaces"
-          >El nombre no puede tener espacios al comienzo o al final.</p>
-        </div>
-      </div> -->
-
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mb-4">
       <div class="flex flex-col gap-y-2">
         <label for="email">Correo electrónico</label>
         <input
@@ -76,7 +51,7 @@
       </div>
     </div>
 
-    <div class="flex justify-between items-start">
+    <div class="flex flex-col lg:flex-row gap-y-4 justify-between items-start">
       <button class="btn btn-silver self-start" :disabled="registerStatus == 'PENDING'">
         Crear cuenta
       </button>

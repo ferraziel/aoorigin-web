@@ -7,12 +7,13 @@
         class="absolute top-0 left-0 w-full h-full object-cover"
         style="filter: brightness(0.4); z-index: -1;"
       />-->
-      <div
-        class="container flex justify-center items-center sticky z-20 pt-6 md:pt-12 lg:pt-16 xl:pt-20"
-      >
+      <div class="container flex justify-center items-center sticky z-20 pt-6 md:pt-8">
         <div class="flex flex-col items-center">
-          <img src="@/assets/img/argentum20_logo.png" alt="Argentum 20 Logo" class="mb-6" />
-          <h1 class="text-3xl text-gr gr-gold">El Servidor Oficial de AO Clásico</h1>
+          <img src="@/assets/img/argentum20_logo.png" alt="Argentum 20 Logo" class="mb-3 xl:mb-6" />
+          <h1 class="text-lg sm:text-2xl lg:text-3xl text-center leading-tight">
+            <span class="text-gr gr-gold">El servidor de los</span><br class="hidden md:block" />
+            <span class="text-gr gr-gold">creadores originales de Argentum</span>
+          </h1>
         </div>
       </div>
       <div class="bg-black opacity-50 absolute top-0 left-0 w-full h-full object-cover z-10"></div>
@@ -25,19 +26,21 @@
         <source src="https://revolucionao.com/agite.mp4" type="video/mp4" />
       </video>
     </header>
-    <section class="bg-gray-1000 py-6 border-t border-b border-gr border-gr-silver mb-40">
+    <section
+      class="bg-gray-1000 py-6 border-t border-b border-gr border-gr-silver mb-24 md:mb-32 lg:mb-40"
+    >
       <div class="container flex justify-center items-center gap-x-8">
         <h3 class="font-sans font-normal text-lg">Seguinos</h3>
         <div class="flex items-center gap-x-4 text-3xl">
           <a
-            href="#"
+            href="https://discord.gg/e3juVbF"
             target="_blank"
             class="transition-colors duration-150 ease-out hover:text-gold"
           >
             <i class="fab fa-discord"></i>
           </a>
           <a
-            href="#"
+            href="https://www.youtube.com/c/PabloMarquez-aka-morgolock"
             target="_blank"
             class="transition-colors duration-150 ease-out hover:text-gold"
           >
@@ -53,13 +56,13 @@
         </div>
       </div>
     </section>
-    <div class="container flex justify-center mb-24">
+    <div class="container flex justify-center mb-16 lg:mb-24">
       <div class="flex flex-col items-center">
         <div class="relative mb-2 z-10">
           <a
             id="download-btn"
             href="#"
-            class="inline-block text-2xl font-serif font-bold tracking-wider uppercase px-5 py-3 border-2 border-gr border-gr-gold bg-gradient-to-t from-gray-900 to-gray-800 hover:from-gray-700"
+            class="inline-block text-center sm:text-xl lg:text-2xl font-serif font-bold tracking-wider uppercase px-2 py-2 md:px-5 md:py-3 border-2 border-gr border-gr-gold bg-gradient-to-t from-gray-900 to-gray-800 hover:from-gray-700"
             >Descargar el Instalador</a
           >
         </div>
@@ -67,9 +70,9 @@
         <p class="text-sm text-gray-600">Sólo disponible para Windows</p>
       </div>
     </div>
-    <section class="container grid grid-cols-2 gap-8">
-      <RegisterForm />
-      <figure>
+    <section class="container grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+      <RegisterForm class="order-last" />
+      <figure class="order-first">
         <img
           src="@/assets/img/gulfas.png"
           alt="Estatua de Gulfas Morgolock"
@@ -85,12 +88,63 @@
       </figure>
     </section>
 
-    <section class="my-32">
-      <h2 class="text-4xl text-center text-gr gr-gold mb-4">Galería</h2>
-      <div class="grid grid-cols-3 gap-8">
+    <section id="galeria" class="my-16 md:my-24 lg:my-32">
+      <h2 class="text-3xl md:text-4xl text-center text-gr gr-gold mb-4">Galería</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
         <a v-for="image in galleryImages" :key="image" :href="image.src" data-fancybox="galeria">
           <img :src="image.src" :alt="image.alt" class="w-full" />
         </a>
+      </div>
+    </section>
+
+    <section id="apoyanos" class="container">
+      <h3 class="text-3xl md:text-4xl text-gr gr-gold mb-6 md:mb-10 text-center">¡Apoyanos!</h3>
+      <div
+        class="md:max-w-2xl lg:max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 md:text-lg"
+      >
+        <article class="flex flex-col gap-y-6">
+          <h3
+            class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest"
+          >
+            <img src="@/assets/img/patreon.png" alt="icono de Patreon" />
+            Patreon
+          </h3>
+          <p>
+            Convertite en un Patron para tener acceso a beneficios exclusivos, como contenido Work
+            in Progress, roles de Discord, colores in-game ¡y más!
+          </p>
+          <div class="hidden md:flex flex-grow"></div>
+          <a
+            href="https://patreon.com/nolandstudios"
+            target="_blank"
+            class="btn btn-silver self-start text-base"
+            >Convertite en Patron</a
+          >
+        </article>
+
+        <article class="flex flex-col gap-y-6">
+          <h3
+            class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest"
+          >
+            <img src="@/assets/img/bitcoin.png" alt="icono de Bitcoin" />
+            Bitcoin
+          </h3>
+          <div>
+            <p class="mb-3">
+              Para donaciones que no reciben beneficios, ofrecemos Bitcoin como moneda.
+            </p>
+            <p>
+              Escaneá el código QR con tu celular para abrir tu Wallet y enviarnos lo que desees.
+              ¡Muchísimas gracias!
+            </p>
+          </div>
+          <a
+            href="/assets/img/bitcoin_qr.png"
+            target="_blank"
+            class="btn btn-silver self-start text-base"
+            >Enviar Bitcoin</a
+          >
+        </article>
       </div>
     </section>
 
@@ -161,14 +215,22 @@ export default {
 
 #download-btn::before {
   @apply absolute top-0;
-  content: url("/assets/img/wings.png");
+  content: url("/assets/img/wings_mobile.png");
   left: 50%;
-  transform: translateY(-99px) translateX(-50%);
+  transform: translateY(-50px) translateX(-50%);
   z-index: -1;
 }
 
 #download-btn:hover {
   box-shadow: 0 0 40px rgba(199, 131, 0, 0.7), inset 0 0 35px -10px rgba(0, 0, 0, 0.75);
+}
+
+@screen md {
+  #download-btn::before {
+    @apply w-auto;
+    content: url("/assets/img/wings.png");
+    transform: translateY(-99px) translateX(-50%);
+  }
 }
 
 /* #download-btn:active {

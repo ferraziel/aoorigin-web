@@ -18,7 +18,7 @@
 }
 
 body {
-  @apply text-white;
+  @apply text-white overflow-x-hidden;
 }
 
 #base {
@@ -70,7 +70,7 @@ body {
 }
 
 .btn {
-  @apply transition duration-150 ease-out font-serif font-bold uppercase tracking-wide py-3 px-4 border;
+  @apply transition duration-150 ease-out font-serif font-bold uppercase tracking-wide py-3 px-4 border inline-block;
 }
 
 .btn:hover {
