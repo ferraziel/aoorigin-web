@@ -50,7 +50,7 @@ export default {
       { property: "og:url", content: "https://argentum20.com" },
       {
         property: "og:image",
-        content: "https://argentum20.com/assets/img/og_image.jpg",
+        content: "https://argentum20.com/assets/img/og_image.png",
       },
       { property: "og:type", content: "website" },
     ],
