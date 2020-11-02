@@ -45,14 +45,24 @@
           class="text-input"
           :class="{ 'input-error': password != repeatedPassword }"
         />
-        <div class="text-sm text-red-500" v-if="password != repeatedPassword">
-          Las contraseñas deben coincidir.
-        </div>
+        <div class="text-sm text-red-500" v-if="password != repeatedPassword">Las contraseñas deben coincidir.</div>
+      </div>
+
+      <div class="flex flex-col lg:col-span-2 gap-y-2">
+        <label for="whitelist-code">Código BETA</label>
+        <input
+          type="text"
+          name="whitelist-code"
+          id="whitelist-code"
+          required
+          v-model="whitelistCode"
+          class="text-input"
+        />
       </div>
     </div>
 
     <div class="flex flex-col lg:flex-row gap-y-4 justify-between items-start">
-      <button class="btn btn-silver self-start" :disabled="registerStatus == 'PENDING'">
+      <button type="submit" class="btn btn-silver self-start" :disabled="registerStatus == 'PENDING'">
         Crear cuenta
       </button>
       <NuxtLink to="/recuperar" class="text-gray-400 hover:text-gray-500 underline text-sm"
@@ -82,8 +92,9 @@ export default {
       password: "",
       repeatedPassword: "",
       email: "",
-      auxEmail: "",
+      whitelistCode: "",
       registerStatus: null,
+      recaptchaToken: "",
       registerMessage: "",
       validatedMail: false,
       resendEmailTime: 60,
@@ -106,12 +117,25 @@ export default {
       email,
     },
   },
+  async mounted() {
+    try {
+      await this.$recaptcha.init();
+    } catch (e) {
+      console.error(e);
+    }
+  },
   methods: {
     async registerAccount() {
       this.registerStatus = "PENDING";
       this.registerMessage = "Creando tu cuenta...";
 
-      const { password, repeatedPassword, email } = this;
+      try {
+        this.recaptchaToken = await this.$recaptcha.execute("createAccount");
+      } catch (error) {
+        return (this.registerMessage = "No se pudo validar el reCAPTCHA.");
+      }
+
+      const { password, repeatedPassword, email, whitelistCode, recaptchaToken } = this;
 
       try {
         // await sleep(750);
@@ -119,6 +143,8 @@ export default {
         await this.$axios.post("/accounts", {
           email,
           password,
+          whitelistCode,
+          recaptchaToken,
         });
 
         this.registerStatus = "OK";
@@ -127,6 +153,7 @@ export default {
         this.email = "";
         this.password = "";
         this.repeatedPassword = "";
+        this.whitelistCode = "";
 
         this.$v.$reset();
 
@@ -138,24 +165,7 @@ export default {
 
         if (e.response) {
           const data = e.response.data;
-
-          switch (data.error) {
-            case "EMAIL_ALREADY_EXISTS":
-              this.registerMessage = "Esa cuenta ya existe.";
-              break;
-            case "EMAIL_NOT_SENT":
-              this.registerMessage =
-                "Creamos tu cuenta pero no pudimos enviar el email de validación. Contactanos para pedir tu link de validación.";
-              break;
-            case "INTERNAL_ERROR":
-              this.registerMessage =
-                "Hubo un error desconocido. Por favor, contactanos por otro medio para pedir asistencia. ¡Respondemos rápido!";
-              break;
-            default:
-              this.registerMessage =
-                "Hubo un error desconocido. Por favor, contactanos por otro medio para pedir asistencia. ¡Respondemos rápido!";
-              break;
-          }
+          this.registerMessage = data.msg;
 
           if (data.errors) {
             this.registerMessage = data.errors[0].msg;

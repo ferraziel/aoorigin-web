@@ -73,6 +73,10 @@ export default {
       //   src: "https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js",
       //   async: true,
       // },
+      // {
+      //   src: "https://www.google.com/recaptcha/api.js",
+      //   async: true,
+      // },
     ],
   },
   /*
@@ -109,8 +113,13 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
+    "@nuxtjs/recaptcha",
     "@nuxtjs/sitemap",
   ],
+  recaptcha: {
+    siteKey: "6LdCSd4ZAAAAACG2A4w2_Zv5GIzIaKA1gBAW_usJ",
+    version: 3,
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

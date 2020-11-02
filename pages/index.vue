@@ -17,18 +17,11 @@
         </div>
       </div>
       <div class="bg-black opacity-50 absolute top-0 left-0 w-full h-full object-cover z-10"></div>
-      <video
-        autoplay
-        muted
-        loop
-        class="w-full h-full absolute top-0 left-0 object-cover bg-transparent"
-      >
+      <video autoplay muted loop class="w-full h-full absolute top-0 left-0 object-cover bg-transparent">
         <source src="https://revolucionao.com/agite.mp4" type="video/mp4" />
       </video>
     </header>
-    <section
-      class="bg-gray-1000 py-6 border-t border-b border-gr border-gr-silver mb-24 md:mb-32 lg:mb-40"
-    >
+    <section class="bg-gray-1000 py-6 border-t border-b border-gr border-gr-silver mb-24 md:mb-32 lg:mb-40">
       <div class="container flex justify-center items-center gap-x-8">
         <h3 class="font-sans font-normal text-lg">Seguinos</h3>
         <div class="flex items-center gap-x-4 text-3xl">
@@ -46,11 +39,7 @@
           >
             <i class="fab fa-youtube"></i>
           </a>
-          <a
-            href="#"
-            target="_blank"
-            class="transition-colors duration-150 ease-out hover:text-gold"
-          >
+          <a href="#" target="_blank" class="transition-colors duration-150 ease-out hover:text-gold">
             <i class="fab fa-instagram"></i>
           </a>
         </div>
@@ -91,7 +80,7 @@
     <section id="galeria" class="my-16 md:my-24 lg:my-32">
       <h2 class="text-3xl md:text-4xl text-center text-gr gr-gold mb-4">Galería</h2>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-        <a v-for="image in galleryImages" :key="image" :href="image.src" data-fancybox="galeria">
+        <a v-for="image in galleryImages" :key="image.alt" :href="image.src" data-fancybox="galeria">
           <img :src="image.src" :alt="image.alt" class="w-full" />
         </a>
       </div>
@@ -99,49 +88,34 @@
 
     <section id="apoyanos" class="container">
       <h3 class="text-3xl md:text-4xl text-gr gr-gold mb-6 md:mb-10 text-center">¡Apoyanos!</h3>
-      <div
-        class="md:max-w-2xl lg:max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 md:text-lg"
-      >
+      <div class="md:max-w-2xl lg:max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 md:text-lg">
         <article class="flex flex-col gap-y-6">
-          <h3
-            class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest"
-          >
+          <h3 class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest">
             <img src="@/assets/img/patreon.png" alt="icono de Patreon" />
             Patreon
           </h3>
           <p>
-            Convertite en un Patron para tener acceso a beneficios exclusivos, como contenido Work
-            in Progress, roles de Discord, colores in-game ¡y más!
+            Convertite en un Patron para tener acceso a beneficios exclusivos, como contenido Work in Progress, roles de
+            Discord, colores in-game ¡y más!
           </p>
           <div class="hidden md:flex flex-grow"></div>
-          <a
-            href="https://patreon.com/nolandstudios"
-            target="_blank"
-            class="btn btn-silver self-start text-base"
+          <a href="https://patreon.com/nolandstudios" target="_blank" class="btn btn-silver self-start text-base"
             >Convertite en Patron</a
           >
         </article>
 
         <article class="flex flex-col gap-y-6">
-          <h3
-            class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest"
-          >
+          <h3 class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest">
             <img src="@/assets/img/bitcoin.png" alt="icono de Bitcoin" />
             Bitcoin
           </h3>
           <div>
-            <p class="mb-3">
-              Para donaciones que no reciben beneficios, ofrecemos Bitcoin como moneda.
-            </p>
+            <p class="mb-3">Para donaciones que no reciben beneficios, ofrecemos Bitcoin como moneda.</p>
             <p>
-              Escaneá el código QR con tu celular para abrir tu Wallet y enviarnos lo que desees.
-              ¡Muchísimas gracias!
+              Escaneá el código QR con tu celular para abrir tu Wallet y enviarnos lo que desees. ¡Muchísimas gracias!
             </p>
           </div>
-          <a
-            href="/assets/img/bitcoin_qr.png"
-            class="btn btn-silver self-start text-base"
-            data-fancybox="bitcoin"
+          <a href="/assets/img/bitcoin_qr.png" class="btn btn-silver self-start text-base" data-fancybox="bitcoin"
             >Enviar Bitcoin</a
           >
         </article>
