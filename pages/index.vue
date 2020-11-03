@@ -18,7 +18,7 @@
       </div>
       <div class="bg-black opacity-50 absolute top-0 left-0 w-full h-full object-cover z-10"></div>
       <video autoplay muted loop class="w-full h-full absolute top-0 left-0 object-cover bg-transparent">
-        <source src="https://revolucionao.com/agite.mp4" type="video/mp4" />
+        <source src="https://ao20.s3-accelerate.amazonaws.com/banner_ao20.mp4" type="video/mp4" />
       </video>
     </header>
     <section class="bg-gray-1000 py-6 border-t border-b border-gr border-gr-silver mb-24 md:mb-32 lg:mb-40">
@@ -59,7 +59,7 @@
         <p class="text-sm text-gray-600">Sólo disponible para Windows</p>
       </div>
     </div>
-    <section class="container grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+    <section class="container grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-16 md:mb-24">
       <RegisterForm class="order-last" />
       <figure class="order-first">
         <img
@@ -75,15 +75,6 @@
           <p>— Gulfas Morgolock</p>
         </figcaption> -->
       </figure>
-    </section>
-
-    <section id="galeria" class="my-16 md:my-24 lg:my-32">
-      <h2 class="text-3xl md:text-4xl text-center text-gr gr-gold mb-4">Galería</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-        <a v-for="image in galleryImages" :key="image.alt" :href="image.src" data-fancybox="galeria">
-          <img :src="image.src" :alt="image.alt" class="w-full" />
-        </a>
-      </div>
     </section>
 
     <section id="apoyanos" class="container">
@@ -122,6 +113,15 @@
       </div>
     </section>
 
+    <section id="galeria" class="my-16 md:my-24 lg:my-32">
+      <h2 class="text-3xl md:text-4xl text-center text-gr gr-gold mb-4">Galería</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+        <a v-for="image in galleryImages" :key="image.alt" :href="image.src" data-fancybox="galeria">
+          <img :src="image.src" :alt="image.alt" class="w-full" />
+        </a>
+      </div>
+    </section>
+
     <MessageBox v-if="validatedMail" status="OK" :isFloating="true">
       <p class="text-lg -mt-2">Se ha validado el mail correctamente.</p>
     </MessageBox>
@@ -137,28 +137,20 @@ export default {
       validatedMail: false,
       galleryImages: [
         {
-          src: "/assets/img/prueba.jpg",
-          alt: "imagen 1",
+          src: "/assets/img/galeria_1.png",
+          alt: "imagen 1 de la galería de Argentum 20",
         },
         {
-          src: "/assets/img/prueba.jpg",
-          alt: "imagen 2",
+          src: "/assets/img/galeria_2.png",
+          alt: "imagen 2 de la galería de Argentum 20",
         },
         {
-          src: "/assets/img/prueba.jpg",
-          alt: "imagen 3",
+          src: "/assets/img/galeria_3.png",
+          alt: "imagen 3 de la galería de Argentum 20",
         },
         {
-          src: "/assets/img/prueba.jpg",
-          alt: "imagen 4",
-        },
-        {
-          src: "/assets/img/prueba.jpg",
-          alt: "imagen 5",
-        },
-        {
-          src: "/assets/img/prueba.jpg",
-          alt: "imagen 6",
+          src: "/assets/img/galeria_4.png",
+          alt: "imagen 4 de la galería de Argentum 20",
         },
       ],
     };
@@ -197,6 +189,10 @@ export default {
 
 #download-btn:hover {
   box-shadow: 0 0 40px rgba(199, 131, 0, 0.7), inset 0 0 35px -10px rgba(0, 0, 0, 0.75);
+}
+
+.grecaptcha-badge {
+  z-index: 999;
 }
 
 @screen md {
