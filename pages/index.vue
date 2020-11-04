@@ -50,7 +50,7 @@
         <div class="relative mb-2 z-10">
           <a
             id="download-btn"
-            href="https://ao20.s3-accelerate.amazonaws.com/AO20.exe"
+            href="https://revolucionao.com/ao20/AO%2020.exe"
             class="inline-block text-center sm:text-xl lg:text-2xl font-serif font-bold tracking-wider uppercase px-2 py-2 md:px-5 md:py-3 border-2 border-gr border-gr-gold bg-gradient-to-t from-gray-900 to-gray-800 hover:from-gray-700"
             >Descargar el Instalador</a
           >
