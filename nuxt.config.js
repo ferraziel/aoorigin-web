@@ -99,14 +99,7 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     "@nuxtjs/tailwindcss",
-    "@nuxtjs/google-analytics",
   ],
-  googleAnalytics: {
-    id: "G-MYBL6Y0H3T",
-    autoTracking: {
-      screenview: true,
-    },
-  },
   /*
    ** Nuxt.js modules
    */
@@ -114,8 +107,12 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
     "@nuxtjs/recaptcha",
+    "@nuxtjs/gtm",
     "@nuxtjs/sitemap",
   ],
+  gtm: {
+    id: "GTM-NDQTJ6H",
+  },
   recaptcha: {
     siteKey: "6LdCSd4ZAAAAACG2A4w2_Zv5GIzIaKA1gBAW_usJ",
     version: 3,
