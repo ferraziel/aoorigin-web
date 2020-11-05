@@ -1,18 +1,18 @@
 <template>
   <main>
-    <header class="h-screen relative overflow-hidden" style="background: initial">
+    <header class="relative overflow-hidden" style="background: initial">
       <!-- <img
         src="@/assets/img/game.png"
         alt="Argentum 20"
         class="absolute top-0 left-0 w-full h-full object-cover"
         style="filter: brightness(0.4); z-index: -1;"
       />-->
-      <div class="container flex justify-center items-center sticky z-20 pt-6 md:pt-8">
+      <div class="container flex justify-center items-center sticky z-20 py-16 sm:py-24 md:py-32 lg:py-40 xl:py-48">
         <div class="flex flex-col items-center">
-          <img src="@/assets/img/argentum20_logo.png" alt="Argentum 20 Logo" class="mb-3 xl:mb-6" />
+          <img src="@/assets/img/argentum20_logo.png" alt="Argentum 20 Logo" class="mb-3 xl:mb-6 no-select" />
           <h1 class="text-lg sm:text-2xl lg:text-3xl text-center leading-tight">
             <span class="text-gr gr-gold">El servidor de los</span><br class="hidden md:block" />
-            <span class="text-gr gr-gold">creadores originales de Argentum</span>
+            <span class="text-gr gr-gold">creadores de Argentum</span>
           </h1>
         </div>
       </div>
@@ -21,10 +21,10 @@
         <source src="https://revolucionao.com/agite.mp4" type="video/mp4" />
       </video>
     </header>
-    <section class="bg-gray-1000 py-6 border-t border-b border-gr border-gr-silver mb-24 md:mb-32 lg:mb-40">
+    <section class="bg-gray-1000 py-3 md:py-6 border-t border-b border-gr border-gr-silver mb-24 md:mb-32 lg:mb-40">
       <div class="container flex justify-center items-center gap-x-8">
-        <h3 class="font-sans font-normal text-lg">Seguinos</h3>
-        <div class="flex items-center gap-x-4 text-3xl">
+        <h3 class="font-sans font-normal sm:text-lg">Seguinos</h3>
+        <div class="flex items-center gap-x-4 text-2xl sm:text-3xl">
           <a
             href="https://discord.gg/e3juVbF"
             target="_blank"
@@ -51,7 +51,7 @@
           <a
             id="download-btn"
             href="https://revolucionao.com/ao20/AO%2020.exe"
-            class="inline-block text-center sm:text-xl lg:text-2xl font-serif font-bold tracking-wider uppercase px-2 py-2 md:px-5 md:py-3 border-2 border-gr border-gr-gold bg-gradient-to-t from-gray-900 to-gray-800 hover:from-gray-700"
+            class="inline-block text-center sm:text-xl lg:text-2xl font-serif font-bold tracking-wider uppercase px-4 py-3 md:px-5 md:py-3 border-2 border-gr border-gr-gold bg-gradient-to-t from-gray-900 to-gray-800 hover:from-gray-700 text-shadow"
             >Descargar el Instalador</a
           >
         </div>
@@ -86,8 +86,8 @@
             Patreon
           </h3>
           <p>
-            Convertite en un Patron para tener acceso a beneficios exclusivos, como contenido Work in Progress, roles de
-            Discord, colores in-game ¡y más!
+            Convertite en un Patron para obtener beneficios exclusivos, como acceso a la Beta, contenido Work in
+            Progress, canales privados de Discord, colores in-game ¡y más!
           </p>
           <div class="hidden md:flex flex-grow"></div>
           <a href="https://patreon.com/nolandstudios" target="_blank" class="btn btn-silver self-start text-base"
@@ -97,28 +97,17 @@
 
         <article class="flex flex-col gap-y-6">
           <h3 class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest">
-            <img src="@/assets/img/bitcoin.png" alt="icono de Bitcoin" />
-            Bitcoin
+            <img src="@/assets/img/cafecito.png" alt="icono de cafecito" />
+            Cafecito
           </h3>
           <div>
-            <p class="mb-3">Para donaciones que no reciben beneficios, ofrecemos Bitcoin como moneda.</p>
-            <p>
-              Escaneá el código QR con tu celular para abrir tu Wallet y enviarnos lo que desees. ¡Muchísimas gracias!
-            </p>
+            <p class="mb-3">Donándonos al menos un Cafecito, tenés acceso a la Beta.</p>
+            <p>¡Podés pagar con Mercado Pago y todos los medios que ofrece!</p>
           </div>
-          <a href="/assets/img/bitcoin_qr.png" class="btn btn-silver self-start text-base" data-fancybox="bitcoin"
-            >Enviar Bitcoin</a
+          <a href="https://cafecito.app/nolandstudios" target="_blank" class="btn btn-silver self-start text-base"
+            >Donar en Cafecito</a
           >
         </article>
-      </div>
-    </section>
-
-    <section id="galeria" class="my-16 md:my-24 lg:my-32">
-      <h2 class="text-3xl md:text-4xl text-center text-gr gr-gold mb-4">Galería</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-        <a v-for="image in galleryImages" :key="image.alt" :href="image.src" data-fancybox="galeria">
-          <img :src="image.src" :alt="image.alt" class="w-full" />
-        </a>
       </div>
     </section>
 
@@ -135,24 +124,6 @@ export default {
   data() {
     return {
       validatedMail: false,
-      galleryImages: [
-        {
-          src: "/assets/img/galeria_1.png",
-          alt: "imagen 1 de la galería de Argentum 20",
-        },
-        {
-          src: "/assets/img/galeria_2.png",
-          alt: "imagen 2 de la galería de Argentum 20",
-        },
-        {
-          src: "/assets/img/galeria_3.png",
-          alt: "imagen 3 de la galería de Argentum 20",
-        },
-        {
-          src: "/assets/img/galeria_4.png",
-          alt: "imagen 4 de la galería de Argentum 20",
-        },
-      ],
     };
   },
   mounted() {

@@ -17,12 +17,31 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply text-white overflow-x-hidden;
 }
 
 #base {
   background: url("/assets/img/bg_texture.png") repeat;
+}
+
+a {
+  @apply transition-colors duration-150 ease-out;
+}
+
+.nuxt-link-exact-active {
+  @apply text-white;
+  text-shadow: 0px 0px 13px #fff;
+}
+
+.vertical-separator {
+  width: 2px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0), #adadad, rgba(255, 255, 255, 0));
+  border-radius: 100%;
 }
 
 .text-gr {
@@ -92,6 +111,24 @@ body {
 
 .btn-silver:disabled {
   @apply text-gray-700 border-gray-700;
+}
+
+.text-shadow {
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.65);
+}
+
+.no-select {
+  @apply pointer-events-none;
+  user-select: none;
+}
+
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+  transition: all 200ms ease-out;
+}
+.mobile-menu-enter, .mobile-menu-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateX(25px);
 }
 
 @screen sm {

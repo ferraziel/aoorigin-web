@@ -87,7 +87,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ["@/plugins/vuePlugins", "@/plugins/swiper.client.js"],
+  plugins: ["@/plugins/vuePlugins"],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
