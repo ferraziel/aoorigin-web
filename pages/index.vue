@@ -100,7 +100,7 @@
             <img src="@/assets/img/cafecito.png" alt="icono de cafecito" />
             Cafecito
           </h3>
-          <div>
+          <div class="flex-grow">
             <p class="mb-3">Donándonos al menos un Cafecito, tenés acceso a la Beta.</p>
             <p>¡Podés pagar con Mercado Pago y todos los medios que ofrece!</p>
           </div>
