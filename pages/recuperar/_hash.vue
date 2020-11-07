@@ -1,11 +1,7 @@
 <template>
   <section class="container flex flex-col items-center pt-48 gap-y-4">
     <p class="font-serif text-2xl mb-6">Ingresa tu nueva contraseña</p>
-    <form
-      @submit.prevent="resetPassword"
-      class="flex flex-col items-center gap-y-4 w-full"
-      id="recovery-form"
-    >
+    <form @submit.prevent="resetPassword" class="flex flex-col items-center gap-y-4 w-full" id="recovery-form">
       <div class="flex flex-col items-center gap-y-2 w-full">
         <label for="password">Contraseña</label>
         <input
@@ -34,9 +30,7 @@
           class="text-input text-3xl w-full"
           :class="{ 'input-error': password != repeatedPassword }"
         />
-        <div class="text-sm text-red-500" v-if="password != repeatedPassword">
-          Las contraseñas deben coincidir.
-        </div>
+        <div class="text-sm text-red-500" v-if="password != repeatedPassword">Las contraseñas deben coincidir.</div>
       </div>
 
       <button class="btn btn-silver">Enviar</button>
@@ -93,8 +87,7 @@ export default {
         });
 
         this.recoveryStatus = "OK";
-        this.recoveryMessage =
-          "Contraseña reseteada correctamente. Te redireccionaremos en 3 segundos...";
+        this.recoveryMessage = "Contraseña reseteada correctamente. Te redireccionaremos en 3 segundos...";
 
         setTimeout(() => {
           this.$router.replace("/");
@@ -106,12 +99,11 @@ export default {
           this.registerMessage = e.response.data.errors[0].msg;
         }
 
-        this.recoveryMessage = e.response.data.msg;
+        this.recoveryMessage = e.response.data.message;
       }
     },
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>

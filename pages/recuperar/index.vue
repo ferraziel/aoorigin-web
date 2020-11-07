@@ -62,7 +62,7 @@ export default {
         this.recoveryMessage = "¡Listo! Revisá tu bandeja de entrada.";
       } catch (e) {
         this.recoveryStatus = "ERROR";
-        this.recoveryMessage = e.response.data.msg;
+        this.recoveryMessage = e.response.data.message;
       }
 
       setTimeout(() => {

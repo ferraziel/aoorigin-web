@@ -25,8 +25,8 @@
           <li>
             <NuxtLink to="/multimedia" class="inline-block py-2 hover:text-gray-400">Multimedia</NuxtLink>
           </li>
-        <!-- </ul>
-        <p v-if="$fetchState.pending">Cargando...</p>
+        </ul>
+        <!-- <p v-if="$fetchState.pending">Cargando...</p>
         <p v-else>Usuarios online: {{ $store.state.onlineCount }}</p> -->
         <div class="flex items-center gap-x-4 text-3xl">
           <a
