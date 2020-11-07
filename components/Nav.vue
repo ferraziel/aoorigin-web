@@ -26,9 +26,10 @@
             <NuxtLink to="/multimedia" class="inline-block py-2 hover:text-gray-400">Multimedia</NuxtLink>
           </li>
         </ul>
-        <!-- <p v-if="$fetchState.pending">Cargando...</p>
-        <p v-else>Usuarios online: {{ $store.state.onlineCount }}</p> -->
         <div class="flex items-center gap-x-4 text-3xl">
+          <p v-if="$store.state.onlineCount >= 0" class="uppercase tracking-wide text-sm">
+            {{ $store.state.onlineCount }} usuarios online
+          </p>
           <a
             href="https://discord.gg/e3juVbF"
             target="_blank"
@@ -79,10 +80,6 @@
 
 <script>
 export default {
-  // async fetch() {
-  //   const res = await this.$axios.get("/");
-  //   this.$store.commit("setOnlineCount", res.data.onlineCount);
-  // },
   data() {
     return {
       showMobileMenu: false,

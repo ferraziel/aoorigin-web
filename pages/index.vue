@@ -21,7 +21,7 @@
         <source src="https://revolucionao.com/agite.mp4" type="video/mp4" />
       </video>
     </header>
-    <section class="bg-gray-1000 py-3 md:py-6 border-t border-b border-gr border-gr-silver mb-24 md:mb-32 lg:mb-40">
+    <section class="bg-gray-1000 py-3 md:py-6 border-t border-b border-gr border-gr-silver mb-10 md:mb-16 lg:mb-24">
       <div class="container flex justify-center items-center gap-x-8">
         <h3 class="font-sans font-normal sm:text-lg">Seguinos</h3>
         <div class="flex items-center gap-x-4 text-2xl sm:text-3xl">
@@ -45,8 +45,13 @@
         </div>
       </div>
     </section>
-    <div class="container flex justify-center mb-16 lg:mb-24">
-      <div class="flex flex-col items-center">
+    <div class="container mb-16 lg:mb-24">
+      <p class="uppercase tracking-wider text-xl text-center" v-if="$store.state.onlineCount >= 0">
+        <span class="text-4xl font-bold">{{ $store.state.onlineCount }}</span
+        ><br />
+        usuarios online
+      </p>
+      <div class="flex flex-col items-center mt-16 lg:mt-24 xl:mt-32">
         <div class="relative mb-2 z-10">
           <a
             id="download-btn"

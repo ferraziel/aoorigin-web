@@ -9,8 +9,8 @@ export const mutations = {
 };
 
 export const actions = {
-  // async nuxtServerInit({ commit }, { $axios }) {
-  //   const res = await $axios.get("/");
-  //   commit("setOnlineCount", res.data.onlineCount);
-  // },
+  async nuxtServerInit({ commit }, { $axios }) {
+    const res = await $axios.get("/");
+    commit("setOnlineCount", res.data.onlineCount);
+  },
 };
