@@ -6,6 +6,10 @@
   </div>
 </template>
 
+<script>
+export default {};
+</script>
+
 <style>
 :root {
   --gold: #c78300;

@@ -165,7 +165,7 @@ export default {
 
         if (e.response) {
           const data = e.response.data;
-          this.registerMessage = data.msg;
+          this.registerMessage = data.message;
 
           if (data.errors) {
             this.registerMessage = data.errors[0].msg;
