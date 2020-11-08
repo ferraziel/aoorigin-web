@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import $ from "jquery";
+
 export default {
   data() {
     return {
@@ -34,6 +36,14 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    window.$ = window.jQuery = $;
+    require("@fancyapps/fancybox");
+
+    $("[data-fancybox='gallery']").fancybox({
+      backFocus: false,
+    });
   },
 };
 </script>

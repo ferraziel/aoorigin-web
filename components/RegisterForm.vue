@@ -69,6 +69,13 @@
         >¿Olvidaste tu contraseña?</NuxtLink
       >
     </div>
+
+    <p class="text-xs text-gray-500">
+      Este sitio está protegido por reCAPTCHA. Las
+      <a href="https://policies.google.com/privacy" target="_blank" class="underline">Políticas de Privacidad</a> y
+      <a href="https://policies.google.com/terms" target="_blank" class="underline">Términos del Servicio</a> de Google
+      aplican.
+    </p>
     <!-- <Btn :disabled="registerStatus == 'PENDING'" class="self-start">Crear Cuenta</Btn> -->
 
     <MessageBox :status="registerStatus" :message="registerMessage" />

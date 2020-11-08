@@ -132,12 +132,6 @@ export default {
     };
   },
   mounted() {
-    window.$ = window.jQuery = $;
-    require("@fancyapps/fancybox");
-    $("[data-fancybox='gallery']").fancybox({
-      backFocus: false,
-    });
-
     if (this.$route.query.validada == 1) {
       this.validatedMail = true;
 
