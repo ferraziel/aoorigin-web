@@ -77,7 +77,16 @@ export default {
       //   src: "https://www.google.com/recaptcha/api.js",
       //   async: true,
       // },
+      {
+        vmid: "widgetbot",
+        src: "https://cdn.jsdelivr.net/npm/@widgetbot/crate@3",
+        async: true,
+        defer: true,
+        body: false,
+        innerHTML: `new Crate({ server: "761213868352471040", channel: "761286044229959701" })`,
+      },
     ],
+    __dangerouslyDisableSanitizers: ["script"],
   },
   /*
    ** Global CSS
@@ -116,6 +125,7 @@ export default {
   recaptcha: {
     siteKey: "6LdCSd4ZAAAAACG2A4w2_Zv5GIzIaKA1gBAW_usJ",
     version: 3,
+    hideBadge: true,
   },
   /*
    ** Axios module configuration
