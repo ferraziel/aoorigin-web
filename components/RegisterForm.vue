@@ -48,7 +48,7 @@
         <div class="text-sm text-red-500" v-if="password != repeatedPassword">Las contraseñas deben coincidir.</div>
       </div>
 
-      <div class="flex flex-col lg:col-span-2 gap-y-2">
+      <!-- <div class="flex flex-col lg:col-span-2 gap-y-2">
         <label for="whitelist-code">Código BETA</label>
         <input
           type="text"
@@ -58,7 +58,7 @@
           v-model="whitelistCode"
           class="text-input"
         />
-      </div>
+      </div> -->
     </div>
 
     <div class="flex flex-col lg:flex-row gap-y-4 justify-between items-start">
@@ -99,7 +99,6 @@ export default {
       password: "",
       repeatedPassword: "",
       email: "",
-      whitelistCode: "",
       registerStatus: null,
       recaptchaToken: "",
       registerMessage: "",
@@ -142,7 +141,7 @@ export default {
         return (this.registerMessage = "No se pudo validar el reCAPTCHA.");
       }
 
-      const { password, repeatedPassword, email, whitelistCode, recaptchaToken } = this;
+      const { password, repeatedPassword, email, recaptchaToken } = this;
 
       try {
         // await sleep(750);
@@ -150,7 +149,6 @@ export default {
         await this.$axios.post("/accounts", {
           email,
           password,
-          whitelistCode,
           recaptchaToken,
         });
 
@@ -160,7 +158,6 @@ export default {
         this.email = "";
         this.password = "";
         this.repeatedPassword = "";
-        this.whitelistCode = "";
 
         this.$v.$reset();
 
