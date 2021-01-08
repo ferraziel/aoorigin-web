@@ -73,7 +73,20 @@ export default {
       //   src: "https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js",
       //   async: true,
       // },
+      // {
+      //   src: "https://www.google.com/recaptcha/api.js",
+      //   async: true,
+      // },
+      {
+        vmid: "widgetbot",
+        src: "https://cdn.jsdelivr.net/npm/@widgetbot/crate@3",
+        async: true,
+        defer: true,
+        body: false,
+        innerHTML: `new Crate({ server: "761213868352471040", channel: "761286044229959701" })`,
+      },
     ],
+    __dangerouslyDisableSanitizers: ["script"],
   },
   /*
    ** Global CSS
@@ -83,7 +96,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ["@/plugins/vuePlugins", "@/plugins/swiper.client.js"],
+  plugins: ["@/plugins/vuePlugins"],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -95,22 +108,25 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     "@nuxtjs/tailwindcss",
-    "@nuxtjs/google-analytics",
   ],
-  googleAnalytics: {
-    id: "G-MYBL6Y0H3T",
-    autoTracking: {
-      screenview: true,
-    },
-  },
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
+    "@nuxtjs/recaptcha",
+    "@nuxtjs/gtm",
     "@nuxtjs/sitemap",
   ],
+  gtm: {
+    id: "GTM-NDQTJ6H",
+  },
+  recaptcha: {
+    siteKey: "6LdCSd4ZAAAAACG2A4w2_Zv5GIzIaKA1gBAW_usJ",
+    version: 3,
+    hideBadge: true,
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
