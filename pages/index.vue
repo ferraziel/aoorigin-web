@@ -46,7 +46,7 @@
       </div>
     </section>
     <div class="container mb-16 lg:mb-24">
-      <p class="uppercase tracking-wider text-xl text-center" v-if="$store.state.onlineCount >= 0">
+      <p class="uppercase tracking-wider text-xl text-center" v-if="$store.state.isGameOnline">
         <span class="text-4xl font-bold">{{ $store.state.onlineCount }}</span
         ><br />
         usuarios online
