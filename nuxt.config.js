@@ -108,7 +108,12 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     "@nuxtjs/tailwindcss",
+    "@nuxtjs/prismic",
   ],
+  prismic: {
+    endpoint: "https://ao20.cdn.prismic.io/api/v2",
+    /* see configuration for more */
+  },
   /*
    ** Nuxt.js modules
    */
