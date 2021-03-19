@@ -46,7 +46,7 @@
       </div>
     </section>
     <div class="container mb-16 lg:mb-24">
-      <p class="uppercase tracking-wider text-xl text-center" v-if="$store.state.onlineCount >= 0">
+      <p class="uppercase tracking-wider text-xl text-center" v-if="$store.state.isGameOnline">
         <span class="text-4xl font-bold">{{ $store.state.onlineCount }}</span
         ><br />
         usuarios online
@@ -55,7 +55,7 @@
         <div class="relative mb-2 z-10">
           <a
             id="download-btn"
-            href="https://revolucionao.com/ao20/AO%2020.exe"
+            :href="$prismic.asLink(homePage.data.installer_link)"
             class="inline-block text-center sm:text-xl lg:text-2xl font-serif font-bold tracking-wider uppercase px-4 py-3 md:px-5 md:py-3 border-2 border-gr border-gr-gold bg-gradient-to-t from-gray-900 to-gray-800 hover:from-gray-700 text-shadow"
             >Descargar el Instalador</a
           >
@@ -123,9 +123,13 @@
 </template>
 
 <script>
-import $ from "jquery";
-
 export default {
+  async asyncData({ $prismic }) {
+    const homePage = await $prismic.api.getSingle("inicio");
+    return {
+      homePage,
+    };
+  },
   data() {
     return {
       validatedMail: false,

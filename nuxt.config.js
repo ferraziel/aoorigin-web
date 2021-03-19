@@ -47,10 +47,10 @@ export default {
         property: "og:title",
         content: "Argentum 20 - El MMORPG 2D gratuito argentino",
       },
-      { hid: "og:url", property: "og:url", content: "https://argentum20.com" },
+      { hid: "og:url", property: "og:url", content: "https://ao20.com.ar" },
       {
         property: "og:image",
-        content: "https://argentum20.com/assets/img/og_image.png",
+        content: "https://ao20.com.ar/assets/img/og_image.png",
       },
       { property: "og:type", content: "website" },
       { property: "twitter:card", content: "summary" },
@@ -108,7 +108,12 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     "@nuxtjs/tailwindcss",
+    "@nuxtjs/prismic",
   ],
+  prismic: {
+    endpoint: "https://ao20.cdn.prismic.io/api/v2",
+    /* see configuration for more */
+  },
   /*
    ** Nuxt.js modules
    */

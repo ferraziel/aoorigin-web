@@ -27,8 +27,9 @@
           </li>
         </ul>
         <div class="flex items-center gap-x-4 text-3xl">
-          <p v-if="$store.state.onlineCount >= 0" class="uppercase tracking-wide text-sm">
-            {{ $store.state.onlineCount }} usuarios online
+          <p class="uppercase tracking-wide text-sm">
+            <span v-if="$store.state.isGameOnline">{{ $store.state.onlineCount || 0 }} usuarios online</span>
+            <span v-else class="text-red-500">Servidor Offline</span>
           </p>
           <a
             href="https://discord.gg/e3juVbF"
