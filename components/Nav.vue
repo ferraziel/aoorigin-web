@@ -25,6 +25,10 @@
           <li>
             <NuxtLink to="/multimedia" class="inline-block py-2 hover:text-gray-400">Multimedia</NuxtLink>
           </li>
+           <div class="vertical-separator self-stretch opacity-50"></div>
+          <li>
+            <NuxtLink to="/ranking" class="inline-block py-2 hover:text-gray-400">Ranking</NuxtLink>
+          </li>
         </ul>
         <div class="flex items-center gap-x-4 text-3xl">
           <p class="uppercase tracking-wide text-sm">
