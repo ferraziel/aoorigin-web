@@ -37,8 +37,8 @@ a {
   @apply transition-colors duration-150 ease-out;
 }
 
-.nuxt-link-exact-active {
-  @apply text-white;
+.nuxt-link-exact-active:not(.main-title) {
+  @apply text-yellow-600;
   text-shadow: 0px 0px 13px #fff;
 }
 
@@ -73,13 +73,18 @@ a {
 }
 
 .text-input {
-  @apply py-2 px-3 border border-gr border-gr-silver;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, #666, #fff, #666);
+}
+
+.text-input {
+  @apply py-2 px-3 border;
   background-color: #392919;
   box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.75);
 }
 
 .text-input:focus {
-  @apply border-gr-gold outline-none;
+  border-image-source: linear-gradient(to right, #8c5d00, #ffbe15, #8c5d00);
 }
 
 .text-input.input-error {
@@ -106,11 +111,13 @@ a {
 }
 
 .btn-silver {
-  @apply bg-gray-900 text-white border-gr border-gr-silver;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, #666, #fff, #666);
+  @apply bg-gray-900 text-white;
 }
 
 .btn-silver:focus {
-  @apply border-gr-gold;
+  border-image-source: linear-gradient(to right, #8c5d00, #ffbe15, #8c5d00);
 }
 
 .btn-silver:disabled {
@@ -163,5 +170,12 @@ a {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.section-divider {
+  display: block;
+  background: url(/assets/img/divider.png) center center no-repeat;
+  height: 43px;
+  width: auto;
 }
 </style>

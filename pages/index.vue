@@ -1,26 +1,31 @@
 <template>
   <main>
-    <header class="relative overflow-hidden" style="background: initial">
-      <!-- <img
-        src="@/assets/img/game.png"
-        alt="Argentum 20"
-        class="absolute top-0 left-0 w-full h-full object-cover"
-        style="filter: brightness(0.4); z-index: -1;"
-      />-->
-      <div class="container flex justify-center items-center sticky z-20 py-16 sm:py-24 md:py-32 lg:py-40 xl:py-48">
+    <header class="h-screen relative overflow-hidden" style="background: initial">
+      <div
+        class="container h-full flex justify-center items-center sticky z-20 py-16 sm:py-24 md:py-32 lg:py-40 xl:py-48"
+      >
         <div class="flex flex-col items-center">
-          <img src="@/assets/img/argentum20_logo.png" alt="Argentum 20 Logo" class="mb-3 xl:mb-6 no-select" />
-          <h1 class="text-lg sm:text-2xl lg:text-3xl text-center leading-tight">
-            <span class="text-gr gr-gold">El servidor de los</span><br class="hidden md:block" />
-            <span class="text-gr gr-gold">creadores de Argentum</span>
+          <img src="@/assets/img/argentum20_logo.png" alt="Argentum 20 Logo" class="w-144 mb-3 xl:mb-6 no-select" />
+          <h1 class="text-lg sm:text-3xl lg:text-4xl text-center leading-tight text-white mb-12">
+            Aventurate en las tierras de Argentum 20 y escribí tu propio camino
           </h1>
+          <NuxtLink to="/#juga-gratis" class="btn btn-silver text-3xl">Jugá gratis</NuxtLink>
         </div>
       </div>
+
       <div class="bg-black opacity-50 absolute top-0 left-0 w-full h-full object-cover z-10"></div>
-      <video autoplay muted loop class="w-full h-full absolute top-0 left-0 object-cover bg-transparent">
+
+      <img
+        :src="homePage.data.banner_image.url"
+        alt=""
+        class="w-full h-full absolute top-0 left-0 object-cover bg-transparent"
+      />
+
+      <!-- <video autoplay muted loop class="w-full h-full absolute top-0 left-0 object-cover bg-transparent">
         <source src="https://revolucionao.com/agite.mp4" type="video/mp4" />
-      </video>
+      </video> -->
     </header>
+
     <section class="bg-gray-1000 py-3 md:py-6 border-t border-b border-gr border-gr-silver mb-10 md:mb-16 lg:mb-24">
       <div class="container flex justify-center items-center gap-x-8">
         <h3 class="font-sans font-normal sm:text-lg">Seguinos</h3>
@@ -45,6 +50,7 @@
         </div>
       </div>
     </section>
+
     <div class="container mb-16 lg:mb-24">
       <p class="uppercase tracking-wider text-xl text-center" v-if="$store.state.isGameOnline">
         <span class="text-4xl font-bold">{{ $store.state.onlineCount }}</span
@@ -64,6 +70,7 @@
         <p class="text-sm text-gray-600">Sólo disponible para Windows</p>
       </div>
     </div>
+
     <section class="container grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-16 md:mb-24">
       <RegisterForm class="order-last" />
       <figure class="order-first">
@@ -82,9 +89,55 @@
       </figure>
     </section>
 
+    <div class="section-divider my-16"></div>
+
+    <section id="multimedia" class="pt-24 mb-16 xl:mb-24">
+      <h2 class="text-4xl md:text-6xl text-center text-gr gr-gold mb-16">Galería de imágenes</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4">
+        <a v-for="image in ingameImages" :key="image.alt" :href="image.url" data-fancybox="galeria">
+          <!-- <div class="w-full overflow-hidden"> -->
+          <div class="overflow-hidden w-full">
+            <img
+              :src="image.thumb.url"
+              :alt="image.alt"
+              class="w-full transform hover:scale-150 transition duration-[0.5s] ease-out"
+            />
+          </div>
+          <!-- </div> -->
+        </a>
+      </div>
+    </section>
+
+    <section id="info" class="container grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-x-12">
+      <div class="flex flex-col gap-y-6 grid-cols-1 order-2 lg:order-1 md:grid-cols-4 lg:col-span-7">
+        <h2 class="text-4xl">El primer MMORPG 100% argentino</h2>
+        <p class="text-xl">
+          Argentum es un juego online multijugador, donde podés tomar el rol de un guerrero, mago, paladín y muchas
+          otras clases, y explorar las tierras míticas de Argentum.
+        </p>
+        <p class="text-xl">
+          Nació hace 20 años como un juego
+          <span class="text-yellow-600 font-bold">totalmente desarrollado en Argentina</span> para luego ser liberado a
+          la comunidad de manera gratuita. El código es accesible a todos, permitiendo así su evolución y continuidad en
+          el tiempo
+        </p>
+        <p class="text-xl">
+          De la mano de los creadores originales del juego,
+          <span class="text-yellow-600 font-bold">Argentum 20</span> resurje como una conmemoración por el cumplimiento
+          de los 20 años de su origen.
+        </p>
+      </div>
+
+      <div class="grid-cols-1 md:grid-cols-2 lg:col-span-5 order-1 lg:order-2">
+        <img src="@/assets/img/catapulta.png" alt="Catapulta argentum 20" class="w-full" />
+      </div>
+    </section>
+
+    <div class="section-divider my-16"></div>
+
     <section id="apoyanos" class="container">
-      <h3 class="text-3xl md:text-4xl text-gr gr-gold mb-6 md:mb-10 text-center">¡Apoyanos!</h3>
-      <div class="md:max-w-2xl lg:max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 md:text-lg">
+      <h3 class="text-4xl md:text-5xl lg:text-6xl text-gr gr-gold mb-6 md:mb-10 text-center">¡Apoyanos!</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 md:text-lg">
         <article class="flex flex-col gap-y-6">
           <h3 class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest">
             <img src="@/assets/img/patreon.png" alt="icono de Patreon" />
@@ -123,11 +176,25 @@
 </template>
 
 <script>
+import $ from "jquery";
+
 export default {
   async asyncData({ $prismic }) {
     const homePage = await $prismic.api.getSingle("inicio");
+
+    // console.log(homePage);
+
+    const ingameImages = homePage.data.multimedia.map((i) => ({
+      url: i.ingame_image.url,
+      alt: i.ingame_image.alt,
+      thumb: {
+        url: i.ingame_image.thumb.url,
+      },
+    }));
+
     return {
       homePage,
+      ingameImages,
     };
   },
   data() {
@@ -136,6 +203,13 @@ export default {
     };
   },
   mounted() {
+    window.$ = window.jQuery = $;
+    require("@fancyapps/fancybox");
+
+    $("[data-fancybox='gallery']").fancybox({
+      backFocus: false,
+    });
+
     if (this.$route.query.validada == 1) {
       this.validatedMail = true;
 

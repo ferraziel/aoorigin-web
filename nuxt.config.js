@@ -47,10 +47,10 @@ export default {
         property: "og:title",
         content: "Argentum 20 - El MMORPG 2D gratuito argentino",
       },
-      { hid: "og:url", property: "og:url", content: "https://argentum20.com" },
+      { hid: "og:url", property: "og:url", content: "https://ao20.com.ar" },
       {
         property: "og:image",
-        content: "https://argentum20.com/assets/img/og_image.png",
+        content: "https://ao20.com.ar/assets/img/og_image.png",
       },
       { property: "og:type", content: "website" },
       { property: "twitter:card", content: "summary" },
@@ -69,14 +69,6 @@ export default {
       },
     ],
     script: [
-      // {
-      //   src: "https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js",
-      //   async: true,
-      // },
-      // {
-      //   src: "https://www.google.com/recaptcha/api.js",
-      //   async: true,
-      // },
       {
         vmid: "widgetbot",
         src: "https://cdn.jsdelivr.net/npm/@widgetbot/crate@3",
@@ -110,6 +102,9 @@ export default {
     "@nuxtjs/tailwindcss",
     "@nuxtjs/prismic",
   ],
+  tailwindcss: {
+    jit: true,
+  },
   prismic: {
     endpoint: "https://ao20.cdn.prismic.io/api/v2",
     /* see configuration for more */
@@ -139,8 +134,6 @@ export default {
   axios: {
     // Actúa como fallback si no está puesto ningún runtimeConfig
     baseURL: process.env.AXIOS_BASE_URL,
-    // baseURL: "https://ao20-api-testing.herokuapp.com",
-    // baseURL: "http://localhost:1338",
   },
   /*
    ** Build configuration
