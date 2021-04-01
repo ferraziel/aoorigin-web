@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gold: "var(--gold)",
+        primary: "var(--primary)",
         silver: "var(--silver)",
         gray: {
           100: "#f5f5f5",
@@ -25,14 +25,14 @@ module.exports = {
         192: "48rem",
       },
       fontFamily: {
-        sans: ["Livvic", "sans-serif"],
+        sans: ["'Alegreya Sans'", "sans-serif"],
         serif: ["Cardo", "serif"],
       },
     },
     container: {
       center: true,
       padding: {
-        default: "1.25rem",
+        DEFAULT: "1.25rem",
         sm: "2rem",
       },
     },

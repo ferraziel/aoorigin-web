@@ -3,11 +3,6 @@ const description =
 
 export default {
   /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
-  mode: "universal",
-  /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
@@ -60,11 +55,6 @@ export default {
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
         rel: "stylesheet",
-        href:
-          "https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Livvic:ital,wght@0,400;0,600;1,400&display=swap",
-      },
-      {
-        rel: "stylesheet",
         href: "https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css",
       },
     ],
@@ -83,7 +73,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["@/assets/css/fontawesome.min.css", "@/assets/css/light.min.css", "@/assets/css/brands.min.css"],
+  // css: ["@/assets/css/fontawesome.min.css", "@/assets/css/light.min.css", "@/assets/css/brands.min.css"],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -101,6 +91,7 @@ export default {
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     "@nuxtjs/tailwindcss",
     "@nuxtjs/prismic",
+    "@nuxtjs/google-fonts",
   ],
   tailwindcss: {
     jit: true,
@@ -108,6 +99,13 @@ export default {
   prismic: {
     endpoint: "https://ao20.cdn.prismic.io/api/v2",
     /* see configuration for more */
+  },
+  googleFonts: {
+    families: {
+      "Alegreya+Sans": [400, 700],
+      Cardo: [400, 700],
+    },
+    display: "swap",
   },
   /*
    ** Nuxt.js modules
