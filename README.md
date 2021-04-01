@@ -1,46 +1,16 @@
-# argentum20
+# Frontend Argentum 20
 
-## Build Setup
-
-```bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+Esta aplicación utiliza el framework basado en Vue.js llamado [Nuxt.js](https://nuxtjs.org)
 
 
-## AO20 Info
+## Cambio de información sin tocar código
 
-Desde la pagina de testing se controla todo lo de la PC de Testing (pc de horacio). 
-- Crear cuentas
-- Recuperar password. 
-- Futuro mercadito
+Esta aplicación integra un CMS (Content Management System) de tipo [headless](https://www.genbeta.com/desarrollo/headless-cms-que-que-se-diferencian-tradicionales) llamado [Prismic](https://prismic.io). Esto nos permite agregar, modificar o eliminar información del sitio sin tocar el código, por ejemplo: el link de descarga del juego, imágenes de la galería, noticias, etc.
 
-Todo es 100% funcional
+Para obtener las credenciales de login en Prismic, contactarse con algún miembro del staff encargado.
 
-Pagina testing:
-https://ao20-web-testing.herokuapp.com/
+## URLs
 
+Ambiente de testeo: https://test.ao20.com.ar
 
-API Testing
-https://ao20-api-testing.herokuapp.com/
-
-------------
-
-Pagina web produccion:
-https://argentum20.com/
-
-
-API Prod:
-https://api.argentum20.com/
+Ambiente de producción: https://ao20.com.ar
