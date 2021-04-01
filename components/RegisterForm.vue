@@ -1,8 +1,8 @@
 <template>
   <form @submit.prevent="registerAccount" class="flex flex-col gap-y-4">
-    <h3 class="text-2xl text-gr gr-gold mb-4">¡Creá tu cuenta!</h3>
+    <h3 class="text-center font-sans text-3xl mb-2 md:mb-4 normal-case">Creá tu cuenta</h3>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mb-4">
+    <div class="grid grid-cols-1 gap-4 md:gap-8 mb-4">
       <div class="flex flex-col gap-y-2">
         <label for="email">Correo electrónico</label>
         <input
@@ -62,7 +62,7 @@
     </div>
 
     <div class="flex flex-col lg:flex-row gap-y-4 justify-between items-start">
-      <button type="submit" class="btn btn-silver self-start" :disabled="registerStatus == 'PENDING'">
+      <button type="submit" class="text-lg btn btn-silver self-start" :disabled="registerStatus == 'PENDING'">
         Crear cuenta
       </button>
       <NuxtLink to="/recuperar" class="text-gray-400 hover:text-gray-500 underline text-sm"
