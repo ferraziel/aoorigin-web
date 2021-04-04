@@ -1,11 +1,12 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
     --primary: #e6b919;
     --silver: #d3d3d3;
+    --brown: #392919;
   }
 
   * {
@@ -30,13 +31,53 @@
     @apply font-serif font-bold tracking-wider uppercase;
   }
 
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"] {
+    @apply py-2 px-3 border bg-brown outline-none;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, #666, #fff, #666);
+    box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.75);
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  input[type="number"]:focus {
+    @apply outline-none;
+    border-image-source: linear-gradient(to right, #8c5d00, #ffbe15, #8c5d00);
+  }
+
+  input[type="checkbox"] {
+    @apply relative appearance-none w-5 h-5 bg-brown border border-gr border-gr-silver cursor-pointer;
+  }
+
+  input[type="checkbox"]:focus {
+    @apply outline-none;
+  }
+
+  input[type="checkbox"]:checked {
+    @apply border-gr-primary;
+  }
+
+  input[type="checkbox"]:checked::after {
+    content: "";
+    left: 6px;
+    top: 3px;
+    width: 6px;
+    height: 11px;
+    border-width: 0 2px 2px 0;
+    @apply absolute transform rotate-45 border-primary;
+  }
+
   .btn {
     background-image: url(/assets/img/button-bg-grey.png);
     background-size: cover;
-    @apply transition duration-150 ease-out font-serif font-bold uppercase tracking-wider py-3 px-10 border-2 inline-block;
+    @apply border-gr transition duration-150 ease-out font-serif font-bold uppercase tracking-wider py-3 px-10 border-2 inline-block;
   }
 
-  .btn:hover {
+  .btn:hover:not(:disabled) {
     box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.2);
   }
 
@@ -46,17 +87,21 @@
   }
 
   .btn-silver {
-    border-image-slice: 1;
-    border-image-source: linear-gradient(to right, #666, #fff, #666);
-    @apply bg-gray-900 text-white;
+    @apply border-gr-silver bg-gray-900 text-white;
   }
 
   .btn-silver:focus {
-    border-image-source: linear-gradient(to right, #8c5d00, #ffbe15, #8c5d00);
+    @apply border-gr-primary;
   }
 
   .btn-silver:disabled {
     @apply text-gray-700 border-gray-700;
+  }
+
+  .btn-cta {
+    background-image: url(/assets/img/button-bg-red.png);
+    text-shadow: 0px 2px 0px #000000;
+    @apply border-gr-silver py-5 text-2xl lg:text-3xl glow;
   }
 
   #base {
@@ -102,33 +147,14 @@
     border-image-source: linear-gradient(to right, #8c5d00, #ffbe15, #8c5d00);
   }
 
-  .text-input {
-    border-image-slice: 1;
-    border-image-source: linear-gradient(to right, #666, #fff, #666);
+  .input-error {
+    border-image-slice: intial !important;
+    border-image-source: initial !important;
+    @apply outline-none border-red-500;
   }
 
-  .text-input {
-    outline: none;
-    @apply py-2 px-3 border;
-    background-color: #392919;
-    box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.75);
-  }
-
-  .text-input:focus {
-    outline: none;
-    border-image-source: linear-gradient(to right, #8c5d00, #ffbe15, #8c5d00);
-  }
-
-  .text-input.input-error {
-    outline: none;
-    border-image-slice: intial;
-    border-image-source: initial;
-    @apply border-red-500;
-  }
-
-  .text-input.input-error:focus {
-    outline: none;
-    @apply border-red-500;
+  .input-error:focus {
+    @apply outline-none border-red-500;
   }
 
   .text-shadow {
@@ -192,6 +218,24 @@
     display: block;
     height: 12px;
     width: 100%;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+}
+
+@layer utilities {
+  .border-gr {
+    border-image-slice: 1;
+  }
+
+  .border-gr-silver {
+    border-image-source: linear-gradient(to right, #666, #fff, #666);
+  }
+
+  .border-gr-primary {
+    border-image-source: linear-gradient(to right, #8c5d00, #ffbe15, #8c5d00);
   }
 
   .glow {

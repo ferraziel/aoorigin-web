@@ -10,7 +10,7 @@
           id="email"
           required
           v-model="$v.email.$model"
-          class="text-input text-3xl w-full"
+          class="text-3xl w-full"
           :class="{ 'input-error': $v.email.$error }"
         />
         <div class="text-sm text-red-500" v-if="$v.email.$error">Ingrese un email válido.</div>

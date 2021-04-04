@@ -10,7 +10,7 @@
             Aventurate en las tierras de Argentum 20<br class="hidden lg:block" />
             y escribí tu propio camino
           </h1>
-          <a href="/#juga-gratis" class="btn btn-silver py-5 text-2xl lg:text-3xl glow">Jugá gratis</a>
+          <a href="/#juga-gratis" class="btn btn-cta">Jugá gratis</a>
         </div>
       </div>
 
@@ -27,7 +27,7 @@
       </video> -->
     </header>
 
-    <section class="bg-gray-1000 mb-10 md:mb-16 lg:mb-24">
+    <section class="bg-gray-1000 mb-10">
       <div class="divider2"></div>
 
       <div class="py-3 md:py-6 lg:py-12">
@@ -37,6 +37,7 @@
             <a
               href="https://discord.gg/e3juVbF"
               target="_blank"
+              rel="noopener"
               class="transition-colors duration-150 ease-out text-[#6E85D3]"
             >
               <!-- <i class="fab fa-discord fa-2x"></i> -->
@@ -45,6 +46,7 @@
             <a
               href="https://www.youtube.com/c/PabloMarquez-aka-morgolock"
               target="_blank"
+              rel="noopener"
               class="transition-colors duration-150 ease-out text-[#F70000]"
             >
               <!-- <i class="fab fa-youtube fa-2x"></i> -->
@@ -53,6 +55,7 @@
             <a
               href="https://www.facebook.com/ao20oficial"
               target="_blank"
+              rel="noopener"
               class="transition-colors duration-150 ease-out text-[#1873EB]"
             >
               <!-- <i class="fab fa-facebook fa-2x"></i> -->
@@ -61,6 +64,7 @@
             <a
               href="https://instagram.com/ao20oficial"
               target="_blank"
+              rel="noopener"
               class="transition-colors duration-150 ease-out text-[#DC3A60]"
             >
               <!-- <i class="fab fa-instagram fa-2x"></i> -->
@@ -69,10 +73,20 @@
             <a
               href="http://twitter.com/ao20oficial"
               target="_blank"
+              rel="noopener"
               class="transition-colors duration-150 ease-out text-[#009DED]"
             >
               <!-- <i class="fab fa-twitter fa-2x"></i> -->
               <img src="@/assets/img/ico-twitter.png" alt="icono twitter" class="w-8 lg:w-20" />
+            </a>
+            <a
+              href="https://elmesonhostigado.com/foro"
+              target="_blank"
+              rel="noopener"
+              class="transition-colors duration-150 ease-out text-[#009DED]"
+            >
+              <!-- <i class="fab fa-twitter fa-2x"></i> -->
+              <img src="@/assets/img/ico-forum.png" alt="icono foro" class="w-8 lg:w-20" />
             </a>
             <!-- <a href="#" target="_blank" class="transition-colors duration-150 ease-out hover:text-primary">
               <i class="fab fa-instagram"></i>
@@ -84,32 +98,29 @@
       <div class="divider2"></div>
     </section>
 
-    <div class="container mb-16 lg:mb-24">
-      <p class="uppercase tracking-wider text-xl text-center" v-if="$store.state.isGameOnline">
-        <span class="text-4xl font-bold">{{ $store.state.onlineCount }}</span
-        ><br />
-        usuarios online
-      </p>
-    </div>
-
     <section id="juga-gratis" class="container mb-16 md:mb-24">
-      <h2 class="text-4xl text-gr gr-gold md:text-6xl text-center mb-4 md:mb-24">¡Jugá Gratis!</h2>
+      <h2 class="section-title text-gr gr-gold text-center mb-4 md:mb-10">¡Jugá Gratis!</h2>
 
-      <div class="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-24">
-        <RegisterForm class="order-last" />
-
-        <div class="flex flex-col items-center mt-16 lg:mt-24 xl:mt-32 order-first">
+      <div class="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
+        <div class="flex flex-col items-center mt-16 lg:mt-24 xl:mt-32">
           <div class="relative mb-4 z-10">
-            <a
-              id="download-btn"
-              :href="$prismic.asLink(homePage.data.installer_link)"
-              class="btn btn-silver sm:text-xl lg:text-2xl xl:text-3xl py-5 glow"
-              >Descargar</a
-            >
+            <a id="download-btn" :href="link(homePage.data.installer_link)" class="btn btn-cta">Descargar</a>
           </div>
+
           <!-- <img src="@/assets/img/wings.png" alt class="absolute top-0 inset-x-auto" /> -->
-          <p class="text-sm text-gray-600">Sólo disponible para Windows</p>
+          <p class="text-sm text-gray-600 mb-6 lg:mb-16">Sólo disponible para Windows</p>
+
+          <div v-if="homePage.data.mediafire_installer_link.url" class="flex flex-col items-center gap-y-4 text-center">
+            <p class="text-xl leading-none">También podés descargar el instalador de los siguientes mirrors</p>
+            <a :href="link(homePage.data.mediafire_installer_link)" target="_blank" rel="noopener">
+              <img src="~/assets/img/mediafire-logo.png" alt="Logo Mediafire" />
+            </a>
+          </div>
+
+          <!-- <pre>{{ homePage.data }}</pre> -->
         </div>
+
+        <RegisterForm />
       </div>
     </section>
 
@@ -120,7 +131,7 @@
       class="container grid items-center grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-x-12 mb-12 lg:mb-0"
     >
       <div class="flex flex-col gap-y-6 col-span-1 order-2 lg:order-1 md:col-span-4 lg:col-span-8">
-        <h2 class="text-4xl text-gr gr-gold">El primer MMORPG 100% argentino</h2>
+        <h2 class="text-4xl text-gr gr-gold text-center lg:text-left">El primer MMORPG 100% argentino</h2>
         <p class="text-xl">
           Argentum es un juego online multijugador, donde podés tomar el rol de un guerrero, mago, paladín y muchas
           otras clases, y explorar las tierras míticas de Argentum.
@@ -133,7 +144,7 @@
         </p>
         <p class="text-xl">
           De la mano de los creadores originales del juego,
-          <span class="text-primary font-bold">Argentum 20</span> resurje como una conmemoración por el cumplimiento de
+          <span class="text-primary font-bold">Argentum 20</span> resurge como una conmemoración por el cumplimiento de
           los 20 años de su origen.
         </p>
       </div>
@@ -143,8 +154,10 @@
       </figure>
     </section>
 
+    <div class="section-divider mb-16"></div>
+
     <section id="galeria" class="mb-10">
-      <h2 class="text-4xl md:text-6xl text-center text-gr gr-gold mb-16">Galería de imágenes</h2>
+      <h2 class="section-title text-center text-gr gr-gold mb-16">Galería de imágenes</h2>
       <div class="grid grid-cols-2 md:grid-cols-4">
         <a v-for="image in ingameImages" :key="image.alt" :href="image.url" data-fancybox="galeria">
           <!-- <div class="w-full overflow-hidden"> -->
@@ -163,7 +176,7 @@
     <div class="section-divider mb-16"></div>
 
     <section id="apoyanos" class="container max-w-screen-lg mx-auto">
-      <h3 class="text-4xl md:text-5xl lg:text-6xl text-gr gr-gold mb-10 text-center">¡Apoyanos!</h3>
+      <h3 class="section-title text-gr gr-gold mb-10 text-center">¡Apoyanos!</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 md:text-lg">
         <article class="flex flex-col gap-y-6">
           <h3 class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest">
@@ -175,7 +188,11 @@
             Progress, canales privados de Discord, colores in-game ¡y más!
           </p>
           <div class="hidden md:flex flex-grow"></div>
-          <a href="https://patreon.com/nolandstudios" target="_blank" class="btn btn-silver self-start text-base"
+          <a
+            href="https://patreon.com/nolandstudios"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-silver self-start text-base"
             >Convertite en Patron</a
           >
         </article>
@@ -189,7 +206,11 @@
             <p class="mb-3">Donándonos al menos un Cafecito, tenés acceso a la Beta.</p>
             <p>¡Podés pagar con Mercado Pago y todos los medios que ofrece!</p>
           </div>
-          <a href="https://cafecito.app/nolandstudios" target="_blank" class="btn btn-silver self-start text-base"
+          <a
+            href="https://cafecito.app/nolandstudios"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-silver self-start text-base"
             >Donar en Cafecito</a
           >
         </article>
@@ -244,6 +265,11 @@ export default {
         this.validatedMail = false;
       }, 6000);
     }
+  },
+  methods: {
+    link(prismicObject) {
+      return this.$prismic.asLink(prismicObject);
+    },
   },
 };
 </script>

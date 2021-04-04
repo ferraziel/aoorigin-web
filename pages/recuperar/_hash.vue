@@ -10,7 +10,7 @@
           id="password"
           required
           v-model="$v.password.$model"
-          class="text-input text-3xl w-full"
+          class="text-3xl w-full"
           :class="{ 'input-error': $v.password.$error }"
         />
         <div class="text-sm text-red-500" v-if="!$v.password.minLength">
@@ -27,7 +27,7 @@
           id="repeat-password"
           required
           v-model="repeatedPassword"
-          class="text-input text-3xl w-full"
+          class="text-3xl w-full"
           :class="{ 'input-error': password != repeatedPassword }"
         />
         <div class="text-sm text-red-500" v-if="password != repeatedPassword">Las contraseñas deben coincidir.</div>
