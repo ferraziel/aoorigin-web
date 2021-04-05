@@ -124,11 +124,11 @@
       </div>
     </section>
 
-    <div class="section-divider mt-16 mb-2"></div>
+    <div class="section-divider my-16"></div>
 
     <section
       id="info"
-      class="container grid items-center grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-x-12 mb-12 lg:mb-0"
+      class="max-w-screen-xl mx-auto container grid items-center grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-x-12 mb-12 lg:mb-0"
     >
       <div class="flex flex-col gap-y-6 col-span-1 order-2 lg:order-1 md:col-span-4 lg:col-span-8">
         <h2 class="text-4xl text-gr gr-gold text-center lg:text-left">El primer MMORPG 100% argentino</h2>
@@ -154,7 +154,7 @@
       </figure>
     </section>
 
-    <div class="section-divider mb-16"></div>
+    <div class="section-divider my-16"></div>
 
     <section id="galeria" class="mb-10">
       <h2 class="section-title text-center text-gr gr-gold mb-16">Galería de imágenes</h2>
