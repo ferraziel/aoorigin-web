@@ -110,14 +110,15 @@
           <!-- <img src="@/assets/img/wings.png" alt class="absolute top-0 inset-x-auto" /> -->
           <p class="text-sm text-gray-600 mb-6 lg:mb-16">Sólo disponible para Windows</p>
 
-          <div v-if="homePage.data.mediafire_installer_link.url" class="flex flex-col items-center gap-y-4 text-center">
+          <section class="flex flex-col gap-y-4 text-center" v-if="mirrorLinks.length">
             <p class="text-xl leading-none">También podés descargar el instalador de los siguientes mirrors</p>
-            <a :href="link(homePage.data.mediafire_installer_link)" target="_blank" rel="noopener">
-              <img src="~/assets/img/mediafire-logo.png" alt="Logo Mediafire" />
-            </a>
-          </div>
 
-          <!-- <pre>{{ homePage.data }}</pre> -->
+            <div v-for="mirror in mirrorLinks" class="flex flex-col items-center gap-y-6 text-center">
+              <a :href="mirror.mirror_link.url" target="_blank" rel="noopener">
+                <img :src="mirror.mirror_img.url" :alt="mirror.mirror_img.alt" />
+              </a>
+            </div>
+          </section>
         </div>
 
         <RegisterForm />
@@ -240,9 +241,12 @@ export default {
       },
     }));
 
+    const mirrorLinks = homePage.data.body.filter((s) => s.slice_type === "mirror_link").map((s) => s.primary);
+
     return {
       homePage,
       ingameImages,
+      mirrorLinks,
     };
   },
   data() {
