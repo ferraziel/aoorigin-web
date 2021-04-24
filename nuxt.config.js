@@ -56,14 +56,6 @@ export default {
       },
     ],
     script: [
-      // {
-      //   src: "https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js",
-      //   async: true,
-      // },
-      // {
-      //   src: "https://www.google.com/recaptcha/api.js",
-      //   async: true,
-      // },
       {
         vmid: "widgetbot",
         src: "https://cdn.jsdelivr.net/npm/@widgetbot/crate@3",
