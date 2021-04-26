@@ -185,8 +185,7 @@
             Patreon
           </h3>
           <p>
-            Convertite en un Patron para obtener beneficios exclusivos, como acceso a la Beta, contenido Work in
-            Progress, canales privados de Discord, colores in-game ¡y más!
+            Convertite en un Patron para obtener beneficios exclusivos in-game y acceso a canales privados de Discord
           </p>
           <div class="hidden md:flex flex-grow"></div>
           <a
@@ -204,7 +203,7 @@
             Cafecito
           </h3>
           <div class="flex-grow">
-            <p class="mb-3">Donándonos al menos un Cafecito, tenés acceso a la Beta.</p>
+            <p class="mb-3">Ayudanos con un Cafecito (psst, ¡lo creó Midraks, un jugador de AO!).</p>
             <p>¡Podés pagar con Mercado Pago y todos los medios que ofrece!</p>
           </div>
           <a
