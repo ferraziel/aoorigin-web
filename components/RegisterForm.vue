@@ -61,11 +61,7 @@
     </div>
 
     <div class="flex flex-col lg:flex-row gap-y-4 justify-between items-start">
-      <button
-        type="submit"
-        class="text-lg btn btn-silver self-start"
-        :disabled="registerStatus == 'PENDING' || $v.$invalid"
-      >
+      <button type="submit" class="btn btn-silver self-start" :disabled="registerStatus == 'PENDING' || $v.$invalid">
         Crear cuenta
       </button>
       <NuxtLink to="/recuperar" class="text-primary underline text-sm">¿Olvidaste tu contraseña?</NuxtLink>

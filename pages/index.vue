@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="-mt-32 -z-1">
     <header class="h-screen relative overflow-hidden" style="background: initial">
       <div
         class="container h-full flex justify-center items-center sticky z-20 py-16 sm:py-24 md:py-32 lg:py-40 xl:py-48"
@@ -99,7 +99,7 @@
     </section>
 
     <section id="juga-gratis" class="container mb-16 md:mb-24">
-      <h2 class="section-title text-gr gr-gold text-center mb-4 md:mb-10">¡Jugá Gratis!</h2>
+      <h2 class="section-title text-center mb-4 md:mb-10">¡Jugá Gratis!</h2>
 
       <div class="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
         <div class="flex flex-col items-center mt-16 lg:mt-24 xl:mt-32">
@@ -141,7 +141,7 @@
           Nació hace 20 años como un juego
           <span class="text-primary font-bold">totalmente desarrollado en Argentina</span> para luego ser liberado a la
           comunidad de manera gratuita. El código es accesible a todos, permitiendo así su evolución y continuidad en el
-          tiempo
+          tiempo.
         </p>
         <p class="text-xl">
           De la mano de los creadores originales del juego,
@@ -158,7 +158,7 @@
     <div class="section-divider my-16"></div>
 
     <section id="galeria" class="mb-10">
-      <h2 class="section-title text-center text-gr gr-gold mb-16">Galería de imágenes</h2>
+      <h2 class="section-title text-center mb-16">Galería de imágenes</h2>
       <div class="grid grid-cols-2 md:grid-cols-4">
         <a v-for="image in ingameImages" :key="image.alt" :href="image.url" data-fancybox="galeria">
           <!-- <div class="w-full overflow-hidden"> -->
@@ -177,7 +177,7 @@
     <div class="section-divider mb-16"></div>
 
     <section id="apoyanos" class="container max-w-screen-lg mx-auto">
-      <h3 class="section-title text-gr gr-gold mb-10 text-center">¡Apoyanos!</h3>
+      <h3 class="section-title mb-10 text-center">¡Apoyanos!</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 md:text-lg">
         <article class="flex flex-col gap-y-6">
           <h3 class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest">
@@ -278,7 +278,16 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply tracking-wider uppercase;
+}
+
 #download-btn {
   transition: all 150ms ease-out;
   box-shadow: 0 0 20px rgba(199, 131, 0, 0.4);

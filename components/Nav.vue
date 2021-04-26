@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full fixed z-50">
+  <header class="w-full fixed z-50 top-0 left-0">
     <nav class="bg-black bg-opacity-75 py-2 w-full">
       <div class="container flex w-full justify-between items-center">
         <NuxtLink to="/" class="flex items-center gap-2 main-title flex-shrink-1" style="z-index: 999">
@@ -14,28 +14,14 @@
             </li>
           </ul>
 
-          <div class="flex items-center gap-x-4 text-3xl">
-            <p class="uppercase tracking-wide text-sm">
+          <div class="flex items-center gap-x-4">
+            <p class="uppercase tracking-wide text-sm hidden lg:block">
               <span v-if="$store.state.isGameOnline">{{ $store.state.onlineCount || 0 }} usuarios online</span>
               <span v-else class="text-white p-2 bg-red-500 font-bold">Servidor Offline</span>
             </p>
-            <!-- <a
-                href="https://discord.gg/e3juVbF"
-                target="_blank"
-                class="transition-colors duration-150 ease-out hover:text-primary"
-              >
-                <i class="fab fa-discord"></i>
-              </a>
-              <a
-                href="https://www.youtube.com/c/PabloMarquez-aka-morgolock"
-                target="_blank"
-                class="transition-colors duration-150 ease-out hover:text-primary"
-              >
-                <i class="fab fa-youtube"></i>
-              </a> -->
-            <!-- <a href="#" target="_blank" class="transition-colors duration-150 ease-out hover:text-primary">
-                <i class="fab fa-instagram"></i>
-              </a> -->
+
+            <NuxtLink to="/cuenta" v-if="$auth.loggedIn">Mi cuenta</NuxtLink>
+            <NuxtLink v-else to="/login" class="btn btn-silver border px-2 py-1 text-sm">Acceder</NuxtLink>
           </div>
         </div>
 
@@ -82,8 +68,8 @@ export default {
       showMobileMenu: false,
       links: [
         {
-          label: "Inicio",
-          route: "/",
+          label: "Noticias",
+          route: "/noticias",
         },
         {
           label: "Jugá gratis",

@@ -23,6 +23,11 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: "Reglamento",
+    };
+  },
   data() {
     return {
       rules: [

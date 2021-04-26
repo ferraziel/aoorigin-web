@@ -10,14 +10,14 @@
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
+    "@nuxtjs/auth-next": "5.0.0-1616003482.75c20e6",
     "@nuxtjs/axios": "^5.13.1",
+    "@nuxtjs/dayjs": "^1.4.0",
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/recaptcha": "^1.0.4",
     "@nuxtjs/sitemap": "^2.4.0",
     "jquery": "^3.6.0",
     "nuxt": "^2.15.4",
-    "swiper": "^6.5.3",
-    "vue-awesome-swiper": "^4.1.1",
     "vuelidate": "^0.7.6"
   },
   "devDependencies": {
