@@ -1,0 +1,48 @@
+<template>
+  <div class="container max-w-screen-lg">
+    <article class="news">
+      <header class="pb-3 border-b border-gr border-gr-silver">
+        <h1 class="text-4xl md:text-5xl text-primary mb-3 md:mb-6">{{ $prismic.asText(news.data.title) }}</h1>
+        <div class="flex items-center text-lg md:text-xl">
+          <time :datetime="news.data.date" :title="news.data.date">
+            <span v-if="$dayjs(news.data.date).year() != $dayjs().year()">{{
+              $dayjs(news.data.date).format("DD [de] MMMM, YYYY")
+            }}</span>
+            <span v-else>{{ $dayjs(news.data.date).format("DD [de] MMMM") }}</span>
+          </time>
+          <span class="mx-2">-</span>
+          <span>{{ $dayjs(news.data.date).format("HH:mm") }}</span>
+          <span class="mx-2">-</span>
+          <p>por {{ $prismic.asText(news.data.editor.data.name) }}</p>
+        </div>
+      </header>
+      <prismic-rich-text :field="news.data.body" class="news_body mt-8 md:mt-12" />
+    </article>
+  </div>
+</template>
+
+<script>
+export default {
+  async asyncData({ $prismic, params }) {
+    const graphQuery = `
+    {
+      news {
+        title
+        date
+        body
+        editor {
+          name
+        }
+      }
+    }`;
+
+    const news = await $prismic.api.getByUID("news", params.uid, {
+      graphQuery,
+    });
+
+    return { news };
+  },
+};
+</script>
+
+<style></style>

@@ -67,6 +67,10 @@ export default {
     ],
     __dangerouslyDisableSanitizers: ["script"],
   },
+  loading: {
+    color: "var(--primary)",
+    height: "3px",
+  },
   /*
    ** Global CSS
    */
@@ -147,6 +151,7 @@ export default {
     plugins: [
       // "utc", // import 'dayjs/plugin/utc'
       "timezone", // import 'dayjs/plugin/timezone'
+      "relativeTime",
     ],
   },
   recaptcha: {

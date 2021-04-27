@@ -1,44 +1,26 @@
 <template>
   <div class="container">
-    <div v-if="$fetchState.pending" class="text-center">
-      <LoadingSpinner />
-    </div>
-
-    <section v-else-if="news.results.length" class="max-w-screen-md mx-auto">
-      <article
+    <ul
+      v-if="news.results.length"
+      class="max-w-screen-md mx-auto bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-6"
+    >
+      <NuxtLink
         v-for="curNews in news.results"
         :key="curNews.uid"
         :id="curNews.uid"
-        class="news bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-12 mb-6 md:mb-12"
+        :to="`/noticias/${curNews.uid}`"
+        class="group flex flex-col p-3 md:p-6 border-b last:border-b-0 border-gray-700 hover:bg-white hover:bg-opacity-10 transition-colors duration-200 ease-out"
       >
-        <header class="pb-3 border-b border-gr border-gr-silver">
-          <h1 class="text-4xl md:text-5xl text-primary mb-3 md:mb-6">{{ $prismic.asText(curNews.data.title) }}</h1>
+        <h1 class="text-2xl text-primary group-hover:text-white transition-colors duration-200 ease-out">
+          {{ $prismic.asText(curNews.data.title) }}
+        </h1>
+        <time :datetime="curNews.data.date" :title="curNews.data.date">
+          {{ $dayjs(curNews.data.date).fromNow() }}
+        </time>
+      </NuxtLink>
+    </ul>
 
-          <div class="flex items-center text-lg md:text-xl">
-            <time :datetime="curNews.data.date" :title="curNews.data.date">
-              <span v-if="$dayjs(curNews.data.date).year() != $dayjs().year()">{{
-                $dayjs(curNews.data.date).format("DD [de] MMMM, YYYY")
-              }}</span>
-              <span v-else>{{ $dayjs(curNews.data.date).format("DD [de] MMMM") }}</span>
-            </time>
-
-            <span class="mx-2">-</span>
-
-            <span>{{ $dayjs(curNews.data.date).format("HH:mm") }}</span>
-
-            <span class="mx-2">-</span>
-
-            <p>por {{ $prismic.asText(curNews.data.editor.data.name) }}</p>
-          </div>
-        </header>
-
-        <prismic-rich-text :field="curNews.data.body" class="news_body mt-8 md:mt-12" />
-        <!-- <pre>{{ curNews }}</pre> -->
-      </article>
-      <!-- <pre>{{ news }}</pre> -->
-    </section>
-
-    <section v-else class="text-center">
+    <section v-else class="text-center mt-24">
       <p class="text-2xl">Aún no hay noticias.</p>
     </section>
   </div>
@@ -46,12 +28,11 @@
 
 <script>
 export default {
-  async fetch() {
+  async asyncData({ $prismic }) {
     const graphQuery = `
     {
       news {
         title
-        body
         date
         editor {
           name
@@ -59,19 +40,16 @@ export default {
       }
     }`;
 
-    this.news = await this.$prismic.api.query(this.$prismic.predicates.at("document.type", "news"), {
+    const news = await $prismic.api.query($prismic.predicates.at("document.type", "news"), {
       graphQuery,
       orderings: "[my.news.date desc]",
     });
+
+    return { news };
   },
   head() {
     return {
       title: "Noticias",
-    };
-  },
-  data() {
-    return {
-      news: [],
     };
   },
 };
