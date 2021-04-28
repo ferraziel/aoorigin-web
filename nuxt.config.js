@@ -119,7 +119,7 @@ export default {
     "@nuxtjs/dayjs",
     "@nuxtjs/recaptcha",
     "@nuxtjs/gtm",
-    "@nuxtjs/sitemap",
+    // "@nuxtjs/sitemap",
   ],
   axios: {
     baseURL: process.env.AXIOS_BASE_URL,
@@ -162,6 +162,10 @@ export default {
   gtm: {
     id: "GTM-NDQTJ6H",
   },
-  sitemap: {},
+  // sitemap: {
+  //   hostname: "https://ao20.com.ar",
+  //   gzip: true,
+  //   routes: createSitemapRoutes,
+  // },
   build: {},
 };

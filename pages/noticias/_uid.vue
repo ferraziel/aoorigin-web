@@ -20,29 +20,37 @@
     </article>
   </div>
 </template>
-
 <script>
 export default {
-  async asyncData({ $prismic, params }) {
+  async asyncData({ $prismic, params, error }) {
     const graphQuery = `
-    {
-      news {
-        title
-        date
-        body
-        editor {
-          name
+      {
+        news {
+          title
+          date
+          body
+          editor {
+            name
+          }
         }
-      }
-    }`;
+      }`;
 
     const news = await $prismic.api.getByUID("news", params.uid, {
       graphQuery,
     });
 
+    if (!news) {
+      return error({
+        statusCode: 404,
+      });
+    }
+
     return { news };
+  },
+  head() {
+    return {
+      title: this.$prismic.asText(this.news.data.title),
+    };
   },
 };
 </script>
-
-<style></style>
