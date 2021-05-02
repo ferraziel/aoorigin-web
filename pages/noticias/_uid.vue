@@ -4,14 +4,12 @@
       <header class="pb-3 border-b border-gr border-gr-silver">
         <h1 class="text-4xl md:text-5xl text-primary mb-3 md:mb-6">{{ $prismic.asText(news.data.title) }}</h1>
         <div class="flex items-center text-lg md:text-xl">
-          <time :datetime="news.data.date" :title="news.data.date">
+          <time :datetime="news.data.date">
             <span v-if="$dayjs(news.data.date).year() != $dayjs().year()">{{
-              $dayjs(news.data.date).format("DD [de] MMMM, YYYY")
+              $dayjs(news.data.date).format("DD [de] MMMM [de] YYYY [a las] HH:mm")
             }}</span>
-            <span v-else>{{ $dayjs(news.data.date).format("DD [de] MMMM") }}</span>
+            <span v-else>{{ $dayjs(news.data.date).format("DD [de] MMMM [a las] HH:mm") }}</span>
           </time>
-          <span class="mx-2">-</span>
-          <span>{{ $dayjs(news.data.date).format("HH:mm") }}</span>
           <span class="mx-2">-</span>
           <p>por {{ $prismic.asText(news.data.editor.data.name) }}</p>
         </div>

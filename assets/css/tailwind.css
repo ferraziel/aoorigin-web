@@ -20,7 +20,20 @@
   }
 
   body {
-    @apply text-white overflow-x-hidden md:text-lg tracking-wide;
+    font-feature-settings: "lnum";
+    @apply text-white overflow-x-hidden tracking-wide;
+  }
+
+  @screen xl {
+    html {
+      font-size: 18px;
+    }
+  }
+
+  @screen 2xl {
+    html {
+      font-size: 20px;
+    }
   }
 
   h1,

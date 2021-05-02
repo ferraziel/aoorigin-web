@@ -14,7 +14,10 @@
         <h1 class="text-2xl text-primary group-hover:text-white transition-colors duration-200 ease-out">
           {{ $prismic.asText(curNews.data.title) }}
         </h1>
-        <time :datetime="curNews.data.date" :title="curNews.data.date">
+        <time
+          :datetime="curNews.data.date"
+          :title="$dayjs(curNews.data.date).format('DD [de] MMMM [de] YYYY [a las] HH:mm')"
+        >
           {{ $dayjs(curNews.data.date).fromNow() }}
         </time>
       </NuxtLink>
