@@ -20,6 +20,7 @@
   }
 
   body {
+    font-feature-settings: "lnum";
     @apply text-white overflow-x-hidden tracking-wide;
   }
 
