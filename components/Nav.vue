@@ -72,6 +72,10 @@ export default {
           route: "/noticias",
         },
         {
+          label: "Mercado",
+          route: "/mao",
+        },
+        {
           label: "Jugá gratis",
           route: "/#juga-gratis",
         },

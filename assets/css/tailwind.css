@@ -228,6 +228,10 @@
   .section-title {
     @apply text-4xl md:text-5xl lg:text-6xl text-gr gr-gold py-2;
   }
+
+  .border-window {
+    @apply border-2 border-gr border-gr-silver;
+  }
 }
 
 @layer utilities {

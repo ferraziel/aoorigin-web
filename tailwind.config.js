@@ -12,6 +12,12 @@ module.exports = {
           ...colors.trueGray,
           1000: "#0F0F0F",
         },
+        green: {
+          health: "#49D860",
+        },
+        red: {
+          health: "#D84949",
+        },
       },
       spacing: {
         96: "24rem",
