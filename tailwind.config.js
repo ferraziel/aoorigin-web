@@ -10,7 +10,7 @@ module.exports = {
         brown: "var(--brown)",
         gray: {
           ...colors.trueGray,
-          1000: "#111111",
+          1000: "#0F0F0F",
         },
       },
       spacing: {

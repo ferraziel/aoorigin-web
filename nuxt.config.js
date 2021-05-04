@@ -118,6 +118,7 @@ export default {
     "@nuxtjs/auth-next",
     "@nuxtjs/dayjs",
     "@nuxtjs/recaptcha",
+    "@nuxtjs/markdownit",
     "@nuxtjs/gtm",
     // "@nuxtjs/sitemap",
   ],
@@ -158,6 +159,12 @@ export default {
     siteKey: "6LdCSd4ZAAAAACG2A4w2_Zv5GIzIaKA1gBAW_usJ",
     version: 3,
     hideBadge: true,
+  },
+  markdownit: {
+    runtime: true,
+    linkify: true,
+    typographer: true,
+    use: ["markdown-it-container", "markdown-it-attrs"],
   },
   gtm: {
     id: "GTM-NDQTJ6H",
