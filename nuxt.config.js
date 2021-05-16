@@ -119,6 +119,7 @@ export default {
     "@nuxtjs/dayjs",
     "@nuxtjs/recaptcha",
     "@nuxtjs/gtm",
+    ['nuxt-matomo', { matomoUrl: '//analytics.ao20.com.ar/', siteId: 1 }],
     // "@nuxtjs/sitemap",
   ],
   axios: {
