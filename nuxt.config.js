@@ -58,7 +58,7 @@ export default {
     style: [
       {
         cssText:
-          'figure.character-head { width: calc(var(--w) * var(--scale)); height: calc(var(--h) * var(--scale)); background: url("/assets/img/heads_trimmed.png") no-repeat; background-position: top calc(var(--y) * var(--scale)) left calc(var(--x) * var(--scale)); background-size: calc(512px * var(--scale)); image-rendering: crisp-edges; image-rendering: pixelated; }',
+          "figure.character-head { width: calc(var(--w) * var(--scale)); height: calc(var(--h) * var(--scale)); background: url(/assets/img/heads_trimmed.png) no-repeat; background-position: top calc(var(--y) * var(--scale)) left calc(var(--x) * var(--scale)); background-size: calc(512px * var(--scale)); image-rendering: crisp-edges; image-rendering: pixelated; }",
         type: "text/css",
       },
     ],
