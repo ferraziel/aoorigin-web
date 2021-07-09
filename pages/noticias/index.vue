@@ -112,9 +112,14 @@ export default {
   list-style-type: decimal;
 }
 
+.news_body > ul,
+.news_body > ol {
+  @apply my-6;
+}
+
 .news ul,
 .news ol {
-  @apply my-6 pl-4;
+  @apply pl-4;
 }
 
 .news ul > li,

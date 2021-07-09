@@ -14,7 +14,11 @@
           <p>por {{ $prismic.asText(news.data.editor.data.name) }}</p>
         </div>
       </header>
-      <prismic-rich-text :field="news.data.body" class="news_body mt-8 md:mt-12" />
+
+      <main class="news_body mt-8 md:mt-12">
+        <prismic-rich-text v-if="news.data.body" :field="news.data.body" />
+        <div v-if="news.data.body_md" v-html="$md.render($prismic.asText(news.data.body_md))"></div>
+      </main>
     </article>
   </div>
 </template>
@@ -27,6 +31,7 @@ export default {
           title
           date
           body
+          body_md
           editor {
             name
           }

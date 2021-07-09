@@ -55,6 +55,13 @@ export default {
         href: "https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css",
       },
     ],
+    style: [
+      {
+        cssText:
+          'figure.character-head { width: calc(var(--w) * var(--scale)); height: calc(var(--h) * var(--scale)); background: url("/assets/img/heads_trimmed.png") no-repeat; background-position: top calc(var(--y) * var(--scale)) left calc(var(--x) * var(--scale)); background-size: calc(512px * var(--scale)); image-rendering: crisp-edges; image-rendering: pixelated; }',
+        type: "text/css",
+      },
+    ],
     script: [
       {
         vmid: "widgetbot",
@@ -119,7 +126,7 @@ export default {
     "@nuxtjs/dayjs",
     "@nuxtjs/recaptcha",
     "@nuxtjs/gtm",
-    ['nuxt-matomo', { matomoUrl: '//analytics.ao20.com.ar/', siteId: 1 }],
+    ["nuxt-matomo", { matomoUrl: "//analytics.ao20.com.ar/", siteId: 1 }],
     // "@nuxtjs/sitemap",
   ],
   axios: {

@@ -12,16 +12,33 @@
             <li v-for="link in links" :key="link.route">
               <NuxtLink :to="link.route" class="inline-block py-2 hover:text-gray-100">{{ link.label }}</NuxtLink>
             </li>
+            <li>
+              <a href="https://wiki.ao20.com.ar/es/home" target="_blank" class="inline-block py-2 hover:text-gray-100"
+                >Manual</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.elmesonhostigado.com/foro/"
+                target="_blank"
+                class="inline-block py-2 hover:text-gray-100"
+                >Foro</a
+              >
+            </li>
           </ul>
 
           <div class="flex items-center gap-x-4">
+            <NuxtLink to="/#juga-gratis" class="hidden lg:inline-block btn btn-silver border px-2 py-1 text-sm"
+              >Descargar</NuxtLink
+            >
+
             <p class="uppercase tracking-wide text-sm hidden lg:block">
               <span v-if="$store.state.isGameOnline">{{ $store.state.onlineCount || 0 }} usuarios online</span>
               <span v-else class="text-white p-2 bg-red-500 font-bold">Servidor Offline</span>
             </p>
 
             <NuxtLink to="/cuenta" v-if="$auth.loggedIn">Mi cuenta</NuxtLink>
-            <NuxtLink v-else to="/login" class="btn btn-silver border px-2 py-1 text-sm">Acceder</NuxtLink>
+            <NuxtLink v-else to="/login" class="btn btn-silver border px-2 py-1 text-sm">Cuenta</NuxtLink>
           </div>
         </div>
 
@@ -48,12 +65,15 @@
       >
         <ul class="text-3xl uppercase tracking-wider">
           <li v-for="(link, i) in links" :key="i" @click="showMobileMenu = false">
-            <NuxtLink
-              :to="link.route"
-              class="inline-block px-8 py-6 w-full border-b border-gray-700 hover:text-gray-100"
-              :class="{ 'border-t': i == 0 }"
-              >{{ link.label }}</NuxtLink
-            >
+            <NuxtLink :to="link.route" class="mobile-nav-link" :class="{ 'border-t': i == 0 }">{{
+              link.label
+            }}</NuxtLink>
+          </li>
+          <li>
+            <a href="https://wiki.ao20.com.ar/es/home" target="_blank" class="mobile-nav-link">Manual</a>
+          </li>
+          <li>
+            <a href="https://www.elmesonhostigado.com/foro/" target="_blank" class="mobile-nav-link">Foro</a>
           </li>
         </ul>
       </nav>
@@ -72,20 +92,12 @@ export default {
           route: "/noticias",
         },
         {
-          label: "Jugá gratis",
-          route: "/#juga-gratis",
+          label: "Ranking",
+          route: "/ranking",
         },
         {
-          label: "Qué es AO20",
-          route: "/#info",
-        },
-        {
-          label: "Galería",
-          route: "/#galeria",
-        },
-        {
-          label: "Apoyanos",
-          route: "/#apoyanos",
+          label: "Staff",
+          route: "/staff",
         },
       ],
     };
@@ -99,10 +111,14 @@ export default {
   },
   methods: {
     toggleMenu() {
-      alert("hi");
+      // alert("hi");
     },
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+.mobile-nav-link {
+  @apply inline-block px-8 py-6 w-full border-b border-gray-700 hover:text-gray-100;
+}
+</style>

@@ -113,7 +113,11 @@
           <section class="flex flex-col gap-y-4 text-center" v-if="mirrorLinks.length">
             <p class="text-xl leading-none">También podés descargar el instalador de los siguientes mirrors</p>
 
-            <div v-for="mirror in mirrorLinks" class="flex flex-col items-center gap-y-6 text-center">
+            <div
+              v-for="mirror in mirrorLinks"
+              :key="mirror.mirror_link.url"
+              class="flex flex-col items-center gap-y-6 text-center"
+            >
               <a :href="mirror.mirror_link.url" target="_blank" rel="noopener">
                 <img :src="mirror.mirror_img.url" :alt="mirror.mirror_img.alt" />
               </a>

@@ -8,6 +8,7 @@ module.exports = {
         primary: "var(--primary)",
         silver: "var(--silver)",
         brown: "var(--brown)",
+        bronze: "var(--bronze)",
         gray: {
           ...colors.trueGray,
           1000: "#111111",

@@ -7,6 +7,13 @@
     --primary: #e6b919;
     --silver: #d3d3d3;
     --brown: #392919;
+    --bronze: #ba5f37;
+
+    --x: 0;
+    --y: 0;
+    --w: 0;
+    --h: 0;
+    --scale: 0;
   }
 
   * {
@@ -48,7 +55,8 @@
   input[type="text"],
   input[type="email"],
   input[type="password"],
-  input[type="number"] {
+  input[type="number"],
+  select {
     @apply py-2 px-3 border bg-brown outline-none;
     border-image-slice: 1;
     border-image-source: linear-gradient(to right, #666, #fff, #666);
@@ -58,7 +66,8 @@
   input[type="text"]:focus,
   input[type="email"]:focus,
   input[type="password"]:focus,
-  input[type="number"]:focus {
+  input[type="number"]:focus,
+  select:focus {
     @apply outline-none;
     border-image-source: linear-gradient(to right, #8c5d00, #ffbe15, #8c5d00);
   }
