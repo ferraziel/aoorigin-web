@@ -10,7 +10,7 @@
         <li>Alejandro Cordara "Animal"</li>
       </ul>
 
-      <h2>Desarrollo Cliente y Servidor</h2>
+      <h2>Desarrollo del Juego</h2>
       <ul>
         <li>Alexis Carballo "WyroX"</li>
         <li>Joaquín Ortíz "Jopi"</li>
@@ -45,6 +45,11 @@
       <h2>Diseño y Desarrollo Web</h2>
       <ul>
         <li>Bruno De Angelis "SimP"</li>
+      </ul>
+      
+      <h2>Ingeniero</h2>
+      <ul>
+        <li>Alexis Carballo "WyroX"</li>
       </ul>
 
       <h2>Arquitecto de Soluciones</h2>
