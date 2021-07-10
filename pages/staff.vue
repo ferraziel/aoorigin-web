@@ -12,7 +12,7 @@
 
       <h2>Desarrollo del Juego</h2>
       <ul>
-        <li>Alexis Carballo "WyroX"</li>
+        <li>Alexis Caraballo "WyroX"</li>
         <li>Joaquín Ortíz "Jopi"</li>
         <li>Martín Trionfetti "HarThaoS"</li>
         <li>Emiliano Mancuso "Emancu"</li>
@@ -52,9 +52,9 @@
         <li>Bruno De Angelis "SimP"</li>
       </ul>
       
-      <h2>Ingenieria</h2>
+      <h2>Ingeniería</h2>
       <ul>
-        <li>Alexis Carballo "WyroX"</li>
+        <li>Alexis Caraballo "WyroX"</li>
       </ul>
 
       <h2>Arquitecto DevOps</h2>
@@ -106,11 +106,11 @@
         <li>Agustín Pagani "Daylight"</li>
         <li>Xavier Viger Navarro "Sensui"</li>
         <li>Brian "About"</li>
-        <li>Gabriel "Ruthnar"</li>
-        <li>Sergio "Neosefirot"</li>
+        <li>Gabriel Aulicino "Ruthnar"</li>
+        <li>Sergio Perez "Neosefirot"</li>
         <li>Sebastián Avena "Linqen"</li>
         <li>Nicolás "Aikhio"</li>
-        <li>Erik "Ronin"</li>
+        <li>Erik Eleusippi "Ronin"</li>
         <li>Alejo "Centorios"</li>
       </ul>
       <span
