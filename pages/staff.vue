@@ -19,6 +19,11 @@
         <li>Fernando "Lord Fers"</li>
         <li>Lucas Recoaro "RecoX"</li>
       </ul>
+      
+      <h2>Desarrollo de Herramientas</h2>
+      <ul>
+        <li>Jorge Brayer "ReyarB"</li>
+      </ul>
 
       <h2>Diseño y Arte Gráfico</h2>
       <ul>
@@ -47,12 +52,12 @@
         <li>Bruno De Angelis "SimP"</li>
       </ul>
       
-      <h2>Ingeniero</h2>
+      <h2>Ingenieria</h2>
       <ul>
         <li>Alexis Carballo "WyroX"</li>
       </ul>
 
-      <h2>Arquitecto de Soluciones</h2>
+      <h2>Arquitecto DevOps</h2>
       <ul>
         <li>Lucas Recoaro "RecoX"</li>
       </ul>
@@ -66,7 +71,7 @@
       <ul>
         <li>Miguel Phinder "Baliam"</li>
         <li>Nicolás "Arandor"</li>
-        <li>Ricardo Campos "VoX"</li>
+        <li>Ricardo Campos "Vox"</li>
       </ul>
 
       <h2>Moderación de Comunidad</h2>
