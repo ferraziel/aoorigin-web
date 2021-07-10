@@ -109,6 +109,12 @@
 
           <!-- <img src="@/assets/img/wings.png" alt class="absolute top-0 inset-x-auto" /> -->
           <p class="text-sm text-gray-600 mb-6 lg:mb-16">Sólo disponible para Windows</p>
+          
+          <a class="text-sm text-gray-600 mb-6 lg:mb-16" href="https://www.mediafire.com/file/llx4bjgeia05tic/Instalador_AO20.exe/file">Link Auxiliar 1</p>
+          <br class="hidden lg:block" />
+          <a class="text-sm text-gray-600 mb-6 lg:mb-16" href="https://files.fm/u/g69decmqg">Link Auxiliar 2</p>
+          <br class="hidden lg:block" />
+          <a class="text-sm text-gray-600 mb-6 lg:mb-16" href="https://easyupload.io/88df2k">Link Auxiliar 3</p>
 
           <section class="flex flex-col gap-y-4 text-center" v-if="mirrorLinks.length">
             <p class="text-xl leading-none">También podés descargar el instalador de los siguientes mirrors</p>
