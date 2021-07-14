@@ -1,3 +1,6 @@
+// No Borrar, This is for the fullcalendar.io
+import PnpWebpackPlugin from "pnp-webpack-plugin";
+
 const description =
   "MMORPG 2D gratuito de fantasía medieval, hecho en Argentina. ¡Celebramos 20 años! Creá un personaje, subí de nivel, combatí, trabajá, ¡y viví aventuras únicas con tus amigos!";
 
@@ -175,5 +178,15 @@ export default {
   //   gzip: true,
   //   routes: createSitemapRoutes,
   // },
-  build: {},
+  
+  // This is for the fullcalendar.io
+  build: {
+    transpile: /@fullcalendar.*/, // always needed
+
+    // this `extend` callback is only needed if using Yarn Plug-n-Play
+    extend(config) {
+      config.resolve.plugins.push(PnpWebpackPlugin);
+      config.resolveLoader.plugins.push(PnpWebpackPlugin.moduleLoader(module));
+    }
+  }
 };
