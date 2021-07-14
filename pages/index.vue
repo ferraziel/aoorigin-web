@@ -32,6 +32,23 @@
 
       <div class="py-3 md:py-6 lg:py-12">
         <div class="container flex justify-center items-center gap-x-6 md:gap-x-10 lg:gap-x-20">
+          <h3 class="font-sans font-normal sm:text-lg md:text-2xl lg:text-4xl">Ultimas Noticias</h3>
+            <News-Bar />
+            <!-- <a href="#" target="_blank" class="transition-colors duration-150 ease-out hover:text-primary">
+              <i class="fab fa-instagram"></i>
+            </a> -->
+            
+        </div>
+      </div>
+
+      <div class="divider2"></div>
+    </section>
+
+    <section class="bg-gray-1000 mb-10">
+      <div class="divider2"></div>
+
+      <div class="py-3 md:py-6 lg:py-12">
+        <div class="container flex justify-center items-center gap-x-6 md:gap-x-10 lg:gap-x-20">
           <h3 class="font-sans font-normal sm:text-lg md:text-2xl lg:text-4xl">Seguinos</h3>
           <div class="flex items-center gap-x-2 lg:gap-x-12">
             <a
@@ -109,12 +126,6 @@
 
           <!-- <img src="@/assets/img/wings.png" alt class="absolute top-0 inset-x-auto" /> -->
           <p class="text-sm text-gray-600 mb-6 lg:mb-16">Sólo disponible para Windows</p>
-          
-          <a class="text-sm text-gray-600 mb-6 lg:mb-16" href="https://www.mediafire.com/file/llx4bjgeia05tic/Instalador_AO20.exe/file">Link Auxiliar 1</p>
-          <br class="hidden lg:block" />
-          <a class="text-sm text-gray-600 mb-6 lg:mb-16" href="https://files.fm/u/g69decmqg">Link Auxiliar 2</p>
-          <br class="hidden lg:block" />
-          <a class="text-sm text-gray-600 mb-6 lg:mb-16" href="https://easyupload.io/88df2k">Link Auxiliar 3</p>
 
           <section class="flex flex-col gap-y-4 text-center" v-if="mirrorLinks.length">
             <p class="text-xl leading-none">También podés descargar el instalador de los siguientes mirrors</p>
