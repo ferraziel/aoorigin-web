@@ -104,18 +104,16 @@
       <div class="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
         <div class="flex flex-col items-center mt-16 lg:mt-24 xl:mt-32">
           <div class="relative mb-4 z-10">
-            <a id="download-btn" :href="link(homePage.data.installer_link)" class="btn btn-cta">Descargar</a>
+            <!-- 
+            No borrar matomo_download por que se usa para contar descarga en analytics. 
+            https://matomo.org/faq/new-to-piwik/faq_47/
+            -->
+            <a id="download-btn" :href="link(homePage.data.installer_link)" class="btn btn-cta matomo_download">Descargar</a>
           </div>
 
           <!-- <img src="@/assets/img/wings.png" alt class="absolute top-0 inset-x-auto" /> -->
           <p class="text-sm text-gray-600 mb-6 lg:mb-16">Sólo disponible para Windows</p>
           
-          <a class="text-sm text-gray-600 mb-6 lg:mb-16" href="https://www.mediafire.com/file/llx4bjgeia05tic/Instalador_AO20.exe/file">Link Auxiliar 1</p>
-          <br class="hidden lg:block" />
-          <a class="text-sm text-gray-600 mb-6 lg:mb-16" href="https://files.fm/u/g69decmqg">Link Auxiliar 2</p>
-          <br class="hidden lg:block" />
-          <a class="text-sm text-gray-600 mb-6 lg:mb-16" href="https://easyupload.io/88df2k">Link Auxiliar 3</p>
-
           <section class="flex flex-col gap-y-4 text-center" v-if="mirrorLinks.length">
             <p class="text-xl leading-none">También podés descargar el instalador de los siguientes mirrors</p>
 
@@ -133,6 +131,15 @@
 
         <RegisterForm />
       </div>
+    </section>
+
+    <div class="section-divider my-16"></div>
+
+    <section id="calendario" class="container mb-16 md:mb-24">
+      <!-- <Calendar /> -->
+      <NuxtLink to="/calendario">
+        <h2 class="text-4xl text-gr gr-gold text-center lg:text-left">Calendario de Eventos</h2>
+      </NuxtLink>
     </section>
 
     <div class="section-divider my-16"></div>
