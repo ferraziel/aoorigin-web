@@ -135,8 +135,6 @@
 
     <div class="section-divider my-16"></div>
 
-    <div class="section-divider my-16"></div>
-
     <section
       id="info"
       class="max-w-screen-xl mx-auto container grid items-center grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-x-12 mb-12 lg:mb-0"
