@@ -99,10 +99,10 @@ export default {
           label: "Staff",
           route: "/staff",
         },
-        {
-          label: "Calendario Eventos",
-          route: "/calendario",
-        },
+        // {
+        //   label: "Calendario Eventos",
+        //   route: "/calendario",
+        // },
       ],
     };
   },

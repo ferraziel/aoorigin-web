@@ -135,13 +135,6 @@
 
     <div class="section-divider my-16"></div>
 
-    <section id="calendario" class="container mb-16 md:mb-24">
-      <!-- <Calendar /> -->
-      <NuxtLink to="/calendario">
-        <h2 class="text-4xl text-gr gr-gold text-center lg:text-left">Calendario de Eventos</h2>
-      </NuxtLink>
-    </section>
-
     <div class="section-divider my-16"></div>
 
     <section
