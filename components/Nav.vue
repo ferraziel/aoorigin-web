@@ -13,7 +13,10 @@
               <NuxtLink :to="link.route" class="inline-block py-2 hover:text-gray-100">{{ link.label }}</NuxtLink>
             </li>
             <li>
-              <a href="https://wiki.ao20.com.ar/es/home" target="_blank" class="inline-block py-2 hover:text-gray-100"
+              <a
+                href="https://wiki.ao20.com.ar/index.php?title=P%C3%A1gina_principal"
+                target="_blank"
+                class="inline-block py-2 hover:text-gray-100"
                 >Manual</a
               >
             </li>
