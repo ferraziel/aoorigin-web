@@ -32,6 +32,22 @@
 
       <div class="py-3 md:py-6 lg:py-12">
         <div class="container flex justify-center items-center gap-x-6 md:gap-x-10 lg:gap-x-20">
+          <News-Bar />
+          <!-- <a href="#" target="_blank" class="transition-colors duration-150 ease-out hover:text-primary">
+            <i class="fab fa-instagram"></i>
+          </a> -->
+
+        </div>
+      </div>
+
+      <div class="divider2"></div>
+    </section>
+
+    <section class="bg-gray-1000 mb-10">
+      <div class="divider2"></div>
+
+      <div class="py-3 md:py-6 lg:py-12">
+        <div class="container flex justify-center items-center gap-x-6 md:gap-x-10 lg:gap-x-20">
           <h3 class="font-sans font-normal sm:text-lg md:text-2xl lg:text-4xl">Seguinos</h3>
           <div class="flex items-center gap-x-2 lg:gap-x-12">
             <a
@@ -104,8 +120,8 @@
       <div class="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
         <div class="flex flex-col items-center mt-16 lg:mt-24 xl:mt-32">
           <div class="relative mb-4 z-10">
-            <!-- 
-            No borrar matomo_download por que se usa para contar descarga en analytics. 
+            <!--
+            No borrar matomo_download por que se usa para contar descarga en analytics.
             https://matomo.org/faq/new-to-piwik/faq_47/
             -->
             <a id="download-btn" :href="link(homePage.data.installer_link)" class="btn btn-cta matomo_download">Descargar</a>
@@ -113,16 +129,16 @@
 
           <!-- <img src="@/assets/img/wings.png" alt class="absolute top-0 inset-x-auto" /> -->
           <p class="text-sm text-gray-600 mb-6 lg:mb-16">Sólo disponible para Windows</p>
-          
+
           <section class="flex flex-col gap-y-4 text-center" v-if="mirrorLinks.length">
             <p class="text-xl leading-none">También podés descargar el instalador de los siguientes mirrors</p>
 
             <div
               v-for="mirror in mirrorLinks"
               :key="mirror.mirror_link.url"
-              class="flex flex-col items-center gap-y-6 text-center"
             >
               <a :href="mirror.mirror_link.url" target="_blank" rel="noopener">
+                Descargar ({{mirror.mirror_link.url}})
                 <img :src="mirror.mirror_img.url" :alt="mirror.mirror_img.alt" />
               </a>
             </div>
@@ -164,6 +180,8 @@
     </section>
 
     <div class="section-divider my-16"></div>
+
+    <Forum-Posts />
 
     <section id="galeria" class="mb-10">
       <h2 class="section-title text-center mb-16">Galería de imágenes</h2>
@@ -249,7 +267,7 @@ export default {
     }));
 
     const mirrorLinks = homePage.data.body.filter((s) => s.slice_type === "mirror_link").map((s) => s.primary);
-
+    // console.log(mirrorLinks);
     return {
       homePage,
       ingameImages,

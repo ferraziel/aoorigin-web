@@ -1,9 +1,11 @@
 <template>
   <div class="container">
+    <h1>Ultimas Noticias</h1>
     <ul
       v-if="news.length"
       class="max-w-screen-md mx-auto bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-6"
     >
+
       <a v-for="currentNew in news"
         :key="currentNew.id"
         :id="currentNew.id"
