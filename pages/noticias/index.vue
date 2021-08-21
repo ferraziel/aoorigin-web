@@ -1,26 +1,26 @@
 <template>
   <div class="container">
     <ul
-      v-if="news.results.length"
+      v-if="news.length"
       class="max-w-screen-md mx-auto bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-6"
     >
-      <NuxtLink
-        v-for="curNews in news.results"
-        :key="curNews.uid"
-        :id="curNews.uid"
-        :to="`/noticias/${curNews.uid}`"
+      <a v-for="currentNew in news"
+        :key="currentNew.id"
+        :id="currentNew.id"
+        :href="currentNew.link"
+        target="_blank"
         class="group flex flex-col p-3 md:p-6 border-b last:border-b-0 border-gray-700 hover:bg-white hover:bg-opacity-10 transition-colors duration-200 ease-out"
       >
         <h1 class="text-2xl text-primary group-hover:text-white transition-colors duration-200 ease-out">
-          {{ $prismic.asText(curNews.data.title) }}
+          {{ currentNew.title }}
         </h1>
         <time
-          :datetime="curNews.data.date"
-          :title="$dayjs(curNews.data.date).format('DD [de] MMMM [de] YYYY [a las] HH:mm')"
+          :datetime="currentNew.pubDate"
+          :title="$dayjs(currentNew.pubDate).format('DD [de] MMMM [de] YYYY [a las] HH:mm')"
         >
-          {{ $dayjs(curNews.data.date).fromNow() }}
+          {{ $dayjs(currentNew.pubDate).fromNow() }}
         </time>
-      </NuxtLink>
+      </a>
     </ul>
 
     <section v-else class="text-center mt-24">
@@ -30,25 +30,18 @@
 </template>
 
 <script>
+import parser from 'fast-xml-parser'
+
 export default {
-  async asyncData({ $prismic }) {
-    const graphQuery = `
-    {
-      news {
-        title
-        date
-        editor {
-          name
-        }
-      }
-    }`;
-
-    const news = await $prismic.api.query($prismic.predicates.at("document.type", "news"), {
-      graphQuery,
-      orderings: "[my.news.date desc]",
-    });
-
-    return { news };
+  data() {
+    return {
+      news: []
+    }
+  },
+  async fetch() {
+    const xmlRawData = await this.$axios.$get('https://www.elmesonhostigado.com/foro/external?type=rss2&nodeid=129')
+    const jsonObj = parser.parse(xmlRawData)
+    this.news = jsonObj.rss.channel.item;
   },
   head() {
     return {

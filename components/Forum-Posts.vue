@@ -1,32 +1,33 @@
 <template>
   <div class="container">
-    <h1>Ultimas Noticias</h1>
+    <h3 class="font-sans font-normal sm:text-lg md:text-2xl lg:text-4xl">Actividad del Meson Hostigado</h3>
+
     <ul
-      v-if="news.length"
+      v-if="posts.length"
       class="max-w-screen-md mx-auto bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-6"
     >
 
-      <a v-for="currentNew in news"
-        :key="currentNew.id"
-        :id="currentNew.id"
-        :href="currentNew.link"
+      <a v-for="post in posts"
+        :key="post.id"
+        :id="post.id"
+        :href="post.link"
         target="_blank"
         class="group flex flex-col p-3 md:p-6 border-b last:border-b-0 border-gray-700 hover:bg-white hover:bg-opacity-10 transition-colors duration-200 ease-out"
       >
         <h1 class="text-2xl text-primary group-hover:text-white transition-colors duration-200 ease-out">
-          {{ currentNew.title }}
+          {{ post.title }}
         </h1>
         <time
-          :datetime="currentNew.pubDate"
-          :title="$dayjs(currentNew.pubDate).format('DD [de] MMMM [de] YYYY [a las] HH:mm')"
+          :datetime="post.pubDate"
+          :title="$dayjs(post.pubDate).format('DD [de] MMMM [de] YYYY [a las] HH:mm')"
         >
-          {{ $dayjs(currentNew.pubDate).fromNow() }}
+          {{ $dayjs(post.pubDate).fromNow() }}
         </time>
       </a>
     </ul>
 
     <section v-else class="text-center mt-24">
-      <p class="text-2xl">Aún no hay noticias.</p>
+      <p class="text-2xl">Aún no hay posts disponible....</p>
     </section>
   </div>
 </template>
@@ -37,13 +38,13 @@ import parser from 'fast-xml-parser'
 export default {
   data() {
     return {
-      news: []
+      posts: []
     }
   },
   async fetch() {
-    const xmlRawData = await this.$axios.$get('https://www.elmesonhostigado.com/foro/external?type=rss2&nodeid=129')
+    const xmlRawData = await this.$axios.$get('https://www.elmesonhostigado.com/foro/external?type=rss2&nodeid=1')
     const jsonObj = parser.parse(xmlRawData)
-    this.news = jsonObj.rss.channel.item;
+    this.posts = jsonObj.rss.channel.item;
   },
   head() {
     return {
