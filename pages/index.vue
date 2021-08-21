@@ -37,7 +37,7 @@
             <!-- <a href="#" target="_blank" class="transition-colors duration-150 ease-out hover:text-primary">
               <i class="fab fa-instagram"></i>
             </a> -->
-            
+
         </div>
       </div>
 
@@ -121,7 +121,11 @@
       <div class="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
         <div class="flex flex-col items-center mt-16 lg:mt-24 xl:mt-32">
           <div class="relative mb-4 z-10">
-            <a id="download-btn" :href="link(homePage.data.installer_link)" class="btn btn-cta">Descargar</a>
+            <!--
+            No borrar matomo_download por que se usa para contar descarga en analytics.
+            https://matomo.org/faq/new-to-piwik/faq_47/
+            -->
+            <a id="download-btn" :href="link(homePage.data.installer_link)" class="btn btn-cta matomo_download">Descargar</a>
           </div>
 
           <!-- <img src="@/assets/img/wings.png" alt class="absolute top-0 inset-x-auto" /> -->
