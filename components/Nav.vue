@@ -1,33 +1,41 @@
 <template>
-  <header class="w-full fixed z-50 top-0 left-0">
-    <nav class="bg-black bg-opacity-75 py-2 w-full">
-      <div class="container flex w-full justify-between items-center">
+  <header class="fixed top-0 left-0 z-50 w-full">
+    <nav class="w-full py-2 bg-black bg-opacity-75">
+      <div class="container flex items-center justify-between w-full">
         <NuxtLink to="/" class="flex items-center gap-2 main-title flex-shrink-1" style="z-index: 999">
           <img src="@/assets/img/logo_square.png" alt="Logo Argentum 20 cuadrado" class="w-12" />
-          <span class="text-primary text-2xl hidden lg:block">Argentum 20</span>
+          <span class="hidden text-2xl text-primary lg:block">Argentum 20</span>
         </NuxtLink>
 
         <div class="flex items-center gap-x-16">
-          <ul class="hidden lg:flex items-center gap-x-10 uppercase tracking-wide text-gray-300">
+          <ul class="items-center hidden tracking-wide text-gray-300 uppercase lg:flex gap-x-10">
             <li v-for="link in links" :key="link.route">
               <NuxtLink :to="link.route" class="inline-block py-2 hover:text-gray-100">{{ link.label }}</NuxtLink>
+            </li>
+            <li>
+              <a
+                href="https://wiki.ao20.com.ar/index.php?title=P%C3%A1gina_principal"
+                target="_blank"
+                class="inline-block py-2 hover:text-gray-100"
+                >Manual</a
+              >
             </li>
           </ul>
 
           <div class="flex items-center gap-x-4">
-            <p class="uppercase tracking-wide text-sm hidden lg:block">
+            <p class="hidden text-sm tracking-wide uppercase lg:block">
               <span v-if="$store.state.isGameOnline">{{ $store.state.onlineCount || 0 }} usuarios online</span>
-              <span v-else class="text-white p-2 bg-red-500 font-bold">Servidor Offline</span>
+              <span v-else class="p-2 font-bold text-white bg-red-500">Servidor Offline</span>
             </p>
 
             <NuxtLink to="/cuenta" v-if="$auth.loggedIn">Mi cuenta</NuxtLink>
-            <NuxtLink v-else to="/login" class="btn btn-silver border px-2 py-1 text-sm">Acceder</NuxtLink>
+            <NuxtLink v-else to="/login" class="px-2 py-1 text-sm border btn btn-silver">Cuenta</NuxtLink>
           </div>
         </div>
 
         <button
           @click="showMobileMenu = !showMobileMenu"
-          class="lg:hidden pl-4 py-4 focus:outline-none"
+          class="py-4 pl-4 lg:hidden focus:outline-none"
           style="z-index: 999"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5">
@@ -44,16 +52,16 @@
     <transition name="mobile-menu">
       <nav
         v-show="showMobileMenu"
-        class="h-screen bg-gray-1000 w-full fixed top-0 left-0 flex flex-col justify-center overflow-y-scroll"
+        class="fixed top-0 left-0 flex flex-col justify-center w-full h-screen overflow-y-scroll bg-gray-1000"
       >
-        <ul class="text-3xl uppercase tracking-wider">
+        <ul class="text-3xl tracking-wider uppercase">
           <li v-for="(link, i) in links" :key="i" @click="showMobileMenu = false">
-            <NuxtLink
-              :to="link.route"
-              class="inline-block px-8 py-6 w-full border-b border-gray-700 hover:text-gray-100"
-              :class="{ 'border-t': i == 0 }"
-              >{{ link.label }}</NuxtLink
-            >
+            <NuxtLink :to="link.route" class="mobile-nav-link" :class="{ 'border-t': i == 0 }">{{
+              link.label
+            }}</NuxtLink>
+          </li>
+          <li>
+            <a href="https://wiki.ao20.com.ar/es/home" target="_blank" class="mobile-nav-link">Manual</a>
           </li>
         </ul>
       </nav>
@@ -80,16 +88,12 @@ export default {
           route: "/#juga-gratis",
         },
         {
-          label: "Qué es AO20",
-          route: "/#info",
+          label: "Noticias",
+          route: "/noticias",
         },
         {
-          label: "Galería",
-          route: "/#galeria",
-        },
-        {
-          label: "Apoyanos",
-          route: "/#apoyanos",
+          label: "Ranking",
+          route: "/ranking",
         },
       ],
     };
@@ -103,10 +107,14 @@ export default {
   },
   methods: {
     toggleMenu() {
-      alert("hi");
+      // alert("hi");
     },
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+.mobile-nav-link {
+  @apply inline-block px-8 py-6 w-full border-b border-gray-700 hover:text-gray-100;
+}
+</style>

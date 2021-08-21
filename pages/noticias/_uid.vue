@@ -2,7 +2,7 @@
   <div class="container max-w-screen-lg">
     <article class="news">
       <header class="pb-3 border-b border-gr border-gr-silver">
-        <h1 class="text-4xl md:text-5xl text-primary mb-3 md:mb-6">{{ $prismic.asText(news.data.title) }}</h1>
+        <h1 class="mb-3 text-4xl md:text-5xl text-primary md:mb-6">{{ $prismic.asText(news.data.title) }}</h1>
         <div class="flex items-center text-lg md:text-xl">
           <time :datetime="news.data.date">
             <span v-if="$dayjs(news.data.date).year() != $dayjs().year()">{{
@@ -15,13 +15,14 @@
         </div>
       </header>
 
-      <main class="news_body mt-8 md:mt-12">
+      <main class="mt-8 news_body md:mt-12">
         <prismic-rich-text v-if="news.data.body" :field="news.data.body" />
         <div v-if="news.data.body_md" v-html="$md.render($prismic.asText(news.data.body_md))"></div>
       </main>
     </article>
   </div>
 </template>
+
 <script>
 export default {
   async asyncData({ $prismic, params, error }) {

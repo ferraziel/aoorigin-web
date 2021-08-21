@@ -47,12 +47,18 @@ export default {
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
         rel: "stylesheet",
-        href:
-          "https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Livvic:ital,wght@0,400;0,600;1,400&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Livvic:ital,wght@0,400;0,600;1,400&display=swap",
       },
       {
         rel: "stylesheet",
         href: "https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css",
+      },
+    ],
+    style: [
+      {
+        cssText:
+          "figure.character-head { width: calc(var(--w) * var(--scale)); height: calc(var(--h) * var(--scale)); background: url(/assets/img/heads_trimmed.png) no-repeat; background-position: top calc(var(--y) * var(--scale)) left calc(var(--x) * var(--scale)); background-size: calc(512px * var(--scale)); image-rendering: crisp-edges; image-rendering: pixelated; }",
+        type: "text/css",
       },
     ],
     script: [
@@ -120,6 +126,7 @@ export default {
     "@nuxtjs/recaptcha",
     "@nuxtjs/markdownit",
     "@nuxtjs/gtm",
+    ["nuxt-matomo", { matomoUrl: "//analytics.ao20.com.ar/", siteId: 1 }],
     // "@nuxtjs/sitemap",
   ],
   axios: {
@@ -174,5 +181,4 @@ export default {
   //   gzip: true,
   //   routes: createSitemapRoutes,
   // },
-  build: {},
 };
