@@ -4,7 +4,7 @@
 
     <div class="text-center mb-12">
       <h1 class="section-title">¡Iniciaste sesión!</h1>
-      <p>Próximamente encontrarás acciones aquí.</p>
+      <NuxtLink to="cuenta/personajes">Mis Personajes</NuxtLink>
     </div>
     <!-- <pre class="bg-black">{{ $auth.user }}</pre> -->
 
