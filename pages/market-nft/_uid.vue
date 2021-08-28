@@ -5,9 +5,9 @@
         <h1 class="mb-3 text-4xl md:text-5xl text-primary md:mb-6">{{ itemOnSale.Name }}</h1>
         <div class="flex items-center text-lg md:text-xl">
           <time :datetime="itemOnSale.published_date">
-            <span v-if="$dayjs(itemOnSale.published_date).year() != $dayjs().year()">{{
-              $dayjs(itemOnSale.published_date).format("DD [de] MMMM [de] YYYY [a las] HH:mm")
-            }}</span>
+            <span v-if="$dayjs(itemOnSale.published_date).year() != $dayjs().year()">
+              {{ $dayjs(itemOnSale.published_date).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}
+            </span>
             <span v-else>{{ $dayjs(itemOnSale.published_date).format("DD [de] MMMM [a las] HH:mm") }}</span>
           </time>
           <span class="mx-2">-</span>

@@ -27,6 +27,17 @@
             ease-out
           "
         >
+          <h3>{{ character.name }}</h3>
+          <CharacterHead
+          :id="character.head_id"
+          :scale="i === 0 ? 5 : i === 1 ? 3 : 2"
+          class="flex-shrink-0 mr-4"
+          />
+          <h3>Nivel: {{ character.level }}</h3>
+          <h3>Online: {{ character.is_logged }}</h3>
+          <h3>Registrado: {{ $dayjs(character.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h3>
+          <h3>WalletId: {{ character.eth_wallet_id }}</h3>
+
         </NuxtLink>
       </ul>
 
@@ -35,25 +46,16 @@
       </section>
     </div>
     <!-- <pre class="bg-black">{{ $auth.user }}</pre> -->
-
-    <div class="flex justify-center">
-      <button class="btn btn-silver" @click="logout">Cerrar sesión</button>
-    </div>
   </div>
 </template>
 
 <script>
 export default {
   middleware: "auth",
-  data({ $axios }) {
+  async asyncData({ $axios }) {
     return {
-      characters: $axios.$get(`characters`),
+      characters: await $axios.$get(`characters`),
     };
-  },
-  methods: {
-    async logout() {
-      this.$auth.logout();
-    },
   },
 };
 </script>

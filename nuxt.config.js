@@ -100,6 +100,7 @@ export default {
     "@nuxtjs/tailwindcss",
     "@nuxtjs/prismic",
     "@nuxtjs/google-fonts",
+    '@nuxtjs/dotenv'
   ],
   tailwindcss: {
     jit: true,
