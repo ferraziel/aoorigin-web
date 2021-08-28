@@ -87,6 +87,10 @@ export default {
           label: "Ranking",
           route: "/ranking",
         },
+        // {
+        //   label: "Market NFT",
+        //   route: "/market-nft",
+        // },
       ],
     };
   },
