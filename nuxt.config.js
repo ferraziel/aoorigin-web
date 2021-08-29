@@ -63,14 +63,14 @@ export default {
       },
     ],
     script: [
-      {
-        vmid: "widgetbot",
-        src: "https://cdn.jsdelivr.net/npm/@widgetbot/crate@3",
-        async: true,
-        defer: true,
-        body: false,
-        innerHTML: `new Crate({ server: "761213868352471040", channel: "761286044229959701" })`,
-      },
+      // {
+      //   vmid: "widgetbot",
+      //   src: "https://cdn.jsdelivr.net/npm/@widgetbot/crate@3",
+      //   async: true,
+      //   defer: true,
+      //   body: false,
+      //   innerHTML: `new Crate({ server: "761213868352471040", channel: "761286044229959701" })`,
+      // },
     ],
     __dangerouslyDisableSanitizers: ["script"],
   },
