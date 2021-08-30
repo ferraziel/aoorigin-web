@@ -4,7 +4,10 @@
 
     <div class="text-center mb-12">
       <h1 class="section-title">¡Iniciaste sesión!</h1>
-      <NuxtLink to="personajes">Mis Personajes</NuxtLink>
+      <ul>
+        <li><NuxtLink to="personajes">Mis Personajes</NuxtLink></li>
+        <li><NuxtLink to="recuperar">Cambiar contraseña</NuxtLink></li>
+      </ul>
     </div>
     <!-- <pre class="bg-black">{{ $auth.user }}</pre> -->
 

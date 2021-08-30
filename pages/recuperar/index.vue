@@ -1,6 +1,6 @@
 <template>
   <section class="container flex flex-col items-center pt-48 gap-y-4">
-    <p class="font-serif text-2xl mb-6">Te enviaremos un mail para que recuperes tu contraseña</p>
+    <p class="font-serif text-2xl mb-6">Te enviaremos un mail para que cambies tu contraseña</p>
     <form @submit.prevent="sendRecovery" class="flex flex-col items-center gap-y-4 w-full" id="recovery-form">
       <div class="flex flex-col items-center gap-y-2 w-full">
         <label for="email">Email asociado a la cuenta</label>
@@ -26,7 +26,7 @@ import { required, email } from "vuelidate/lib/validators";
 
 export default {
   head: {
-    title: "Recuperar contraseña",
+    title: "Cambiar contraseña",
   },
   layout: "no-footer",
   data() {
