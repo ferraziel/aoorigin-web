@@ -13,31 +13,28 @@
           :key="character.id"
           :id="character.id"
           :to="`/personajes/${character.id}`"
-          class="
-            group
-            flex flex-col
-            p-3
-            md:p-6
-            border-b
-            last:border-b-0
-            border-gray-700
-            hover:bg-white hover:bg-opacity-10
-            transition-colors
-            duration-200
-            ease-out
-          "
         >
-          <h3>{{ character.name }}</h3>
-          <CharacterHead
-          :id="character.head_id"
-          :scale="i === 0 ? 5 : i === 1 ? 3 : 2"
-          class="flex-shrink-0 mr-4"
-          />
-          <h3>Nivel: {{ character.level }}</h3>
-          <h3>Online: {{ character.is_logged }}</h3>
-          <h3>Registrado: {{ $dayjs(character.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h3>
-          <h3>WalletId: {{ character.eth_wallet_id }}</h3>
+          <!-- <CharacterHead :id="character.head_id" :scale="i === 0 ? 5 : i === 1 ? 3 : 2" class="flex-shrink-0 mr-4" /> -->
 
+          <div class="flex flex-col items-center gap-y-2">
+            <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
+              <CharacterRenderer body="/assets/img/characters/body.png"
+                                 helmet="/assets/img/characters/helmet.png"
+                                 weapon="/assets/img/characters/weapon.png"
+                                 shield="/assets/img/characters/shield.png"
+                                 head="/assets/img/characters/head.png"
+              />
+            </div>
+
+            <h2 class="text-4xl text-gr gr-gold">{{ character.name }}</h2>
+            <h2>Nivel: {{ character.level }}</h2>
+            <h2>Ultimo login: {{ $dayjs(character.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h2>
+            <h2>WalletId: {{ character.eth_wallet_id }}</h2>
+            <h2>Online: {{ character.is_logged }}</h2>
+
+          </div>
+          <hr>
+          <br>
         </NuxtLink>
       </ul>
 
