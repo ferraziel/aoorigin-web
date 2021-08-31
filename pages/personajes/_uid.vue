@@ -34,65 +34,37 @@ export default {
     }
 
     return {
-      character,
       userId: params.uid,
+      character,
       addWalletMessage: "",
       addWalletStatus: null
     };
   },
   async mounted() {
-      if (ethereum) {
-        // Using provider setting from nuxt config :
-        // web3 = new this.$Web3(ethereum);
-
-        //Ganache
-        // console.log(6667, process.env.ETH_NODE_URL)
-        // web3 = new this.$Web3("wss://rinkeby.infura.io/ws/v3/bb0f7b73b542418a813d97d7464d8fa5");
-        // web3 = new this.$Web3("wss://mainnet.infura.io/ws/v3/bb0f7b73b542418a813d97d7464d8fa5");
-
-        try {
-          // Request account access
-          // await ethereum.enable();
-          this.isEthereumSupportedVisibilityButton = true;
-
-          console.log("This browser is supported for ethereum");
-
-          // await window.ethereum.enable();
-
-          // web3.eth.getAccounts().then(result => {
-          //   console.log(888, 666, result)
-          //   alert(result)
-          // });
-
-          return true;
-        } catch (error) {
-          console.log(error);
-          return false;
-        }
-      }
-      // Non-decentralized app browsers...
-      else {
+      if (!ethereum) {
         alert("Necesitas Metamask para poder poner la wallet en tu personaje.");
         console.log("Non-Ethereum browser detected. You should consider trying MetaMask!");
       }
-
   },
 
   methods: {
     async addWalletIdToCharacter() {
         if (confirm("Estas seguro que quieres agregar la wallet seleccionada en tu personaje? Esta operacion no podra ser modificada.")) {
+          this.addWalletStatus = "PENDING";
+          this.addWalletMessage = "Confirme la asignacion de billetera mediante metamask";
+
           const ethWallets = await ethereum.request({ method: 'eth_requestAccounts' });
-          this.$axios.$put(`/characters/addWalletIdInCharacter/${this.userId}/${ethWallets[0]}`)
-          .then(data => {
+
+          try {
+            await this.$axios.$put(`/characters/addWalletIdInCharacter/${this.userId}/${ethWallets[0]}`)
             this.addWalletStatus = "OK";
             this.addWalletMessage = "La billetera fue asignada correctamente al personaje. Ahora podras usar tus NFT en el juego.";
 
-            character.eth_wallet_id = ethWallets[0];
-          })
-          .catch(error => {
+            this.character.eth_wallet_id = ethWallets[0];
+          } catch (error) {
             this.addWalletStatus = "ERROR";
             this.addWalletMessage = error.response.data.message;
-          });
+          }
         }
     },
   },
