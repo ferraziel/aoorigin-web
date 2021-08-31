@@ -1,14 +1,16 @@
 <template>
-  <canvas ref="render" width="90" height="194" />
+  <canvas ref="render" width="90" height="194"/>
 </template>
 
 <script>
 export default {
-  props: ["body", "helmet", "weapon", "shield", "head"],
+  props: ["body", "helmet", "weapon", "shield", "head", "background"],
   mounted() {
     const canvas = this.$refs.render;
+    canvas.style.background = `url(${this.background})`;
     const ctx = canvas.getContext("2d");
     ctx.imageSmoothingEnabled = false;
+
 
     const cvWidth = canvas.width;
     const cvHeight = canvas.height;
@@ -23,7 +25,7 @@ export default {
       h: 47,
       sx: 3,
       sy: 0,
-      offsetX: 0,
+      offsetX: 4.2,
       offsetY: 21,
     };
 
@@ -33,7 +35,7 @@ export default {
       h: 47,
       sx: 3,
       sy: 0,
-      offsetX: 0,
+      offsetX: 4.2,
       offsetY: 18,
     };
 
@@ -44,7 +46,7 @@ export default {
       h: 37,
       sx: 13,
       sy: 0,
-      offsetX: 13,
+      offsetX: 17.2,
       offsetY: 18,
     };
 
@@ -54,7 +56,7 @@ export default {
       h: 25,
       sx: 5,
       sy: 6,
-      offsetX: 2,
+      offsetX: 6.2,
       offsetY: 5,
     };
 
@@ -75,10 +77,10 @@ export default {
       h: 19,
       sx: 6,
       sy: 0,
-      offsetX: 3,
+      offsetX: 7.2,
       offsetY: 0,
     };
-console.log(123, shield)
+
     let objects = [body, head, weapon, shield, helmet];
     objects = objects.filter(x => x.imgSrc);
 

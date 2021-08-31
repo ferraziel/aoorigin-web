@@ -18,11 +18,12 @@
 
           <div class="flex flex-col items-center gap-y-2">
             <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
-              <CharacterRenderer body="/assets/img/characters/body.png"
+              <CharacterRenderer body="/assets/img/characters/body2.png"
                                  helmet="/assets/img/characters/helmet.png"
                                  weapon="/assets/img/characters/weapon.png"
                                  shield="/assets/img/characters/shield.png"
                                  head="/assets/img/characters/head.png"
+                                 background="https://i1.sndcdn.com/artworks-wclS76qZZbYHAhoX-yVPKnw-t500x500.jpg"
               />
             </div>
 
