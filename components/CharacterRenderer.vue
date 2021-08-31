@@ -19,12 +19,12 @@ export default {
 
     const body = {
       imgSrc: this.body,
-      w: 19,
+      w: 24,
       h: 47,
       sx: 3,
       sy: 0,
       offsetX: 0,
-      offsetY: 22,
+      offsetY: 21,
     };
 
     const weapon = {
@@ -78,9 +78,9 @@ export default {
       offsetX: 3,
       offsetY: 0,
     };
-
-    // const objects = [body, head, helmet];
-    const objects = [body, head, weapon, helmet, shield];
+console.log(123, shield)
+    let objects = [body, head, weapon, shield, helmet];
+    objects = objects.filter(x => x.imgSrc);
 
     for (const o of objects) {
       let img = new Image();
