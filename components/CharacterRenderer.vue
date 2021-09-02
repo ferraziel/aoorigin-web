@@ -26,8 +26,8 @@ export default {
       h: this.body.height,
       sx: this.body.initialPositionX,
       sy: this.body.initialPositionY,
-      offsetX: 4.2,
-      offsetY: 21,
+      offsetX: 15,
+      offsetY: 10,
     };
     objectToRender.push(body)
 
@@ -41,8 +41,8 @@ export default {
           h: this.weapon.height,
           sx: this.weapon.initialPositionX,
           sy: this.weapon.initialPositionY,
-          offsetX: 4.2,
-          offsetY: 18,
+          offsetX: 15,
+          offsetY: 10,
         };
 
         objectToRender.push(weapon);
@@ -55,8 +55,8 @@ export default {
           h: this.shield.height,
           sx: this.shield.initialPositionX,
           sy: this.shield.initialPositionY,
-          offsetX: 17.2,
-          offsetY: 18,
+          offsetX: 15,
+          offsetY: 10,
         };
 
         objectToRender.push(shield);
@@ -69,8 +69,8 @@ export default {
           h: this.head.height,
           sx: this.head.initialPositionX,
           sy: this.head.initialPositionY,
-          offsetX: 6.2,
-          offsetY: 5,
+          offsetX: 15,
+          offsetY: 10,
         };
         objectToRender.push(head);
       }
@@ -82,8 +82,8 @@ export default {
           h: this.helmet.height,
           sx: this.helmet.initialPositionX,
           sy: this.helmet.initialPositionY,
-          offsetX: 7.2,
-          offsetY: 0,
+          offsetX: 15,
+          offsetY: 10,
         };
 
         objectToRender.push(helmet)
