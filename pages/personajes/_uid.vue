@@ -9,6 +9,15 @@
       <h3>Setear Wallet Id para Personaje con Metamask</h3>
       <h3>WalletId: {{ character.eth_wallet_id }}</h3>
 
+      <CharacterRenderer  :isDead="character.is_dead"
+                          :body="character.bodyGraphicData"
+                          :helmet="character.helmetGraphicData"
+                          :weapon="character.weaponGraphicData"
+                          :shield="character.shieldGraphicData"
+                          :head="character.headGraphicData"
+                          background="https://i1.sndcdn.com/artworks-wclS76qZZbYHAhoX-yVPKnw-t500x500.jpg"
+      />
+
       <button @click="addWalletIdToCharacter()" v-if="!character.eth_wallet_id" type="submit" class="btn btn-silver self-start">
         Agregar Wallet seleccionada en Personaje.
       </button>

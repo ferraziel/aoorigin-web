@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  props: ["body", "helmet", "weapon", "shield", "head", "background"],
+  props: ["isDead", "body", "helmet", "weapon", "shield", "head", "background"],
   mounted() {
     const canvas = this.$refs.render;
     canvas.style.background = `url(${this.background})`;
@@ -15,83 +15,91 @@ export default {
     const cvWidth = canvas.width;
     const cvHeight = canvas.height;
 
-    const scalingFactor = 3;
+    const scalingFactor = 1.5;
 
     let count = 0;
+    let objectToRender = []
 
     const body = {
-      imgSrc: this.body,
-      w: 24,
-      h: 47,
-      sx: 3,
-      sy: 0,
+      imgSrc: `/assets/img/characters/${this.body.fileName}.png`,
+      w: this.body.width,
+      h: this.body.height,
+      sx: this.body.initialPositionX,
+      sy: this.body.initialPositionY,
       offsetX: 4.2,
       offsetY: 21,
     };
+    objectToRender.push(body)
 
-    const weapon = {
-      imgSrc: this.weapon,
-      w: 10,
-      h: 47,
-      sx: 3,
-      sy: 0,
-      offsetX: 4.2,
-      offsetY: 18,
-    };
+    //Si el pj no esta muerto, renderizo todo, sino solo el body FANTASMITA
+    if (!this.isDead) {
 
+      if (this.weapon) {
+        const weapon = {
+          imgSrc: `/assets/img/characters/${this.weapon.fileName}.png`,
+          w: this.weapon.width,
+          h: this.weapon.height,
+          sx: this.weapon.initialPositionX,
+          sy: this.weapon.initialPositionY,
+          offsetX: 4.2,
+          offsetY: 18,
+        };
 
-    const shield = {
-      imgSrc: this.shield,
-      w: 16,
-      h: 37,
-      sx: 13,
-      sy: 0,
-      offsetX: 17.2,
-      offsetY: 18,
-    };
+        objectToRender.push(weapon);
+      }
 
-    const head = {
-      imgSrc: this.head,
-      w: 15,
-      h: 25,
-      sx: 5,
-      sy: 6,
-      offsetX: 6.2,
-      offsetY: 5,
-    };
+      if (this.shield) {
+        const shield = {
+          imgSrc: `/assets/img/characters/${this.shield.fileName}.png`,
+          w: this.shield.width,
+          h: this.shield.height,
+          sx: this.shield.initialPositionX,
+          sy: this.shield.initialPositionY,
+          offsetX: 17.2,
+          offsetY: 18,
+        };
 
-    // Cascos clasico, de AO-Libre
-    // const helmet = {
-    //   imgSrc: this.helmet,
-    //   w: 13,
-    //   h: 10,
-    //   sx: 7,
-    //   sy: 9,
-    //   offsetX: 3,
-    //   offsetY: 0,
-    // };
+        objectToRender.push(shield);
+      }
 
-    const helmet = {
-      imgSrc: this.helmet,
-      w: 15,
-      h: 19,
-      sx: 6,
-      sy: 0,
-      offsetX: 7.2,
-      offsetY: 0,
-    };
+      if (this.head) {
+        const head = {
+          imgSrc: `/assets/img/characters/${this.head.fileName}.png`,
+          w: this.head.width,
+          h: this.head.height,
+          sx: this.head.initialPositionX,
+          sy: this.head.initialPositionY,
+          offsetX: 6.2,
+          offsetY: 5,
+        };
+        objectToRender.push(head);
+      }
 
-    let objects = [body, head, weapon, shield, helmet];
-    objects = objects.filter(x => x.imgSrc);
+      if (this.helmet) {
+        const helmet = {
+          imgSrc: `/assets/img/characters/${this.helmet.fileName}.png`,
+          w: this.helmet.width,
+          h: this.helmet.height,
+          sx: this.helmet.initialPositionX,
+          sy: this.helmet.initialPositionY,
+          offsetX: 7.2,
+          offsetY: 0,
+        };
 
-    for (const o of objects) {
+        objectToRender.push(helmet)
+      }
+
+    }
+    objectToRender = objectToRender.filter(x => x.imgSrc);
+
+    for (const o of objectToRender) {
       let img = new Image();
 
       img.onload = () => {
         o.imgElement = img;
         count++;
 
-        if (count >= objects.length) {
+        if (count >= objectToRender.length) {
           render();
         }
       };
@@ -114,7 +122,7 @@ export default {
         y: 0,
       };
 
-      for (const img of objects) {
+      for (const img of objectToRender) {
         const offsetX = globalOffset.x + img.offsetX * scalingFactor;
         const offsetY = globalOffset.y + img.offsetY * scalingFactor;
         const w = img.w * scalingFactor;
