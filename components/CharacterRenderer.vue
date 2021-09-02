@@ -1,5 +1,5 @@
 <template>
-  <canvas ref="render" width="90" height="194"/>
+  <canvas ref="render" width="120" height="194"/>
 </template>
 
 <script>
@@ -7,15 +7,15 @@ export default {
   props: ["isDead", "body", "helmet", "weapon", "shield", "head", "background"],
   mounted() {
     const canvas = this.$refs.render;
-    canvas.style.background = `url(${this.background})`;
+    // canvas.style.background = `url(${this.background})`;
     const ctx = canvas.getContext("2d");
-    ctx.imageSmoothingEnabled = false;
-
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
 
     const cvWidth = canvas.width;
     const cvHeight = canvas.height;
 
-    const scalingFactor = 1.5;
+    const scalingFactor = 2.5;
 
     let count = 0;
     let objectToRender = []
@@ -26,12 +26,12 @@ export default {
       h: this.body.height,
       sx: this.body.initialPositionX,
       sy: this.body.initialPositionY,
-      offsetX: 15,
-      offsetY: 10,
+      offsetX: this.isDead ? 9 : 10,
+      offsetY: this.isDead ? 4 : 32,
     };
     objectToRender.push(body)
 
-    //Si el pj no esta muerto, renderizo todo, sino solo el body FANTASMITA
+    //Si el pj no esta muerto, NO renderizo todo, sino solo el body FANTASMITA
     if (!this.isDead) {
 
       if (this.weapon) {
@@ -41,8 +41,8 @@ export default {
           h: this.weapon.height,
           sx: this.weapon.initialPositionX,
           sy: this.weapon.initialPositionY,
-          offsetX: 15,
-          offsetY: 10,
+          offsetX: 7,
+          offsetY: 32,
         };
 
         objectToRender.push(weapon);
@@ -56,7 +56,7 @@ export default {
           sx: this.shield.initialPositionX,
           sy: this.shield.initialPositionY,
           offsetX: 15,
-          offsetY: 10,
+          offsetY: 32,
         };
 
         objectToRender.push(shield);
@@ -69,7 +69,7 @@ export default {
           h: this.head.height,
           sx: this.head.initialPositionX,
           sy: this.head.initialPositionY,
-          offsetX: 15,
+          offsetX: 10,
           offsetY: 10,
         };
         objectToRender.push(head);
@@ -82,15 +82,16 @@ export default {
           h: this.helmet.height,
           sx: this.helmet.initialPositionX,
           sy: this.helmet.initialPositionY,
-          offsetX: 15,
-          offsetY: 10,
+          offsetX: 11,
+          offsetY: 5,
         };
 
         objectToRender.push(helmet)
       }
 
     }
-    objectToRender = objectToRender.filter(x => x.imgSrc);
+
+    // objectToRender = objectToRender.filter(x => x.imgSrc);
 
     for (const o of objectToRender) {
       let img = new Image();

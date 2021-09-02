@@ -18,26 +18,28 @@
 
           <div class="flex flex-col items-center gap-y-2">
             <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
-              <CharacterRenderer  :isDead="character.is_dead"
-                                  :body="character.bodyGraphicData"
-                                  :helmet="character.helmetGraphicData"
-                                  :weapon="character.weaponGraphicData"
-                                  :shield="character.shieldGraphicData"
-                                  :head="character.headGraphicData"
-                                  background="https://i1.sndcdn.com/artworks-wclS76qZZbYHAhoX-yVPKnw-t500x500.jpg"
+              <CharacterRenderer
+                :isDead="character.is_dead"
+                :body="character.bodyGraphicData"
+                :helmet="character.helmetGraphicData"
+                :weapon="character.weaponGraphicData"
+                :shield="character.shieldGraphicData"
+                :head="character.headGraphicData"
+                background="https://i1.sndcdn.com/artworks-wclS76qZZbYHAhoX-yVPKnw-t500x500.jpg"
               />
             </div>
-
-            <h2 class="text-4xl text-gr gr-gold">{{ character.name }}</h2>
-            <h2>Nivel: {{ character.level }}</h2>
-            <h2>Ultimo login: {{ $dayjs(character.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h2>
-            <h2>WalletId: {{ character.eth_wallet_id }}</h2>
-            <h2>Online: {{ character.is_logged }}</h2>
-
           </div>
-          <hr>
-          <br>
+
+          <h2 class="text-4xl text-gr gr-gold">{{ character.name }}</h2>
+          <h2>Nivel: {{ character.level }}</h2>
+          <h2>Ultimo login: {{ $dayjs(character.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h2>
+          <h2>WalletId: {{ character.eth_wallet_id }}</h2>
+          <h2>Online: {{ character.is_logged }}</h2>
+          <hr />
+          <br />
         </NuxtLink>
+
+
       </ul>
 
       <section v-else class="text-center mt-24">
