@@ -20,11 +20,11 @@
             <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
               <CharacterRenderer
                 :isDead="character.is_dead"
-                :bodyData="character.bodyGraphicData"
-                :helmetData="character.helmetGraphicData"
-                :weaponData="character.weaponGraphicData"
-                :shieldData="character.shieldGraphicData"
-                :headData="character.headGraphicData"
+                :body="character.bodyGraphicData"
+                :helmet="character.helmetGraphicData"
+                :weapon="character.weaponGraphicData"
+                :shield="character.shieldGraphicData"
+                :head="character.headGraphicData"
                 background="https://i1.sndcdn.com/artworks-wclS76qZZbYHAhoX-yVPKnw-t500x500.jpg"
               />
             </div>

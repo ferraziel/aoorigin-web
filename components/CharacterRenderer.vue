@@ -1,10 +1,86 @@
 <template>
-  <canvas ref="render" width="120" height="194"/>
+  <canvas ref="render" width="120" height="194" />
 </template>
 
 <script>
+function prepareRenderCharacter(isDead, headData, helmetData, shieldData, weaponData, bodyData) {
+  const objectToRender = [];
+
+  const bodyObject = {
+    imgSrc: `/assets/img/characters/${bodyData.fileName}.png`,
+    w: bodyData.width,
+    h: bodyData.height,
+    sx: bodyData.initialPositionX,
+    sy: bodyData.initialPositionY,
+    offsetX: isDead ? 9 : 10,
+    offsetY: isDead ? 4 : 16,
+  };
+
+  objectToRender.push(bodyObject);
+
+  //Si el pj no esta muerto, NO renderizo todo, sino solo el body FANTASMITA
+  if (!isDead) {
+    if (weaponData) {
+      const weaponObject = {
+        imgSrc: `/assets/img/characters/${weaponData.fileName}.png`,
+        w: weaponData.width,
+        h: weaponData.height,
+        sx: weaponData.initialPositionX,
+        sy: weaponData.initialPositionY,
+        offsetX: 7,
+        offsetY: parseInt(bodyData.headOffsetY) + 55,
+      };
+
+      objectToRender.push(weaponObject);
+    }
+
+    if (shieldData) {
+      const shieldObject = {
+        imgSrc: `/assets/img/characters/${shieldData.fileName}.png`,
+        w: shieldData.width,
+        h: shieldData.height,
+        sx: shieldData.initialPositionX,
+        sy: shieldData.initialPositionY,
+        offsetX: 10,
+        offsetY: parseInt(bodyData.headOffsetY) + 53,
+      };
+
+      objectToRender.push(shieldObject);
+    }
+
+    if (headData) {
+      const headObject = {
+        imgSrc: `/assets/img/characters/${headData.fileName}.png`,
+        w: headData.width,
+        h: headData.height,
+        sx: headData.initialPositionX,
+        sy: headData.initialPositionY,
+        offsetX: parseInt(bodyData.headOffsetX) + 10,
+        offsetY: parseInt(bodyData.headOffsetY) + 32,
+      };
+      objectToRender.push(headObject);
+    }
+
+    if (helmetData) {
+      const helmetObject = {
+        imgSrc: `/assets/img/characters/${helmetData.fileName}.png`,
+        w: helmetData.width,
+        h: helmetData.height,
+        sx: helmetData.initialPositionX,
+        sy: helmetData.initialPositionY,
+        offsetX: parseInt(bodyData.headOffsetX) + 10,
+        offsetY: parseInt(bodyData.headOffsetY) + 32,
+      };
+
+      objectToRender.push(helmetObject);
+    }
+  }
+
+  return objectToRender;
+}
+
 export default {
-  props: ["isDead", "body", "helmet", "weapon", "shield", "head", "background"],
+  props: ["isDead", "bodyData", "helmetData", "weaponData", "shieldData", "headData", "background"],
   mounted() {
     const canvas = this.$refs.render;
     // canvas.style.background = `url(${this.background})`;
@@ -12,97 +88,24 @@ export default {
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = "high";
 
-    const cvWidth = canvas.width;
-    const cvHeight = canvas.height;
-
     const scalingFactor = 2.5;
 
-    let count = 0;
-    let objectToRender = []
-
-    const body = {
-      imgSrc: `/assets/img/characters/${this.body.fileName}.png`,
-      w: this.body.width,
-      h: this.body.height,
-      sx: this.body.initialPositionX,
-      sy: this.body.initialPositionY,
-      offsetX: this.isDead ? 9 : 10,
-      offsetY: this.isDead ? 4 : 16,
-    };
-    objectToRender.push(body)
-
-    //Si el pj no esta muerto, NO renderizo todo, sino solo el body FANTASMITA
-    if (!this.isDead) {
-
-      if (this.weapon) {
-        const weapon = {
-          imgSrc: `/assets/img/characters/${this.weapon.fileName}.png`,
-          w: this.weapon.width,
-          h: this.weapon.height,
-          sx: this.weapon.initialPositionX,
-          sy: this.weapon.initialPositionY,
-          offsetX: 7,
-          offsetY: parseInt(this.body.headOffsetY) + 55,
-        };
-
-        objectToRender.push(weapon);
-      }
-
-      if (this.shield) {
-        const shield = {
-          imgSrc: `/assets/img/characters/${this.shield.fileName}.png`,
-          w: this.shield.width,
-          h: this.shield.height,
-          sx: this.shield.initialPositionX,
-          sy: this.shield.initialPositionY,
-          offsetX: 10,
-          offsetY: parseInt(this.body.headOffsetY) + 53,
-        };
-
-        objectToRender.push(shield);
-      }
-
-      if (this.head) {
-        const head = {
-          imgSrc: `/assets/img/characters/${this.head.fileName}.png`,
-          w: this.head.width,
-          h: this.head.height,
-          sx: this.head.initialPositionX,
-          sy: this.head.initialPositionY,
-          offsetX: parseInt(this.body.headOffsetX) + 10,
-          offsetY: parseInt(this.body.headOffsetY) + 32,
-        };
-        objectToRender.push(head);
-      }
-
-      if (this.helmet) {
-        const helmet = {
-          imgSrc: `/assets/img/characters/${this.helmet.fileName}.png`,
-          w: this.helmet.width,
-          h: this.helmet.height,
-          sx: this.helmet.initialPositionX,
-          sy: this.helmet.initialPositionY,
-          offsetX: parseInt(this.body.headOffsetX) + 10,
-          offsetY: parseInt(this.body.headOffsetY) + 32,
-        };
-
-        objectToRender.push(helmet)
-      }
-
-    }
-
-    // objectToRender = objectToRender.filter(x => x.imgSrc);
+    //TODO: ARREGLAR isDead por que esta roto por que Jopi y Wyrox la borraron de la bd.
+    let objectToRender = prepareRenderCharacter(
+      this.isDead,
+      this.headData,
+      this.helmetData,
+      this.shieldData,
+      this.weaponData,
+      this.bodyData
+    );
 
     for (const o of objectToRender) {
       let img = new Image();
 
       img.onload = () => {
         o.imgElement = img;
-        count++;
-
-        if (count >= objectToRender.length) {
-          render();
-        }
+        render(canvas, objectToRender);
       };
 
       if (o.imgSrc) {
@@ -131,7 +134,7 @@ export default {
 
         ctx.drawImage(img.imgElement, img.sx, img.sy, img.w, img.h, offsetX, offsetY, w, h);
 
-        const imageData = ctx.getImageData(0, 0, cvWidth, cvHeight);
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         let pix = imageData.data;
 
         for (let i = 0, n = pix.length; i < n; i += 4) {
@@ -147,8 +150,6 @@ export default {
         ctx.putImageData(imageData, 0, 0);
       }
     };
-
-    // render();
   },
 };
 </script>
