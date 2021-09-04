@@ -19,7 +19,7 @@
           <div class="flex flex-col items-center gap-y-2">
             <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
               <CharacterRenderer
-                :isDead="character.is_dead"
+                :isDead="character.min_hp == 0"
                 :body="character.bodyGraphicData"
                 :helmet="character.helmetGraphicData"
                 :weapon="character.weaponGraphicData"
