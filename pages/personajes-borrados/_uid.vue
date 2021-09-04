@@ -9,7 +9,7 @@
       <h3>Setear Wallet Id para Personaje con Metamask</h3>
       <h3>WalletId: {{ character.eth_wallet_id }}</h3>
 
-      <CharacterRenderer  :isDead="character.is_dead"
+      <CharacterRenderer  :isDead="character.min_hp == 0"
                           :bodyData="character.bodyGraphicData"
                           :helmetData="character.helmetGraphicData"
                           :weaponData="character.weaponGraphicData"
