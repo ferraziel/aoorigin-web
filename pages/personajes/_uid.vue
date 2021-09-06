@@ -18,6 +18,24 @@
         :headData="character.headGraphicData"
         background="https://i1.sndcdn.com/artworks-wclS76qZZbYHAhoX-yVPKnw-t500x500.jpg"
       />
+      <div style="display:table-cell; vertical-align:middle"
+        v-for="item in character.inventoryItem"
+        :key="item.item_id"
+        :id="item.item_id"
+      >
+        <ItemRenderer
+          :item="item"
+          background="https://i1.sndcdn.com/artworks-wclS76qZZbYHAhoX-yVPKnw-t500x500.jpg"
+        />
+
+        <span style="color:yellow">{{item.Data.NAME}}</span>
+        <br>
+        <span>{{item.Data.TEXTO}}</span>
+        <br>
+        <span style="color:green">Cantidad: {{item.amount}}</span>
+
+
+      </div>
 
       <button
         @click="addWalletIdToCharacter()"
@@ -47,6 +65,7 @@
 </template>
 
 <script>
+import { convertToJson } from 'fast-xml-parser';
 export default {
   middleware: "auth",
   async asyncData({ $axios, params }) {
@@ -56,7 +75,7 @@ export default {
     } catch (error) {
       character = null;
     }
-
+    console.log(character)
     return {
       userId: params.uid,
       character,
