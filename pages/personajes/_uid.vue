@@ -2,44 +2,39 @@
   <div class="container">
     <PagePadding />
 
-    <div v-if="character" lass="text-center mb-12">
-      <!-- <CharacterHead :id="character.head_id" :scale="i === 0 ? 5 : i === 1 ? 3 : 2" class="flex-shrink-0 mr-4" /> -->
-      <h1 class="section-title">{{ character.name }}</h1>
-
-      <h3>Setear Wallet Id para Personaje con Metamask</h3>
-      <h3>WalletId: {{ character.eth_wallet_id }}</h3>
-
-      <CharacterRenderer
-        :isDead="character.min_hp == 0"
-        :bodyData="character.bodyGraphicData"
-        :helmetData="character.helmetGraphicData"
-        :weaponData="character.weaponGraphicData"
-        :shieldData="character.shieldGraphicData"
-        :headData="character.headGraphicData"
+    <div v-if="user" lass="text-center mb-12">
+      <!-- <UserHead :id="user.head_id" :scale="i === 0 ? 5 : i === 1 ? 3 : 2" class="flex-shrink-0 mr-4" /> -->
+      <h1 class="section-title">{{ user.name }}</h1>
+      <UserRenderer
+        :isDead="user.min_hp == 0"
+        :bodyData="user.bodyGraphicData"
+        :helmetData="user.helmetGraphicData"
+        :weaponData="user.weaponGraphicData"
+        :shieldData="user.shieldGraphicData"
+        :headData="user.headGraphicData"
         background="https://i1.sndcdn.com/artworks-wclS76qZZbYHAhoX-yVPKnw-t500x500.jpg"
       />
-      <div style="display:table-cell; vertical-align:middle"
-        v-for="item in character.inventoryItem"
+      <div
+        style="display: table-cell; vertical-align: middle"
+        v-for="item in user.inventoryItem"
         :key="item.item_id"
         :id="item.item_id"
       >
-        <ItemRenderer
-          :item="item"
-          background="https://i1.sndcdn.com/artworks-wclS76qZZbYHAhoX-yVPKnw-t500x500.jpg"
-        />
+        <ItemRenderer :item="item" background="https://i1.sndcdn.com/artworks-wclS76qZZbYHAhoX-yVPKnw-t500x500.jpg" />
 
-        <span style="color:yellow">{{item.Data.NAME}}</span>
-        <br>
-        <span>{{item.Data.TEXTO}}</span>
-        <br>
-        <span style="color:green">Cantidad: {{item.amount}}</span>
-
-
+        <span style="color: yellow">{{ item.Data.NAME }}</span>
+        <br />
+        <span>{{ item.Data.TEXTO }}</span>
+        <br />
+        <span style="color: green">Cantidad: {{ item.amount }}</span>
       </div>
 
+      <h3>Setear Wallet Id para Personaje con Metamask</h3>
+      <h3>WalletId: {{ user.eth_wallet_id }}</h3>
+
       <button
-        @click="addWalletIdToCharacter()"
-        v-if="!character.eth_wallet_id && !($dayjs(character.deleted_at).year() > 1970)"
+        @click="addWalletIdToUser()"
+        v-if="!user.eth_wallet_id && !($dayjs(user.deleted_at).year() > 1970)"
         type="submit"
         class="btn btn-silver self-start"
       >
@@ -48,14 +43,31 @@
       <MessageBox :status="addWalletStatus" :message="addWalletMessage" />
 
       <button
-        @click="recoverCharacter()"
-        v-if="$dayjs(character.deleted_at).year() > 1970"
+        @click="recoverUser()"
+        v-if="$dayjs(user.deleted_at).year() > 1970"
         type="submit"
         class="btn btn-silver self-start"
       >
         Recuperar Personaje
       </button>
+      <MessageBox :status="recoverUserStatus" :message="recoverUserMessage" />
 
+      <button @click="addUserToMao()"
+              v-if="!user.is_locked_in_mao && !($dayjs(user.deleted_at).year() > 1970)"
+              type="submit"
+              class="btn btn-silver self-start"
+      >
+        Vender Personaje en Mercado AO
+      </button>
+      <MessageBox :status="addUserToMaoStatus" :message="addUserToMaoMessage" />
+
+      <button @click="removeUserFromMao()"
+              v-if="user.is_locked_in_mao"
+              type="submit"
+              class="btn btn-silver self-start"
+      >
+        Sacar Personaje de Mercado AO
+      </button>
     </div>
 
     <section v-else class="text-center mt-24">
@@ -65,24 +77,31 @@
 </template>
 
 <script>
-import { convertToJson } from 'fast-xml-parser';
+
 export default {
   middleware: "auth",
   async asyncData({ $axios, params }) {
-    let character;
+    let user;
     try {
-      character = await $axios.$get(`characters/${params.uid}`);
+      user = await $axios.$get(`users/${params.uid}`);
     } catch (error) {
-      character = null;
+      user = null;
     }
-    console.log(character)
+
     return {
-      userId: params.uid,
-      character,
+      // user.id: params.uid,
+      user,
       addWalletMessage: "",
       addWalletStatus: null,
+      recoverUserMessage: "",
+      recoverUserStatus: null,
+      addUserToMaoMessage: "",
+      addUserToMaoStatus: null,
+      removeUserFromMaoMessage: "",
+      removeUserFromMaoStatus: null,
     };
   },
+
   async mounted() {
     if (!ethereum) {
       alert("Necesitas Metamask para poder poner la wallet en tu personaje.");
@@ -91,7 +110,7 @@ export default {
   },
 
   methods: {
-    async addWalletIdToCharacter() {
+    async addWalletIdToUser() {
       if (confirm("Estas seguro que quieres agregar la wallet seleccionada en tu personaje? Esta operacion no podra ser modificada.")) {
         this.addWalletStatus = "PENDING";
         this.addWalletMessage = "Confirme la asignacion de billetera mediante metamask";
@@ -99,12 +118,10 @@ export default {
         const ethWallets = await ethereum.request({ method: "eth_requestAccounts" });
 
         try {
-          await this.$axios.$put(`/characters/addWalletIdInCharacter/${this.userId}/${ethWallets[0]}`);
+          await this.$axios.$put(`/users/addWalletIdInUser/${this.user.id}/${ethWallets[0]}`);
           this.addWalletStatus = "OK";
-          this.addWalletMessage =
-            "La billetera fue asignada correctamente al personaje. Ahora podras usar tus NFT en el juego.";
-
-          this.character.eth_wallet_id = ethWallets[0];
+          this.addWalletMessage = "La billetera fue asignada correctamente al personaje. Ahora podras usar tus NFT en el juego.";
+          this.user.eth_wallet_id = ethWallets[0];
         } catch (error) {
           this.addWalletStatus = "ERROR";
           this.addWalletMessage = error.response.data.message;
@@ -112,16 +129,54 @@ export default {
       }
     },
 
-    async recoverCharacter() {
+    async recoverUser() {
       if (confirm("Estas seguro que quieres recuperar a tu personaje?.")) {
-        alert('no implementado aun.')
+        this.recoverUserStatus = "ERROR";
+        this.recoverUser = "No implementado";
+      }
+    },
+
+    async addUserToMao() {
+      if (confirm("Estas seguro que quieres vender a tu personaje? Al aceptar, el personaje quedara bloqueado con sus items tanto de inventario como banco, para la venta del mismo.")) {
+        this.user.is_locked_in_mao = true;
+        this.$axios.$put(`/users/addOrRemoveUserInMao/${this.user.id}`, {
+            ...this.user,
+          })
+          .then((data) => {
+            this.addUserToMaoStatus = "OK";
+            this.addUserToMaoMessage = "El personaje ahora esta en el mercado ao.";
+          })
+          .catch((error) => {
+            this.user.is_locked_in_mao = false;
+            this.addUserToMaoStatus = "ERROR";
+            this.addUserToMaoMessage = error.response.data.message;
+          });
+      }
+    },
+
+    async removeUserFromMao() {
+      if (confirm("Estas seguro que quieres retirar de la venta a tu personaje?")) {
+        this.user.is_locked_in_mao = false;
+
+        this.$axios.$put(`/users/addOrRemoveUserInMao/${this.user.id}`, {
+            ...this.user,
+          })
+          .then((data) => {
+            this.addUserToMaoStatus = "OK";
+            this.addUserToMaoMessage = "El personaje fue retirado del mercado ao.";
+          })
+          .catch((error) => {
+            this.user.is_locked_in_mao = true;
+            this.removeUserFromMaoStatus = "ERROR";
+            this.removeUserFromMaoMessage = error.response.data.message;
+          });
       }
     },
   },
 
   head() {
     return {
-      title: this.character ? `${this.character.name} - Personaje` : "Personaje no encontrado",
+      title: this.user ? `${this.user.name} - Personaje` : "Personaje no encontrado",
     };
   },
 };
