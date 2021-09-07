@@ -9,6 +9,7 @@
       <h3>Setear Wallet Id para Personaje con Metamask</h3>
       <h3>WalletId: {{ user.eth_wallet_id }}</h3>
 
+      <br>
       <button
         @click="addWalletIdToUser()"
         v-if="!user.eth_wallet_id && !($dayjs(user.deleted_at).year() > 1970)"
@@ -19,6 +20,7 @@
       </button>
       <MessageBox :status="addWalletStatus" :message="addWalletMessage" />
 
+      <br>
       <button
         @click="recoverUser()"
         v-if="$dayjs(user.deleted_at).year() > 1970"
@@ -29,6 +31,7 @@
       </button>
       <MessageBox :status="recoverUserStatus" :message="recoverUserMessage" />
 
+      <br>
       <button @click="addUserToMao()"
               v-if="!user.is_locked_in_mao && !($dayjs(user.deleted_at).year() > 1970)"
               type="submit"
@@ -38,6 +41,7 @@
       </button>
       <MessageBox :status="addUserToMaoStatus" :message="addUserToMaoMessage" />
 
+      <br>
       <button @click="removeUserFromMao()"
               v-if="user.is_locked_in_mao"
               type="submit"
@@ -45,6 +49,7 @@
       >
         Sacar Personaje de Mercado AO
       </button>
+      <MessageBox :status="removeUserFromMaoStatus" :message="removeUserFromMaoMessage" />
     </div>
 
     <section v-else class="text-center mt-24">
