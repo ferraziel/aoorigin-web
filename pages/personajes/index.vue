@@ -5,36 +5,28 @@
     <div class="text-center mb-12">
       <h1 class="section-title">Lista de personajes!</h1>
       <ul
-        v-if="user.length"
+        v-if="users.length"
         class="max-w-screen-md mx-auto bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-6"
       >
         <NuxtLink
-          v-for="character in user"
-          :key="character.id"
-          :id="character.id"
-          :to="`/personajes/${character.id}`"
+          v-for="user in users"
+          :key="user.id"
+          :id="user.id"
+          :to="`/personajes/${user.id}`"
         >
-          <!-- <UserHead :id="character.head_id" :scale="i === 0 ? 5 : i === 1 ? 3 : 2" class="flex-shrink-0 mr-4" /> -->
 
           <div class="flex flex-col items-center gap-y-2">
             <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
-              <UserRenderer
-                :isDead="character.min_hp == 0"
-                :bodyData="character.bodyGraphicData"
-                :helmetData="character.helmetGraphicData"
-                :weaponData="character.weaponGraphicData"
-                :shieldData="character.shieldGraphicData"
-                :headData="character.headGraphicData"
-                background="https://i1.sndcdn.com/artworks-wclS76qZZbYHAhoX-yVPKnw-t500x500.jpg"
-              />
+              <img :src="user.canvasImage" class="">
             </div>
           </div>
 
-          <h2 class="text-4xl text-gr gr-gold">{{ character.name }}</h2>
-          <h2>Nivel: {{ character.level }}</h2>
-          <h2>Ultimo login: {{ $dayjs(character.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h2>
-          <h2>WalletId: {{ character.eth_wallet_id }}</h2>
-          <h2>Online: {{ character.is_logged }}</h2>
+          <h2 class="text-4xl text-gr gr-gold">{{ user.name }}</h2>
+          <h2>Nivel: {{ user.level }}</h2>
+          <h2>Ultimo login: {{ $dayjs(user.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h2>
+          <h2>WalletId: {{ user.eth_wallet_id }}</h2>
+          <h2>Online: {{ user.is_logged }}</h2>
+          <h2>En Venta en MAO: {{ user.is_locked_in_mao }}</h2>
           <hr />
           <br />
         </NuxtLink>
@@ -55,32 +47,21 @@
         class="max-w-screen-md mx-auto bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-6"
       >
         <NuxtLink
-          v-for="deletedUsers in deletedUsers"
-          :key="deletedUsers.id"
-          :id="deletedUsers.id"
-          :to="`/personajes/${deletedUsers.id}`"
+          v-for="deletedUser in deletedUsers"
+          :key="deletedUser.id"
+          :id="deletedUser.id"
+          :to="`/personajes/${deletedUser.id}`"
         >
-          <!-- <UserHead :id="deletedUsers.head_id" :scale="i === 0 ? 5 : i === 1 ? 3 : 2" class="flex-shrink-0 mr-4" /> -->
-
           <div class="flex flex-col items-center gap-y-2">
             <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
-              <UserRenderer
-                :isDead="deletedUsers.min_hp == 0"
-                :bodyData="deletedUsers.bodyGraphicData"
-                :helmetData="deletedUsers.helmetGraphicData"
-                :weaponData="deletedUsers.weaponGraphicData"
-                :shieldData="deletedUsers.shieldGraphicData"
-                :headData="deletedUsers.headGraphicData"
-                background="https://i1.sndcdn.com/artworks-wclS76qZZbYHAhoX-yVPKnw-t500x500.jpg"
-              />
+
+            <img :src="deletedUser.canvasImage" class="">
             </div>
           </div>
 
-          <h2 class="text-4xl text-gr gr-gold">{{ deletedUsers.name }}</h2>
-          <h2>Nivel: {{ deletedUsers.level }}</h2>
-          <h2>Ultimo login: {{ $dayjs(deletedUsers.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h2>
-          <h2>WalletId: {{ deletedUsers.eth_wallet_id }}</h2>
-          <h2>Online: {{ deletedUsers.is_logged }}</h2>
+          <h2 class="text-4xl text-gr gr-gold">{{ deletedUser.name }}</h2>
+          <h2>Nivel: {{ deletedUser.level }}</h2>
+          <h2>Ultimo login: {{ $dayjs(deletedUser.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h2>
           <hr />
           <br />
         </NuxtLink>
@@ -100,7 +81,7 @@ export default {
   middleware: "auth",
   async asyncData({ $axios }) {
     return {
-      user: await $axios.$get(`users/getAllUsers`),
+      users: await $axios.$get(`users/getAllActiveUsers`),
       deletedUsers: await $axios.$get(`users/getAllDeletedUsers`),
     };
   },

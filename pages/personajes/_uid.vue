@@ -5,22 +5,15 @@
     <div v-if="user" lass="text-center mb-12">
       <!-- <UserHead :id="user.head_id" :scale="i === 0 ? 5 : i === 1 ? 3 : 2" class="flex-shrink-0 mr-4" /> -->
       <h1 class="section-title">{{ user.name }}</h1>
-      <UserRenderer
-        :isDead="user.min_hp == 0"
-        :bodyData="user.bodyGraphicData"
-        :helmetData="user.helmetGraphicData"
-        :weaponData="user.weaponGraphicData"
-        :shieldData="user.shieldGraphicData"
-        :headData="user.headGraphicData"
-        background="https://i1.sndcdn.com/artworks-wclS76qZZbYHAhoX-yVPKnw-t500x500.jpg"
-      />
+      <img :src="user.canvasImage" class="">
+
       <div
         style="display: table-cell; vertical-align: middle"
         v-for="item in user.inventoryItem"
         :key="item.item_id"
         :id="item.item_id"
       >
-        <ItemRenderer :item="item" background="https://i1.sndcdn.com/artworks-wclS76qZZbYHAhoX-yVPKnw-t500x500.jpg" />
+        <img :src="item.Data.canvasImage" class="">
 
         <span style="color: yellow">{{ item.Data.NAME }}</span>
         <br />
@@ -82,6 +75,7 @@ export default {
   middleware: "auth",
   async asyncData({ $axios, params }) {
     let user;
+
     try {
       user = await $axios.$get(`users/${params.uid}`);
     } catch (error) {
