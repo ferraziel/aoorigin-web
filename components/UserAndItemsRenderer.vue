@@ -19,60 +19,59 @@
         </div>
       </div>
 
-          <h2>Oro en Inventario: {{ user.gold }}</h2>
-    <h2>Oro en Banco: {{ user.bank_gold }}</h2>
-    <h2>Oro Total: {{ user.gold + user.bank_gold }}</h2>
+      <h2>Oro en Inventario: {{ user.gold }}</h2>
+      <h2>Oro en Banco: {{ user.bank_gold }}</h2>
+      <h2>Oro Total: {{ user.gold + user.bank_gold }}</h2>
 
+      <div v-if="user.inventoryItem.length > 0" class="text-center mb-12">
+        <h2>Items de inventario</h2>
+        <div class="container grid grid-cols-4">
+          <div
+            class="flex flex-col items-center gap-y-4"
+            v-for="item in user.inventoryItem"
+            :key="item.item_id"
+            :id="item.item_id"
+          >
+            <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
+              <img :src="item.Data.canvasImage" class="" />
+            </div>
 
-    <div v-if="user.inventoryItem.length > 0" class="text-center mb-12">
-      <h2>Items de inventario</h2>
-      <div class="container grid grid-cols-4">
-        <div
-          class="flex flex-col items-center gap-y-4"
-          v-for="item in user.inventoryItem"
-          :key="item.item_id"
-          :id="item.item_id"
-        >
-          <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
-            <img :src="item.Data.canvasImage" class="" />
+            <ul>
+              <li style="color: yellow">{{ item.Data.NAME }}</li>
+              <li style="color: cyan">{{ item.Data.TEXTO }}</li>
+              <li style="color: green">Cantidad: {{ item.amount }}</li>
+            </ul>
           </div>
-
-          <ul>
-            <li style="color: yellow">{{ item.Data.NAME }}</li>
-            <li style="color: cyan">{{ item.Data.TEXTO }}</li>
-            <li style="color: green">Cantidad: {{ item.amount }}</li>
-          </ul>
         </div>
       </div>
-    </div>
-    <div v-else class="text-center mt-24">
-      <p class="text-2xl">No hay items en el inventario.</p>
-    </div>
+      <div v-else class="text-center mt-24">
+        <p class="text-2xl">No hay items en el inventario.</p>
+      </div>
 
-    <div v-if="user.bankInventoryItem.length > 0" class="text-center mb-12">
-      <h2>Items de Banco</h2>
-      <div class="container grid grid-cols-4">
-        <div
-          class="flex flex-col items-center gap-y-4"
-          v-for="item in user.bankInventoryItem"
-          :key="item.item_id"
-          :id="item.item_id"
-        >
-          <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
-            <img :src="item.Data.canvasImage" class="" />
+      <div v-if="user.bankInventoryItem.length > 0" class="text-center mb-12">
+        <h2>Items de Banco</h2>
+        <div class="container grid grid-cols-4">
+          <div
+            class="flex flex-col items-center gap-y-4"
+            v-for="item in user.bankInventoryItem"
+            :key="item.item_id"
+            :id="item.item_id"
+          >
+            <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
+              <img :src="item.Data.canvasImage" class="" />
+            </div>
+
+            <ul>
+              <li style="color: yellow">{{ item.Data.NAME }}</li>
+              <li style="color: cyan">{{ item.Data.TEXTO }}</li>
+              <li style="color: green">Cantidad: {{ item.amount }}</li>
+            </ul>
           </div>
-
-          <ul>
-            <li style="color: yellow">{{ item.Data.NAME }}</li>
-            <li style="color: cyan">{{ item.Data.TEXTO }}</li>
-            <li style="color: green">Cantidad: {{ item.amount }}</li>
-          </ul>
         </div>
       </div>
-    </div>
-    <div v-else class="text-center mt-24">
-      <p class="text-2xl">No hay items en el banco.</p>
-    </div>
+      <div v-else class="text-center mt-24">
+        <p class="text-2xl">No hay items en el banco.</p>
+      </div>
 
       <div class="container grid grid-cols-4">
         <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
@@ -108,7 +107,6 @@
         </div>
       </div>
 
-
       <div class="container grid grid-cols-4">
         <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
           <h1>Skillpoints</h1>
@@ -117,10 +115,8 @@
         <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
           <ul>
             <li class="text-xs">Puntos de habilidad libres: {{ user.free_skillpoints }}</li>
-            <li v-for="(value, name) in user.skillpoints"
-                :key="name" :id="name"
-                class="text-xs">
-                {{ name }}: {{ value }}
+            <li v-for="(value, name) in user.skillpoints" :key="name" :id="name" class="text-xs">
+              {{ name }}: {{ value }}
             </li>
           </ul>
         </div>

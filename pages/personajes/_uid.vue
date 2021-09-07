@@ -4,21 +4,22 @@
 
     <div v-if="user" lass="text-center mb-12">
       <h1 class="section-title">{{ user.name }}</h1>
-      <UserAndItemsRenderer :user="user" />
 
-      <h3>Setear Wallet Id para Personaje con Metamask</h3>
-      <h3>WalletId: {{ user.eth_wallet_id }}</h3>
+      <div class="mb-4" v-if="!($dayjs(user.deleted_at).year() > 1970)">
+        <h3>Setear Wallet Id para Personaje con Metamask</h3>
+        <h3>WalletId: {{ user.eth_wallet_id }}</h3>
 
-      <br>
-      <button
-        @click="addWalletIdToUser()"
-        v-if="!user.eth_wallet_id && !($dayjs(user.deleted_at).year() > 1970)"
-        type="submit"
-        class="btn btn-silver self-start"
-      >
-        Agregar Wallet seleccionada en Personaje.
-      </button>
-      <MessageBox :status="addWalletStatus" :message="addWalletMessage" />
+        <button
+          @click="addWalletIdToUser()"
+          v-if="!user.eth_wallet_id && !($dayjs(user.deleted_at).year() > 1970) && !user.is_locked_in_mao"
+          type="submit"
+          class="btn btn-silver self-start"
+        >
+          Agregar Wallet seleccionada en Personaje.
+        </button>
+        <MessageBox :status="addWalletStatus" :message="addWalletMessage" />
+
+      </div>
 
       <br>
       <button
@@ -50,6 +51,9 @@
         Sacar Personaje de Mercado AO
       </button>
       <MessageBox :status="removeUserFromMaoStatus" :message="removeUserFromMaoMessage" />
+
+      <UserAndItemsRenderer :user="user" />
+      <br>
     </div>
 
     <section v-else class="text-center mt-24">
@@ -123,7 +127,7 @@ export default {
       if (confirm("Estas seguro que quieres vender a tu personaje? Al aceptar, el personaje quedara bloqueado con sus items tanto de inventario como banco, para la venta del mismo.")) {
         this.user.is_locked_in_mao = true;
         this.$axios.$put(`/users/addOrRemoveUserInMao/${this.user.id}`, {
-            ...this.user,
+            is_locked_in_mao: this.user.is_locked_in_mao,
           })
           .then((data) => {
             this.addUserToMaoStatus = "OK";
@@ -142,7 +146,7 @@ export default {
         this.user.is_locked_in_mao = false;
 
         this.$axios.$put(`/users/addOrRemoveUserInMao/${this.user.id}`, {
-            ...this.user,
+            is_locked_in_mao: this.user.is_locked_in_mao,
           })
           .then((data) => {
             this.addUserToMaoStatus = "OK";

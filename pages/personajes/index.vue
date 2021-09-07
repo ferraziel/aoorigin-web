@@ -8,30 +8,25 @@
         v-if="users.length"
         class="max-w-screen-md mx-auto bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-6"
       >
-        <NuxtLink
-          v-for="user in users"
-          :key="user.id"
-          :id="user.id"
-          :to="`/personajes/${user.id}`"
-        >
-
-          <div class="flex flex-col items-center gap-y-2">
-            <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
-              <img :src="user.canvasImage" class="">
+        <div v-for="user in users" :key="user.id" :id="user.id">
+          <NuxtLink :to="`/personajes/${user.id}`">
+            <div class="flex flex-col items-center gap-y-2">
+              <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
+                <img :src="user.canvasImage" class="" />
+              </div>
             </div>
-          </div>
 
-          <h2 class="text-4xl text-gr gr-gold">{{ user.name }}</h2>
+            <h2 class="text-4xl text-gr gr-gold">{{ user.name }}</h2>
+          </NuxtLink>
+
           <h2>Nivel: {{ user.level }}</h2>
           <h2>Ultimo login: {{ $dayjs(user.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h2>
-          <h2>WalletId: {{ user.eth_wallet_id }}</h2>
           <h2>Online: {{ user.is_logged }}</h2>
-          <h2>En Venta en MAO: {{ user.is_locked_in_mao }}</h2>
+          <h2 v-if="user.is_locked_in_mao">En Venta en MAO</h2>
+          <h2 v-if="user.eth_wallet_id">WalletId: {{ user.eth_wallet_id }}</h2>
           <hr />
           <br />
-        </NuxtLink>
-
-
+        </div>
       </ul>
 
       <section v-else class="text-center mt-24">
@@ -54,8 +49,7 @@
         >
           <div class="flex flex-col items-center gap-y-2">
             <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
-
-            <img :src="deletedUser.canvasImage" class="">
+              <img :src="deletedUser.canvasImage" class="" />
             </div>
           </div>
 
@@ -65,8 +59,6 @@
           <hr />
           <br />
         </NuxtLink>
-
-
       </ul>
 
       <section v-else class="text-center mt-24">
