@@ -5,44 +5,66 @@
     <div class="text-center mb-12">
       <h1 class="section-title">Lista de personajes!</h1>
       <ul
-        v-if="characters.length"
+        v-if="users.length"
         class="max-w-screen-md mx-auto bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-6"
       >
-        <NuxtLink
-          v-for="character in characters"
-          :key="character.id"
-          :id="character.id"
-          :to="`/personajes/${character.id}`"
-        >
-          <!-- <CharacterHead :id="character.head_id" :scale="i === 0 ? 5 : i === 1 ? 3 : 2" class="flex-shrink-0 mr-4" /> -->
-
-          <div class="flex flex-col items-center gap-y-2">
-            <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
-              <CharacterRenderer body="/assets/img/characters/body.png"
-                                 helmet="/assets/img/characters/helmet.png"
-                                 weapon="/assets/img/characters/weapon.png"
-                                 shield="/assets/img/characters/shield.png"
-                                 head="/assets/img/characters/head.png"
-              />
+        <div v-for="user in users" :key="user.id" :id="user.id">
+          <NuxtLink :to="`/personajes/${user.id}`">
+            <div class="flex flex-col items-center gap-y-2">
+              <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
+                <img :src="user.canvasImage" class="" />
+              </div>
             </div>
 
-            <h2 class="text-4xl text-gr gr-gold">{{ character.name }}</h2>
-            <h2>Nivel: {{ character.level }}</h2>
-            <h2>Ultimo login: {{ $dayjs(character.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h2>
-            <h2>WalletId: {{ character.eth_wallet_id }}</h2>
-            <h2>Online: {{ character.is_logged }}</h2>
+            <h2 class="text-4xl text-gr gr-gold">{{ user.name }}</h2>
+          </NuxtLink>
 
-          </div>
-          <hr>
-          <br>
-        </NuxtLink>
+          <h2>Nivel: {{ user.level }}</h2>
+          <h2>Ultimo login: {{ $dayjs(user.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h2>
+          <h2>Online: {{ user.is_logged }}</h2>
+          <h2 v-if="user.is_locked_in_mao">En Venta en MAO</h2>
+          <h2 v-if="user.eth_wallet_id">WalletId: {{ user.eth_wallet_id }}</h2>
+          <hr />
+          <br />
+        </div>
       </ul>
 
       <section v-else class="text-center mt-24">
         <p class="text-2xl">Aún no hay personajes en la cuenta.</p>
       </section>
     </div>
-    <!-- <pre class="bg-black">{{ $auth.user }}</pre> -->
+
+    <div class="text-center mb-12">
+      <h1 class="section-title">Personajes Borrados</h1>
+      <h5>Si queres podes recuperar tus personajes borrados por dinero</h5>
+      <ul
+        v-if="deletedUsers.length"
+        class="max-w-screen-md mx-auto bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-6"
+      >
+        <NuxtLink
+          v-for="deletedUser in deletedUsers"
+          :key="deletedUser.id"
+          :id="deletedUser.id"
+          :to="`/personajes/${deletedUser.id}`"
+        >
+          <div class="flex flex-col items-center gap-y-2">
+            <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
+              <img :src="deletedUser.canvasImage" class="" />
+            </div>
+          </div>
+
+          <h2 class="text-4xl text-gr gr-gold">{{ deletedUser.name }}</h2>
+          <h2>Nivel: {{ deletedUser.level }}</h2>
+          <h2>Ultimo login: {{ $dayjs(deletedUser.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h2>
+          <hr />
+          <br />
+        </NuxtLink>
+      </ul>
+
+      <section v-else class="text-center mt-24">
+        <p class="text-2xl">Aún no hay personajes borrados en la cuenta.</p>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -51,7 +73,8 @@ export default {
   middleware: "auth",
   async asyncData({ $axios }) {
     return {
-      characters: await $axios.$get(`characters`),
+      users: await $axios.$get(`users/getAllActiveUsers`),
+      deletedUsers: await $axios.$get(`users/getAllDeletedUsers`),
     };
   },
 };
