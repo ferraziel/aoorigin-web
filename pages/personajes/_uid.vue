@@ -3,24 +3,8 @@
     <PagePadding />
 
     <div v-if="user" lass="text-center mb-12">
-      <!-- <UserHead :id="user.head_id" :scale="i === 0 ? 5 : i === 1 ? 3 : 2" class="flex-shrink-0 mr-4" /> -->
       <h1 class="section-title">{{ user.name }}</h1>
-      <img :src="user.canvasImage" class="">
-
-      <div
-        style="display: table-cell; vertical-align: middle"
-        v-for="item in user.inventoryItem"
-        :key="item.item_id"
-        :id="item.item_id"
-      >
-        <img :src="item.Data.canvasImage" class="">
-
-        <span style="color: yellow">{{ item.Data.NAME }}</span>
-        <br />
-        <span>{{ item.Data.TEXTO }}</span>
-        <br />
-        <span style="color: green">Cantidad: {{ item.amount }}</span>
-      </div>
+      <UserAndItemsRenderer :user="user" />
 
       <h3>Setear Wallet Id para Personaje con Metamask</h3>
       <h3>WalletId: {{ user.eth_wallet_id }}</h3>
@@ -126,7 +110,7 @@ export default {
     async recoverUser() {
       if (confirm("Estas seguro que quieres recuperar a tu personaje?.")) {
         this.recoverUserStatus = "ERROR";
-        this.recoverUser = "No implementado";
+        this.recoverUserMessage = "No implementado";
       }
     },
 

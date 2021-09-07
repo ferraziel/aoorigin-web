@@ -88,8 +88,12 @@ export default {
           route: "/ranking",
         },
         {
-          label: "Market NFT",
+          label: "NFT Marketplace",
           route: "/market-nft/opensea",
+        },
+        {
+          label: "Mercado AO",
+          route: "/mercadoao",
         },
       ],
     };
