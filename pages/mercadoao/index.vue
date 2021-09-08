@@ -33,10 +33,9 @@
 
 <script>
 export default {
-  middleware: "auth",
   async asyncData({ $axios }) {
     return {
-      usersOnSell: await $axios.$get(`users/getAllActiveUsers`),
+      usersOnSell: await $axios.$post(`users/getAllUsersOnSellInMao`),
     };
   },
 };

@@ -25,19 +25,9 @@
 <script>
 
 export default {
-  middleware: "auth",
   async asyncData({ $axios, params }) {
-    let user;
-
-    try {
-      user = await $axios.$get(`users/getUserOnSell/${params.uid}`);
-    } catch (error) {
-      user = null;
-    }
-
     return {
-      // user.id: params.uid,
-      user,
+      user: await $axios.$post(`users/getUserOnSell/${params.uid}`),
       buyUserMessage: "",
       buyUserStatus: null,
     };
@@ -51,7 +41,6 @@ export default {
   },
 
   methods: {
-
 
     async buyUser() {
       if (confirm("Estas seguro que quieres comprar este personaje?.")) {
