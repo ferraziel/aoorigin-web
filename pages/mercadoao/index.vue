@@ -19,6 +19,7 @@
               <h4 class="text-gr gr-gold">{{ item.Data.NAME }}</h4>
             </NuxtLink>
             <span class="gr-gold"> {{ item.Data.TEXTO }}</span>
+            <span style="color: green">Precio: {{ item.price_in_tokens }} AO Tokens</span>
 
           </div>
         </div>
