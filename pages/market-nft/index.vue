@@ -11,7 +11,7 @@
         class="group flex flex-col p-3 md:p-6 border-b last:border-b-0 border-gray-700 hover:bg-white hover:bg-opacity-10 transition-colors duration-200 ease-out"
       >
         <h1 class="text-2xl text-primary group-hover:text-white transition-colors duration-200 ease-out">
-          {{ item.obj_id }} {{ item.Name}}
+          {{ item.obj_id }} {{ item.Name }}
         </h1>
 
         <h2 class="text-2xl text-primary group-hover:text-white transition-colors duration-200 ease-out">
@@ -33,7 +33,6 @@
         <h3 class="text-2xl text-primary group-hover:text-white transition-colors duration-200 ease-out">
           Comentario del vendedor: {{ item.description }}
         </h3>
-
 
         <h3 class="text-2xl text-primary group-hover:text-white transition-colors duration-200 ease-out">
           Descripcion del item: {{ item.Texto }}
