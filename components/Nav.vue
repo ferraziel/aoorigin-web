@@ -13,6 +13,10 @@
               <NuxtLink :to="link.route" class="inline-block py-2 hover:text-gray-100">{{ link.label }}</NuxtLink>
             </li>
             <li>
+              <!-- Esto se abre asi y no con nuxtLink por que sino tira error a veces.... -->
+              <a href="/market-nft/opensea" class="inline-block py-2 hover:text-gray-100">NFT Marketplace</a>
+            </li>
+            <li>
               <a
                 href="https://wiki.ao20.com.ar/index.php?title=P%C3%A1gina_principal"
                 target="_blank"
@@ -61,6 +65,10 @@
             }}</NuxtLink>
           </li>
           <li>
+              <!-- Esto se abre asi y no con nuxtLink por que sino tira error a veces.... -->
+            <a href="/market-nft/opensea" class="mobile-nav-link">NFT Marketplace</a>
+          </li>
+          <li>
             <a href="https://wiki.ao20.com.ar/es/home" target="_blank" class="mobile-nav-link">Manual</a>
           </li>
         </ul>
@@ -87,10 +95,10 @@ export default {
           label: "Ranking",
           route: "/ranking",
         },
-        // {
-        //   label: "Market NFT",
-        //   route: "/market-nft",
-        // },
+        {
+          label: "Mercado AO",
+          route: "/mercadoao",
+        },
       ],
     };
   },
