@@ -21,7 +21,7 @@
 
           <h2>Nivel: {{ user.level }}</h2>
           <h2>Ultimo login: {{ $dayjs(user.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h2>
-          <h2>Online: {{ user.is_logged }}</h2>
+          <h2>Online: {{ user.is_logged ? '🟢' : '🔴'}}</h2>
           <h2 v-if="user.is_locked_in_mao">En Venta en MAO</h2>
           <h2 v-if="user.eth_wallet_id">WalletId: {{ user.eth_wallet_id }}</h2>
           <hr />
