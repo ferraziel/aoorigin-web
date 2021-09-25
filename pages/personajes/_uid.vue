@@ -5,13 +5,13 @@
     <div v-if="user" lass="text-center mb-12">
       <h1 class="section-title">{{ user.name }}</h1>
 
-      <div class="mb-4" v-if="!($dayjs(user.deleted_at).year() > 1970)">
+      <div class="mb-4" v-if=!user.deleted>
         <h3>Setear Wallet Id para Personaje con Metamask</h3>
         <h3>WalletId: {{ user.eth_wallet_id }}</h3>
 
         <button
           @click="addWalletIdToUser()"
-          v-if="!user.eth_wallet_id && !($dayjs(user.deleted_at).year() > 1970) && !user.is_locked_in_mao"
+          v-if="!user.eth_wallet_id && !user.deleted && !user.is_locked_in_mao"
           type="submit"
           class="btn btn-silver self-start"
         >
@@ -24,7 +24,7 @@
       <br>
       <button
         @click="recoverUser()"
-        v-if="$dayjs(user.deleted_at).year() > 1970"
+        v-if=user.deleted
         type="submit"
         class="btn btn-silver self-start"
       >
@@ -33,7 +33,7 @@
       <MessageBox :status="recoverUserStatus" :message="recoverUserMessage" />
 
       <br>
-      <div v-if="!user.is_locked_in_mao && !($dayjs(user.deleted_at).year() > 1970)">
+      <div v-if="!user.is_locked_in_mao && !user.deleted">
         <span>Vender el personaje tiene un costo de 10.000 monedas de oro de juego. Se necesita tener el monto total en el inventario o boveda.</span>
         <button @click="addUserToMao()"
                 type="submit"
