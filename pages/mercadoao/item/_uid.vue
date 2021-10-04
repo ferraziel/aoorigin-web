@@ -78,7 +78,6 @@ export default {
     },
 
     async buyItem(userId) {
-      debugger
       if (confirm("Estas seguro que quieres comprar este item?.")) {
 
         await ethereum.enable();
