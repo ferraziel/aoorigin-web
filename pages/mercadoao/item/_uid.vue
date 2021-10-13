@@ -16,7 +16,7 @@
       </ul>
 
       <button @click="prepareOrder()"
-              v-if="usersWithFreeSlots.length <= 0"
+              v-if="$auth.loggedIn && usersWithFreeSlots.length <= 0"
               type="submit"
               class="btn btn-silver self-start"
       >
