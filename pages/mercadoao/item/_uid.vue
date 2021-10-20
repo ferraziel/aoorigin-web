@@ -85,7 +85,7 @@ export default {
         const accounts = await ethereum.request({ method: 'eth_accounts' });
 
         this.buyItemStatus = "PENDING";
-        this.buyItemMessage = "Esperando aprobar transaccion. Esto puede tardar varios minutos dependiendo la congestion de la red ethereum";
+        this.buyItemMessage = "Esperando aprobar transaccion. Esto puede tardar varios minutos dependiendo la congestion de la red Binance Smart Chain";
 
         try {
           const transactionHash = await ethereum.request({
