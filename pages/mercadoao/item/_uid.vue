@@ -28,15 +28,6 @@
 
       </ul>
 
-      <button
-        @click="prepareOrder()"
-        v-if="$auth.loggedIn && usersWithFreeSlots.length > 0"
-        type="submit"
-        class="btn btn-silver self-start"
-      >
-        Seleccionar personaje al cual asignar item.
-      </button>
-
       <h1
         v-if="!$auth.loggedIn"
       >
@@ -113,26 +104,19 @@ export default {
       alert("Necesitas Metamask para poder poner la wallet en tu personaje.");
       console.log("Non-Ethereum browser detected. You should consider trying MetaMask!");
     }
+    this.$axios
+    .$post(`/users/getUserFromAccountWithFreeSlotsInBankInventory`)
+    .then((data) => {
+      this.buyItemMessage = "Debes de seleccionar el personaje a comprar el item..";
+      this.usersWithFreeSlots = data.usersWithFreeSlots;
+    })
+    .catch((error) => {
+      this.buyItemStatus = "ERROR";
+      this.buyItemMessage = error.response.data.message;
+    });
   },
 
   methods: {
-    async prepareOrder() {
-      this.buyItemStatus = "PENDING";
-      this.buyItemMessage = "Selecciona el personaje al cual quieras asignar el item.";
-
-      this.$axios
-        .$post(`/users/getUserFromAccountWithFreeSlotsInBankInventory`)
-        .then((data) => {
-          this.buyItemStatus = "PENDING";
-          this.buyItemMessage = "Debes de seleccionar el personaje a comprar el item..";
-          this.usersWithFreeSlots = data.usersWithFreeSlots;
-        })
-        .catch((error) => {
-          this.buyItemStatus = "ERROR";
-          this.buyItemMessage = error.response.data.message;
-        });
-    },
-
     selectCharacter(userId) {
       this.selectedUserId = userId;
     },
