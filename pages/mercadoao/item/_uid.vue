@@ -62,8 +62,7 @@
 </template>
 
 <script>
-// import abi from "@/assets/contracts/0xEA17E48C988D64e92d64550C787B17281F61828e.json";
-import abi from "@/assets/0xEA17E48C988D64e92d64550C787B17281F61828e.json";
+import abi from "@/assets/contracts/0xEA17E48C988D64e92d64550C787B17281F61828e.json";
 import Web3 from 'web3'
 
 export default {
