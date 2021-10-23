@@ -24,7 +24,7 @@
 
         <li style="color: green">Precio: {{ item.price_in_tokens }} AOLB Tokens <img src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png" alt="AOLB Token" class="w-8 h-8 rounded-full" /></li>
         <li style="color: green">Descripcion: {{ item.Data.DESC }}</li>
-        <li style="color: green">Tipo de Objeto: {{ gameObjTypes[item.Data.OBJTYPE] }}</li>
+        <li style="color: green">Tipo de Objeto: {{ gameObjTypes[item.Data.OBJTYPE - 1] }}</li>
 
       </ul>
 
