@@ -3,6 +3,16 @@
     <PagePadding />
 
     <div v-if="item" lass="text-center mb-12">
+      <h4>Comprar AOLB (Argentum Online Libre B) Token</h4>
+      <img src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png" alt="AOLB Token" class="w-32 h-32 rounded-full mb-4" />
+
+      <a href="https://pancakeswap.finance/info/token/0xea17e48c988d64e92d64550c787b17281f61828e" target="_blank">
+        COMPRAR EN PANCAKE SWAP
+      </a>
+      <br>
+      <a href="https://dex.guru/token/0xea17e48c988d64e92d64550c787b17281f61828e-bsc" target="_blank">
+        COMPRAR EN DEX GURU
+      </a>
       <h1 class="section-title">{{ item.Data.NAME }}</h1>
 
       <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
@@ -12,6 +22,9 @@
       <ul>
         <li style="color: cyan">{{ item.Data.TEXTO }}</li>
         <li style="color: green">Precio: {{ item.price_in_tokens }} AO Tokens</li>
+        <li style="color: green">Descripcion: {{ item.Data.DESC }}</li>
+        <li style="color: green">Tipo de Objeto: {{ gameObjTypes[item.Data.OBJTYPE] }}</li>
+
       </ul>
 
       <button
@@ -22,6 +35,14 @@
       >
         Seleccionar personaje al cual asignar item.
       </button>
+
+      <h1
+        v-if="!$auth.loggedIn"
+      >
+        Debes de iniciar sesion para poder comprar items.
+      </h1>
+
+
       <MessageBox :status="buyItemStatus" :message="buyItemMessage" />
 
       <div v-if="usersWithFreeSlots.length > 0">
@@ -40,15 +61,15 @@
           <h3>Pagar Con:</h3>
           <tr>
               <th style="color: cyan">AOLB (AO Libre Token B)</th>
-              <th style="color: yellow">BNB (Binance Token)</th>
+              <!-- <th style="color: yellow">BNB (Binance Token)</th> -->
           </tr>
           <tr>
               <td>
                   <img @click="buyItem()" src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png" class="w-32 h-32 rounded-full mb-4" />
               </td>
-              <td>
+              <!-- <td>
                   <img @click="buyItemWithNativeToken()" src="https://assets.trustwalletapp.com/blockchains/binance/info/logo.png" class="w-32 h-32 rounded-full mb-4" />
-              </td>
+              </td> -->
           </tr>
         </table>
 
@@ -63,6 +84,7 @@
 
 <script>
 import abi from "@/assets/contracts/0xEA17E48C988D64e92d64550C787B17281F61828e.json";
+import gameObjTypes from "@/assets/gameObjTypes.json";
 import Web3 from 'web3'
 
 export default {
@@ -74,7 +96,8 @@ export default {
       buyItemMessage: "",
       buyItemStatus: null,
       aolbContractAddress: process.env.TOKEN_AOLB_CONTRACT_ADDRESS,
-      abi
+      abi,
+      gameObjTypes
     };
   },
 
@@ -120,17 +143,16 @@ export default {
         const aolTokenContract = new web3.eth.Contract(this.abi, this.aolbContractAddress);
 
         try {
-          const priceInWei = Web3.utils.toWei(this.item.price_in_tokens.toString(), 'ether')
           const accounts = await ethereum.request({ method: "eth_accounts" });
 
-          const estimatedGas = await aolTokenContract.methods.transfer(accounts[0], priceInWei).estimateGas({
+          const estimatedGas = await aolTokenContract.methods.transfer(accounts[0], this.item.price_in_tokens).estimateGas({
             from: accounts[0],
           });
 
           console.log("Estimated gas: " + estimatedGas);
 
           aolTokenContract.methods
-            .transfer(accounts[0], priceInWei)
+            .transfer(accounts[0], this.item.price_in_tokens)
             .send({
                 from: accounts[0],
                 gas: estimatedGas
@@ -179,14 +201,12 @@ export default {
 
 
         try {
-          const priceInWei = Web3.utils.toWei(this.item.price_in_tokens.toString(), 'ether')
-
           const transactionHash = await ethereum.request({
             method: "eth_sendTransaction",
             params: [
               {
                 to: process.env.PAYMENT_ADDRESS,
-                value: priceInWei,
+                value: this.item.price_in_tokens.toString(),
                 from: accounts[0],
               },
             ],
