@@ -104,16 +104,20 @@ export default {
       alert("Necesitas Metamask para poder poner la wallet en tu personaje.");
       console.log("Non-Ethereum browser detected. You should consider trying MetaMask!");
     }
-    this.$axios
-    .$post(`/users/getUserFromAccountWithFreeSlotsInBankInventory`)
-    .then((data) => {
-      this.buyItemMessage = "Debes de seleccionar el personaje a comprar el item..";
-      this.usersWithFreeSlots = data.usersWithFreeSlots;
-    })
-    .catch((error) => {
-      this.buyItemStatus = "ERROR";
-      this.buyItemMessage = error.response.data.message;
-    });
+
+    if ($auth.loggedIn) {
+      this.$axios
+      .$post(`/users/getUserFromAccountWithFreeSlotsInBankInventory`)
+      .then((data) => {
+        this.buyItemMessage = "Debes de seleccionar el personaje a comprar el item..";
+        this.usersWithFreeSlots = data.usersWithFreeSlots;
+      })
+      .catch((error) => {
+        this.buyItemStatus = "ERROR";
+        this.buyItemMessage = error.response.data.message;
+      });
+    }
+
   },
 
   methods: {
@@ -198,16 +202,8 @@ export default {
               {
                 to: process.env.PAYMENT_ADDRESS,
                 value: this.item.price_in_tokens.toString(),
-                from: accounts[0],
-              },
-            ],
-          });
-
-          // Handle the result
-          console.log(transactionHash);
-
-          this.$axios
-            .$post(`/market/buyItemMao`, {
+ei,
+ket/buyItemMao`, {
               itemId: this.item.item_id,
               itemQuantity: 1,
               userId: this.selectedUserId,
