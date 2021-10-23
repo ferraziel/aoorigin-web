@@ -15,13 +15,14 @@
       </a>
       <h1 class="section-title">{{ item.Data.NAME }}</h1>
 
-      <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
+      <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-2 bg-gray-900">
         <img :src="item.Data.canvasImage" class="" />
       </div>
 
       <ul>
         <li style="color: cyan">{{ item.Data.TEXTO }}</li>
-        <li style="color: green">Precio: {{ item.price_in_tokens }} AO Tokens</li>
+
+        <li style="color: green">Precio: {{ item.price_in_tokens }} AOLB Tokens <img src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png" alt="AOLB Token" class="w-8 h-8 rounded-full" /></li>
         <li style="color: green">Descripcion: {{ item.Data.DESC }}</li>
         <li style="color: green">Tipo de Objeto: {{ gameObjTypes[item.Data.OBJTYPE] }}</li>
 
@@ -57,7 +58,7 @@
         </div>
         <br>
 
-        <table v-if="selectedUserId" style="margin-left:auto;margin-right:auto;">
+        <table @click="buyItem()" v-if="selectedUserId" style="margin-left:auto;margin-right:auto;">
           <h3>Pagar Con:</h3>
           <tr>
               <th style="color: cyan">AOLB (AO Libre Token B)</th>
