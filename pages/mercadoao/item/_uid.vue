@@ -49,7 +49,7 @@
           </tr>
           <tr>
               <td>
-                  <img @click="buyItem()" src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png" class="w-32 h-32 rounded-full mb-4" />
+                  <img src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png" class="w-32 h-32 rounded-full mb-4" />
               </td>
               <!-- <td>
                   <img @click="buyItemWithNativeToken()" src="https://assets.trustwalletapp.com/blockchains/binance/info/logo.png" class="w-32 h-32 rounded-full mb-4" />
@@ -139,57 +139,52 @@ export default {
 
         console.log("Comprando con AOLB Token.");
         this.buyItemStatus = "PENDING";
-        this.buyItemMessage =
-          "Esperando aprobar transaccion. Esto puede tardar varios minutos dependiendo la congestion de la red Binance Smart Chain";
+        this.buyItemMessage ="Esperando aprobar transaccion en Metamask.";
 
         var web3 = new Web3(window.ethereum);
         const aolTokenContract = new web3.eth.Contract(this.abi, this.aolbContractAddress);
 
-        try {
-          const accounts = await ethereum.request({ method: "eth_accounts" });
+        const accounts = await ethereum.request({ method: "eth_accounts" });
 
-          const estimatedGas = await aolTokenContract.methods.transfer(accounts[0], this.item.price_in_tokens).estimateGas({
-            from: accounts[0],
+        const estimatedGas = await aolTokenContract.methods.transfer(accounts[0], this.item.price_in_tokens).estimateGas({
+          from: accounts[0],
+        });
+
+        console.log("Estimated gas: " + estimatedGas);
+
+        aolTokenContract.methods
+          .transfer(accounts[0], this.item.price_in_tokens)
+          .send({
+              from: accounts[0],
+              gas: estimatedGas
+          })
+          .then((data) => {
+
+// Handle the result
+            console.log(data.transactionHash);
+
+            this.$axios
+              .$post(`/market/buyItemMao`, {
+                itemId: this.item.item_id,
+                itemQuantity: 1,
+                userId: this.selectedUserId,
+                txHash: data.transactionHash,
+              })
+              .then((response) => {
+                this.buyItemStatus = "OK";
+                this.buyItemMessage = "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se deposite el item en tu boveda del banco.";
+                this.usersWithFreeSlots.length = 0
+              })
+              .catch((error) => {
+                this.buyItemStatus = "ERROR";
+                this.buyItemMessage = error.response.data.message;
+              });
+          })
+          .catch((error) => {
+            debugger;
+            this.buyItemStatus = "ERROR";
+            this.buyItemMessage = error.message;
           });
-
-          console.log("Estimated gas: " + estimatedGas);
-
-          aolTokenContract.methods
-            .transfer(accounts[0], this.item.price_in_tokens)
-            .send({
-                from: accounts[0],
-                gas: estimatedGas
-            })
-            .then((data) => {
-              debugger
-              // Handle the result
-              console.log(data.transactionHash);
-
-              this.$axios
-                .$post(`/market/buyItemMao`, {
-                  itemId: this.item.item_id,
-                  itemQuantity: 1,
-                  userId: this.selectedUserId,
-                  txHash: data.transactionHash,
-                })
-                .then((response) => {
-                  this.buyItemStatus = "OK";
-                  this.buyItemMessage = "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se deposite el item en tu boveda del banco.";
-                  this.usersWithFreeSlots.length = 0
-                })
-                .catch((error) => {
-                  this.buyItemStatus = "ERROR";
-                  this.buyItemMessage = error.response.data.message;
-                });
-            })
-            .catch((error) => {
-              this.buyItemStatus = "ERROR";
-              this.buyItemMessage = error.response.data.message;
-            });
-        } catch (e) {
-          this.buyItemStatus = "ERROR";
-          this.buyItemMessage = e.message;
-        }
       }
     },
 
