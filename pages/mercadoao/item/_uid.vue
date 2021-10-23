@@ -15,13 +15,13 @@
 
       </ul>
 
-      <h1
+      <h1 style="color: red"
         v-if="!$auth.loggedIn"
       >
         Debes de iniciar sesion para poder comprar items.
       </h1>
 
-      <h1
+      <h1 style="color: red"
         v-if="$auth.loggedIn && usersWithFreeSlots.length == 0"
       >
         Debes de crear un personaje en el juego para poder comprar items.
