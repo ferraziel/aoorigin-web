@@ -177,13 +177,16 @@ export default {
         this.buyItemStatus = "PENDING";
         this.buyItemMessage = "Esperando aprobar transaccion. Esto puede tardar varios minutos dependiendo la congestion de la red Binance Smart Chain";
 
+
         try {
+          const priceInWei = Web3.utils.toWei(this.item.price_in_tokens.toString(), 'ether')
+
           const transactionHash = await ethereum.request({
             method: "eth_sendTransaction",
             params: [
               {
-                to: "0x94f5bA56B06a6097f25D6b658f7abE2f78880B79",
-                value: "10000000000000",
+                to: process.env.PAYMENT_ADDRESS,
+                value: priceInWei,
                 from: accounts[0],
               },
             ],
