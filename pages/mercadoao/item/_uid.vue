@@ -58,12 +58,14 @@
         </table>
 
       </div>
-      <h1>PREGUNTAS FRECUENTES / FAQS</h1>
+      <h1 style="color:purple">PREGUNTAS FRECUENTES / FAQS</h1>
       <span>Debes estar conectado a la red Binance Smart Chain!</span>
       <img src="https://www.asiacryptotoday.com/wp-content/uploads/2020/08/Binance-Smart-Chain-scaled.jpeg" class="w-64 h-32 mb-4" />
       <a style="color:cyan" href="https://academy.binance.com/es/articles/connecting-metamask-to-binance-smart-chain" target="_blank">
         Tutorial para Agregar Binance Smart Chain a Metamask
       </a>
+      <hr>
+      <br>
 
       <div v-if="item" lass="text-center mb-12">
       <h4 >Comprar AOLB (Argentum Online Libre B) Token</h4>
@@ -76,6 +78,7 @@
       <a style="color:cyan" href="https://dex.guru/token/0xea17e48c988d64e92d64550c787b17281f61828e-bsc" target="_blank">
         COMPRAR EN DEX GURU
       </a>
+      <hr>
     </div>
 
     <section v-else class="text-center mt-24">
