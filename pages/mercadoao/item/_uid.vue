@@ -1,18 +1,5 @@
 <template>
   <div class="container">
-    <PagePadding />
-
-    <div v-if="item" lass="text-center mb-12">
-      <h4>Comprar AOLB (Argentum Online Libre B) Token</h4>
-      <img src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png" alt="AOLB Token" class="w-32 h-32 rounded-full mb-4" />
-
-      <a href="https://pancakeswap.finance/info/token/0xea17e48c988d64e92d64550c787b17281f61828e" target="_blank">
-        COMPRAR EN PANCAKE SWAP
-      </a>
-      <br>
-      <a href="https://dex.guru/token/0xea17e48c988d64e92d64550c787b17281f61828e-bsc" target="_blank">
-        COMPRAR EN DEX GURU
-      </a>
       <h1 class="section-title">{{ item.Data.NAME }}</h1>
 
       <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-2 bg-gray-900">
@@ -39,7 +26,6 @@
       >
         Debes de crear un personaje en el juego para poder comprar items.
       </h1>
-
 
       <MessageBox :status="buyItemStatus" :message="buyItemMessage" />
 
@@ -72,6 +58,24 @@
         </table>
 
       </div>
+      <h1>PREGUNTAS FRECUENTES / FAQS</h1>
+      <span>Debes estar conectado a la red Binance Smart Chain!</span>
+      <img src="https://www.asiacryptotoday.com/wp-content/uploads/2020/08/Binance-Smart-Chain-scaled.jpeg" class="w-64 h-32 mb-4" />
+      <a style="color:cyan" href="https://academy.binance.com/es/articles/connecting-metamask-to-binance-smart-chain" target="_blank">
+        Tutorial para Agregar Binance Smart Chain a Metamask
+      </a>
+
+      <div v-if="item" lass="text-center mb-12">
+      <h4 >Comprar AOLB (Argentum Online Libre B) Token</h4>
+      <img src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png" alt="AOLB Token" class="w-32 h-32 rounded-full mb-4" />
+
+      <a style="color:cyan" href="https://pancakeswap.finance/info/token/0xea17e48c988d64e92d64550c787b17281f61828e" target="_blank">
+        COMPRAR EN PANCAKE SWAP
+      </a>
+      <br>
+      <a style="color:cyan" href="https://dex.guru/token/0xea17e48c988d64e92d64550c787b17281f61828e-bsc" target="_blank">
+        COMPRAR EN DEX GURU
+      </a>
     </div>
 
     <section v-else class="text-center mt-24">
@@ -105,7 +109,15 @@ export default {
       console.log("Non-Ethereum browser detected. You should consider trying MetaMask!");
     }
 
-    if ($auth.loggedIn) {
+    this.prepareOrder();
+  },
+
+  methods: {
+    selectCharacter(userId) {
+      this.selectedUserId = userId;
+    },
+
+    prepareOrder() {
       this.$axios
       .$post(`/users/getUserFromAccountWithFreeSlotsInBankInventory`)
       .then((data) => {
@@ -116,13 +128,6 @@ export default {
         this.buyItemStatus = "ERROR";
         this.buyItemMessage = error.response.data.message;
       });
-    }
-
-  },
-
-  methods: {
-    selectCharacter(userId) {
-      this.selectedUserId = userId;
     },
 
     async buyItem() {
@@ -202,8 +207,16 @@ export default {
               {
                 to: process.env.PAYMENT_ADDRESS,
                 value: this.item.price_in_tokens.toString(),
-ei,
-ket/buyItemMao`, {
+                from: accounts[0],
+              },
+            ],
+          });
+
+          // Handle the result
+          console.log(transactionHash);
+
+          this.$axios
+            .$post(`/market/buyItemMao`, {
               itemId: this.item.item_id,
               itemQuantity: 1,
               userId: this.selectedUserId,
