@@ -94,6 +94,7 @@ import Web3 from 'web3'
 
 export default {
   data() {
+    console.log(666, process.env.TOKEN_AOLB_CONTRACT_ADDRESS, process.env.PAYMENT_ADDRESS)
     return {
       aolbContractAddress: process.env.TOKEN_AOLB_CONTRACT_ADDRESS,
       paymentAddress: process.env.PAYMENT_ADDRESS,
@@ -148,7 +149,7 @@ export default {
 
         var web3 = new Web3(window.ethereum);
 
-        const aolTokenContract = new web3.eth.Contract(this.abi, this.aolbContractAddress);
+        const aolTokenContract = new web3.eth.Contract(this.abi, 0xEA17E48C988D64e92d64550C787B17281F61828e);
 
         const accounts = await ethereum.request({ method: "eth_accounts" });
 
@@ -209,7 +210,8 @@ export default {
             method: "eth_sendTransaction",
             params: [
               {
-                to: this.paymentAddress,
+                // to: this.paymentAddress,
+                to: 0x8bE08c2eddC1E266B0177a7FD23A2d7DBA6bB563,
                 value: this.item.price_in_tokens.toString(),
                 from: accounts[0],
               },
