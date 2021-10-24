@@ -173,10 +173,10 @@ async asyncData({ $axios, params }) {
         // const aolTokenContract = new web3.eth.Contract(this.abi, "0xEA17E48C988D64e92d64550C787B17281F61828e");
         const aolTokenContract = new web3.eth.Contract(this.abi, this.aolbContractAddress);
         const accounts = await ethereum.request({ method: "eth_accounts" });
-        // const priceInWei = Web3.utils.toWei(this.item.price_in_tokens.toString(), 'ether')
+        const priceInWei = Web3.utils.toWei(this.item.price_in_tokens.toString(), 'ether')
 
         const estimatedGas = await aolTokenContract.methods
-          .transfer(accounts[0], this.item.price_in_tokens)
+          .transfer(accounts[0], priceInWei)
           .estimateGas({
             from: accounts[0],
           });
@@ -184,7 +184,7 @@ async asyncData({ $axios, params }) {
         console.log("Estimated gas: " + estimatedGas);
 
         aolTokenContract.methods
-          .transfer(accounts[0], this.item.price_in_tokens)
+          .transfer(accounts[0], priceInWei)
           .send({
             from: accounts[0],
             gas: estimatedGas,
