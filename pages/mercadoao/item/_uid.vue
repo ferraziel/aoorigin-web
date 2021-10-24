@@ -176,7 +176,7 @@ async asyncData({ $axios, params }) {
         const priceInWei = Web3.utils.toWei(this.item.price_in_tokens.toString(), 'ether')
 
         const estimatedGas = await aolTokenContract.methods
-          .transfer(accounts[0], priceInWei)
+          .transfer(this.paymentAddress, priceInWei)
           .estimateGas({
             from: accounts[0],
           });
@@ -184,7 +184,7 @@ async asyncData({ $axios, params }) {
         console.log("Estimated gas: " + estimatedGas);
 
         aolTokenContract.methods
-          .transfer(accounts[0], priceInWei)
+          .transfer(this.paymentAddress, priceInWei)
           .send({
             from: accounts[0],
             gas: estimatedGas,
