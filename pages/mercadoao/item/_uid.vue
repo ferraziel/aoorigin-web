@@ -115,15 +115,8 @@ import gameObjTypes from "@/assets/gameObjTypes.json";
 import Web3 from "web3";
 
 export default {
-  data() {
-    console.log(666, process.env.TOKEN_AOLB_CONTRACT_ADDRESS, process.env.PAYMENT_ADDRESS);
-    return {
-      aolbContractAddress: process.env.TOKEN_AOLB_CONTRACT_ADDRESS,
-      paymentAddress: process.env.PAYMENT_ADDRESS,
-      orderConfirmed: false,
-    };
-  },
-  async asyncData({ $axios, params }) {
+
+async asyncData({ $axios, params }) {
     return {
       item: await $axios.$get(`market/getItemOnSaleById/${params.uid}`),
       selectedUserId: null,
@@ -132,6 +125,9 @@ export default {
       buyItemStatus: null,
       abi,
       gameObjTypes,
+      aolbContractAddress: process.env.TOKEN_AOLB_CONTRACT_ADDRESS,
+      paymentAddress: process.env.PAYMENT_ADDRESS,
+      orderConfirmed: false,
     };
   },
 
@@ -140,6 +136,8 @@ export default {
       alert("Necesitas Metamask para poder poner la wallet en tu personaje.");
       console.log("Non-Ethereum browser detected. You should consider trying MetaMask!");
     }
+
+    console.log(666, this.aolbContractAddress, this.paymentAddress);
 
     this.prepareOrder();
   },
