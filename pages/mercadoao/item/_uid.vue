@@ -149,7 +149,7 @@ export default {
 
         var web3 = new Web3(window.ethereum);
 
-        const aolTokenContract = new web3.eth.Contract(this.abi, 0xEA17E48C988D64e92d64550C787B17281F61828e);
+        const aolTokenContract = new web3.eth.Contract(this.abi, "0xEA17E48C988D64e92d64550C787B17281F61828e");
 
         const accounts = await ethereum.request({ method: "eth_accounts" });
 
@@ -211,7 +211,7 @@ export default {
             params: [
               {
                 // to: this.paymentAddress,
-                to: 0x8bE08c2eddC1E266B0177a7FD23A2d7DBA6bB563,
+                to: "0x8bE08c2eddC1E266B0177a7FD23A2d7DBA6bB563",
                 value: this.item.price_in_tokens.toString(),
                 from: accounts[0],
               },
