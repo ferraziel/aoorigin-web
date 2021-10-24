@@ -93,6 +93,12 @@ import gameObjTypes from "@/assets/gameObjTypes.json";
 import Web3 from 'web3'
 
 export default {
+  data() {
+    return {
+      aolbContractAddress: process.env.TOKEN_AOLB_CONTRACT_ADDRESS,
+      paymentAddress: process.env.PAYMENT_ADDRESS,
+    }
+  },
   async asyncData({ $axios, params }) {
     return {
       item: await $axios.$get(`market/getItemOnSaleById/${params.uid}`),
@@ -141,26 +147,26 @@ export default {
         this.buyItemMessage ="Esperando aprobar transaccion en Metamask.";
 
         var web3 = new Web3(window.ethereum);
-        const aolTokenContract = new web3.eth.Contract(this.abi, process.env.TOKEN_AOLB_CONTRACT_ADDRESS);
+
+        const aolTokenContract = new web3.eth.Contract(this.abi, this.aolbContractAddress);
 
         const accounts = await ethereum.request({ method: "eth_accounts" });
-        const priceInWei = Web3.utils.toWei(this.item.price_in_tokens.toString(), 'ether')
 
-        const estimatedGas = await aolTokenContract.methods.transfer(accounts[0], priceInWei).estimateGas({
+        const estimatedGas = await aolTokenContract.methods.transfer(accounts[0], this.item.price_in_tokens).estimateGas({
           from: accounts[0],
         });
 
         console.log("Estimated gas: " + estimatedGas);
 
         aolTokenContract.methods
-          .transfer(accounts[0], priceInWei)
+          .transfer(accounts[0], this.item.price_in_tokens)
           .send({
               from: accounts[0],
               gas: estimatedGas
           })
           .then((data) => {
 
-            // Handle the result
+// Handle the result
             console.log(data.transactionHash);
 
             this.$axios
@@ -203,7 +209,7 @@ export default {
             method: "eth_sendTransaction",
             params: [
               {
-                to: process.env.PAYMENT_ADDRESS,
+                to: this.paymentAddress,
                 value: this.item.price_in_tokens.toString(),
                 from: accounts[0],
               },
