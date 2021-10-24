@@ -145,22 +145,23 @@ export default {
         const aolTokenContract = new web3.eth.Contract(this.abi, this.aolbContractAddress);
 
         const accounts = await ethereum.request({ method: "eth_accounts" });
+        const priceInWei = Web3.utils.toWei(this.item.price_in_tokens.toString(), 'ether')
 
-        const estimatedGas = await aolTokenContract.methods.transfer(accounts[0], this.item.price_in_tokens).estimateGas({
+        const estimatedGas = await aolTokenContract.methods.transfer(accounts[0], priceInWei).estimateGas({
           from: accounts[0],
         });
 
         console.log("Estimated gas: " + estimatedGas);
 
         aolTokenContract.methods
-          .transfer(accounts[0], this.item.price_in_tokens)
+          .transfer(accounts[0], priceInWei)
           .send({
               from: accounts[0],
               gas: estimatedGas
           })
           .then((data) => {
 
-// Handle the result
+            // Handle the result
             console.log(data.transactionHash);
 
             this.$axios
