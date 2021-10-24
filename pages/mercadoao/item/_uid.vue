@@ -100,7 +100,6 @@ export default {
       usersWithFreeSlots: [],
       buyItemMessage: "",
       buyItemStatus: null,
-      aolbContractAddress: process.env.TOKEN_AOLB_CONTRACT_ADDRESS,
       abi,
       gameObjTypes
     };
@@ -142,7 +141,7 @@ export default {
         this.buyItemMessage ="Esperando aprobar transaccion en Metamask.";
 
         var web3 = new Web3(window.ethereum);
-        const aolTokenContract = new web3.eth.Contract(this.abi, this.aolbContractAddress);
+        const aolTokenContract = new web3.eth.Contract(this.abi, process.env.TOKEN_AOLB_CONTRACT_ADDRESS);
 
         const accounts = await ethereum.request({ method: "eth_accounts" });
         const priceInWei = Web3.utils.toWei(this.item.price_in_tokens.toString(), 'ether')
