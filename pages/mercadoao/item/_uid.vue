@@ -22,7 +22,7 @@
       </h1>
 
       <h1 style="color: red"
-        v-if="$auth.loggedIn && usersWithFreeSlots.length == 0"
+        v-if="$auth.loggedIn && usersWithFreeSlots.length == 0" && !orderConfirmed
       >
         Debes de crear un personaje en el juego para poder comprar items.
       </h1>
@@ -98,6 +98,7 @@ export default {
     return {
       aolbContractAddress: process.env.TOKEN_AOLB_CONTRACT_ADDRESS,
       paymentAddress: process.env.PAYMENT_ADDRESS,
+      orderConfirmed: false,
     }
   },
   async asyncData({ $axios, params }) {
@@ -181,6 +182,7 @@ export default {
                 this.buyItemStatus = "OK";
                 this.buyItemMessage = "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se deposite el item en tu boveda del banco.";
                 this.usersWithFreeSlots.length = 0
+                this.orderConfirmed = true;
               })
               .catch((error) => {
                 this.buyItemStatus = "ERROR";
