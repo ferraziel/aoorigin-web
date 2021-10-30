@@ -101,7 +101,7 @@
           </li>
           <li>
             <!-- Esto se abre asi y no con nuxtLink por que sino tira error a veces.... -->
-            <a href="/market-nft/opensea" class="mobile-nav-link"  @click="showMobileMenu = !showMobileMenu" >NFT Marketplace</a>
+            <a href="/market-nft/opensea" class="mobile-nav-link"  @click="showMobileMenu = !showMobileMenu">NFT Marketplace</a>
           </li>
         </ul>
       </nav>
