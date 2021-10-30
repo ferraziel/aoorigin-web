@@ -12,11 +12,8 @@
 
       <h2>Desarrollo del Juego</h2>
       <ul>
-        <li>Alexis Caraballo "WyroX"</li>
         <li>Joaquín Ortíz "Jopi"</li>
         <li>Martín Trionfetti "HarThaoS"</li>
-        <li>Emiliano Mancuso "Emancu"</li>
-        <li>Fernando "Lord Fers"</li>
         <li>Lucas Recoaro "RecoX"</li>
       </ul>
       
@@ -32,7 +29,7 @@
 
       <h2>Balance</h2>
       <ul>
-        <li>"VanCleff"</li>
+        <li>Ramiro Braga "Chicken"</li>
       </ul>
 
       <h2>Indexación</h2>
@@ -50,13 +47,10 @@
       <h2>Diseño y Desarrollo Web</h2>
       <ul>
         <li>Bruno De Angelis "SimP"</li>
+        <li>Martín Trionfetti "HarThaoS"</li>
+        <li>Alejandro Cordara "Animal"</li>
       </ul>
       
-      <h2>Ingeniería</h2>
-      <ul>
-        <li>Alexis Caraballo "WyroX"</li>
-      </ul>
-
       <h2>Arquitecto DevOps</h2>
       <ul>
         <li>Lucas Recoaro "RecoX"</li>
@@ -72,20 +66,22 @@
         <li>Miguel Phinder "Baliam"</li>
         <li>Nicolás "Arandor"</li>
         <li>Ricardo Campos "Vox"</li>
+        <li>Jonatan Sforzini "GalaK"</li>
+        <li>Ramiro Braga "Chicken"</li>
+        <li>"Nakrull"</li>
+        <li>"Lorenita"</li>
       </ul>
 
       <h2>Moderación de Comunidad</h2>
       <ul>
         <li>"Neoranger"</li>
+        <li>"Chicken"</li>
       </ul>
 
       <h2>Wiki</h2>
       <ul>
-        <li>"VanCleff"</li>
-        <li>"Blair"</li>
-        <li>"Escipion"</li>
-        <li>Bruno De Angelis "SimP"</li>
         <li>Joaquín Ortíz "Jopi"</li>
+        <li>Bruno De Angelis "SimP"</li>
       </ul>
     </section>
 
@@ -103,10 +99,13 @@
       </h3>
       <ul>
         <li>Pablo Mercavides "Ladder"</li>
+        <li>Alexis Caraballo "WyroX"</li>
+        <li>Emiliano Mancuso "Emancu"</li>
         <li>Agustín Pagani "Daylight"</li>
         <li>Xavier Viger Navarro "Sensui"</li>
         <li>Brian "About"</li>
         <li>Gabriel Aulicino "Ruthnar"</li>
+        <li>"VanCleff"</li>
         <li>Sergio Perez "Neosefirot"</li>
         <li>Sebastián Avena "Linqen"</li>
         <li>Nicolás "Aikhio"</li>
