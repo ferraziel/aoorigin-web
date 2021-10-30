@@ -1,5 +1,5 @@
 <template>
-  <div class="container max-w-screen-md">
+  <div class="container max-w-screen-md  lg:pt-36">
     <section>
       <h1>Staff Argentum 20</h1>
 

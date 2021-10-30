@@ -2,7 +2,7 @@
   <div class="container">
     <PagePadding />
 
-    <div class="text-center mb-12">
+    <div class="text-center mb-12  lg:pt-36">
       <h1 class="section-title">Mercado AO</h1>
 
       <h4>Lista de items a la venta!</h4>

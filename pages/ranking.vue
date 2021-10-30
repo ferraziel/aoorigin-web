@@ -1,5 +1,5 @@
 <template>
-  <section class="container grid grid-cols-1 gap-8 xl:grid-cols-12">
+  <section class="container grid grid-cols-1 gap-8 xl:grid-cols-12 lg:pt-36">
     <div class="xl:col-span-2 flex flex-col space-y-4">
       <button
         v-if="classFilter || raceFilter || sortBy"
