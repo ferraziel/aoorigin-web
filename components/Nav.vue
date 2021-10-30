@@ -40,7 +40,7 @@
         </button>
       </div>
     </nav>
-    <div class="bg-red-op w-full h-10 lg:block hidden">
+    <div class="w-full h-10 lg:block hidden" style="background-color: #330a0b; opacity:70%">
       <div class="container flex w-full">
         <ul class="items-center hidden tracking-wide text-gray-300 uppercase lg:flex gap-x-10">
           <li>
@@ -160,9 +160,5 @@ export default {
   @apply inline-block px-8 py-6 w-full border-b border-gray-700 hover:text-gray-100;
 }
 
-.bg-red-op{
-  background-color: #330a0b;
-  opacity: 70%;
-}
 
 </style>
