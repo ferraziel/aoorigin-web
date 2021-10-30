@@ -3,15 +3,6 @@
     <div class="divider2"></div>
     <div class="py-8">
       <div class="container">
-        <section class="grid grid-cols-1 mb-16 md:grid-cols-6 lg:grid-cols-12">
-          <ul class="col-span-3 underline">
-            <li><a href="https://elmesonhostigado.com/foro" target="_blank">Foro</a></li>
-            <li>
-              <NuxtLink to="/staff">Staff</NuxtLink>
-            </li>
-          </ul>
-        </section>
-
         <section class="text-center">
           <p class="mb-4 text-sm tracking-wide text-gray-500 uppercase">
             Copyright &copy; {{ new Date().getFullYear() }} Noland Studios. Todos los derechos reservados.
