@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container lg:pt-36">
     <h1>Ultimas Noticias</h1>
     <ul
       v-if="news.length"
