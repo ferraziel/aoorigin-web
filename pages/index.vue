@@ -10,7 +10,7 @@
             Aventurate en las tierras de Argentum 20<br class="hidden md:block" />
             y escribí tu propio camino
           </h1>
-          <a href="/#juga-gratis" class="btn btn-cta">Jugá gratisa</a>
+          <a href="/#juga-gratis" class="btn btn-cta">Jugá gratis</a>
         </div>
       </div>
 
