@@ -12,9 +12,11 @@
 
       <h2>Desarrollo del Juego</h2>
       <ul>
-        <li>Joaquín Ortíz "Jopi"</li>
         <li>Martín Trionfetti "HarThaoS"</li>
         <li>Lucas Recoaro "RecoX"</li>
+        <li>Joaquín Ortíz "Jopi"</li>
+        <li>Agustín "Thorkes"</li>
+        <li>Juan "Zavilor"</li>
       </ul>
       
       <h2>Desarrollo de Herramientas</h2>
@@ -68,14 +70,18 @@
         <li>Ricardo Campos "Vox"</li>
         <li>Jonatan Sforzini "GalaK"</li>
         <li>Ramiro Braga "Chicken"</li>
-        <li>"Nakrull"</li>
-        <li>"Lorenita"</li>
+        <li>Edgardo Hernan Martínez "Nakrull"</li>
+        <li>Lorena Diaz Gomez "Lorenita"</li>
       </ul>
 
       <h2>Moderación de Comunidad</h2>
       <ul>
-        <li>"Neoranger"</li>
+        <li>"HarThaoS"</li>
         <li>"Chicken"</li>
+        <li>"Neoranger"</li>
+        <li>"Nakrull"</li>
+        <li>"Galak"</li>
+        <li>"Vox"</li>
       </ul>
 
       <h2>Wiki</h2>
@@ -94,23 +100,28 @@
         los cuales fueron tomados de base para encarar Argentum 20.
       </h3>
       <h3>
+        A Alexis Caraballo "WyroX" por su dedicación y aporte de conocimientos que ayudaron a que Argentum 20 sea lo que es hoy en día.
+      </h3>
+      <h3>
+        A Agustín Alvarez "Wolftein" por su colaboración con la librería AuroraNetwork y desarrollo general del proyecto.
+      </h3>
+      <h4>
         A todos los ex miembros que cumplieron un rol dentro del staff cuyo trabajo fue muy importante para poder sacar
         adelante este proyecto:
-      </h3>
+      </h4>
       <ul>
-        <li>Pablo Mercavides "Ladder"</li>
-        <li>Alexis Caraballo "WyroX"</li>
         <li>Emiliano Mancuso "Emancu"</li>
         <li>Agustín Pagani "Daylight"</li>
         <li>Xavier Viger Navarro "Sensui"</li>
         <li>Brian "About"</li>
         <li>Gabriel Aulicino "Ruthnar"</li>
-        <li>"VanCleff"</li>
+        <li>Lucho "VanCleff"</li>
         <li>Sergio Perez "Neosefirot"</li>
         <li>Sebastián Avena "Linqen"</li>
         <li>Nicolás "Aikhio"</li>
         <li>Erik Eleusippi "Ronin"</li>
         <li>Alejo "Centorios"</li>
+        <li>Fernando "Lord Fers"</li>
       </ul>
       <span
         >(No recordamos los apellidos de todos, si alguno quiere figurar con su apellido por favor contactarse con el
