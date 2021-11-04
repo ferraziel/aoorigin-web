@@ -53,7 +53,7 @@
           </li>
           <li>
             <a
-              href="https://elmesonhostigado.com/foro" 
+              href="https://elmesonhostigado.com/foro"
               target="_blank"
               class="inline-block py-2 hover:text-gray-100"
               >Foro</a
@@ -68,7 +68,7 @@
           </li>
       </ul>
       </div>
-     
+
     </div>
 
     <transition name="mobile-menu">
@@ -90,7 +90,7 @@
           </li>
           <li  @click="showMobileMenu = !showMobileMenu" >
             <a
-              href="https://elmesonhostigado.com/foro" 
+              href="https://elmesonhostigado.com/foro"
               target="_blank"
                class="mobile-nav-link"
               >Foro</a
@@ -115,6 +115,10 @@ export default {
     return {
       showMobileMenu: false,
       linksMain: [
+        {
+          label: "Sorteo NFT",
+          route: "/sorteo",
+        },
         {
           label: "Jugá gratis",
           route: "/#juga-gratis",

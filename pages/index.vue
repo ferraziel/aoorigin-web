@@ -2,12 +2,12 @@
   <main class="-mt-32 -z-1">
     <header class="h-screen relative overflow-hidden" style="background: initial">
       <div
-        class="container h-full flex justify-center items-center sticky z-20 py-16 lg:pt-44"
+        class="container h-full flex justify-center items-center sticky z-20 py-16 sm:py-24 md:py-32 lg:py-40 xl:py-48"
       >
         <div class="flex flex-col items-center">
           <img src="@/assets/img/argentum20_logo.png" alt="Argentum 20 Logo" class="w-144 mb-3 xl:mb-6 no-select" />
-          <h1 class="text-xl sm:text-3xl lg:text-3xl text-center leading-tight text-white mb-12 normal-case">
-            Aventurate en las tierras de Argentum 20<br class="hidden md:block" />
+          <h1 class="text-xl sm:text-3xl lg:text-4xl text-center leading-tight text-white mb-12 normal-case">
+            Aventurate en las tierras de Argentum 20<br class="hidden lg:block" />
             y escribí tu propio camino
           </h1>
           <a href="/#juga-gratis" class="btn btn-cta">Jugá gratis</a>
