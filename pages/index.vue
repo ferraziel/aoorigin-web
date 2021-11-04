@@ -27,6 +27,24 @@
       </video> -->
     </header>
 
+
+    <section class="bg-gray-1000 mb-10">
+      <div class="divider2"></div>
+
+      <div class="py-3 md:py-6 lg:py-12">
+        <div class="container flex justify-center items-center gap-x-6 md:gap-x-10 lg:gap-x-20">
+          <h4>NFTs AO20 Collection</h4>
+          <span>6420 (ERC-721) NFT's coleccionables seran creandos en esta primera edicion en una mezcla entre todos los cuerpos sin equipo con todas las caras posibles. esto nos permitira en el futuro a poder expandir el concepto. Todos los NFTs tienen atributos unicos asignandoles rarezas.</span>
+
+          <img src="http://nfts.ao20.com.ar/config/images/example.gif">
+          <a href="https://www.elmesonhostigado.com/foro/ao-20/416-nft-s-ao20-primer-coleccion-opensea-polygon">Mas informacion</a>
+          <a href="http://nfts.ao20.com.ar">Comprar</a>
+        </div>
+      </div>
+
+      <div class="divider2"></div>
+    </section>
+
     <section class="bg-gray-1000 mb-10">
       <div class="divider2"></div>
 
