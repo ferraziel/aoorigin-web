@@ -33,6 +33,8 @@
 
       <div class="py-3 md:py-6 lg:py-12">
         <div class="container flex justify-center items-center gap-x-6 md:gap-x-10 lg:gap-x-20">
+          <a href="/sorteo" class="btn">Participa del Sorteo de NFTs</a>
+
           <h4>NFTs AO20 Collection</h4>
           <span>6420 (ERC-721) NFT's coleccionables seran creandos en esta primera edicion en una mezcla entre todos los cuerpos sin equipo con todas las caras posibles. esto nos permitira en el futuro a poder expandir el concepto. Todos los NFTs tienen atributos unicos asignandoles rarezas.</span>
 
@@ -133,6 +135,7 @@
     </section>
 
     <section id="juga-gratis" class="container mb-16 md:mb-24">
+
       <h2 class="section-title text-center mb-4 md:mb-10">¡Jugá Gratis!</h2>
 
       <div class="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
