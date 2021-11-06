@@ -25,9 +25,9 @@
 
       <h1 style="color: red" v-if="!$auth.loggedIn">Debes de iniciar sesion para poder comprar items.</h1>
 
-      <h1 style="color: red" v-if="$auth.loggedIn && usersWithFreeSlots.length == 0 && !orderConfirmed">
-        Debes de crear un personaje en el juego para poder comprar items.
-      </h1>
+      <h3 style="color: red" v-if="$auth.loggedIn && usersWithFreeSlots.length == 0 && !orderConfirmed">
+        Debes de crear una cuenta en los bancos Goliath del juego con tu personaje. Esto se realiza dentro del juego, depositando un item en la boveda. En la boveda debe de haber slots disponibles para hacer el deposito de compra.
+      </h3>
 
       <MessageBox :status="buyItemStatus" :message="buyItemMessage" />
 
