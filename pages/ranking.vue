@@ -50,10 +50,13 @@
             <option value="" disabled selected>Ordenar por</option>
             <option value="level">Nivel</option>
             <option value="total_kills">Asesinatos</option>
-            <option value="elo">ELO</option>
+            <!-- <option value="elo">ELO</option> -->
+            <option value="puntos_pesca">Pesca</option>
             <!-- <option value="6">Orco</option> -->
           </select>
         </div>
+
+
       </div>
     </div>
 
@@ -68,7 +71,8 @@
           <td>Clase</td>
           <td>Raza</td>
           <td>Asesinatos</td>
-          <td>ELO</td>
+          <!-- <td>ELO</td> -->
+          <td>Puntos Pesca</td>
         </thead>
         <tbody>
           <tr
@@ -104,7 +108,8 @@
             <td>{{ character.class_name }}</td>
             <td>{{ character.race_name }}</td>
             <td class="text-right">{{ character.total_kills }}</td>
-            <td class="text-right">{{ character.elo }}</td>
+            <!-- <td class="text-right">{{ character.elo }}</td> -->
+            <td class="text-right">{{ character.puntos_pesca }}</td>
           </tr>
         </tbody>
       </table>
