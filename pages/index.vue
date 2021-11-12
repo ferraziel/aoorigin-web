@@ -27,7 +27,6 @@
       </video> -->
     </header>
 
-
     <section class="bg-gray-1000 mb-10">
       <div class="divider2"></div>
 
@@ -36,10 +35,16 @@
           <a href="/sorteo" class="btn">Participa del Sorteo de NFTs</a>
 
           <h4>NFTs AO20 Collection</h4>
-          <span>6420 (ERC-721) NFT's coleccionables seran creandos en esta primera edicion en una mezcla entre todos los cuerpos sin equipo con todas las caras posibles. esto nos permitira en el futuro a poder expandir el concepto. Todos los NFTs tienen atributos unicos asignandoles rarezas.</span>
+          <span
+            >6420 (ERC-721) NFT's coleccionables seran creandos en esta primera edicion en una mezcla entre todos los
+            cuerpos sin equipo con todas las caras posibles. esto nos permitira en el futuro a poder expandir el
+            concepto. Todos los NFTs tienen atributos unicos asignandoles rarezas.</span
+          >
 
-          <img src="http://nfts.ao20.com.ar/config/images/example.gif">
-          <a href="https://www.elmesonhostigado.com/foro/ao-20/416-nft-s-ao20-primer-coleccion-opensea-polygon">Mas informacion</a>
+          <img src="http://nfts.ao20.com.ar/config/images/example.gif" />
+          <a href="https://www.elmesonhostigado.com/foro/ao-20/416-nft-s-ao20-primer-coleccion-opensea-polygon"
+            >Mas informacion</a
+          >
           <a href="http://nfts.ao20.com.ar">Comprar</a>
         </div>
       </div>
@@ -56,7 +61,6 @@
           <!-- <a href="#" target="_blank" class="transition-colors duration-150 ease-out hover:text-primary">
             <i class="fab fa-instagram"></i>
           </a> -->
-
         </div>
       </div>
 
@@ -144,7 +148,6 @@
     </section>
 
     <section id="juga-gratis" class="container mb-16 md:mb-24">
-
       <h2 class="section-title text-center mb-4 md:mb-10">¡Jugá Gratis!</h2>
 
       <div class="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
@@ -154,7 +157,9 @@
             No borrar matomo_download por que se usa para contar descarga en analytics.
             https://matomo.org/faq/new-to-piwik/faq_47/
             -->
-            <a id="download-btn" :href="link(homePage.data.installer_link)" class="btn btn-cta matomo_download">Descargar</a>
+            <a id="download-btn" :href="link(homePage.data.installer_link)" class="btn btn-cta matomo_download"
+              >Descargar</a
+            >
           </div>
 
           <!-- <img src="@/assets/img/wings.png" alt class="absolute top-0 inset-x-auto" /> -->
@@ -163,12 +168,9 @@
           <section class="flex flex-col gap-y-4 text-center" v-if="mirrorLinks.length">
             <p class="text-xl leading-none">También podés descargar el instalador de los siguientes mirrors</p>
 
-            <div
-              v-for="mirror in mirrorLinks"
-              :key="mirror.mirror_link.url"
-            >
+            <div v-for="mirror in mirrorLinks" :key="mirror.mirror_link.url">
               <a :href="mirror.mirror_link.url" target="_blank" rel="noopener">
-                Descargar ({{mirror.mirror_link.url}})
+                Descargar ({{ mirror.mirror_link.url }})
                 <img :src="mirror.mirror_img.url" :alt="mirror.mirror_img.alt" />
               </a>
             </div>
@@ -224,6 +226,26 @@
 
     <div class="section-divider my-16"></div>
 
+    <section id="newsletter" class="container max-w-screen-lg mx-auto">
+      <form
+        style="border: 1px solid #ccc; padding: 3px; text-align: center"
+        action="https://tinyletter.com/ao20"
+        method="post"
+        target="popupwindow"
+        onsubmit="window.open('https://tinyletter.com/ao20', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
+      >
+        <p>
+          <label for="tlemail">Newsletter: Recibi novedades al email</label>
+        </p>
+        <p><input type="text" style="width: 140px" name="email" id="tlemail" /></p>
+        <br>
+        <input type="hidden" value="1" name="embed" />
+        <input type="submit" class="btn btn-silver self-start text-base" value="Subscribirse" />
+      </form>
+    </section>
+
+    <div class="section-divider my-16"></div>
+
     <Forum-Posts />
 
     <section id="galeria" class="mb-10">
@@ -247,7 +269,19 @@
 
     <section
       id="info"
-      class="max-w-screen-xl mx-auto container grid items-center grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-x-12 mb-12 lg:mb-0"
+      class="
+        max-w-screen-xl
+        mx-auto
+        container
+        grid
+        items-center
+        grid-cols-1
+        md:grid-cols-6
+        lg:grid-cols-12
+        gap-x-12
+        mb-12
+        lg:mb-0
+      "
     >
       <div class="flex flex-col gap-y-6 col-span-1 order-2 lg:order-1 md:col-span-4 lg:col-span-8">
         <h2 class="text-4xl text-gr gr-gold text-center lg:text-left">El primer MMORPG 100% argentino</h2>
@@ -272,7 +306,6 @@
         <img src="@/assets/img/catapulta.png" alt="Catapulta argentum 20" class="w-full" />
       </figure>
     </section>
-
 
     <MessageBox v-if="validatedMail" status="OK" :isFloating="true">
       <p class="text-lg -mt-2">Se ha validado el mail correctamente.</p>
