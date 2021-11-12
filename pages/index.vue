@@ -116,6 +116,15 @@
               <img src="@/assets/img/ico-twitter.png" alt="icono twitter" class="w-8 lg:w-20" />
             </a>
             <a
+              href="https://www.twitch.tv/ao20oficial"
+              target="_blank"
+              rel="noopener"
+              class="transition-colors duration-150 ease-out text-[#009DED]"
+            >
+              <!-- <i class="fab fa-twitter fa-2x"></i> -->
+              <img src="@/assets/img/ico-twitch.png" alt="icono twitch" class="w-8 lg:w-20" />
+            </a>
+            <a
               href="https://elmesonhostigado.com/foro"
               target="_blank"
               rel="noopener"
@@ -172,57 +181,6 @@
 
     <div class="section-divider my-16"></div>
 
-    <section
-      id="info"
-      class="max-w-screen-xl mx-auto container grid items-center grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-x-12 mb-12 lg:mb-0"
-    >
-      <div class="flex flex-col gap-y-6 col-span-1 order-2 lg:order-1 md:col-span-4 lg:col-span-8">
-        <h2 class="text-4xl text-gr gr-gold text-center lg:text-left">El primer MMORPG 100% argentino</h2>
-        <p class="text-xl">
-          Argentum es un juego online multijugador, donde podés tomar el rol de un guerrero, mago, paladín y muchas
-          otras clases, y explorar las tierras míticas de Argentum.
-        </p>
-        <p class="text-xl">
-          Nació hace 20 años como un juego
-          <span class="text-primary font-bold">totalmente desarrollado en Argentina</span> para luego ser liberado a la
-          comunidad de manera gratuita. El código es accesible a todos, permitiendo así su evolución y continuidad en el
-          tiempo.
-        </p>
-        <p class="text-xl">
-          De la mano de los creadores originales del juego,
-          <span class="text-primary font-bold">Argentum 20</span> resurge como una conmemoración por el cumplimiento de
-          los 20 años de su origen.
-        </p>
-      </div>
-
-      <figure class="col-span-1 md:col-span-2 lg:col-span-4 order-1 lg:order-2">
-        <img src="@/assets/img/catapulta.png" alt="Catapulta argentum 20" class="w-full" />
-      </figure>
-    </section>
-
-    <div class="section-divider my-16"></div>
-
-    <Forum-Posts />
-
-    <section id="galeria" class="mb-10">
-      <h2 class="section-title text-center mb-16">Galería de imágenes</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4">
-        <a v-for="image in ingameImages" :key="image.alt" :href="image.url" data-fancybox="galeria">
-          <!-- <div class="w-full overflow-hidden"> -->
-          <div class="overflow-hidden w-full">
-            <img
-              :src="image.thumb.url"
-              :alt="image.alt"
-              class="w-full transform hover:scale-150 transition duration-[0.5s] ease-out"
-            />
-          </div>
-          <!-- </div> -->
-        </a>
-      </div>
-    </section>
-
-    <div class="section-divider mb-16"></div>
-
     <section id="apoyanos" class="container max-w-screen-lg mx-auto">
       <h3 class="section-title mb-10 text-center">¡Apoyanos!</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 md:text-lg">
@@ -263,6 +221,58 @@
         </article>
       </div>
     </section>
+
+    <div class="section-divider my-16"></div>
+
+    <Forum-Posts />
+
+    <section id="galeria" class="mb-10">
+      <h2 class="section-title text-center mb-16">Galería de imágenes</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4">
+        <a v-for="image in ingameImages" :key="image.alt" :href="image.url" data-fancybox="galeria">
+          <!-- <div class="w-full overflow-hidden"> -->
+          <div class="overflow-hidden w-full">
+            <img
+              :src="image.thumb.url"
+              :alt="image.alt"
+              class="w-full transform hover:scale-150 transition duration-[0.5s] ease-out"
+            />
+          </div>
+          <!-- </div> -->
+        </a>
+      </div>
+    </section>
+
+    <div class="section-divider mb-16"></div>
+
+    <section
+      id="info"
+      class="max-w-screen-xl mx-auto container grid items-center grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-x-12 mb-12 lg:mb-0"
+    >
+      <div class="flex flex-col gap-y-6 col-span-1 order-2 lg:order-1 md:col-span-4 lg:col-span-8">
+        <h2 class="text-4xl text-gr gr-gold text-center lg:text-left">El primer MMORPG 100% argentino</h2>
+        <p class="text-xl">
+          Argentum es un juego online multijugador, donde podés tomar el rol de un guerrero, mago, paladín y muchas
+          otras clases, y explorar las tierras míticas de Argentum.
+        </p>
+        <p class="text-xl">
+          Nació hace 20 años como un juego
+          <span class="text-primary font-bold">totalmente desarrollado en Argentina</span> para luego ser liberado a la
+          comunidad de manera gratuita. El código es accesible a todos, permitiendo así su evolución y continuidad en el
+          tiempo.
+        </p>
+        <p class="text-xl">
+          De la mano de los creadores originales del juego,
+          <span class="text-primary font-bold">Argentum 20</span> resurge como una conmemoración por el cumplimiento de
+          los 20 años de su origen.
+        </p>
+      </div>
+
+      <figure class="col-span-1 md:col-span-2 lg:col-span-4 order-1 lg:order-2">
+        <img src="@/assets/img/catapulta.png" alt="Catapulta argentum 20" class="w-full" />
+      </figure>
+    </section>
+
 
     <MessageBox v-if="validatedMail" status="OK" :isFloating="true">
       <p class="text-lg -mt-2">Se ha validado el mail correctamente.</p>
