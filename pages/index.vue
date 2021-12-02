@@ -246,7 +246,7 @@
 
     <div class="section-divider my-16"></div>
 
-    <Forum-Posts />
+    <!-- <Forum-Posts /> -->
 
     <section id="galeria" class="mb-10">
       <h2 class="section-title text-center mb-16">Galería de imágenes</h2>

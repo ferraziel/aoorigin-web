@@ -9,7 +9,7 @@
     "generate": "nuxt generate"
   },
   "engines": {
-    "node": "14.16.1"
+    "node": "16.13.0"
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
