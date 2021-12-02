@@ -52,8 +52,17 @@
       <div class="divider2"></div>
     </section>
 
-    <section class="bg-gray-1000 mb-10">
-      <div class="divider2"></div>
+    <section id="discord" class="container max-w-screen-lg mx-auto">
+      <widgetbot
+        server="761213868352471040"
+        channel="761286044229959701"
+        width="800"
+        height="600"
+      ></widgetbot>
+      <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
+    </section>
+
+    <section class="container max-w-screen-lg mx-auto">
 
       <div class="py-3 md:py-6 lg:py-12">
         <div class="container flex justify-center items-center gap-x-6 md:gap-x-10 lg:gap-x-20">
@@ -65,17 +74,6 @@
       </div>
 
       <div class="divider2"></div>
-    </section>
-
-
-    <section id="discord" class="container max-w-screen-lg mx-auto">
-      <widgetbot
-        server="761213868352471040"
-        channel="761286044229959701"
-        width="800"
-        height="600"
-      ></widgetbot>
-      <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
     </section>
 
     <section class="bg-gray-1000 mb-10">
