@@ -24,7 +24,7 @@
     "jquery": "^3.6.0",
     "nuxt": "^2.15.8",
     "nuxt-matomo": "^1.2.4",
-    "vuelidate": "^0.7.6",
+    "vuelidate": "^0.7.7",
     "web3": "^1.6.1"
   },
   "devDependencies": {
