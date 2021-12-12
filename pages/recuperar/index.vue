@@ -34,6 +34,7 @@ export default {
       email: "",
       recoveryStatus: null,
       recoveryMessage: "",
+      recaptchaToken: "",
     };
   },
   validations: {
@@ -54,8 +55,15 @@ export default {
       this.recoveryMessage = "Enviando...";
 
       try {
+        this.recaptchaToken = await this.$recaptcha.execute("createAccount");
+      } catch (error) {
+        return (this.recoveryMessage = "No se pudo validar el reCAPTCHA.");
+      }
+
+      try {
         await this.$axios.post("/accounts/recovery", {
           email: this.email,
+          recaptchaToken: this.recaptchaToken,
         });
 
         this.recoveryStatus = "OK";
