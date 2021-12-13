@@ -172,11 +172,9 @@
           <!-- <img src="@/assets/img/wings.png" alt class="absolute top-0 inset-x-auto" /> -->
           <p class="text-sm text-gray-600 mb-6 lg:mb-16">Sólo disponible para Windows</p>
 
-          <section class="flex flex-col gap-y-4 text-center" v-if="mirrorLinks.length">
+          <section class="flex flex-col gap-y-4 text-center">
             <p class="text-xl leading-none">También podés descargar el instalador de los siguientes mirrors</p>
-              <a id="download-btn" href="https://www.elmesonhostigado.com/foro/instalador/Instalador_AO20.exe" class="btn btn-cta matomo_download">Descargar</a>
-
-              <a href="http://parches.ao20.com.ar/instalador/Instalador_AO20.exe" target="_blank" rel="noopener"> Link Alternativo </a>
+              <a href="http://parches.ao20.com.ar/instalador/Instalador_AO20.exe" class="matomo_download">Link Alternativo</a>
           </section>
         </div>
 
