@@ -18,7 +18,7 @@
         <li>Agustín "Thorkes"</li>
         <li>Juan "Zavilor"</li>
       </ul>
-      
+
       <h2>Desarrollo de Herramientas</h2>
       <ul>
         <li>Jorge Brayer "ReyarB"</li>
@@ -52,7 +52,7 @@
         <li>Martín Trionfetti "HarThaoS"</li>
         <li>Alejandro Cordara "Animal"</li>
       </ul>
-      
+
       <h2>Arquitecto DevOps</h2>
       <ul>
         <li>Lucas Recoaro "RecoX"</li>
