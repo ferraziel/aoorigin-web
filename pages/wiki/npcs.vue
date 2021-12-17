@@ -18,6 +18,7 @@
               <th>Salud</th>
               <th>Defensa</th>
               <th>Evasion</th>
+              <th>Acierto</th>
               <th>Hechizos</th>
               <th>Rango Hechizos</th>
               <th>Intervalo Respawn</th>
@@ -36,6 +37,7 @@
               <td class="text-right">{{ npc.MAXHP }}</td>
               <td class="text-right">{{ npc.DEF }}</td>
               <td class="text-right">{{ npc.PODEREVASION }}</td>
+              <td class="text-right">{{ npc.PODERATAQUE }}</td>
               <td class="text-right">{{ npc.SPELLSNAMES }}</td>
               <td class="text-right">{{ npc.RANGOSPELL }}</td>
               <td class="text-right">{{ npc.INTERVALORESPAWN }}</td>
