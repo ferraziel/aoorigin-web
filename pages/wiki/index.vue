@@ -11,6 +11,7 @@
         <li><NuxtLink to="/wiki/armas">Armas</NuxtLink></li>
         <li><NuxtLink to="/wiki/cascos">Cascos</NuxtLink></li>
         <li><NuxtLink to="/wiki/monturas">Monturas</NuxtLink></li>
+        <li><NuxtLink to="/wiki/hechizos">Hechizos</NuxtLink></li>
       </ul>
     </div>
 

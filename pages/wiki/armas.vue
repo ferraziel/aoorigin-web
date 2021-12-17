@@ -15,7 +15,7 @@
               <th>Caracteristicas</th>
               <th>Min Hit</th>
               <th>Max Hit</th>
-              <th>Nivel Minimo</th>
+              <!-- <th>Nivel Minimo</th> -->
               <th>Oro</th>
               <th>Dos Manos</th>
               <th>Apuñala</th>
@@ -35,7 +35,7 @@
               <td class="text-right">{{weapon.Data.TEXTO}}</td>
               <td class="text-right">{{ weapon.Data.MINHIT }}</td>
               <td class="text-right">{{ weapon.Data.MAXHIT }}</td>
-              <td class="text-right">{{ weapon.Data.MINELV }}</td>
+              <!-- <td class="text-right">{{ weapon.Data.MINELV }}</td> -->
               <td class="text-right">{{ weapon.Data.VALOR }}</td>
               <td class="text-right"><span v-if="weapon.Data.DOSMANOS">Sí</span><span v-else>No</span></td>
               <td class="text-right"><span v-if="weapon.Data.APUÑALA">Sí</span><span v-else>No</span></td>
