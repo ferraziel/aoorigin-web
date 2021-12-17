@@ -1,77 +1,26 @@
 <template>
   <div class="container">
-    <div
-      v-if="weapons.length"
-      class="max-w-screen-md mx-auto bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-6"
-    >
-      <h1>Armas</h1>
-      <div class="xl:col-span-10 text-s overflow-x-auto">
-        <table class="text-gray-400">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th></th>
-              <th>Nombre</th>
-              <!-- <th>Caracteristicas</th> -->
-              <th>Min Hit</th>
-              <th>Max Hit</th>
-              <th>Valor en Oro</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr v-for="weapon in weapons" :key="weapon.item_id">
-              <td class="text-right mr-1">{{ weapon.item_id }}</td>
-              <td><img :src="weapon.Data.canvasImage" /></td>
-              <td class="text-right mr-1">{{ weapon.Data.NAME }}</td>
-              <!-- <td class="text-right mr-1">{{weapon.Data.TEXTO}}</td> -->
-              <td class="text-right mr-1">{{ weapon.Data.MINHIT }}</td>
-              <td class="text-right mr-1">{{ weapon.Data.MAXHIT }}</td>
-              <td class="text-right mr-1">{{ weapon.Data.VALOR }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <br>
+    <br>
+    <div class="flex items-center text-lg md:text-xl">
+      <h1>Wiki / Guia de Juego</h1>
+      <ul>
+        <a href="https://wiki.ao20.com.ar/index.php?title=P%C3%A1gina_principal" target="_blank">Wiki General</a>
+        <li><NuxtLink to="wiki/escudos">Escudos</NuxtLink></li>
+        <li><NuxtLink to="wiki/armaduras">Armaduras</NuxtLink></li>
+        <li><NuxtLink to="wiki/armas">Armas</NuxtLink></li>
+        <li><NuxtLink to="wiki/cascos">Cascos</NuxtLink></li>
+        <li><NuxtLink to="wiki/monturas">Monturas</NuxtLink></li>
+      </ul>
     </div>
 
-    <section v-else class="text-center mt-24">
-      <p class="text-2xl">Aún no hay noticias.</p>
-    </section>
+
   </div>
 </template>
 
 <script>
-import parser from "fast-xml-parser";
-
-export default {
-  data() {
-    return {
-      weapons: [],
-    };
-  },
-  async fetch() {
-    this.weapons = await this.$axios.$get("dats/getAllWeapons");
-  },
-  head() {
-    return {
-      title: "Wiki",
-    };
-  },
-};
 </script>
 
 <style>
-
-select:required:invalid {
-  color: gray;
-}
-
-option[value=""][disabled] {
-  display: none;
-}
-
-td {
-  @apply bg-gray-900 p-4 border border-gray-200;
-}
 
 </style>

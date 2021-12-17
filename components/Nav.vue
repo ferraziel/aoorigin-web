@@ -45,14 +45,6 @@
         <ul class="items-center hidden tracking-wide text-gray-300 uppercase lg:flex gap-x-10">
           <li>
             <a
-              href="https://wiki.ao20.com.ar/index.php?title=P%C3%A1gina_principal"
-              target="_blank"
-              class="inline-block py-2 hover:text-gray-100"
-              >Manual</a
-            >
-          </li>
-          <li>
-            <a
               href="https://elmesonhostigado.com/foro"
               target="_blank"
               class="inline-block py-2 hover:text-gray-100"
@@ -136,6 +128,10 @@ export default {
         {
           label: "Ranking",
           route: "/ranking",
+        },
+        {
+          label: "Manual",
+          route: "/wiki",
         },
         {
           label: "Mercado AO",
