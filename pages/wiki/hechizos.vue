@@ -57,7 +57,7 @@ export default {
   },
   head() {
     return {
-      title: "Wiki - spells",
+      title: "Wiki - Hechizos",
     };
   },
 };
