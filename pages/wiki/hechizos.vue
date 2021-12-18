@@ -12,6 +12,9 @@
               <th>Id</th>
               <th>Nombre</th>
               <th>Descripcion</th>
+              <th>Min Hit</th>
+              <th>Max Hit</th>
+              <th>Sube HP</th>
               <th>Palabras Magicas</th>
               <th>Mana</th>
               <th>Stamina</th>
@@ -22,6 +25,9 @@
               <td class="text-right">{{ spell.spell_id }}</td>
               <td class="text-right">{{ spell.NOMBRE }}</td>
               <td class="text-right">{{ spell.DESC }}</td>
+              <td class="text-right">{{ spell.MINHIT }}</td>
+              <td class="text-right">{{ spell.MAXHIT }}</td>
+              <td class="text-right">{{ spell.SUBEHP }}</td>
               <td class="text-right">{{ spell.PALABRASMAGICAS }}</td>
               <td class="text-right">{{ spell.MANAREQUERIDO }}</td>
               <td class="text-right">{{ spell.STAREQUERIDO }}</td>
