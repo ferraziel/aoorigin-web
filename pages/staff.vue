@@ -14,11 +14,11 @@
       <ul>
         <li>Martín Trionfetti "HarThaoS"</li>
         <li>Lucas Recoaro "RecoX"</li>
-        <li>Joaquín Ortíz "Jopi"</li>
-        <li>Agustín "Thorkes"</li>
-        <li>Juan "Zavilor"</li>
+        <li>Fernando Quinteros "Lord Fers"</li>
+        <li>Juan Rettori "Zavilor"</li>
+        <li>Joaquín Ortiz "Jopi"</li>
       </ul>
-
+      
       <h2>Desarrollo de Herramientas</h2>
       <ul>
         <li>Jorge Brayer "ReyarB"</li>
@@ -32,6 +32,7 @@
       <h2>Balance</h2>
       <ul>
         <li>Ramiro Braga "Chicken"</li>
+        <li>Nicolás Capelli "Sir Hongo"</li>
       </ul>
 
       <h2>Indexación</h2>
@@ -52,7 +53,7 @@
         <li>Martín Trionfetti "HarThaoS"</li>
         <li>Alejandro Cordara "Animal"</li>
       </ul>
-
+      
       <h2>Arquitecto DevOps</h2>
       <ul>
         <li>Lucas Recoaro "RecoX"</li>
@@ -96,8 +97,7 @@
     <section>
       <h1>Agradecimientos especiales</h1>
       <h3>
-        A Pablo Mercavides "Ladder" y a su staff de Revolución AO por ceder los códigos originales de servidor y cliente
-        los cuales fueron tomados de base para encarar Argentum 20.
+        A Pablo Mercavides "Ladder" por sus conocimientos de programación y a su staff de Revolución AO por ceder los códigos originales de servidor y cliente los cuales fueron tomados de base para encarar Argentum 20.
       </h3>
       <h3>
         A Alexis Caraballo "WyroX" por su dedicación y aporte de conocimientos que ayudaron a que Argentum 20 sea lo que es hoy en día.
@@ -110,18 +110,18 @@
         adelante este proyecto:
       </h4>
       <ul>
-        <li>Emiliano Mancuso "Emancu"</li>
-        <li>Agustín Pagani "Daylight"</li>
-        <li>Xavier Viger Navarro "Sensui"</li>
-        <li>Brian "About"</li>
-        <li>Gabriel Aulicino "Ruthnar"</li>
-        <li>Lucho "VanCleff"</li>
-        <li>Sergio Perez "Neosefirot"</li>
-        <li>Sebastián Avena "Linqen"</li>
-        <li>Nicolás "Aikhio"</li>
-        <li>Erik Eleusippi "Ronin"</li>
-        <li>Alejo "Centorios"</li>
-        <li>Fernando "Lord Fers"</li>
+        <li>Xavier Viger Navarro "Sensui" (Idea original, Mapeo, Dateo, Game Design)</li>
+        <li>Sergio Perez "Neosefirot" (Idea original y Coordinación)</li>
+        <li>Joaquín Ortíz "Jopi" (Programación)</li>
+        <li>Emiliano Mancuso "Emancu" (Programación)</li>
+        <li>Agustín Pagani "Daylight"Agustín Pagani "Daylight" (Balance y armado de NPC)</li>
+        <li>Brian "About" (Programación)</li>
+        <li>Gabriel Aulicino "Ruthnar" (Programación)</li>
+        <li>Lucho "VanCleff" (Balance)</li>
+        <li>Sebastián Avena "Linqen" (Balance)</li>
+        <li>Nicolás "Aikhio" (Redes Sociales)</li>
+        <li>Erik Eleusippi "Ronin" (Balance y Mapeo)</li>
+        <li>Alejo "Centorios" (Programación)</li>
       </ul>
       <span
         >(No recordamos los apellidos de todos, si alguno quiere figurar con su apellido por favor contactarse con el
