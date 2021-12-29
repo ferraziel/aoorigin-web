@@ -114,7 +114,7 @@
         <li>Sergio Perez "Neosefirot" (Idea original y Coordinación)</li>
         <li>Joaquín Ortíz "Jopi" (Programación)</li>
         <li>Emiliano Mancuso "Emancu" (Programación)</li>
-        <li>Agustín Pagani "Daylight"Agustín Pagani "Daylight" (Balance y armado de NPC)</li>
+        <li>Agustín Pagani "Daylight" (Balance y armado de NPC)</li>
         <li>Brian "About" (Programación)</li>
         <li>Gabriel Aulicino "Ruthnar" (Programación)</li>
         <li>Lucho "VanCleff" (Balance)</li>
