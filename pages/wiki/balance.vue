@@ -357,6 +357,8 @@
             <td class="text-right">TRABAJADOR: {{balance.MANA_INICIAL.TRABAJADOR}}</td>
           </tbody>
         </table>
+
+        <span>Todo esto se multiplica por la cantidad de puntos en inteligencia que tiene el personaje. Por ejemplo: Druida Elfo tiene 20 puntos en inteligencia lo que te dará 40 puntos de mana al subir cada nivel y 50 puntos de mana iniciales.</span>
       </div>
 
       <h1>Aumento Stamina</h1>
@@ -379,7 +381,7 @@
         </table>
       </div>
 
-      <h1>Golpe Pre 36</h1>
+      <h1>Golpe al subir de nivel Pre 36</h1>
       <div class="xl:col-span-10 text-xs overflow-x-auto">
         <table class="text-gray-400">
           <tbody>
@@ -399,7 +401,7 @@
         </table>
       </div>
 
-      <h1>Golpe Post 36</h1>
+      <h1>Golpe al subir de nivel Post 36</h1>
       <div class="xl:col-span-10 text-xs overflow-x-auto">
         <table class="text-gray-400">
           <tbody>
