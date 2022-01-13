@@ -14,6 +14,7 @@
         <li><NuxtLink to="/wiki/hechizos">Hechizos</NuxtLink></li>
         <li><NuxtLink to="/wiki/npcs">Npcs</NuxtLink></li>
         <li><NuxtLink to="/wiki/quests">Quests</NuxtLink></li>
+        <li><NuxtLink to="/wiki/balance">Balance</NuxtLink></li>
       </ul>
     </div>
 
