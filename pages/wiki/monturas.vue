@@ -56,7 +56,7 @@ export default {
     };
   },
   async fetch() {
-    this.monturas = await this.$axios.$get("dats/getAllMonturas");
+    this.monturas = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllMonturas");
   },
   head() {
     return {

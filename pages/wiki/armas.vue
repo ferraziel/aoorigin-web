@@ -65,7 +65,7 @@ export default {
     };
   },
   async fetch() {
-    this.weapons = await this.$axios.$get("dats/getAllWeapons");
+    this.weapons = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllWeapons");
   },
   head() {
     return {

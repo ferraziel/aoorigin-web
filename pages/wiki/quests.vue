@@ -62,7 +62,7 @@ export default {
     };
   },
   async fetch() {
-    this.quests = await this.$axios.$get("dats/getAllQuestsInformation");
+    this.quests = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllQuestsInformation");
   },
   head() {
     return {

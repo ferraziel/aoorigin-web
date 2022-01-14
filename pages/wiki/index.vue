@@ -5,7 +5,7 @@
     <div class="flex items-center text-lg md:text-xl">
       <h1>Wiki / Guia de Juego</h1>
       <ul>
-        <a href="https://wiki.ao20.com.ar/index.php?title=P%C3%A1gina_principal" target="_blank">Wiki General</a>
+        <a href="https://wiki.ao20.com.ar/index.php?title=P%C3%A1gina_principal" target="_blank">Wiki General (Desactualizada)</a>
         <li><NuxtLink to="/wiki/escudos">Escudos</NuxtLink></li>
         <li><NuxtLink to="/wiki/armaduras">Armaduras</NuxtLink></li>
         <li><NuxtLink to="/wiki/armas">Armas</NuxtLink></li>
