@@ -41,11 +41,11 @@
             concepto. Todos los NFTs tienen atributos unicos asignandoles rarezas.</span
           >
 
-          <img src="http://nfts.ao20.com.ar/config/images/example.gif" />
+          <img src="@/assets/img/example-nfts.gif" />
           <a href="https://www.elmesonhostigado.com/foro/ao-20/416-nft-s-ao20-primer-coleccion-opensea-polygon"
             >Mas informacion</a
           >
-          <a href="http://nfts.ao20.com.ar">Comprar</a>
+          <a href="https://tinyurl.com/4nfdwk3b">Comprar</a>
         </div>
       </div>
 
@@ -120,7 +120,7 @@
               <img src="@/assets/img/ico-instagram.png" alt="icono instagram" class="w-8 lg:w-20" />
             </a>
             <a
-              href="http://twitter.com/ao20oficial"
+              href="https://twitter.com/ao20oficial"
               target="_blank"
               rel="noopener"
               class="transition-colors duration-150 ease-out text-[#009DED]"
@@ -174,7 +174,7 @@
 
           <section class="flex flex-col gap-y-4 text-center">
             <p class="text-xl leading-none">También podés descargar el instalador de los siguientes mirrors</p>
-              <a href="http://parches.ao20.com.ar/instalador/Instalador_AO20.exe" class="matomo_download">Link Alternativo</a>
+              <a href="https://tinyurl.com/4w58d859" class="matomo_download">Link Alternativo</a>
           </section>
         </div>
 

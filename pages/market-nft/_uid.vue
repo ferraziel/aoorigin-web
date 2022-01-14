@@ -86,7 +86,7 @@ export default {
         // web3 = new this.$Web3(ethereum);
 
         //Ganache
-        web3 = new this.$Web3('http://127.0.0.1:7545');
+        web3 = new this.$Web3('https://127.0.0.1:7545');
 
         try {
           // Request account access

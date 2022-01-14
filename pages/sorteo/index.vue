@@ -7,7 +7,7 @@
     <meta property="og:title" content="AO20 NFTs Giveaway">
     <meta property="twitter:card" content="summary"/>
     <meta property="fb:app_id" content="152351391599356"/>
-    <meta property="og:description" content="We are delighted to give away 8 of our the first NFTs ever made for Argentum Online Please proceed to follow us on our social networks to earn many entries in the promotion Also, 2 &quot;Matadrakos&quot; will be raffled to be used in the game. ⚔️ 🛡️ Estamos encantados de regalar 8 de nuestros primeros NFT jamás hechos para Argentum Online Proceda a seguirnos en nuestras redes sociales para ganar muchas entradas en la promoción. Tambien se sortearan 2 &quot;Matadrakos&quot; para poder utilizar dentro del juego. https://www.ao20.com.ar - Play the game. Buy/Comprar: http://nfts.ao20.com.ar">
+    <meta property="og:description" content="We are delighted to give away 8 of our the first NFTs ever made for Argentum Online Please proceed to follow us on our social networks to earn many entries in the promotion Also, 2 &quot;Matadrakos&quot; will be raffled to be used in the game. ⚔️ 🛡️ Estamos encantados de regalar 8 de nuestros primeros NFT jamás hechos para Argentum Online Proceda a seguirnos en nuestras redes sociales para ganar muchas entradas en la promoción. Tambien se sortearan 2 &quot;Matadrakos&quot; para poder utilizar dentro del juego. https://www.ao20.com.ar - Play the game.">
   </div>
 </template>
 
