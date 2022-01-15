@@ -40,7 +40,7 @@
             <option value="3">Elfo oscuro</option>
             <option value="4">Gnomo</option>
             <option value="5">Enano</option>
-            <!-- <option value="6">Orco</option> -->
+            <option value="6">Orco</option>
           </select>
         </div>
 
