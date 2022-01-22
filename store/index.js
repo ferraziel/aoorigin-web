@@ -14,17 +14,16 @@ export const mutations = {
 
 export const actions = {
   async nuxtServerInit({ commit }, { $axios }) {
-    try {
-      const data = await $axios.$get("/");
 
+    $axios.$get("/").then((data) => {
       if (!isNaN(data.onlineCount)) {
         return commit("SET_ONLINE_COUNT", data.onlineCount);
       } else {
         return commit("SET_GAME_ONLINE", false);
       }
-    } catch (err) {
+    }).catch((err) => {
       console.error(err);
       return commit("SET_GAME_ONLINE", false);
-    }
+    });
   },
 };
