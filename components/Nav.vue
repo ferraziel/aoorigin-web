@@ -36,7 +36,6 @@
               d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
             />
           </svg>
-          <!-- <i class="fal fa-bars fa-lg"></i> -->
         </button>
       </div>
     </nav>
@@ -53,10 +52,6 @@
           </li>
           <li v-for="link in links" :key="link.route">
               <NuxtLink :to="link.route" class="inline-block py-2 hover:text-gray-100">{{ link.label }}</NuxtLink>
-          </li>
-          <li>
-            <!-- Esto se abre asi y no con nuxtLink por que sino tira error a veces.... -->
-            <a href="/market-nft/opensea" class="inline-block py-2 hover:text-gray-100">NFT Marketplace</a>
           </li>
       </ul>
       </div>
@@ -91,10 +86,6 @@
           <li v-for="link in links" :key="link.route"  @click="showMobileMenu = !showMobileMenu" >
               <NuxtLink :to="link.route"  class="mobile-nav-link">{{ link.label }}</NuxtLink>
           </li>
-          <li>
-            <!-- Esto se abre asi y no con nuxtLink por que sino tira error a veces.... -->
-            <a href="/market-nft/opensea" class="mobile-nav-link"  @click="showMobileMenu = !showMobileMenu">NFT Marketplace</a>
-          </li>
         </ul>
       </nav>
     </transition>
@@ -107,10 +98,6 @@ export default {
     return {
       showMobileMenu: false,
       linksMain: [
-        {
-          label: "Sorteo NFT",
-          route: "/sorteo",
-        },
         {
           label: "Jugá gratis",
           route: "/#juga-gratis",
@@ -149,7 +136,7 @@ export default {
   },
   methods: {
     toggleMenu() {
-      // alert("hi");
+     
     },
   },
 };

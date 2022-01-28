@@ -27,29 +27,47 @@
       </video> -->
     </header>
 
-    <section class="bg-gray-1000 mb-10">
-      <div class="divider2"></div>
+    <div class="section-divider my-16"></div>
 
-      <div class="py-3 md:py-6 lg:py-12">
-        <div class="container flex justify-center items-center gap-x-6 md:gap-x-10 lg:gap-x-20">
-          <a href="/sorteo" class="btn">Participa del Sorteo de NFTs</a>
-
-          <h4>NFTs AO20 Collection</h4>
-          <span
-            >6420 (ERC-721) NFT's coleccionables seran creandos en esta primera edicion en una mezcla entre todos los
-            cuerpos sin equipo con todas las caras posibles. esto nos permitira en el futuro a poder expandir el
-            concepto. Todos los NFTs tienen atributos unicos asignandoles rarezas.</span
+    <section id="apoyanos" class="container max-w-screen-lg mx-auto">
+      <h3 class="section-title mb-10 text-center">¡Apoyanos!</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 md:text-lg">
+        <article class="flex flex-col gap-y-6">
+          <h3 class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest">
+            <img src="@/assets/img/patreon.png" alt="icono de Patreon" />
+            Patreon
+          </h3>
+          <p>
+            Convertite en un Patron para obtener beneficios exclusivos in-game y acceso a canales privados de Discord
+          </p>
+          <div class="hidden md:flex flex-grow"></div>
+          <a
+            href="https://patreon.com/nolandstudios"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-silver self-start text-base"
+            >Convertite en Patron</a
           >
+        </article>
 
-          <img src="@/assets/img/example-nfts.gif" />
-          <a href="https://www.elmesonhostigado.com/foro/ao-20/416-nft-s-ao20-primer-coleccion-opensea-polygon"
-            >Mas informacion</a
+        <article class="flex flex-col gap-y-6">
+          <h3 class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest">
+            <img src="@/assets/img/cafecito.png" alt="icono de cafecito" />
+            Cafecito
+          </h3>
+          <div class="flex-grow">
+            <p class="mb-3">Ayudanos con un Cafecito (psst, ¡lo creó Midraks, un jugador de AO!).</p>
+            <p>¡Podés pagar con Mercado Pago y todos los medios que ofrece!</p>
+          </div>
+          <a
+            href="https://cafecito.app/nolandstudios"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-silver self-start text-base"
+            >Donar en Cafecito</a
           >
-          <a href="https://tinyurl.com/4nfdwk3b">Comprar</a>
-        </div>
+        </article>
       </div>
-
-      <div class="divider2"></div>
     </section>
 
     <section id="discord" class="container max-w-screen-lg mx-auto">
@@ -179,49 +197,6 @@
         </div>
 
         <RegisterForm />
-      </div>
-    </section>
-
-    <div class="section-divider my-16"></div>
-
-    <section id="apoyanos" class="container max-w-screen-lg mx-auto">
-      <h3 class="section-title mb-10 text-center">¡Apoyanos!</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 md:text-lg">
-        <article class="flex flex-col gap-y-6">
-          <h3 class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest">
-            <img src="@/assets/img/patreon.png" alt="icono de Patreon" />
-            Patreon
-          </h3>
-          <p>
-            Convertite en un Patron para obtener beneficios exclusivos in-game y acceso a canales privados de Discord
-          </p>
-          <div class="hidden md:flex flex-grow"></div>
-          <a
-            href="https://patreon.com/nolandstudios"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-silver self-start text-base"
-            >Convertite en Patron</a
-          >
-        </article>
-
-        <article class="flex flex-col gap-y-6">
-          <h3 class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest">
-            <img src="@/assets/img/cafecito.png" alt="icono de cafecito" />
-            Cafecito
-          </h3>
-          <div class="flex-grow">
-            <p class="mb-3">Ayudanos con un Cafecito (psst, ¡lo creó Midraks, un jugador de AO!).</p>
-            <p>¡Podés pagar con Mercado Pago y todos los medios que ofrece!</p>
-          </div>
-          <a
-            href="https://cafecito.app/nolandstudios"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-silver self-start text-base"
-            >Donar en Cafecito</a
-          >
-        </article>
       </div>
     </section>
 
