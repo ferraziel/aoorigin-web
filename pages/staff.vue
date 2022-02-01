@@ -110,7 +110,6 @@
         adelante este proyecto:
       </h4>
       <ul>
-        <li>Xavier Viger Navarro "Sensui" (Idea original, Mapeo, Dateo, Game Design)</li>
         <li>Sergio Perez "Neosefirot" (Idea original y Coordinación)</li>
         <li>Joaquín Ortíz "Jopi" (Programación)</li>
         <li>Emiliano Mancuso "Emancu" (Programación)</li>

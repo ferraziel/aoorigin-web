@@ -70,6 +70,8 @@
       </div>
     </section>
 
+    <div class="section-divider my-16"></div>
+    
     <section id="discord" class="container max-w-screen-lg mx-auto">
       <widgetbot
         server="761213868352471040"
