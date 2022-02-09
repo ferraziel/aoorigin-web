@@ -71,7 +71,29 @@
     </section>
 
     <div class="section-divider my-16"></div>
-    
+
+    <section class="bg-gray-1000 mb-10">
+      <div class="divider2"></div>
+
+      <div class="py-3 md:py-6 lg:py-12">
+        <div class="container flex justify-center items-center gap-x-6 md:gap-x-10 lg:gap-x-20">
+          <a href="/sorteo" class="btn">Participa del Sorteo de NFTs</a>
+
+          <h4>NFTs AO20 Collection</h4>
+          <span>
+            6420 (ERC-721) NFT's coleccionables seran creandos en esta primera edicion en una mezcla entre todos los
+            cuerpos sin equipo con todas las caras posibles. esto nos permitira en el futuro a poder expandir el
+            concepto. Todos los NFTs tienen atributos unicos asignandoles rarezas.
+          </span>
+          <img src="@/assets/img/example-nfts.gif" />
+          <a href="https://www.elmesonhostigado.com/foro/ao-20/416-nft-s-ao20-primer-coleccion-opensea-polygon">Mas informacion</a>
+          <a href="https://tinyurl.com/4nfdwk3b">Comprar</a>
+        </div>
+      </div>
+      <div class="section-divider my-16"></div>
+    </section>
+
+
     <section id="discord" class="container max-w-screen-lg mx-auto">
       <widgetbot
         server="761213868352471040"

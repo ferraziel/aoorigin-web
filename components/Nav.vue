@@ -53,6 +53,10 @@
           <li v-for="link in links" :key="link.route">
               <NuxtLink :to="link.route" class="inline-block py-2 hover:text-gray-100">{{ link.label }}</NuxtLink>
           </li>
+          <li>
+            <!-- Esto se abre asi y no con nuxtLink por que sino tira error a veces.... -->
+            <a href="/market-nft/opensea" class="inline-block py-2 hover:text-gray-100">NFT Marketplace</a>
+          </li>
       </ul>
       </div>
 
@@ -85,6 +89,10 @@
           </li>
           <li v-for="link in links" :key="link.route"  @click="showMobileMenu = !showMobileMenu" >
               <NuxtLink :to="link.route"  class="mobile-nav-link">{{ link.label }}</NuxtLink>
+          </li>
+          <li>
+            <!-- Esto se abre asi y no con nuxtLink por que sino tira error a veces.... -->
+            <a href="/market-nft/opensea" class="mobile-nav-link"  @click="showMobileMenu = !showMobileMenu">NFT Marketplace</a>
           </li>
         </ul>
       </nav>
@@ -136,7 +144,7 @@ export default {
   },
   methods: {
     toggleMenu() {
-     
+
     },
   },
 };
