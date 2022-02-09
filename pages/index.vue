@@ -77,7 +77,7 @@
 
       <div class="py-3 md:py-6 lg:py-12">
         <div class="container flex justify-center items-center gap-x-6 md:gap-x-10 lg:gap-x-20">
-          <a href="/sorteo" class="btn">Participa del Sorteo de NFTs</a>
+          <!-- <a href="/sorteo" class="btn">Participa del Sorteo de NFTs</a> -->
 
           <h4>NFTs AO20 Collection</h4>
           <span>
