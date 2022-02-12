@@ -50,7 +50,6 @@
           >
         </article>
 
-        <img src="https://i.ibb.co/Tg22HDn/image.png" alt="Beneficios" />
 
 
 
@@ -72,6 +71,7 @@
           >
         </article>
 
+        <!-- <img src="https://i.ibb.co/Tg22HDn/image.png" alt="Beneficios" /> -->
 
 
       </div>
@@ -101,7 +101,7 @@
     </section>
 
 
-    <section id="discord" class="container max-w-screen-lg mx-auto">
+    <!-- <section id="discord" class="container max-w-screen-lg mx-auto">
       <widgetbot
         server="761213868352471040"
         channel="761286044229959701"
@@ -109,7 +109,7 @@
         height="600"
       ></widgetbot>
       <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
-    </section>
+    </section> -->
 
     <section class="container max-w-screen-lg mx-auto">
 
