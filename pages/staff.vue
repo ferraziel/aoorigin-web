@@ -97,9 +97,6 @@
     <section>
       <h1>Agradecimientos especiales</h1>
       <h3>
-        A Pablo Mercavides "Ladder" por sus conocimientos de programación y a su staff de Revolución AO por ceder los códigos originales de servidor y cliente los cuales fueron tomados de base para encarar Argentum 20.
-      </h3>
-      <h3>
         A Alexis Caraballo "WyroX" por su dedicación y aporte de conocimientos que ayudaron a que Argentum 20 sea lo que es hoy en día.
       </h3>
       <h3>
@@ -110,6 +107,7 @@
         adelante este proyecto:
       </h4>
       <ul>
+        <li> A Pablo Mercavides "Ladder" por sus conocimientos de programación y a su staff de Revolución AO por ceder los códigos originales de servidor y cliente los cuales fueron tomados de base para encarar Argentum 20.</li>
         <li>Sergio Perez "Neosefirot" (Idea original y Coordinación)</li>
         <li>Joaquín Ortíz "Jopi" (Programación)</li>
         <li>Emiliano Mancuso "Emancu" (Programación)</li>
