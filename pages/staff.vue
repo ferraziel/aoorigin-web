@@ -18,7 +18,7 @@
         <li>Juan Rettori "Zavilor"</li>
         <li>Joaquín Ortiz "Jopi"</li>
       </ul>
-      
+
       <h2>Desarrollo de Herramientas</h2>
       <ul>
         <li>Jorge Brayer "ReyarB"</li>
@@ -53,7 +53,7 @@
         <li>Martín Trionfetti "HarThaoS"</li>
         <li>Alejandro Cordara "Animal"</li>
       </ul>
-      
+
       <h2>Arquitecto DevOps</h2>
       <ul>
         <li>Lucas Recoaro "RecoX"</li>
@@ -108,6 +108,7 @@
       </h4>
       <ul>
         <li> A Pablo Mercavides "Ladder" por sus conocimientos de programación y a su staff de Revolución AO por ceder los códigos originales de servidor y cliente los cuales fueron tomados de base para encarar Argentum 20.</li>
+        <li>Xavier Viger Navarro "Sensui" (Idea original, Mapeo, Dateo, Game Design)</li>
         <li>Sergio Perez "Neosefirot" (Idea original y Coordinación)</li>
         <li>Joaquín Ortíz "Jopi" (Programación)</li>
         <li>Emiliano Mancuso "Emancu" (Programación)</li>
