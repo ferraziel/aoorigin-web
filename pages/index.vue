@@ -111,19 +111,19 @@
       <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
     </section> -->
 
-    <section class="container max-w-screen-lg mx-auto">
+    <!-- <section class="container max-w-screen-lg mx-auto">
 
       <div class="py-3 md:py-6 lg:py-12">
         <div class="container flex justify-center items-center gap-x-6 md:gap-x-10 lg:gap-x-20">
           <News-Bar />
           <!-- <a href="#" target="_blank" class="transition-colors duration-150 ease-out hover:text-primary">
             <i class="fab fa-instagram"></i>
-          </a> -->
+          </a>
         </div>
       </div>
 
       <div class="divider2"></div>
-    </section>
+    </section> -->
 
     <section class="bg-gray-1000 mb-10">
       <div class="divider2"></div>
