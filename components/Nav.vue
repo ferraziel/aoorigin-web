@@ -71,14 +71,6 @@
           <li v-for="link in linksMain" :key="link.route"  @click="showMobileMenu = !showMobileMenu" >
             <NuxtLink :to="link.route"  class="mobile-nav-link">{{ link.label }}</NuxtLink>
           </li>
-           <li  @click="showMobileMenu = !showMobileMenu" >
-            <a
-              href="https://wiki.ao20.com.ar/index.php?title=P%C3%A1gina_principal"
-              target="_blank"
-               class="mobile-nav-link"
-              >Manual</a
-            >
-          </li>
           <li  @click="showMobileMenu = !showMobileMenu" >
             <a
               href="https://elmesonhostigado.com/foro"
