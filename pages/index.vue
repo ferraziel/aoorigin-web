@@ -208,7 +208,7 @@
     <section id="juga-gratis" class="container mb-16 md:mb-24">
       <h2 class="section-title text-center mb-4 md:mb-10">¡Jugá Gratis!</h2>
 
-      <div class="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
+      <div class="max-w-screen-lg mx-auto grid grid-cols-1 mb-16 md:mb-24">
         <div class="flex flex-col items-center mt-16 lg:mt-24 xl:mt-32">
           <div class="relative mb-4 z-10">
             <!--
@@ -225,9 +225,16 @@
             <p class="text-xl leading-none">También podés descargar el instalador de los siguientes mirrors</p>
               <a href="https://tinyurl.com/4w58d859" class="matomo_download">Link Alternativo</a>
           </section>
-        </div>
 
-        <RegisterForm />
+          <label class="flex items-center gap-x-2">
+            <span>
+              Leí y acepto
+
+              <NuxtLink to="/reglamento" class="text-primary hover:underline"> el reglamento de juego </NuxtLink>
+            </span>
+          </label>
+        </div>
+        <!-- <RegisterForm /> -->
       </div>
     </section>
 

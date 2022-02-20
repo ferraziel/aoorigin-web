@@ -102,10 +102,10 @@ export default {
           label: "Jugá gratis",
           route: "/#juga-gratis",
         },
-        {
-          label: "Noticias",
-          route: "/noticias",
-        },
+        // {
+        //   label: "Noticias",
+        //   route: "/noticias",
+        // },
         {
           label: "Staff",
           route: "/staff",
