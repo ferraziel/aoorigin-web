@@ -11,6 +11,6 @@ Para obtener las credenciales de login en Prismic, contactarse con algún miembr
 
 ## URLs
 
-Ambiente de testeo: https://test.ao20.com.ar
+Ambiente de testeo: https://staging.ao20.com.ar
 
 Ambiente de producción: https://ao20.com.ar
