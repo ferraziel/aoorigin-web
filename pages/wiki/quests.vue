@@ -14,7 +14,7 @@
               <th>Nivel Requerido</th>
               <th>Items Solicitados</th>
               <th>Npcs Solicitados</th>
-              <th>Mapa</th>
+              <!-- <th>Mapa</th> -->
               <th>Repetible</th>
               <th>Premio Experiencia</th>
               <th>Premio Oro</th>
@@ -29,7 +29,7 @@
               <td class="text-right">{{ quest.REQUIREDLEVEL }}</td>
               <td class="text-right">{{ quest.REQUIREDOBJS }}</td>
               <td class="text-right">{{ quest.REQUIREDNPCS }}</td>
-              <td class="text-right">{{ quest.POSMAP }}</td>
+              <!-- <td class="text-right">{{ quest.POSMAP }}</td> -->
               <td class="text-right"><span v-if="quest.REPETIBLE == '1'">Sí</span><span v-else>No</span></td>
               <td class="text-right">{{ quest.REWARDEXP }}</td>
               <td class="text-right">{{ quest.REWARDGLD }}</td>
