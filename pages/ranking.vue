@@ -145,7 +145,7 @@ function objectToQueryString(obj) {
 
 export default {
   async asyncData({ $axios }) {
-    const ranking = await $axios.$get("/rankings/users?top=100");
+    const ranking = await $axios.$get("https://api-staging.ao20.com.ar:11812/rankings/users?top=100");
     return { ranking: ranking.characters };
   },
   data() {
