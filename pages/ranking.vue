@@ -64,8 +64,8 @@
     </div>
 
     <div class="xl:col-span-10 text-xs overflow-x-auto">
+      <h1>El ranking se actualiza todos los dias a las 4am horario Argentina.</h1>
       <LoadingSpinner v-if="isFetching" />
-
       <table v-else-if="ranking.length" class="text-gray-400">
         <thead>
           <td></td>
@@ -145,7 +145,7 @@ function objectToQueryString(obj) {
 
 export default {
   async asyncData({ $axios }) {
-    const ranking = await $axios.$get("https://api-staging.ao20.com.ar:11812/rankings/users?top=100");
+    const ranking = await $axios.$get("/rankings/users?top=100");
     return { ranking: ranking.characters };
   },
   data() {
