@@ -16,8 +16,8 @@
 
           <div class="flex items-center gap-x-4">
             <p class="hidden text-sm tracking-wide uppercase lg:block">
-              <span v-if="$store.state.isGameOnline">{{ $store.state.onlineCount || 0 }} usuarios online</span>
-              <span v-else class="p-2 font-bold text-white bg-red-500">Servidor Offline</span>
+              <span v-if="isServerOnline">{{ onlineCount || 0 }} usuarios online</span>
+              <span v-else class="p-2 font-bold text-white bg-yellow-500">Cargando...</span>
             </p>
 
             <NuxtLink to="/cuenta" v-if="$auth.loggedIn">Mi cuenta</NuxtLink>
@@ -93,8 +93,17 @@
 
 <script>
 export default {
+  async fetch() {
+    const gameServerStatus = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/");
+
+    this.onlineCount = gameServerStatus.onlineCount
+    this.isServerOnline = gameServerStatus.isServerOnline
+  },
+
   data() {
     return {
+      onlineCount: null,
+      isServerOnline: false,
       showMobileMenu: false,
       linksMain: [
         {
