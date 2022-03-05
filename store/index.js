@@ -15,7 +15,7 @@ export const mutations = {
 export const actions = {
   async nuxtServerInit({ commit }, { $axios }) {
 
-    $axios.$get("/").then((data) => {
+    $axios.$get("https://api-staging.ao20.com.ar:11812/").then((data) => {
       if (!isNaN(data.onlineCount)) {
         return commit("SET_ONLINE_COUNT", data.onlineCount);
       } else {
