@@ -12,6 +12,7 @@
               <th>Id</th>
               <th></th>
               <th>Nombre</th>
+              <th>Experiencia</th>
               <th>Descripcion</th>
               <th>Min Hit</th>
               <th>Max Hit</th>
@@ -31,6 +32,7 @@
               <td class="text-right">{{ npc.npc_id }}</td>
               <td><img width="300px" :src="npc.canvasImage" /></td>
               <td class="text-right">{{ npc.NAME }}</td>
+              <td class="text-right">{{ npc.GIVEEXP }}</td>
               <td class="text-right">{{ npc.DESC }}</td>
               <td class="text-right">{{ npc.MINHIT }}</td>
               <td class="text-right">{{ npc.MAXHIT }}</td>
