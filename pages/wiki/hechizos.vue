@@ -61,7 +61,8 @@ export default {
     };
   },
   async fetch() {
-    this.spells = await this.$axios.$get("http://localhost:5102/dats/getAllSpells");
+    this.spells = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllSpells");
+
   },
   head() {
     return {
