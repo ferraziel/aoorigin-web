@@ -15,8 +15,12 @@
               <th>Caracteristicas</th>
               <th>Valor Oro</th>
               <th>Skills Herreria</th>
+              <th>Lingote de Oro</th>
+              <th>Lingote de Plata</th>
+              <th>Lingote de Bronce</th>
               <th>Madera</th>
               <th>Madera Elfica</th>
+              <th>Skills Carpinteria</th>
               <th>Clases Prohibidas</th>
             </tr>
           </thead>
@@ -28,8 +32,13 @@
               <td class="text-right">{{ tool.Data.NAME }}</td>
               <td class="text-right">{{tool.Data.TEXTO}}</td>
               <td class="text-right">{{ tool.Data.VALOR }}</td>
+              <td class="text-right">{{ tool.Data.LINGO }}</td>
+              <td class="text-right">{{ tool.Data.LINGP }}</td>
+              <td class="text-right">{{ tool.Data.LINGH }}</td>
+              <td class="text-right">{{ tool.Data.SKHERRERIA }}</td>
               <td class="text-right">{{ tool.Data.MADERA }}</td>
               <td class="text-right">{{ tool.Data.MADERAELFICA }}</td>
+              <td class="text-right">{{ tool.Data.SKCARPINTERIA }}</td>
               <td class="text-right">{{tool.Data.CP1}} {{tool.Data.CP2}} {{tool.Data.CP3}} {{tool.Data.CP4}} {{tool.Data.CP5}} {{tool.Data.CP5}} {{tool.Data.CP7}} {{tool.Data.CP8}} {{tool.Data.CP9}} {{tool.Data.CP10}} {{tool.Data.CP11}} {{tool.Data.CP12}} {{tool.Data.CP13}}</td>
             </tr>
           </tbody>
