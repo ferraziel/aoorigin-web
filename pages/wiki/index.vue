@@ -15,6 +15,11 @@
         <li><NuxtLink to="/wiki/npcs">Npcs</NuxtLink></li>
         <li><NuxtLink to="/wiki/quests">Quests</NuxtLink></li>
         <li><NuxtLink to="/wiki/balance">Balance</NuxtLink></li>
+        <li><NuxtLink to="/wiki/alimentos">Alimentos</NuxtLink></li>
+        <li><NuxtLink to="/wiki/resistencia-magica">Resistencia Magica</NuxtLink></li>
+        <li><NuxtLink to="/wiki/instrumentos">Instrumentos Musicales</NuxtLink></li>
+        <li><NuxtLink to="/wiki/flechas-municiones">Flechas y municiones</NuxtLink></li>
+        <li><NuxtLink to="/wiki/herramientas">Herramientas</NuxtLink></li>
       </ul>
     </div>
 
