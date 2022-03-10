@@ -22,6 +22,7 @@
         <li><NuxtLink to="/wiki/herramientas">Herramientas</NuxtLink></li>
         <li><NuxtLink to="/wiki/pociones">Pociones</NuxtLink></li>
         <li><NuxtLink to="/wiki/embarcaciones">Embarcaciones</NuxtLink></li>
+        <li><NuxtLink to="/wiki/items-magicos">Items Magicos</NuxtLink></li>
       </ul>
     </div>
 
