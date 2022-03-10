@@ -56,6 +56,60 @@
       </div>
     </div>
 
+    <div
+      v-if="knuckless.length"
+      class="bg-gray-900 border-2 border-gr border-gr-primary"
+    >
+      <h1>Nudillos para Artes Marciales</h1>
+      <div class="xl:col-span-10 text-xs overflow-x-auto">
+        <table class="text-gray-400">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th></th>
+              <th>Nombre</th>
+              <th>Caracteristicas</th>
+              <th>Min Hit</th>
+              <th>Max Hit</th>
+              <th>Oro</th>
+              <th>Dos Manos</th>
+              <th>Apuñala</th>
+              <th>Lingote de Oro</th>
+              <th>Lingote de Plata</th>
+              <th>Lingote de Bronce</th>
+              <th>Skills Herreria</th>
+              <th>Madera</th>
+              <th>Madera Elfica</th>
+              <th>Skills Carpintera</th>
+              <th>Clases Prohibidas</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr v-for="knuckles in knuckless" :key="knuckles.item_id">
+              <td class="text-right">{{ knuckles.item_id }}</td>
+              <td><img width="300px" :src="knuckles.Data.canvasImage" /></td>
+              <td class="text-right">{{ knuckles.Data.NAME }}</td>
+              <td class="text-right">{{knuckles.Data.TEXTO}}</td>
+              <td class="text-right">{{ knuckles.Data.MINHIT }}</td>
+              <td class="text-right">{{ knuckles.Data.MAXHIT }}</td>
+              <td class="text-right">{{ knuckles.Data.VALOR }}</td>
+              <td class="text-right"><span v-if="knuckles.Data.DOSMANOS">Sí</span><span v-else>No</span></td>
+              <td class="text-right"><span v-if="knuckles.Data.APUÑALA">Sí</span><span v-else>No</span></td>
+              <td class="text-right">{{ knuckles.Data.LINGO }}</td>
+              <td class="text-right">{{ knuckles.Data.LINGP }}</td>
+              <td class="text-right">{{ knuckles.Data.LINGH }}</td>
+              <td class="text-right">{{ knuckles.Data.SKHERRERIA }}</td>
+              <td class="text-right">{{ knuckles.Data.MADERA }}</td>
+              <td class="text-right">{{ knuckles.Data.MADERAELFICA }}</td>
+              <td class="text-right">{{ knuckles.Data.SKCARPINTERIA }}</td>
+              <td class="text-right">{{knuckles.Data.CP1}} {{knuckles.Data.CP2}} {{knuckles.Data.CP3}} {{knuckles.Data.CP4}} {{knuckles.Data.CP5}} {{knuckles.Data.CP5}} {{knuckles.Data.CP7}} {{knuckles.Data.CP8}} {{knuckles.Data.CP9}} {{knuckles.Data.CP10}} {{knuckles.Data.CP11}} {{knuckles.Data.CP12}} {{knuckles.Data.CP13}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <section v-else class="text-center mt-24">
       <p class="text-2xl">Cargando armas.</p>
     </section>
@@ -68,10 +122,12 @@ export default {
   data() {
     return {
       weapons: [],
+      knuckles: [],
     };
   },
   async fetch() {
     this.weapons = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllWeapons");
+    this.knuckles = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllKnuckles");
   },
   head() {
     return {
