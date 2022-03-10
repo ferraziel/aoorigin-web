@@ -27,6 +27,9 @@
         </table>
       </div>
     </div>
+    <section v-else class="text-center mt-24">
+      <p class="text-2xl">Cargando instrumentos musicales.</p>
+    </section>
 
     <div
       v-if="instrumentosMagicos.length"
@@ -57,7 +60,7 @@
     </div>
 
     <section v-else class="text-center mt-24">
-      <p class="text-2xl">Cargando instrumentos musicales.</p>
+      <p class="text-2xl">Cargando instrumentos magicos.</p>
     </section>
   </div>
 </template>
@@ -76,7 +79,7 @@ export default {
   },
   head() {
     return {
-      title: "Wiki - Armaduras",
+      title: "Wiki - Instrumentos Musicales",
     };
   },
 };

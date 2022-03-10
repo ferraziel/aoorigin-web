@@ -4,7 +4,7 @@
       v-if="embarcaciones.length"
       class="bg-gray-900 border-2 border-gr border-gr-primary"
     >
-      <h1>embarcaciones</h1>
+      <h1>Embarcaciones</h1>
       <div class="xl:col-span-10 text-xs overflow-x-auto">
         <table class="text-gray-400">
           <thead>
@@ -35,9 +35,9 @@
               <td class="text-right">{{ embarcacion.Data.SKILLREQUERIDO }}</td>
               <td class="text-right">{{ embarcacion.Data.VALOR }}</td>
               <td class="text-right">{{ embarcacion.Data.VELOCIDAD }}</td>
-              <td class="text-right">{{ tool.Data.MADERA }}</td>
-              <td class="text-right">{{ tool.Data.MADERAELFICA }}</td>
-              <td class="text-right">{{ tool.Data.SKCARPINTERIA }}</td>
+              <td class="text-right">{{ embarcacion.Data.MADERA }}</td>
+              <td class="text-right">{{ embarcacion.Data.MADERAELFICA }}</td>
+              <td class="text-right">{{ embarcacion.Data.SKCARPINTERIA }}</td>
               <td class="text-right"><span v-if="embarcacion.Data.NOSECAE">Sí</span><span v-else>No</span></td>
               <td class="text-right"><span v-if="embarcacion.Data.INTIRABLE">Sí</span><span v-else>No</span></td>
               <td class="text-right"><span v-if="embarcacion.Data.INSTRANSFERIBLE">Sí</span><span v-else>No</span></td>
@@ -66,7 +66,7 @@ export default {
   },
   head() {
     return {
-      title: "Wiki - embarcaciones",
+      title: "Wiki - Embarcaciones",
     };
   },
 };

@@ -69,7 +69,7 @@ export default {
   },
   head() {
     return {
-      title: "Wiki - Armas",
+      title: "Wiki - Flechas y Municiones",
     };
   },
 };

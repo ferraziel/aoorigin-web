@@ -55,9 +55,12 @@
         </table>
       </div>
     </div>
+    <section v-else class="text-center mt-24">
+      <p class="text-2xl">Cargando armas.</p>
+    </section>
 
     <div
-      v-if="knuckless.length"
+      v-if="knuckles.length"
       class="bg-gray-900 border-2 border-gr border-gr-primary"
     >
       <h1>Nudillos para Artes Marciales</h1>
@@ -86,7 +89,7 @@
           </thead>
 
           <tbody>
-            <tr v-for="knuckles in knuckless" :key="knuckles.item_id">
+            <tr v-for="knuckles in knuckles" :key="knuckles.item_id">
               <td class="text-right">{{ knuckles.item_id }}</td>
               <td><img width="300px" :src="knuckles.Data.canvasImage" /></td>
               <td class="text-right">{{ knuckles.Data.NAME }}</td>
@@ -111,7 +114,7 @@
     </div>
 
     <section v-else class="text-center mt-24">
-      <p class="text-2xl">Cargando armas.</p>
+      <p class="text-2xl">Cargando Nudillos para Artes Marciales.</p>
     </section>
   </div>
 </template>
