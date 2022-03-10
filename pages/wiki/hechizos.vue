@@ -27,8 +27,8 @@
           </thead>
           <tbody>
             <tr v-for="spell in spells" :key="spell.item_id">
-              <td><img v-if="spell.Data" width="300px" :src="spell.Data.canvasImage" /></td>
               <td class="text-right">{{ spell.spell_id }}</td>
+              <td><img v-if="spell.Data" width="300px" :src="spell.Data.canvasImage" /></td>
               <td class="text-right">{{ spell.NOMBRE }}</td>
               <td class="text-right">{{ spell.DESC }}</td>
               <td class="text-right">{{ spell.MINHP }}</td>
