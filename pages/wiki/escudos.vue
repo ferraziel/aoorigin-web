@@ -21,6 +21,9 @@
               <th>Lingote de Plata</th>
               <th>Lingote de Bronce</th>
               <th>Skills Herreria</th>
+              <th>Madera</th>
+              <th>Madera Elfica</th>
+              <th>Skills Carpintera</th>
               <th>Clases Prohibidas</th>
             </tr>
           </thead>
@@ -39,6 +42,9 @@
               <td class="text-right">{{ shield.Data.LINGP }}</td>
               <td class="text-right">{{ shield.Data.LINGH }}</td>
               <td class="text-right">{{ shield.Data.SKHERRERIA }}</td>
+              <td class="text-right">{{ shield.Data.MADERA }}</td>
+              <td class="text-right">{{ shield.Data.MADERAELFICA }}</td>
+              <td class="text-right">{{ shield.Data.SKCARPINTERIA }}</td>
               <td class="text-right">{{shield.Data.CP1}} {{shield.Data.CP2}} {{shield.Data.CP3}} {{shield.Data.CP4}} {{shield.Data.CP5}} {{shield.Data.CP5}} {{shield.Data.CP7}} {{shield.Data.CP8}} {{shield.Data.CP9}} {{shield.Data.CP10}} {{shield.Data.CP11}} {{shield.Data.CP12}} {{shield.Data.CP13}}</td>
             </tr>
           </tbody>
