@@ -13,43 +13,27 @@
               <th></th>
               <th>Nombre</th>
               <th>Caracteristicas</th>
-              <th>Min Hit</th>
-              <th>Max Hit</th>
-              <!-- <th>Nivel Minimo</th> -->
-              <th>Oro</th>
-              <th>Dos Manos</th>
-              <th>Apuñala</th>
-              <th>Lingote de Oro</th>
-              <th>Lingote de Plata</th>
-              <th>Lingote de Bronce</th>
-              <th>Skills Herreria</th>
-              <th>Madera</th>
-              <th>Madera Elfica</th>
-              <th>Skills Carpintera</th>
-              <th>Clases Prohibidas</th>
+              <th>Min Modificador</th>
+              <th>Max Modificador</th>
+              <th>Valor Oro</th>
+              <th>Se puede tirar? </th>
+              <th>Se cae al morir? </th>
+              <th>Se puede transferir? </th>
             </tr>
           </thead>
 
           <tbody>
-            <tr v-for="weapon in weapons" :key="weapon.item_id">
-              <td class="text-right">{{ weapon.item_id }}</td>
-              <td><img width="300px" :src="weapon.Data.canvasImage" /></td>
-              <td class="text-right">{{ weapon.Data.NAME }}</td>
-              <td class="text-right">{{weapon.Data.TEXTO}}</td>
-              <td class="text-right">{{ weapon.Data.MINHIT }}</td>
-              <td class="text-right">{{ weapon.Data.MAXHIT }}</td>
-              <!-- <td class="text-right">{{ weapon.Data.MINELV }}</td> -->
-              <td class="text-right">{{ weapon.Data.VALOR }}</td>
-              <td class="text-right"><span v-if="weapon.Data.DOSMANOS">Sí</span><span v-else>No</span></td>
-              <td class="text-right"><span v-if="weapon.Data.APUÑALA">Sí</span><span v-else>No</span></td>
-              <td class="text-right">{{ weapon.Data.LINGO }}</td>
-              <td class="text-right">{{ weapon.Data.LINGP }}</td>
-              <td class="text-right">{{ weapon.Data.LINGH }}</td>
-              <td class="text-right">{{ weapon.Data.SKHERRERIA }}</td>
-              <td class="text-right">{{ weapon.Data.MADERA }}</td>
-              <td class="text-right">{{ weapon.Data.MADERAELFICA }}</td>
-              <td class="text-right">{{ weapon.Data.SKCARPINTERIA }}</td>
-              <td class="text-right">{{weapon.Data.CP1}} {{weapon.Data.CP2}} {{weapon.Data.CP3}} {{weapon.Data.CP4}} {{weapon.Data.CP5}} {{weapon.Data.CP5}} {{weapon.Data.CP7}} {{weapon.Data.CP8}} {{weapon.Data.CP9}} {{weapon.Data.CP10}} {{weapon.Data.CP11}} {{weapon.Data.CP12}} {{weapon.Data.CP13}}</td>
+            <tr v-for="potion in potions" :key="potion.item_id">
+              <td class="text-right">{{ potion.item_id }}</td>
+              <td><img width="300px" :src="potion.Data.canvasImage" /></td>
+              <td class="text-right">{{ potion.Data.NAME }}</td>
+              <td class="text-right">{{potion.Data.TEXTO}}</td>
+              <td class="text-right">{{ potion.Data.MINMODIFICADOR }}</td>
+              <td class="text-right">{{ potion.Data.MAXMODIFICADOR }}</td>
+              <td class="text-right">{{ potion.Data.VALOR }}</td>
+              <td class="text-right"><span v-if="potion.Data.INTIRABLE">Sí</span><span v-else>No</span></td>
+              <td class="text-right"><span v-if="potion.Data.NOSECAE">Sí</span><span v-else>No</span></td>
+              <td class="text-right"><span v-if="potion.Data.INSTRANSFERIBLE">Sí</span><span v-else>No</span></td>
             </tr>
           </tbody>
         </table>
@@ -57,7 +41,7 @@
     </div>
 
     <section v-else class="text-center mt-24">
-      <p class="text-2xl">Cargando armas.</p>
+      <p class="text-2xl">Cargando pociones.</p>
     </section>
   </div>
 </template>
@@ -67,11 +51,11 @@
 export default {
   data() {
     return {
-      weapons: [],
+      potions: [],
     };
   },
   async fetch() {
-    this.weapons = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllWeapons");
+    this.potions = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllPotions");
   },
   head() {
     return {

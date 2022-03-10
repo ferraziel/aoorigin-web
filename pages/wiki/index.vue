@@ -20,6 +20,7 @@
         <li><NuxtLink to="/wiki/instrumentos">Instrumentos Musicales</NuxtLink></li>
         <li><NuxtLink to="/wiki/flechas-municiones">Flechas y municiones</NuxtLink></li>
         <li><NuxtLink to="/wiki/herramientas">Herramientas</NuxtLink></li>
+        <li><NuxtLink to="/wiki/pociones">Pociones</NuxtLink></li>
       </ul>
     </div>
 
