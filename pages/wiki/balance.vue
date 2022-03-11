@@ -58,6 +58,67 @@
         </table>
       </div>
 
+      <h1>Promedio vida y mana</h1>
+      <div>
+        <h2>Mago</h2>
+        <img src="@/assets/img/wiki/mago.png">
+      </div>
+
+      <div>
+        <h2>Druida</h2>
+        <img src="@/assets/img/wiki/druida.png">
+      </div>
+
+      <div>
+        <h2>Paladin</h2>
+        <img src="@/assets/img/wiki/paladin.png">
+      </div>
+
+      <div>
+        <h2>Bardo</h2>
+        <img src="@/assets/img/wiki/bardo.png">
+      </div>
+
+      <div>
+        <h2>Ladron</h2>
+        <img src="@/assets/img/wiki/ladron.png">
+      </div>
+
+      <div>
+        <h2>Pirata</h2>
+        <img src="@/assets/img/wiki/pirata.png">
+      </div>
+
+      <div>
+        <h2>Trabajador</h2>
+        <img src="@/assets/img/wiki/trabajador.png">
+      </div>
+
+      <div>
+        <h2>Asesino</h2>
+        <img src="@/assets/img/wiki/asesino.png">
+      </div>
+
+      <div>
+        <h2>Bandido</h2>
+        <img src="@/assets/img/wiki/bandido.png">
+      </div>
+
+      <div>
+        <h2>Clerigo</h2>
+        <img src="@/assets/img/wiki/clerigo.png">
+      </div>
+
+      <div>
+        <h2>Guerrero</h2>
+        <img src="@/assets/img/wiki/guerrero.png">
+      </div>
+
+      <div>
+        <h2>Cazador</h2>
+        <img src="@/assets/img/wiki/cazador.png">
+      </div>
+
       <h1>Modificadores de Raza</h1>
       <br>
 
@@ -437,7 +498,7 @@ export default {
     };
   },
   async fetch() {
-    this.balance = await this.$axios.$get("dats/getBalance");
+    this.balance = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getBalance");
   },
   head() {
     return {
