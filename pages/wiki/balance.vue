@@ -58,6 +58,10 @@
         </table>
       </div>
 
+      Skills por nivel:
+      <img src="@/assets/img/wiki/skills.png">
+
+
       <h1>Promedio vida y mana</h1>
       <div>
         <h2>Mago</h2>
@@ -199,6 +203,9 @@
           </tbody>
         </table>
       </div>
+
+      <h1>Atributos por Raza</h1>
+      <img src="@/assets/img/wiki/atributos.png">
 
       <h1>Evasion</h1>
       <div class="xl:col-span-10 text-xs overflow-x-auto">
