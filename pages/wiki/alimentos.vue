@@ -36,7 +36,7 @@
       v-if="drinks.length"
       class="bg-gray-900 border-2 border-gr border-gr-primary"
     >
-      <h1>Comidas</h1>
+      <h1>Bebidas</h1>
       <div class="xl:col-span-10 text-xs overflow-x-auto">
         <table class="text-gray-400">
           <thead>
