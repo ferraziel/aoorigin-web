@@ -26,6 +26,7 @@
           <li class="bg-yellow-500"><NuxtLink to="/wiki/embarcaciones">Embarcaciones</NuxtLink></li>
           <li class="bg-yellow-500"><NuxtLink to="/wiki/items-magicos">Items Magicos</NuxtLink></li>
           <li class="bg-yellow-500"><NuxtLink to="/wiki/habilidades">Habilidades</NuxtLink></li>
+          <li class="bg-yellow-500"><NuxtLink to="/wiki/npcs-vendedores">Npcs Vendedores</NuxtLink></li>
           <li class="bg-yellow-500"><a href="https://wiki.ao20.com.ar/index.php?title=P%C3%A1gina_principal" target="_blank">Wiki Vieja (Desactualizada)</a></li>
         </ul>
       </div>
