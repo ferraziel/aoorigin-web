@@ -54,8 +54,7 @@ export default {
     };
   },
   async fetch() {
-    this.npcs = await this.$axios.$get("https://localhost:5101/dats/getAllSellersNpcs");
-    // this.npcs = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllSellersNpcs");
+    this.npcs = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllSellersNpcs");
   },
   head() {
     return {
