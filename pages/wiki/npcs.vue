@@ -10,7 +10,6 @@
           <thead>
             <tr>
               <th>Id</th>
-              <th></th>
               <th>Nombre</th>
               <th>Experiencia</th>
               <th>Descripcion</th>
@@ -24,16 +23,21 @@
               <th>Rango Hechizos</th>
               <th>Intervalo Respawn</th>
               <th>Alineacion</th>
+              <th>Tiran</th>
             </tr>
           </thead>
 
           <tbody>
             <tr v-for="npc in npcs" :key="npc.npc_id">
               <td class="text-right">{{ npc.npc_id }}</td>
-              <td><img width="300px" :src="npc.canvasImage" /></td>
-              <td class="text-right">{{ npc.NAME }}</td>
+              <td>
+                <div>
+                  <img :alt="npc.NAME" :title="npc.NAME" :src="npc.canvasImage" />
+                  <span class="text-right">{{ npc.NAME }}</span>
+                </div>
+              </td>
               <td class="text-right">{{ npc.GIVEEXP }}</td>
-              <td class="text-right">{{ npc.DESC }}</td>
+              <td class="text-xs text-right">{{ npc.DESC }}</td>
               <td class="text-right">{{ npc.MINHIT }}</td>
               <td class="text-right">{{ npc.MAXHIT }}</td>
               <td class="text-right">{{ npc.MAXHP }}</td>
@@ -44,6 +48,14 @@
               <td class="text-right">{{ npc.RANGOSPELL }}</td>
               <td class="text-right">{{ npc.INTERVALORESPAWN }}</td>
               <td class="text-right">{{ npc.ALINEACION }}</td>
+              <td class="text-right">
+                <div v-if="npc.OBJSINFORMATION">
+                  <div v-for="item in npc.OBJSINFORMATION" :key="item.item_id">
+                    <img v-if="item.Data" :src="item.Data.canvasImage" :alt="item.Data.NAME" :title="item.Data.NAME" />
+                    <span v-if="item.Data">{{item.Data.NAME}}</span>
+                  </div>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -65,7 +77,8 @@ export default {
     };
   },
   async fetch() {
-    this.npcs = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllHostileNpcs");
+    // this.npcs = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllHostileNpcs");
+    this.npcs = await this.$axios.$get("https://localhost:5101/dats/getAllHostileNpcs");
   },
   head() {
     return {
