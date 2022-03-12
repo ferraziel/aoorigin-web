@@ -23,6 +23,7 @@
               <th>Rango Hechizos</th>
               <th>Intervalo Respawn</th>
               <th>Alineacion</th>
+              <th>Puntos Domar</th>
               <th>Tiran</th>
             </tr>
           </thead>
@@ -48,6 +49,7 @@
               <td class="text-right">{{ npc.RANGOSPELL }}</td>
               <td class="text-right">{{ npc.INTERVALORESPAWN }}</td>
               <td class="text-right">{{ npc.ALINEACION }}</td>
+              <td class="text-right">{{ npc.DOMABLE }}</td>
               <td class="text-right">
                 <div v-if="npc.OBJSINFORMATION">
                   <div v-for="item in npc.OBJSINFORMATION" :key="item.item_id">
