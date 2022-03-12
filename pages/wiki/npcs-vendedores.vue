@@ -4,7 +4,7 @@
       v-if="npcs.length"
       class="bg-gray-900 border-2 border-gr border-gr-primary"
     >
-      <h1>Npcs</h1>
+      <h1>Npcs Vendedores</h1>
       <div class="xl:col-span-10 text-xs overflow-x-auto">
         <table class="text-gray-400">
           <thead>
