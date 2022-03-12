@@ -10,7 +10,6 @@
           <thead>
             <tr>
               <th>Id</th>
-              <th></th>
               <th>Nombre</th>
               <th>Descripcion</th>
               <th>Interes de items</th>
@@ -21,8 +20,12 @@
           <tbody>
             <tr v-for="npc in npcs" :key="npc.npc_id">
               <td class="text-right">{{ npc.npc_id }}</td>
-              <td><img width="300px" :src="npc.canvasImage" /></td>
-              <td class="text-right">{{ npc.NAME }}</td>
+              <td>
+                <div>
+                  <img :alt="npc.NAME" :title="npc.NAME" :src="npc.canvasImage" />
+                  <span class="text-right">{{ npc.NAME }}</span>
+                </div>
+              </td>
               <td class="text-right">{{ npc.DESC }}</td>
               <td class="text-right">{{ npc.TIPOITEMSNAME }}</td>
               <td class="text-right">

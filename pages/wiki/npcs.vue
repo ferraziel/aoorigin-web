@@ -4,7 +4,23 @@
       v-if="npcs.length"
       class="bg-gray-900 border-2 border-gr border-gr-primary"
     >
+      <br>
       <h1>Npcs</h1>
+      <h2>Domar, explicacion:</h2>
+      <span>
+        PuntosDomar = Carisma * Domar
+      </span>
+      <br>
+      <span>
+        Si es Druida
+        PuntosDomar = PuntosDomar / 6
+      </span>
+      <br>
+
+      <span>
+        Otras clases
+        PuntosDomar = PuntosDomar / 11
+      </span>
       <div class="xl:col-span-10 text-xs overflow-x-auto">
         <table class="text-gray-400">
           <thead>
