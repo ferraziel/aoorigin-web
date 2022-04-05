@@ -28,6 +28,7 @@
               <th>Id</th>
               <th>Nombre</th>
               <th>Experiencia</th>
+              <th>Experiencia Clan</th>
               <th>Descripcion</th>
               <th>Min Hit</th>
               <th>Max Hit</th>
@@ -54,6 +55,7 @@
                 </div>
               </td>
               <td class="text-right">{{ npc.GIVEEXP }}</td>
+              <td class="text-right">{{ npc.GIVEEXPCLAN }}</td>
               <td class="text-xs text-right">{{ npc.DESC }}</td>
               <td class="text-right">{{ npc.MINHIT }}</td>
               <td class="text-right">{{ npc.MAXHIT }}</td>
