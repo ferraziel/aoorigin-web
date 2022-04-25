@@ -19,6 +19,8 @@
               <th>Lider</th>
               <th>Nivel</th>
               <th>Miembros</th>
+              <th>Cantidad Miembros</th>
+              <th>Cantidad Solicitudes para Ingreso</th>
               <!-- <th>Oro total de todos los miembros</th> -->
             </tr>
           </thead>
@@ -35,6 +37,8 @@
               <td class="text-right">{{ guild.LEADER }}</td>
               <td class="text-right">{{ guild.NIVELDECLAN }}</td>
               <td class="text-right">{{ guild.MEMBERS }}</td>
+              <td class="text-right">{{ guild.QTY_MEMBERS }}</td>
+              <td class="text-right">{{ guild.QTY_SOLICITUDES_INGRESO }}</td>
               <!-- <td class="text-right">{{ guild.TOTAL_GOLD_FROM_MEMBERS }}</td> -->
             </tr>
           </tbody>
