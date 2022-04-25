@@ -18,12 +18,12 @@
           </thead>
 
           <tbody>
-            <tr v-for="patreonItems in patreonItems" :key="patreonItems.item_id">
-              <td class="text-right">{{ patreonItems.item_id }}</td>
-              <td><img width="300px" :src="patreonItems.Data.canvasImage" /></td>
-              <td class="text-right">{{ patreonItems.Data.NAME }}</td>
-              <td class="text-right">{{patreonItems.Data.TEXTO}}</td>
-              <td class="text-right">{{patreonItems.Data.VALOR}}</td>
+            <tr v-for="patreonItem in patreonItems" :key="patreonItem.item_id">
+              <td class="text-right">{{ patreonItem.item_id }}</td>
+              <td><img width="300px" :src="patreonItem.Data.canvasImage" /></td>
+              <td class="text-right">{{ patreonItem.Data.NAME }}</td>
+              <td class="text-right">{{patreonItem.Data.TEXTO}}</td>
+              <td class="text-right">{{patreonItem.Data.VALOR}}</td>
             </tr>
           </tbody>
         </table>

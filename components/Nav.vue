@@ -125,6 +125,10 @@ export default {
           route: "/ranking",
         },
         {
+          label: "Ranking Clanes",
+          route: "/ranking-clanes",
+        },
+        {
           label: "Manual",
           route: "/wiki",
         }
