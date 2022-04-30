@@ -107,8 +107,6 @@
         adelante este proyecto:
       </h4>
       <ul>
-        <li> A Pablo Mercavides "Ladder" por sus conocimientos de programación y a su staff de Revolución AO por ceder los códigos originales de servidor y cliente los cuales fueron tomados de base para encarar Argentum 20.</li>
-        <li>Xavier Viger Navarro "Sensui" (Idea original, Mapeo, Dateo, Game Design)</li>
         <li>Sergio Perez "Neosefirot" (Idea original y Coordinación)</li>
         <li>Joaquín Ortíz "Jopi" (Programación)</li>
         <li>Emiliano Mancuso "Emancu" (Programación)</li>
