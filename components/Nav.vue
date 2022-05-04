@@ -21,6 +21,7 @@
             </p>
 
             <NuxtLink to="/cuenta" v-if="$auth.loggedIn">Mi cuenta</NuxtLink>
+            <NuxtLink v-else to="/login" class="px-2 py-1 text-sm border btn btn-silver">Cuenta</NuxtLink>
           </div>
         </div>
 
@@ -131,6 +132,10 @@ export default {
         {
           label: "Manual",
           route: "/wiki",
+        },
+        {
+          label: "Mercado AO",
+          route: "/mercadoao",
         }
       ],
     };
