@@ -5,7 +5,7 @@
     <div v-if="user" lass="text-center mb-12">
       <h1 class="section-title">{{ user.name }}</h1>
 
-      <div class="mb-4" v-if=!user.deleted>
+      <!-- <div class="mb-4" v-if=!user.deleted>
         <h3>Setear Wallet Id para Personaje con Metamask</h3>
         <h3>WalletId: {{ user.eth_wallet_id }}</h3>
 
@@ -30,7 +30,7 @@
       >
         Recuperar Personaje
       </button>
-      <MessageBox :status="recoverUserStatus" :message="recoverUserMessage" />
+      <MessageBox :status="recoverUserStatus" :message="recoverUserMessage" /> -->
 
       <br>
       <div v-if="!user.is_locked_in_mao && !user.deleted">
