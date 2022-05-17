@@ -210,8 +210,7 @@ async asyncData({ $axios, params }) {
               })
               .then((response) => {
                 this.buyItemStatus = "OK";
-                this.buyItemMessage =
-                  "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se deposite el item en tu boveda del banco.";
+                this.buyItemMessage = "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se deposite el item en tu boveda del banco.";
                 this.usersWithFreeSlots.length = 0;
                 this.orderConfirmed = true;
               })
@@ -289,7 +288,7 @@ async asyncData({ $axios, params }) {
           characterId: this.selectedUserId,
           itemQuantity: 1,
         })
-        .then((response) => {
+        .then((preferenceIdMercadoPago) => {
 
           // Agrega credenciales de SDK
           // const mp = new MercadoPago("TEST-29f1ed15-4a67-4b93-a61d-5e95afab36fd", {
@@ -300,13 +299,16 @@ async asyncData({ $axios, params }) {
           // Inicializa el checkout
           mp.checkout({
             preference: {
-              id: response.id,
+              id: preferenceIdMercadoPago,
             },
             render: {
               container: ".cho-container", // Indica el nombre de la clase donde se mostrará el botón de pago
-              label: "Pagar", // Cambia el texto del botón de pago (opcional)
+              label: "Pagar con MercadoPago", // Cambia el texto del botón de pago (opcional)
             },
           });
+
+          this.buyItemStatus = "OK";
+          this.buyItemMessage = "Se genero una preferencia de pago en MercadoPago, por favor haga el pago clickeando en el boton Pagar con MercadoPago.";
 
         })
         .catch((error) => {
