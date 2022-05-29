@@ -102,9 +102,6 @@ export default {
     "@nuxtjs/google-fonts",
     '@nuxtjs/dotenv'
   ],
-  tailwindcss: {
-    jit: true,
-  },
   prismic: {
     endpoint: "https://ao20.cdn.prismic.io/api/v2",
     /* see configuration for more */
