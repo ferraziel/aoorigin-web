@@ -17,7 +17,8 @@
                 <img :src="item.Data.canvasImage" style="width:100;height:100px" />
                 <h4 class="text-gr gr-gold">{{ item.Data.NAME }}</h4>
                 <span class="gr-gold"> {{ item.Data.TEXTO }}</span>
-                <span style="color: green">Precio: {{ item.price_in_tokens }} AOLB Tokens</span>
+                <span style="color: green">Precio: ${{ item.price_in_pesos }} Pesos Argentinos</span>
+                <!-- <span style="color: green">Precio: {{ item.price_in_tokens }} AOLB Tokens</span> -->
               </div>
 
             </NuxtLink>

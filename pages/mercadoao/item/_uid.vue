@@ -11,14 +11,19 @@
       <ul>
         <li style="color: cyan">{{ item.Data.TEXTO }}</li>
 
-        <li style="color: green">
+        <!-- <li style="color: green">
           Precio: {{ item.price_in_tokens }} AOLB Tokens
           <img
             src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png"
             alt="AOLB Token"
             class="w-8 h-8 rounded-full"
           />
+        </li> -->
+
+        <li style="color: green">
+          Precio: ${{ item.price_in_pesos }} Pesos Argentinos
         </li>
+
         <li style="color: green">Descripcion: {{ item.Data.DESC }}</li>
         <li style="color: green">Tipo de Objeto: {{ gameObjTypes[item.Data.OBJTYPE - 1] }}</li>
       </ul>
@@ -42,26 +47,28 @@
         </div>
         <br />
 
-        <table @click="buyItem()" v-if="selectedUserId" style="margin-left: auto; margin-right: auto">
-          <h3>Pagar Con:</h3>
+        <table v-if="selectedUserId" style="margin-left: auto; margin-right: auto">
+          <h3>Elije metodo de pago:</h3>
           <tr>
-            <th style="color: cyan">AOLB (AO Libre Token B)</th>
-            <!-- <th style="color: yellow">BNB (Binance Token)</th> -->
+            <!-- <th style="color: cyan">AOLB (AO Libre Token B)</th> -->
+            <th v-if="!isMercadoPagoLoaded" @click="buyItemWithMercadoPago()" style="color: yellow">MERCADOPAGO</th>
           </tr>
+          <button class="cho-container"></button>
+
           <tr>
-            <td>
+            <!-- <td>
               <img
                 src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png"
                 class="w-32 h-32 rounded-full mb-4"
               />
-            </td>
+            </td> -->
             <!-- <td>
                   <img @click="buyItemWithNativeToken()" src="https://assets.trustwalletapp.com/blockchains/binance/info/logo.png" class="w-32 h-32 rounded-full mb-4" />
               </td> -->
           </tr>
         </table>
       </div>
-
+<!--
       <h1 style="color: purple">PREGUNTAS FRECUENTES / FAQS</h1>
       <span>Debes estar conectado a la red Binance Smart Chain!</span>
       <img
@@ -100,7 +107,7 @@
       >
         COMPRAR EN DEX GURU
       </a>
-      <hr />
+      <hr /> -->
     </div>
 
     <section v-else class="text-center mt-24">
@@ -128,16 +135,17 @@ async asyncData({ $axios, params }) {
       aolbContractAddress: process.env.TOKEN_AOLB_CONTRACT_ADDRESS,
       paymentAddress: process.env.PAYMENT_ADDRESS,
       orderConfirmed: false,
+      isMercadoPagoLoaded: false
     };
   },
 
   async mounted() {
-    if (!ethereum) {
-      alert("Necesitas Metamask para poder poner la wallet en tu personaje.");
-      console.log("Non-Ethereum browser detected. You should consider trying MetaMask!");
-    }
+    // if (!ethereum) {
+    //   alert("Necesitas Metamask para poder poner la wallet en tu personaje.");
+    //   console.log("Non-Ethereum browser detected. You should consider trying MetaMask!");
+    // }
 
-    console.log(666, this.aolbContractAddress, this.paymentAddress);
+    // console.log(666, this.aolbContractAddress, this.paymentAddress);
 
     this.prepareOrder();
   },
@@ -193,7 +201,7 @@ async asyncData({ $axios, params }) {
             // Handle the result
             console.log(data.transactionHash);
 
-            this.$axios
+          this.$axios
               .$post(`/market/buyItemMao`, {
                 itemId: this.item.item_id,
                 itemQuantity: 1,
@@ -202,8 +210,7 @@ async asyncData({ $axios, params }) {
               })
               .then((response) => {
                 this.buyItemStatus = "OK";
-                this.buyItemMessage =
-                  "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se deposite el item en tu boveda del banco.";
+                this.buyItemMessage = "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se deposite el item en tu boveda del banco.";
                 this.usersWithFreeSlots.length = 0;
                 this.orderConfirmed = true;
               })
@@ -236,7 +243,6 @@ async asyncData({ $axios, params }) {
             params: [
               {
                 to: this.paymentAddress,
-                // to: "0x8bE08c2eddC1E266B0177a7FD23A2d7DBA6bB563",
                 value: this.item.price_in_tokens.toString(),
                 from: accounts[0],
               },
@@ -270,11 +276,56 @@ async asyncData({ $axios, params }) {
         }
       }
     },
-  },
 
+    async buyItemWithMercadoPago() {
+        this.isMercadoPagoLoaded = true;
+        console.log("Comprando con MercadoPago.");
+        this.buyItemStatus = "PENDING";
+        this.buyItemMessage = "Generando orden de compra con MercadoPago";
+
+        this.$axios.$post(`/market/createPreferenceForMercadoPago`, {
+          itemId: this.item.item_id,
+          characterId: this.selectedUserId,
+          itemQuantity: 1,
+        })
+        .then((preferenceIdMercadoPago) => {
+
+          // Agrega credenciales de SDK
+          // const mp = new MercadoPago("TEST-29f1ed15-4a67-4b93-a61d-5e95afab36fd", {
+          const mp = new MercadoPago("APP_USR-a093327d-75d5-4747-802c-e5e8121d76d6", {
+            locale: "es-AR",
+          });
+
+          // Inicializa el checkout
+          mp.checkout({
+            preference: {
+              id: preferenceIdMercadoPago,
+            },
+            render: {
+              container: ".cho-container", // Indica el nombre de la clase donde se mostrará el botón de pago
+              label: "Pagar con MercadoPago", // Cambia el texto del botón de pago (opcional)
+            },
+          });
+
+          this.buyItemStatus = "OK";
+          this.buyItemMessage = "Se genero una preferencia de pago en MercadoPago, por favor haga el pago clickeando en el boton Pagar con MercadoPago.";
+
+        })
+        .catch((error) => {
+          this.buyItemStatus = "ERROR";
+          this.buyItemMessage = error.response.data.message;
+        });
+    },
+  },
   head() {
     return {
       title: this.item ? `${this.item.Data.NAME} - Item` : "Item no encontrado",
+      script: [
+        {
+          src: "https://sdk.mercadopago.com/js/v2",
+          async: true,
+        },
+      ]
     };
   },
 };
