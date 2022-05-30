@@ -81,6 +81,8 @@ export default {
         });
         this.loginStatus = "OK";
         this.loginMessage = "¡Listo! Espera un momento...";
+        this.$router.push("/cuenta");
+
       } catch (e) {
         this.loginStatus = "ERROR";
         if (e.response) {

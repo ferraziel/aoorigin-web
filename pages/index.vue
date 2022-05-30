@@ -1,14 +1,15 @@
 <template>
   <main class="-mt-32 -z-1">
+    <PagePadding />
     <header class="h-screen relative overflow-hidden" style="background: initial">
       <div
         class="container h-full flex justify-center items-center sticky z-20 py-16 sm:py-24 md:py-32 lg:py-40 xl:py-48"
       >
         <div class="flex flex-col items-center">
           <img src="@/assets/img/argentum20_logo.png" alt="Argentum 20 Logo" class="w-144 mb-3 xl:mb-6 no-select" />
-          <h1 class="text-xl sm:text-3xl lg:text-4xl text-center leading-tight text-white mb-12 normal-case">
-            Mercado AO. Compra o vende tu personaje. Compra items especiales
-          </h1>
+          <h3 class="text-xl sm:text-3xl lg:text-4xl text-center text-white mb-12">
+            Mercado Oficial de AO20. Compra o vende tu personaje. Obtene items especiales.
+          </h3>
           <NuxtLink to="mercadoao" class="btn btn-cta">Entrar al mercado</NuxtLink>
         </div>
       </div>

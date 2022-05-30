@@ -28,9 +28,9 @@
         <div class="container grid grid-cols-4">
           <div
             class="flex flex-col items-center gap-y-4"
-            v-for="item in user.inventoryItem"
-            :key="item.item_id"
-            :id="item.item_id"
+            v-for="(item, index) in user.inventoryItem"
+            :key="item.item_id + index"
+            :id="item.item_id + index"
           >
             <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
               <img :src="item.Data.canvasImage" class="" />
@@ -53,9 +53,9 @@
         <div class="container grid grid-cols-4">
           <div
             class="flex flex-col items-center gap-y-4"
-            v-for="item in user.bankInventoryItem"
-            :key="item.item_id"
-            :id="item.item_id"
+            v-for="(item, index) in user.bankInventoryItem"
+            :key="item.item_id + index"
+            :id="item.item_id + index + 'banco'"
           >
             <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
               <img :src="item.Data.canvasImage" class="" />

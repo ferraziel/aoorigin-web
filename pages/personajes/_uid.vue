@@ -1,7 +1,5 @@
 <template>
   <div class="container">
-    <PagePadding />
-
     <div v-if="user" lass="text-center mb-12">
       <h1 class="section-title">{{ user.name }}</h1>
 
@@ -32,8 +30,7 @@
       </button>
       <MessageBox :status="recoverUserStatus" :message="recoverUserMessage" /> -->
 
-      <br>
-      <div v-if="!user.is_locked_in_mao && !user.deleted">
+      <!-- <div v-if="!user.is_locked_in_mao && !user.deleted">
         <span>Vender el personaje tiene un costo de 10.000 monedas de oro de juego. Se necesita tener el monto total en el inventario o boveda.</span>
         <button @click="addUserToMao()"
                 type="submit"
@@ -52,7 +49,7 @@
       >
         Sacar Personaje de Mercado AO
       </button>
-      <MessageBox :status="removeUserFromMaoStatus" :message="removeUserFromMaoMessage" />
+      <MessageBox :status="removeUserFromMaoStatus" :message="removeUserFromMaoMessage" /> -->
 
       <UserAndItemsRenderer :user="user" />
       <br>
