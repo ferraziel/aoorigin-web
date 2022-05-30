@@ -9,10 +9,9 @@
           <h1 class="text-xl sm:text-3xl lg:text-4xl text-center leading-tight text-white mb-12 normal-case">
             Mercado AO. Compra o vende tu personaje. Compra items especiales
           </h1>
+          <NuxtLink to="mercadoao" class="btn btn-cta">Entrar al mercado</NuxtLink>
         </div>
       </div>
-
-      <div class="bg-black opacity-50 absolute top-0 left-0 w-full h-full object-cover z-10"></div>
 
       <!-- <video autoplay muted loop class="w-full h-full absolute top-0 left-0 object-cover bg-transparent">
         <source src="https://revolucionao.com/agite.mp4" type="video/mp4" />

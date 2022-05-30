@@ -5,7 +5,7 @@
     <div class="text-center mb-12">
       <h1 class="section-title">Mercado AO</h1>
 
-      <h4>Lista de items a la venta!</h4>
+      <h4>Lista de items a la venta.</h4>
 
       <div v-if="itemsOnSale.length">
         <div class="container grid grid-cols-4">
@@ -13,17 +13,19 @@
                v-for="item in itemsOnSale" :key="item.item_id" :id="item.item_id">
 
             <NuxtLink :to="`/mercadoao/item/${item.item_id}`">
-              <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-1 bg-gray-900">
+              <div class="flex items-center justify-center flex-col border-2 border-gr border-gr-primary p-1 bg-gray-900">
                 <img :src="item.Data.canvasImage" style="width:100;height:100px" />
-                <h4 class="text-gr gr-gold">{{ item.Data.NAME }}</h4>
-                <span class="gr-gold"> {{ item.Data.TEXTO }}</span>
-                <span style="color: green">Precio: ${{ item.price_in_pesos }} Pesos Argentinos</span>
+                <h6 class="text-gr gr-gold">{{ item.Data.NAME }}</h6>
+                <br>
+                <ul>
+                  <li><span class="gr-gold"> {{ item.Data.TEXTO }}</span></li>
+                  <li><span style="color: green">Precio: ${{ item.price_in_pesos }} Pesos Argentinos</span></li>
+                </ul>
+
                 <!-- <span style="color: green">Precio: {{ item.price_in_tokens }} AOLB Tokens</span> -->
               </div>
 
             </NuxtLink>
-
-
           </div>
         </div>
       </div>
