@@ -291,8 +291,7 @@ async asyncData({ $axios, params }) {
         .then((preferenceIdMercadoPago) => {
 
           // Agrega credenciales de SDK
-          // const mp = new MercadoPago("TEST-29f1ed15-4a67-4b93-a61d-5e95afab36fd", {
-          const mp = new MercadoPago("APP_USR-a093327d-75d5-4747-802c-e5e8121d76d6", {
+          const mp = new MercadoPago(process.env.MERCADOPAGO_PUBLIC_KEY, {
             locale: "es-AR",
           });
 
