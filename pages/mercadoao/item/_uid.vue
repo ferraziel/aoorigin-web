@@ -311,6 +311,7 @@ async asyncData({ $axios, params }) {
 
         })
         .catch((error) => {
+          console.log(666, error)
           this.buyItemStatus = "ERROR";
           this.buyItemMessage = error.response.data.message;
         });
