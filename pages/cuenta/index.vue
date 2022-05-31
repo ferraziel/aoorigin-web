@@ -2,6 +2,8 @@
   <div class="container">
     <div class="text-center mb-12">
       <h1 class="section-title">¡Iniciaste sesión!</h1>
+      <NuxtLink to="mercadoao" class="btn btn-cta">Entrar al mercado</NuxtLink>
+
       <ul>
         <li><NuxtLink to="personajes">Mis Personajes</NuxtLink></li>
         <!-- <li><NuxtLink to="recuperar">Cambiar contraseña</NuxtLink></li> -->
