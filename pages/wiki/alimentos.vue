@@ -81,8 +81,8 @@ export default {
     };
   },
   async fetch() {
-    this.foods = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllFoods");
-    this.drinks = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllDrinks");
+    this.foods = await this.$axios.$get("/dats/getAllFoods");
+    this.drinks = await this.$axios.$get("/dats/getAllDrinks");
   },
   head() {
     return {

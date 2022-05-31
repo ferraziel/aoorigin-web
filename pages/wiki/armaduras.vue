@@ -115,8 +115,8 @@ export default {
     };
   },
   async fetch() {
-    this.armours = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllArmours");
-    this.armoursFacciones = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllArmoursFacciones");
+    this.armours = await this.$axios.$get("/dats/getAllArmours");
+    this.armoursFacciones = await this.$axios.$get("/dats/getAllArmoursFacciones");
   },
   head() {
     return {

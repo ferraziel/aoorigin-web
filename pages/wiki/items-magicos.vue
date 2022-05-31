@@ -50,7 +50,7 @@ export default {
     };
   },
   async fetch() {
-    this.itemMagicos = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllMagicItems");
+    this.itemMagicos = await this.$axios.$get("/dats/getAllMagicItems");
   },
   head() {
     return {

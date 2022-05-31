@@ -44,7 +44,7 @@ export default {
     };
   },
   async fetch() {
-    this.patreonItems = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllPatreonPointsItems");
+    this.patreonItems = await this.$axios.$get("/dats/getAllPatreonPointsItems");
   },
   head() {
     return {

@@ -129,8 +129,8 @@ export default {
     };
   },
   async fetch() {
-    this.weapons = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllWeapons");
-    this.knuckles = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllKnuckles");
+    this.weapons = await this.$axios.$get("/dats/getAllWeapons");
+    this.knuckles = await this.$axios.$get("/dats/getAllKnuckles");
   },
   head() {
     return {

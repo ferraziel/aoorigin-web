@@ -78,8 +78,8 @@ export default {
     };
   },
   async fetch() {
-    this.instrumentos = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllInstrumentosMusicales");
-    this.instrumentosMagicos = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllMagicDamage");
+    this.instrumentos = await this.$axios.$get("/dats/getAllInstrumentosMusicales");
+    this.instrumentosMagicos = await this.$axios.$get("/dats/getAllMagicDamage");
   },
   head() {
     return {

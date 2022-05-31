@@ -66,7 +66,7 @@ export default {
     };
   },
   async fetch() {
-    this.shields = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllShields");
+    this.shields = await this.$axios.$get("/dats/getAllShields");
   },
   head() {
     return {

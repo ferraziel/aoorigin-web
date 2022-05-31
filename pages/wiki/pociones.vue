@@ -55,7 +55,7 @@ export default {
     };
   },
   async fetch() {
-    this.potions = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllPotions");
+    this.potions = await this.$axios.$get("/dats/getAllPotions");
   },
   head() {
     return {

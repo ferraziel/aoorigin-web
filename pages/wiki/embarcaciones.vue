@@ -62,7 +62,7 @@ export default {
     };
   },
   async fetch() {
-    this.embarcaciones = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllEmbarcaciones");
+    this.embarcaciones = await this.$axios.$get("/dats/getAllEmbarcaciones");
   },
   head() {
     return {

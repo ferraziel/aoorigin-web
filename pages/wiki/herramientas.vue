@@ -61,7 +61,7 @@ export default {
     };
   },
   async fetch() {
-    this.tools = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAlltools");
+    this.tools = await this.$axios.$get("/dats/getAlltools");
   },
   head() {
     return {

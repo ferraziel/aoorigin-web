@@ -56,7 +56,7 @@ export default {
     };
   },
   async fetch() {
-    this.magicResistanceItems = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/dats/getAllMagicResistance");
+    this.magicResistanceItems = await this.$axios.$get("/dats/getAllMagicResistance");
   },
   head() {
     return {

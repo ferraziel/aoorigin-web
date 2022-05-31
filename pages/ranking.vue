@@ -145,7 +145,7 @@ function objectToQueryString(obj) {
 
 export default {
   async asyncData({ $axios }) {
-    const ranking = await $axios.$get("https://api-staging.ao20.com.ar:11812/rankings/users?top=100");
+    const ranking = await $axios.$get("/rankings/users?top=100");
     return { ranking: ranking.characters };
   },
   data() {
@@ -174,7 +174,7 @@ export default {
       if (this.classFilter) obj["classId"] = this.classFilter;
       if (this.raceFilter) obj["raceId"] = this.raceFilter;
       if (this.sortBy) obj["sortBy"] = this.sortBy;
-      const res = await this.$axios.$get(`https://api-staging.ao20.com.ar:11812/rankings/users?top=100&${objectToQueryString(obj)}`);
+      const res = await this.$axios.$get(`/rankings/users?top=100&${objectToQueryString(obj)}`);
       this.ranking = res.characters;
       this.isFetching = false;
     },
