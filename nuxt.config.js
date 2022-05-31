@@ -169,6 +169,13 @@ export default {
   gtm: {
     id: "GTM-NDQTJ6H",
   },
+  env: {
+    AXIOS_BASE_URL: process.env.AXIOS_BASE_URL,
+    OPENSEA_IFRAME_URL: process.env.OPENSEA_IFRAME_URL,
+    TOKEN_AOLB_CONTRACT_ADDRESS: process.env.TOKEN_AOLB_CONTRACT_ADDRESS,
+    PAYMENT_ADDRESS: process.env.PAYMENT_ADDRESS,
+    MERCADOPAGO_PUBLIC_KEY: process.env.MERCADOPAGO_PUBLIC_KEY
+  },
   // sitemap: {
   //   hostname: "https://ao20.com.ar",
   //   gzip: true,
