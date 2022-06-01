@@ -28,6 +28,11 @@
         <li style="color: green">Tipo de Objeto: {{ gameObjTypes[item.Data.OBJTYPE - 1] }}</li>
       </ul>
 
+      <div>
+        <h3>Cantidad a comprar:</h3>
+        <input v-model="itemQuantity" type="number" name="itemQuantity" required/>
+      </div>
+
       <h1 style="color: red" v-if="!$auth.loggedIn">Debes de iniciar sesion para poder comprar items.</h1>
 
       <h3 style="color: red" v-if="$auth.loggedIn && usersWithFreeSlots.length == 0 && !orderConfirmed">
@@ -126,6 +131,7 @@ export default {
 async asyncData({ $axios, params }) {
     return {
       item: await $axios.$get(`market/getItemOnSaleById/${params.uid}`),
+      itemQuantity: 1,
       selectedUserId: null,
       usersWithFreeSlots: [],
       buyItemMessage: "",
@@ -286,7 +292,7 @@ async asyncData({ $axios, params }) {
         this.$axios.$post(`/market/createPreferenceForMercadoPago`, {
           itemId: this.item.item_id,
           characterId: this.selectedUserId,
-          itemQuantity: 1,
+          itemQuantity: parseInt(this.itemQuantity),
         })
         .then((preferenceIdMercadoPago) => {
 
