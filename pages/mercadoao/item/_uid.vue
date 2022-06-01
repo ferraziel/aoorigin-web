@@ -317,10 +317,6 @@ async asyncData({ $axios, params }) {
 
         })
         .catch((error) => {
-
-          console.log(333, process.env.MERCADOPAGO_PUBLIC_KEY)
-          console.log(444, process.env)
-          console.log(666, error)
           this.buyItemStatus = "ERROR";
           this.buyItemMessage = error.response.data.message;
         });
