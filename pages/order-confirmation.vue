@@ -6,6 +6,9 @@
     <section v-else-if="statusOrderAO20 == 'pending'">Tu orden esta pendiente de pago, por favor espera unos momentos y verifica que el pago fue procesado.</section>
     <section v-else-if="statusOrderAO20 == 'failure'">Tu orden de compra no pudo ser completada, por favor intenta de nuevo con otro metodo de pago.</section>
     <section v-else>Hubo un error en tu orden de compra, por favor intentalo de nuevo.</section>
+
+    <NuxtLink to="mercadoao" class="btn">Volver al mercado</NuxtLink>
+
   </div>
 </template>
 
