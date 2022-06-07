@@ -289,6 +289,12 @@ async asyncData({ $axios, params }) {
         this.buyItemStatus = "PENDING";
         this.buyItemMessage = "Generando orden de compra con MercadoPago";
 
+        if (this.itemQuantity < 0 || this.itemQuantity <= 10000) {
+          this.buyItemMessage = "Numero no valido, debe ser mayor a 0 y menos a 10.000";
+          this.buyItemStatus = "ERROR";
+          return;
+        }
+
         this.$axios.$post(`/market/createPreferenceForMercadoPago`, {
           itemId: this.item.item_id,
           characterId: this.selectedUserId,
