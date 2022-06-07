@@ -30,7 +30,7 @@
 
       <div>
         <h3>Cantidad a comprar:</h3>
-        <input v-model="itemQuantity" type="number" name="itemQuantity" required/>
+        <input v-model="itemQuantity" type="number" name="itemQuantity" min="1" max="10000" required/>
       </div>
 
       <h1 style="color: red" v-if="!$auth.loggedIn">Debes de iniciar sesion para poder comprar items.</h1>
