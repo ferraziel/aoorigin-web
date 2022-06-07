@@ -290,7 +290,7 @@ async asyncData({ $axios, params }) {
         this.buyItemMessage = "Generando orden de compra con MercadoPago";
 
         if (this.itemQuantity < 0 || this.itemQuantity <= 10000) {
-          this.buyItemMessage = "Numero no valido, debe ser mayor a 0 y menos a 10.000";
+          this.buyItemMessage = "Numero no valido, debe ser mayor a 0 y menor a 10.000";
           this.buyItemStatus = "ERROR";
           return;
         }
