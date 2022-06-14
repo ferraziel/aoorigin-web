@@ -41,16 +41,14 @@ export default {
   },
 
   methods: {
-
-    async buyUser() {
+    async buyUserEthereum() {
       if (confirm("Estas seguro que quieres comprar este personaje?.")) {
-
         // await ethereum.enable();
 
         // const accounts = await ethereum.request({ method: 'eth_accounts' });
 
-        // this.removeUserFromMaoStatus = "PENDING";
-        // this.removeUserFromMaoMessage = "Esperando aprobar transaccion. Esto puede tardar varios minutos dependiendo la congestion de la red ethereum";
+        // this.buyUserStatus = "PENDING";
+        // this.buyUserMessage = "Esperando aprobar transaccion. Esto puede tardar varios minutos dependiendo la congestion de la red ethereum";
 
         // try {
         //   const transactionHash = await ethereum.request({
@@ -71,26 +69,47 @@ export default {
         //     txHash: "asds",
         //   })
         //   .then((data) => {
-        //     this.removeUserFromMaoStatus = "OK";
-        //     this.removeUserFromMaoMessage = "Tu peticion para eliminar el personaje de MercadoAO llego con exito, espera a que se confirme la transaccion.";
+        //     this.buyUserStatus = "OK";
+        //     this.buyUserMessage = "Tu peticion para eliminar el personaje de MercadoAO llego con exito, espera a que se confirme la transaccion.";
         //   })
         //   .catch((error) => {
         //     this.user.is_locked_in_mao = true;
-        //     this.removeUserFromMaoStatus = "ERROR";
-        //     this.removeUserFromMaoMessage = error.response.data.message;
+        //     this.buyUserStatus = "ERROR";
+        //     this.buyUserMessage = error.response.data.message;
         //   });
 
         // } catch (error) {
         //   console.error(error);
         //   this.user.is_locked_in_mao = true;
-        //   this.removeUserFromMaoStatus = "ERROR";
-        //   this.removeUserFromMaoMessage = error;
+        //   this.buyUserStatus = "ERROR";
+        //   this.buyUserMessage = error;
         // }
 
+      }
+    },
 
+    async buyUser() {
+      if (confirm("Estas seguro que quieres comprar este personaje?.")) {
+        try {
+          this.$axios.$post(`/users/buyUserFromMao`, {
+            characterId: this.user.id,
+            buyerAccountId: this.$store.state.account.id,
+          })
+          .then((data) => {
+            this.buyUserStatus = "OK";
+            this.buyUserMessage = "Tu peticion para comprar el personaje llego con exito, espera a que el vendedor apruebe la transaccion.";
+          })
+          .catch((error) => {
+            this.buyUserStatus = "ERROR";
+            this.buyUserMessage = error.response.data.message;
+          });
 
-        this.buyUserStatus = "ERROR";
-        this.buyUserMessage = "No implementado, paciencia ya vas a poder invertir dinerito";
+        } catch (error) {
+          console.error(error);
+          this.buyUserStatus = "ERROR";
+          this.buyUserMessage = error;
+        }
+
       }
     },
 
