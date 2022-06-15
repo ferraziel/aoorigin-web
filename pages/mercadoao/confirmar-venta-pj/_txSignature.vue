@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="mb-12 text-5xl text-primary">Confirmacion de orden hecha, ahora hay que esperar que el comprador pague...</h1>
+    <h1 class="mb-12 text-5xl text-primary">{{ allowOrder }}</h1>
 
     <NuxtLink to="mercadoao" class="btn">Volver al mercado</NuxtLink>
 
@@ -12,7 +12,7 @@
 export default {
   async asyncData({ $axios, params }) {
     return {
-      user: await $axios.$post(`market/allowSellUserOrder/${params.uid}`),
+      allowOrder: await $axios.$get(`market/allowSellUserOrder/${params.txSignature}`),
     };
   },
 };
