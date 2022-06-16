@@ -1,7 +1,5 @@
 <template>
   <div class="container">
-    <PagePadding />
-
     <div class="text-center mb-12">
       <h1 class="section-title">Mercado AO</h1>
 
