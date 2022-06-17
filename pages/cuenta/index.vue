@@ -11,7 +11,7 @@
     </div>
 
     <div v-if="!this.$auth.user.mercado_pago" class="text-center mb-12">
-      <a href="https://auth.mercadopago.com.ar/authorization?client_id=6962025294834257&response_type=code&platform_id=mp&redirect_uri=https://api.ao20.com.ar/mercadopago/callback" class="btn btn-silver">Enlazar MercadoPago (solo disponible en Argentina)</a>
+      <a href="https://auth.mercadopago.com.ar/authorization?client_id=6962025294834257&response_type=code&platform_id=mp&redirect_uri=https://mercado.ao20.com.ar/mercadopago/callback" class="btn btn-silver">Enlazar MercadoPago (solo disponible en Argentina)</a>
     </div>
 
     <div v-else class="text-center mb-12">

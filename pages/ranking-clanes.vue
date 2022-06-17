@@ -60,7 +60,7 @@ export default {
     };
   },
   async fetch() {
-    this.rankingGuilds = await this.$axios.$get("https://api.ao20.com.ar/guilds/getAll");
+    this.rankingGuilds = await this.$axios.$get("guilds/getAll");
   },
   head() {
     return {
