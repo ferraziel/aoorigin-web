@@ -21,7 +21,7 @@
         </li> -->
 
         <li style="color: green">
-          Precio: ${{ item.price_in_pesos }} Pesos Argentinos
+          Precio: ${{ item.price_in_pesos }} ARS
         </li>
 
         <li v-if="item.Data.DESC" style="color: green">Descripcion: {{ item.Data.DESC }}</li>
