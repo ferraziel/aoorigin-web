@@ -7,22 +7,18 @@
 
       <div v-if="itemsOnSale.length">
         <div class="container grid grid-cols-4">
-          <div class="flex flex-col items-center gap-y-4"
-               v-for="item in itemsOnSale" :key="item.item_id" :id="item.item_id">
+          <div class="flex flex-col items-center gap-y-4" v-for="item in itemsOnSale" :key="item.item_id" :id="item.item_id">
 
             <NuxtLink :to="`/mercadoao/item/${item.item_id}`">
-              <div class="flex items-center justify-center flex-col border-2 border-gr border-gr-primary p-1 bg-gray-900">
-                <img :src="item.Data.canvasImage" style="width:100;height:100px" />
-                <h6 class="text-gr gr-gold">{{ item.Data.NAME }}</h6>
-                <br>
-                <ul>
-                  <li><span class="gr-gold"> {{ item.Data.TEXTO }}</span></li>
-                  <li><span style="color: green">Precio: ${{ item.price_in_pesos }} Pesos Argentinos</span></li>
-                </ul>
-
-                <!-- <span style="color: green">Precio: {{ item.price_in_tokens }} AOLB Tokens</span> -->
+              <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
+                <img :src="item.Data.canvasImage" class="" />
               </div>
 
+              <ul>
+                <li style="color: yellow">{{ item.Data.NAME }}</li>
+                <li class="text-xs">{{ item.Data.TEXTO }}</li>
+                <li style="color: green">Precio: {{ item.price_in_pesos }} ARS</li>
+              </ul>
             </NuxtLink>
           </div>
         </div>
