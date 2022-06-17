@@ -24,7 +24,7 @@
           Precio: ${{ item.price_in_pesos }} Pesos Argentinos
         </li>
 
-        <li style="color: green">Descripcion: {{ item.Data.DESC }}</li>
+        <li v-if="item.Data.DESC" style="color: green">Descripcion: {{ item.Data.DESC }}</li>
         <li style="color: green">Tipo de Objeto: {{ gameObjTypes[item.Data.OBJTYPE - 1] }}</li>
       </ul>
 
