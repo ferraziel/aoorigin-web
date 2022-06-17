@@ -17,7 +17,7 @@
               <ul>
                 <li style="color: yellow">{{ item.Data.NAME }}</li>
                 <li class="text-xs">{{ item.Data.TEXTO }}</li>
-                <li style="color: green">Precio: {{ item.price_in_pesos }} ARS</li>
+                <li style="color: green">Precio: ${{ item.price_in_pesos }} ARS</li>
               </ul>
             </NuxtLink>
           </div>
