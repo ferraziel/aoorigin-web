@@ -1,16 +1,12 @@
 <template>
-  <div></div>
+  <div>Seteando token de mercadopago</div>
 </template>
 
 <script>
 export default {
   async asyncData({ redirect, $axios }) {
-    try {
-      await $axios.post(`/mercadopago/callback?code=${this.$route.query.code}`);
-      return redirect("/cuenta");
-    } catch (e) {
-      return redirect("/");
-    }
+    await $axios.post(`mercadopago/callback?code=${this.$route.query.code}`);
+    return redirect("/cuenta");
   },
 };
 </script>
