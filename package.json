@@ -35,6 +35,6 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "postcss": "^8.4.14",
-    "prettier": "^2.5.1"
+    "prettier": "^2.7.1"
   }
 }
