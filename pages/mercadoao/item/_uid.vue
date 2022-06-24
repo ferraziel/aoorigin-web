@@ -45,19 +45,19 @@
         <h1>Para que personaje queres comprar el item?</h1>
 
         <div v-for="user in usersWithFreeSlots" :key="user.name" :id="user.id">
-          <h1 @click="selectCharacter(user.id)" class="section-title">
-            {{ user.name }}
-            <span v-if="selectedUserId == user.id">✔️</span>
-          </h1>
+          <ul>
+            <li @click="selectCharacter(user.id)">
+              {{ user.name }}
+              <span v-if="selectedUserId == user.id">✔️</span>
+            </li>
+          </ul>
         </div>
         <br />
 
         <table v-if="selectedUserId" style="margin-left: auto; margin-right: auto">
           <h3>Elije metodo de pago:</h3>
-          <tr>
-            <!-- <th style="color: cyan">AOLB (AO Libre Token B)</th> -->
-            <th v-if="!isMercadoPagoLoaded" @click="buyItemWithMercadoPago()" style="color: yellow">MERCADOPAGO</th>
-          </tr>
+          <!-- <th style="color: cyan">AOLB (AO Libre Token B)</th> -->
+          <button v-if="!isMercadoPagoLoaded" @click="buyItemWithMercadoPago()" style="color: yellow">MERCADOPAGO</button>
           <button class="cho-container"></button>
 
           <tr>

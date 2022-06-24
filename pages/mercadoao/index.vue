@@ -30,6 +30,7 @@
       <PagePadding />
 
       <h4>Lista de personajes en Venta!</h4>
+      <h6>Se actualiza cada 1 hs con la informacion mas reciente del mundo.</h6>
 
       <div v-if="usersOnSale.length">
         <div class="container grid grid-cols-4">

@@ -4,6 +4,8 @@
 
     <div v-if="user" lass="text-center mb-12">
 
+      <h6>Se actualiza cada 1 hs con la informacion mas reciente del mundo.</h6>
+
       <h1 class="section-title">{{ user.name }}</h1>
       <UserAndItemsRenderer :user="user" />
 

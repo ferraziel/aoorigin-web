@@ -274,3 +274,7 @@
   opacity: 0;
   transform: translateX(25px);
 }
+
+ul li {
+  cursor: pointer;
+}
