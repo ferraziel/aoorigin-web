@@ -82,9 +82,10 @@
           <ul>
             <li class="text-xs">Fecha creacion: {{ $dayjs(user.created_at).format("DD [de] MMMM [de] YYYY") }}</li>
             <li class="text-xs">Nivel: {{ user.level }}</li>
+            <li class="text-xs">Raza: {{ user.race }}</li>
             <li class="text-xs">Experiencia: {{ user.exp }}</li>
-            <li class="text-xs">Sexo: {{ user.genre_id }}</li>
-            <li class="text-xs">Clase: {{ user.class_id }}</li>
+            <li class="text-xs">Sexo: {{ user.genre }}</li>
+            <li class="text-xs">Clase: {{ user.class }}</li>
             <li class="text-xs">Max HP: {{ user.max_hp }}</li>
             <li class="text-xs">Max Stamina: {{ user.max_sta }}</li>
             <li class="text-xs">Max Mana: {{ user.max_man }}</li>

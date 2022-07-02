@@ -95,7 +95,7 @@ export default {
         try {
           this.$axios.$post(`/users/buyUserFromMao`, {
             characterId: this.user.id,
-            buyerAccountId: this.$store.state.account.id,
+            // buyerAccountId: this.$store.state.account.id,
           })
           .then((data) => {
             this.buyUserStatus = "OK";
