@@ -15,8 +15,6 @@
     </div>
 
     <div v-else class="text-center mb-12">
-        <pre class="bg-black">{{ $auth.user.mercado_pago }}</pre>
-
       <button class="btn btn-silver" @click="disableMercadoPago">Desenlazar MercadoPago</button>
     </div>
 
@@ -37,8 +35,9 @@ export default  {
       window.location.href = "/";
     },
     async disableMercadoPago() {
-      await this.$axios.$get(`mercadopago/disable`)
-      await this.$axios.$get(`user`)
+      this.$axios.$get(`mercadopago/disable`).then(data => {
+        location.reload();
+      })
     },
   },
 };
