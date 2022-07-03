@@ -19,7 +19,7 @@
     </div>
 
     <section v-else class="text-center mt-24">
-      <p class="text-2xl">El personaje no existe o no esta a la venta.</p>
+      <p class="text-2xl">El personaje no existe o no esta a la venta o el vendedor no linkeo su cuenta de MercadoPago para recibir el pago.</p>
     </section>
   </div>
 </template>
@@ -29,7 +29,7 @@
 export default {
   async asyncData({ $axios, params }) {
     return {
-      user: await $axios.$post(`users/getUserOnSale/${params.uid}`),
+      user: await $axios.$post(`users/getUserOnSale/${params.uid}`).catch(err => console.error(err)),
       buyUserMessage: "",
       buyUserStatus: null,
     };
