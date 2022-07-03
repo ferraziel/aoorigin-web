@@ -93,9 +93,8 @@ export default {
     async buyUser() {
       if (confirm("Estas seguro que quieres comprar este personaje?.")) {
         try {
-          this.$axios.$post(`/users/buyUserFromMao`, {
+          this.$axios.$post(`/market/buyUserFromMao`, {
             characterId: this.user.id,
-            // buyerAccountId: this.$store.state.account.id,
           })
           .then((data) => {
             this.buyUserStatus = "OK";
