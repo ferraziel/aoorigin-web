@@ -1,9 +1,7 @@
 <template>
   <div class="container">
     <h1 class="mb-12 text-5xl text-primary">{{ allowOrder }}</h1>
-
-    <NuxtLink to="mercadoao" class="btn">Volver al mercado</NuxtLink>
-
+    <NuxtLink to="/mercadoao" class="btn">Volver al mercado</NuxtLink>
   </div>
 </template>
 
@@ -12,7 +10,7 @@
 export default {
   async asyncData({ $axios, params }) {
     return {
-      allowOrder: await $axios.$get(`market/allowSellUserOrder/${params.txSignature}`),
+      allowOrder: await $axios.$get(`market/allowSellUserOrder/${params.txSignature}`).catch(err => console.error(err)),
     };
   },
 };
