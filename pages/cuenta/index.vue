@@ -2,27 +2,18 @@
   <div class="container">
     <div class="text-center mb-12">
       <h1 class="section-title">¡Iniciaste sesión!</h1>
-      <NuxtLink to="mercadoao" class="btn btn-cta">Entrar al mercado</NuxtLink>
+      <NuxtLink to="mercadoao" class="btn">Entrar al mercado</NuxtLink>
+      <br>
 
       <ul>
         <li><NuxtLink to="personajes">Mis Personajes</NuxtLink></li>
         <!-- <li><NuxtLink to="recuperar">Cambiar contraseña</NuxtLink></li> -->
+        <li v-if="!this.$auth.user.mercado_pago"><a href="https://auth.mercadopago.com.ar/authorization?client_id=6962025294834257&response_type=code&platform_id=mp&redirect_uri=https://mercado.ao20.com.ar/mercadopago/callback">Enlazar MercadoPago (solo disponible en Argentina)</a></li>
+        <li v-else @click="disableMercadoPago">Desenlazar MercadoPago</li>
+        <li @click="logout">Cerrar sesión</li>
       </ul>
     </div>
-
-    <div v-if="!this.$auth.user.mercado_pago" class="text-center mb-12">
-      <a href="https://auth.mercadopago.com.ar/authorization?client_id=6962025294834257&response_type=code&platform_id=mp&redirect_uri=https://mercado.ao20.com.ar/mercadopago/callback" class="btn btn-silver">Enlazar MercadoPago (solo disponible en Argentina)</a>
-    </div>
-
-    <div v-else class="text-center mb-12">
-      <button class="btn btn-silver" @click="disableMercadoPago">Desenlazar MercadoPago</button>
-    </div>
-
     <!-- <pre class="bg-black">{{ $auth.user }}</pre> -->
-
-    <div class="flex justify-center">
-      <button class="btn btn-silver" @click="logout">Cerrar sesión</button>
-    </div>
   </div>
 </template>
 

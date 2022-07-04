@@ -14,6 +14,7 @@
               <span v-else class="p-2 font-bold text-white bg-yellow-500">Cargando...</span>
             </p>
 
+            <NuxtLink to="mercadoao">Mercado</NuxtLink>
             <NuxtLink to="/cuenta" v-if="$auth.loggedIn">Mi cuenta</NuxtLink>
             <NuxtLink v-else to="/login" class="px-2 py-1 text-sm border btn btn-silver">Cuenta</NuxtLink>
           </div>
