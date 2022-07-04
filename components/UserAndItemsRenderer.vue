@@ -6,6 +6,8 @@
         <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
           <img :src="user.canvasImage" class="" />
           <h6>{{ user.description }}</h6>
+          <h6 v-if="user.price_in_mao">Precio: {{ user.price_in_mao }}</h6>
+
         </div>
 
         <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">

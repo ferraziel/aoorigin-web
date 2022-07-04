@@ -1,14 +1,13 @@
 <template>
   <div class="container">
-    <h1 class="mb-12 text-5xl text-primary">Hacer el pago por el personaje y cerrar la transaccion.</h1>
+    <!-- <pre class="bg-black">{{ user }}</pre> -->
 
-    <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-1 bg-gray-900">
-      <img :src="user.canvasImage" class="" />
-    </div>
-    <h4 class="text-gr gr-gold">{{ user.name }}</h4>
-    <span class="gr-gold">Nivel: {{ user.level }}</span>
+    <h1 class="mb-12 text-5xl text-primary gr-gold">{{ user.name }}</h1>
+    <h4>Hacer el pago por el personaje y cerrar la transaccion.</h4>
+    <h3 class="gr-gold">Nivel: {{ user.level }}</h3>
+    <h3 class="gr-gold">Precio: {{ user.price_in_mao }}</h3>
 
-    <MessageBox :status="buyItemStatus" :message="buyItemMessage" />
+    <MessageBox :status="buyUserStatus" :message="buyUserMessage" />
 
     <table style="margin-left: auto; margin-right: auto">
       <h3>Elije metodo de pago:</h3>
@@ -25,9 +24,18 @@
 
 export default {
   async asyncData({ $axios, params }) {
-    return {
+    let buyUserMessage = "";
+    const user = await $axios.$get(`market/getUserFromTransactionByTxSignature/${params.txSignature}`)
+    .catch(err => {
+      console.error(err)
+      buyUserMessage = err.message;
+    });
+
+return {
+      user,
+      buyUserMessage,
+      buyUserStatus: "",
       isMercadoPagoLoaded: false,
-      user: await $axios.$get(`market/getItemOnSaleById/${params.txSignature}`),
     }
   },
   methods: {
@@ -37,9 +45,8 @@ export default {
         this.buyUserStatus = "PENDING";
         this.buyUserMessage = "Generando orden de compra con MercadoPago";
 
-        this.$axios.$get(`/market/createMercadoPagoPreferenceForUserTransaction/${params.txSignature}`)
+        this.$axios.$get(`/market/createMercadoPagoPreferenceForUserTransaction/${this.$route.params.txSignature}`)
         .then((preferenceIdMercadoPago) => {
-
           // Agrega credenciales de SDK
           const mp = new MercadoPago(process.env.MERCADOPAGO_PUBLIC_KEY, {
             locale: "es-AR",
@@ -62,11 +69,21 @@ export default {
         })
         .catch((error) => {
           this.buyUserStatus = "ERROR";
-          this.buyUserMessage = error.response.data.message;
+          this.buyUserMessage = error.message;
         });
     },
-  }
-
+  },
+  head() {
+    return {
+      title: this.user ? `${this.user.name} ` : "Personaje no encontrado",
+      script: [
+        {
+          src: "https://sdk.mercadopago.com/js/v2",
+          async: true,
+        },
+      ]
+    };
+  },
 };
 </script>
 
