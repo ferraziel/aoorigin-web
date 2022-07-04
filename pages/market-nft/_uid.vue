@@ -16,7 +16,8 @@
 
       <main class="mt-8 news_body md:mt-12">
         <h6>Tipo de objeto: {{ itemOnSale.ObjType }}</h6>
-        <h6>Precio: {{ itemOnSale.price }}</h6>
+        <h6>Precio: {{ itemOnSale.price.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</h6>
+
         <h6>Estado: {{ itemOnSale.status }}</h6>
         <h6>Rareza: {{ itemOnSale.obj_type_rarity }}</h6>
 

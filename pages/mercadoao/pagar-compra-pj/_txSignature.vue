@@ -5,7 +5,7 @@
     <h1 class="mb-12 text-5xl text-primary gr-gold">{{ user.name }}</h1>
     <h4>Hacer el pago por el personaje y cerrar la transaccion.</h4>
     <h3 class="gr-gold">Nivel: {{ user.level }}</h3>
-    <h3 class="gr-gold">Precio: {{ user.price_in_mao }}</h3>
+    <h3 class="gr-gold">Precio: {{ user.price_in_mao.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</h3>
 
     <MessageBox :status="buyUserStatus" :message="buyUserMessage" />
 

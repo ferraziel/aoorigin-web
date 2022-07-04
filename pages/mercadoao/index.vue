@@ -17,7 +17,7 @@
               <ul>
                 <li style="color: yellow">{{ item.Data.NAME }}</li>
                 <li class="text-xs">{{ item.Data.TEXTO }}</li>
-                <li style="color: green">Precio: ${{ item.price_in_pesos }} ARS</li>
+                <li style="color: green">Precio: {{ item.price_in_pesos.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</li>
               </ul>
             </NuxtLink>
           </div>
@@ -41,11 +41,15 @@
               <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-1 bg-gray-900">
                 <img :src="user.canvasImage" class="" />
               </div>
-              <h4 class="text-gr gr-gold">{{ user.name }}</h4>
-            </NuxtLink>
-            <span class="gr-gold">Nivel: {{ user.level }}</span>
-            <span class="gr-gold">Ultimo login: {{ $dayjs(user.fecha_ingreso).format("DD [de] MMMM [de] YYYY") }}</span>
 
+              <ul>
+                <h4 class="text-gr gr-gold">{{ user.name }}</h4>
+                <li class="text-m gr-gold">Nivel: {{ user.level }}</li>
+                <li style="text-m gr-gold">Precio: {{ user.price_in_mao.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</li>
+                <li class="text-xs gr-gold">Ultimo login: {{ $dayjs(user.fecha_ingreso).format("DD [de] MMMM [de] YYYY") }}</li>
+              </ul>
+            </NuxtLink>
+            <br>
           </div>
         </div>
       </div>

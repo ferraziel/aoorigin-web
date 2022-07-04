@@ -15,7 +15,7 @@
         </h1>
 
         <h2 class="text-2xl text-primary group-hover:text-white transition-colors duration-200 ease-out">
-          Precio: ${{ item.price }}
+          Precio: {{ item.price_in_pesos.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS
         </h2>
 
         <h2 class="text-2xl text-primary group-hover:text-white transition-colors duration-200 ease-out">

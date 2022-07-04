@@ -21,7 +21,7 @@
         </li> -->
 
         <li style="color: green">
-          Precio: ${{ item.price_in_pesos }} ARS
+          Precio: {{ item.price_in_pesos.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS
         </li>
 
         <li v-if="item.Data.DESC" style="color: green">Descripcion: {{ item.Data.DESC }}</li>
