@@ -316,6 +316,11 @@ async asyncData({ $axios, params }) {
               container: ".cho-container", // Indica el nombre de la clase donde se mostrará el botón de pago
               label: "Pagar con MercadoPago", // Cambia el texto del botón de pago (opcional)
             },
+            autoOpen: true,
+            theme: {
+                elementsColor: '#8da811',
+                headerColor: '#402a87'
+            }
           });
 
           this.buyItemStatus = "OK";
