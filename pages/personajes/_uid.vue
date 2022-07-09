@@ -89,10 +89,10 @@ export default {
   },
 
   async mounted() {
-    if (!ethereum) {
-      alert("Necesitas Metamask para poder poner la wallet en tu personaje.");
-      console.log("Non-Ethereum browser detected. You should consider trying MetaMask!");
-    }
+    // if (!ethereum) {
+    //   alert("Necesitas Metamask para poder poner la wallet en tu personaje.");
+    //   console.log("Non-Ethereum browser detected. You should consider trying MetaMask!");
+    // }
   },
 
   methods: {
