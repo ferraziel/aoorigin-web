@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <h1 class="mb-12 text-5xl text-primary">{{ allowOrder }}</h1>
+    <!-- <pre class="bg-black">{{ allowOrder }}</pre> -->
+
+    <h1 class="mb-12 text-5xl text-primary">{{ allowOrder.message }}</h1>
     <NuxtLink to="/mercadoao" class="btn">Volver al mercado</NuxtLink>
   </div>
 </template>

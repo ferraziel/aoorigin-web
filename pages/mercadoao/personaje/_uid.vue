@@ -8,11 +8,15 @@
 
       <button @click="buyUser()"
               type="submit"
+              v-if="!isSubmited"
               class="btn btn-silver self-start"
       >
         Comprar Personaje
       </button>
+
+      <NuxtLink v-else to="/mercadoao">Volver al mercado</NuxtLink>
       <MessageBox :status="buyUserStatus" :message="buyUserMessage" />
+
     </div>
 
     <section v-else class="text-center mt-24">
@@ -29,6 +33,7 @@ export default {
       user: await $axios.$post(`users/getUserOnSale/${params.uid}`).catch(err => console.error(err)),
       buyUserMessage: "",
       buyUserStatus: null,
+      isSubmited: false,
     };
   },
 
@@ -96,6 +101,7 @@ export default {
           .then((data) => {
             this.buyUserStatus = "OK";
             this.buyUserMessage = "Tu peticion para comprar el personaje llego con exito, espera a que el vendedor apruebe la transaccion.";
+            this.isSubmited = true;
           })
           .catch((error) => {
             this.buyUserStatus = "ERROR";
