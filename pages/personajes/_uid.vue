@@ -39,18 +39,7 @@
           Vender Personaje en Mercado AO
         </button>
         <MessageBox :status="addUserToMaoStatus" :message="addUserToMaoMessage" />
-      </div>
-
-      <br> -->
-        <button @click="removeUserFromMao()"
-                v-if="user.is_published && !user.is_locked_in_mao"
-                type="submit"
-                class="btn btn-silver self-start"
-        >
-          Sacar Personaje de Mercado AO
-        </button>
-        <MessageBox :status="removeUserFromMaoStatus" :message="removeUserFromMaoMessage" />
-
+        <br> -->
         <UserAndItemsRenderer :user="user" />
         <br>
       </div>
@@ -83,8 +72,6 @@ export default {
       recoverUserStatus: null,
       addUserToMaoMessage: "",
       addUserToMaoStatus: null,
-      removeUserFromMaoMessage: "",
-      removeUserFromMaoStatus: null,
     };
   },
 
@@ -136,24 +123,6 @@ export default {
             this.user.is_locked_in_mao = false;
             this.addUserToMaoStatus = "ERROR";
             this.addUserToMaoMessage = error.response.data.message;
-          });
-      }
-    },
-
-    async removeUserFromMao() {
-      if (confirm("Estas seguro que quieres retirar de la venta a tu personaje?")) {
-        this.user.is_published = false;
-
-        this.$axios
-          .$get(`/users/removeUserFromMao/${this.user.id}`)
-          .then((data) => {
-            this.removeUserFromMaoStatus = "OK";
-            this.removeUserFromMaoMessage = data.message;
-          })
-          .catch((error) => {
-            // this.user.is_published = true;
-            this.removeUserFromMaoStatus = "ERROR";
-            this.removeUserFromMaoMessage = error.response.data.message;
           });
       }
     },

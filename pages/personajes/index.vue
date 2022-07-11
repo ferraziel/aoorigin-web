@@ -21,8 +21,22 @@
 
           <h2>Nivel: {{ user.level }}</h2>
           <h2>Ultimo login: {{ $dayjs(user.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h2>
-          <h2>Online: {{ user.is_logged ? '🟢' : '🔴'}}</h2>
-          <h2 v-if="user.is_locked_in_mao">En Venta en MAO</h2>
+          <!-- <h2>Online: {{ user.is_logged ? '🟢' : '🔴'}}</h2> -->
+
+          <div v-if="!user.is_locked_in_mao && !user.deleted">
+            <button @click="removeUserFromMao()"
+                    v-if="user.is_published"
+                    type="submit"
+                    class="btn btn-silver self-start"
+            >
+              Sacar Personaje de Mercado AO
+            </button>
+            <MessageBox :status="removeUserFromMaoStatus" :message="removeUserFromMaoMessage" />
+
+            <UserAndItemsRenderer :user="user" />
+            <br>
+          </div>
+
           <!-- <h2 v-if="user.eth_wallet_id">WalletId: {{ user.eth_wallet_id }}</h2> -->
           <hr />
           <br />
@@ -75,8 +89,29 @@ export default {
     return {
       users: await $axios.$get(`users/getAllActiveUsers`),
       deletedUsers: await $axios.$get(`users/getAllDeletedUsers`),
+      removeUserFromMaoMessage: "",
+      removeUserFromMaoStatus: null,
     };
   },
+  methods: {
+     async removeUserFromMao() {
+      if (confirm("Estas seguro que quieres retirar de la venta a tu personaje?")) {
+        this.user.is_published = false;
+
+        this.$axios
+          .$get(`/users/removeUserFromMao/${this.user.id}`)
+          .then((data) => {
+            this.removeUserFromMaoStatus = "OK";
+            this.removeUserFromMaoMessage = data.message;
+          })
+          .catch((error) => {
+            // this.user.is_published = true;
+            this.removeUserFromMaoStatus = "ERROR";
+            this.removeUserFromMaoMessage = error.response.data.message;
+          });
+      }
+    },
+}
 };
 </script>
 
