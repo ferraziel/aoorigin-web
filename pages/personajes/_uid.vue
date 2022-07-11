@@ -30,8 +30,8 @@
       </button>
       <MessageBox :status="recoverUserStatus" :message="recoverUserMessage" /> -->
 
-      <!-- <div v-if="!user.is_locked_in_mao && !user.deleted">
-        <span>Vender el personaje tiene un costo de 10.000 monedas de oro de juego. Se necesita tener el monto total en el inventario o boveda.</span>
+      <div v-if="!user.is_locked_in_mao && !user.deleted">
+        <!-- <span>Vender el personaje tiene un costo de 10.000 monedas de oro de juego. Se necesita tener el monto total en el inventario o boveda.</span>
         <button @click="addUserToMao()"
                 type="submit"
                 class="btn btn-silver self-start"
@@ -41,18 +41,19 @@
         <MessageBox :status="addUserToMaoStatus" :message="addUserToMaoMessage" />
       </div>
 
-      <br>
-      <button @click="removeUserFromMao()"
-              v-if="user.is_locked_in_mao"
-              type="submit"
-              class="btn btn-silver self-start"
-      >
-        Sacar Personaje de Mercado AO
-      </button>
-      <MessageBox :status="removeUserFromMaoStatus" :message="removeUserFromMaoMessage" /> -->
+      <br> -->
+        <button @click="removeUserFromMao()"
+                v-if="user.is_published && !user.is_locked_in_mao"
+                type="submit"
+                class="btn btn-silver self-start"
+        >
+          Sacar Personaje de Mercado AO
+        </button>
+        <MessageBox :status="removeUserFromMaoStatus" :message="removeUserFromMaoMessage" />
 
-      <UserAndItemsRenderer :user="user" />
-      <br>
+        <UserAndItemsRenderer :user="user" />
+        <br>
+      </div>
     </div>
 
     <section v-else class="text-center mt-24">
@@ -62,7 +63,6 @@
 </template>
 
 <script>
-
 export default {
   middleware: "auth",
   async asyncData({ $axios, params }) {
@@ -126,34 +126,32 @@ export default {
       if (confirm("Estas seguro que quieres vender a tu personaje? Al aceptar, el personaje quedara bloqueado con sus items tanto de inventario como banco, para la venta del mismo.")) {
 
         this.user.is_locked_in_mao = true;
-        this.$axios.$post(`/users/addUserInMao/${this.user.id}`, {
-          is_locked_in_mao: this.user.is_locked_in_mao,
-        })
-        .then((data) => {
-          this.addUserToMaoStatus = "OK";
-          this.addUserToMaoMessage = "El personaje ahora esta en el mercado ao.";
-        })
-        .catch((error) => {
-          this.user.is_locked_in_mao = false;
-          this.addUserToMaoStatus = "ERROR";
-          this.addUserToMaoMessage = error.response.data.message;
-        });
+        this.$axios
+          .$post(`/users/addUserInMao/${this.user.id}`)
+          .then((data) => {
+            this.addUserToMaoStatus = "OK";
+            this.addUserToMaoMessage = "El personaje ahora esta en el mercado ao.";
+          })
+          .catch((error) => {
+            this.user.is_locked_in_mao = false;
+            this.addUserToMaoStatus = "ERROR";
+            this.addUserToMaoMessage = error.response.data.message;
+          });
       }
     },
 
     async removeUserFromMao() {
       if (confirm("Estas seguro que quieres retirar de la venta a tu personaje?")) {
-          this.user.is_locked_in_mao = false;
+        this.user.is_published = false;
 
-          this.$axios.$post(`/users/removeUserFromMao/${this.user.id}`, {
-            is_locked_in_mao: this.user.is_locked_in_mao,
-          })
+        this.$axios
+          .$get(`/users/removeUserFromMao/${this.user.id}`)
           .then((data) => {
             this.removeUserFromMaoStatus = "OK";
-            this.removeUserFromMaoMessage = "Se retiro correctamente el personaje de Mercado AO.";
+            this.removeUserFromMaoMessage = data.message;
           })
           .catch((error) => {
-            this.user.is_locked_in_mao = true;
+            // this.user.is_published = true;
             this.removeUserFromMaoStatus = "ERROR";
             this.removeUserFromMaoMessage = error.response.data.message;
           });
