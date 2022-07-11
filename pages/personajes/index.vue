@@ -24,7 +24,7 @@
           <!-- <h2>Online: {{ user.is_logged ? '🟢' : '🔴'}}</h2> -->
 
           <div v-if="!user.is_locked_in_mao && !user.deleted">
-            <button @click="removeUserFromMao()"
+            <button @click="removeUserFromMao(user)"
                     v-if="user.is_published"
                     type="submit"
                     class="btn btn-silver self-start"
@@ -94,12 +94,12 @@ export default {
     };
   },
   methods: {
-     async removeUserFromMao() {
+     async removeUserFromMao(user) {
       if (confirm("Estas seguro que quieres retirar de la venta a tu personaje?")) {
         this.user.is_published = false;
 
         this.$axios
-          .$get(`/users/removeUserFromMao/${this.user.id}`)
+          .$get(`/users/removeUserFromMao/${user.id}`)
           .then((data) => {
             this.removeUserFromMaoStatus = "OK";
             this.removeUserFromMaoMessage = data.message;
