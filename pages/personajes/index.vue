@@ -22,20 +22,16 @@
           <h2>Nivel: {{ user.level }}</h2>
           <h2>Ultimo login: {{ $dayjs(user.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h2>
           <!-- <h2>Online: {{ user.is_logged ? '🟢' : '🔴'}}</h2> -->
-
-          <div v-if="!user.is_locked_in_mao && !user.deleted">
+          <div v-if="user.is_locked_in_mao == 0 && user.deleted == 0 && user.is_published == 1">
             <button @click="removeUserFromMao(user)"
-                    v-if="user.is_published"
                     type="submit"
                     class="btn btn-silver self-start"
             >
               Sacar Personaje de Mercado AO
             </button>
-            <MessageBox :status="removeUserFromMaoStatus" :message="removeUserFromMaoMessage" />
 
-            <UserAndItemsRenderer :user="user" />
-            <br>
           </div>
+          <MessageBox :status="removeUserFromMaoStatus" :message="removeUserFromMaoMessage" />
 
           <!-- <h2 v-if="user.eth_wallet_id">WalletId: {{ user.eth_wallet_id }}</h2> -->
           <hr />
@@ -96,7 +92,7 @@ export default {
   methods: {
      async removeUserFromMao(user) {
       if (confirm("Estas seguro que quieres retirar de la venta a tu personaje?")) {
-        this.user.is_published = false;
+        user.is_published = 0;
 
         this.$axios
           .$get(`/users/removeUserFromMao/${user.id}`)
