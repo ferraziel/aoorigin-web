@@ -2,20 +2,23 @@
   <div class="container">
     <!-- <pre class="bg-black">{{ user }}</pre> -->
 
-    <h1 class="mb-12 text-5xl text-primary gr-gold">{{ user.name }}</h1>
-    <h4>Hacer el pago por el personaje y cerrar la transaccion.</h4>
-    <h3 class="gr-gold">Nivel: {{ user.level }}</h3>
-    <h3 class="gr-gold">Precio: {{ user.price_in_mao.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</h3>
+    <div v-if="user">
+      <h1 class="mb-12 text-5xl text-primary gr-gold">{{ user.name }}</h1>
+      <h4>Hacer el pago por el personaje y cerrar la transaccion.</h4>
+      <h3 class="gr-gold">Nivel: {{ user.level }}</h3>
+      <h3 class="gr-gold">Precio: {{ user.price_in_mao.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</h3>
+
+
+      <table style="margin-left: auto; margin-right: auto">
+        <h3>Elije metodo de pago:</h3>
+        <tr>
+          <th v-if="!isMercadoPagoLoaded" @click="buyUserWithMercadoPago()" style="color: yellow">MERCADOPAGO</th>
+        </tr>
+        <button class="cho-container"></button>
+      </table>
+    </div>
 
     <MessageBox :status="buyUserStatus" :message="buyUserMessage" />
-
-    <table style="margin-left: auto; margin-right: auto">
-      <h3>Elije metodo de pago:</h3>
-      <tr>
-        <th v-if="!isMercadoPagoLoaded" @click="buyUserWithMercadoPago()" style="color: yellow">MERCADOPAGO</th>
-      </tr>
-      <button class="cho-container"></button>
-    </table>
 
   </div>
 </template>
@@ -74,13 +77,13 @@ return {
         })
         .catch((error) => {
           this.buyUserStatus = "ERROR";
-          this.buyUserMessage = error.message;
+          this.buyUserMessage = error.response.data.message;
         });
     },
   },
   head() {
     return {
-      title: this.user ? `${this.user.name} ` : "Personaje no encontrado",
+      title: this.user && this.user.name ? `${this.user.name} ` : "Personaje no encontrado",
       script: [
         {
           src: "https://sdk.mercadopago.com/js/v2",

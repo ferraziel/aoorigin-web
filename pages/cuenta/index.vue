@@ -23,7 +23,8 @@ export default  {
   methods: {
     async logout() {
       await this.$auth.logout();
-      window.location.href = "/";
+      windows.history.go(-1)
+      // window.location.href = "/";
     },
     async disableMercadoPago() {
       this.$axios.$get(`mercadopago/disable`).then(data => {

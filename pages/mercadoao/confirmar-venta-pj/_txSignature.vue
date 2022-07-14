@@ -18,6 +18,10 @@ export default {
                                   return { message : "Para confirmar una venta de personaje tenes que iniciar sesion." };
                                 }
 
+                                if (err.message.includes("404")) {
+                                  return { message : "No se encontro una orden de compra valida." };
+                                }
+
                                 return err
                               }),
     };
