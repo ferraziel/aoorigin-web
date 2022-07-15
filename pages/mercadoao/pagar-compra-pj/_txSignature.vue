@@ -9,9 +9,9 @@
 
 
       <div style="margin-left: auto; margin-right: auto">
-        <table v-if="!isMercadoPagoLoaded" style="margin-left: auto; margin-right: auto">
+        <table style="margin-left: auto; margin-right: auto">
           <h3>Elije metodo de pago:</h3>
-          <button @click="buyUserWithMercadoPago()" style="color: yellow">MERCADOPAGO</button>
+          <button v-if="!isMercadoPagoLoaded" @click="buyUserWithMercadoPago()" style="color: yellow">MERCADOPAGO</button>
           <button class="cho-container"></button>
           <tr>
           </tr>
