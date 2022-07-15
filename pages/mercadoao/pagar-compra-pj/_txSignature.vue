@@ -31,14 +31,15 @@ export default {
     const user = await $axios.$get(`market/getUserFromTransactionByTxSignature/${params.txSignature}`)
     .catch(err => {
       console.error("asyncData", err)
-      buyUserMessage = err.message;
+      // buyUserMessage = err.message;
+      buyUserMessage = err.response.data.message;
     });
 
-return {
-      user,
-      buyUserMessage,
-      buyUserStatus: "",
-      isMercadoPagoLoaded: false,
+    return {
+          user,
+          buyUserMessage,
+          buyUserStatus: "",
+          isMercadoPagoLoaded: false,
     }
   },
   methods: {
