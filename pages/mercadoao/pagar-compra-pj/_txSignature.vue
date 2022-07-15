@@ -8,11 +8,16 @@
       <h3 class="gr-gold">Precio: {{ user.price_in_mao.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</h3>
 
 
-      <table style="margin-left: auto; margin-right: auto">
-        <h3>Elije metodo de pago:</h3>
-        <button v-if="!isMercadoPagoLoaded" @click="buyUserWithMercadoPago()" style="color: yellow">MERCADOPAGO</button>
-        <button class="cho-container"></button>
-      </table>
+      <div style="margin-left: auto; margin-right: auto">
+        <table v-if="!isMercadoPagoLoaded" style="margin-left: auto; margin-right: auto">
+          <h3>Elije metodo de pago:</h3>
+          <button @click="buyUserWithMercadoPago()" style="color: yellow">MERCADOPAGO</button>
+          <button class="cho-container"></button>
+          <tr>
+          </tr>
+        </table>
+      </div>
+
       <MessageBox :status="buyUserStatus" :message="buyUserMessage" />
     </div>
   </div>
@@ -25,7 +30,7 @@ export default {
     let buyUserMessage = "";
     const user = await $axios.$get(`market/getUserFromTransactionByTxSignature/${params.txSignature}`)
     .catch(err => {
-      console.error(err)
+      console.error("asyncData", err)
       buyUserMessage = err.message;
     });
 
@@ -71,6 +76,7 @@ return {
 
         })
         .catch((error) => {
+          console.log("buyUserWithMercadoPago", error)
           this.buyUserStatus = "ERROR";
           this.buyUserMessage = error.response.data.message;
         });
