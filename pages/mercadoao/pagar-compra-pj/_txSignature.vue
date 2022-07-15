@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <!-- <pre class="bg-black">{{ user }}</pre> -->
-
     <div v-if="user">
       <h1 class="mb-12 text-5xl text-primary gr-gold">{{ user.name }}</h1>
       <h4>Hacer el pago por el personaje y cerrar la transaccion.</h4>
@@ -11,15 +10,11 @@
 
       <table style="margin-left: auto; margin-right: auto">
         <h3>Elije metodo de pago:</h3>
-        <tr>
-          <th v-if="!isMercadoPagoLoaded" @click="buyUserWithMercadoPago()" style="color: yellow">MERCADOPAGO</th>
-        </tr>
+        <button v-if="!isMercadoPagoLoaded" @click="buyUserWithMercadoPago()" style="color: yellow">MERCADOPAGO</button>
         <button class="cho-container"></button>
       </table>
+      <MessageBox :status="buyUserStatus" :message="buyUserMessage" />
     </div>
-
-    <MessageBox :status="buyUserStatus" :message="buyUserMessage" />
-
   </div>
 </template>
 
