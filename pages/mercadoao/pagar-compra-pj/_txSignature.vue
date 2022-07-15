@@ -36,10 +36,10 @@ export default {
     });
 
     return {
-          user,
-          buyUserMessage,
-          buyUserStatus: "",
-          isMercadoPagoLoaded: false,
+      user,
+      buyUserMessage,
+      buyUserStatus: "",
+      isMercadoPagoLoaded: false,
     }
   },
   methods: {
