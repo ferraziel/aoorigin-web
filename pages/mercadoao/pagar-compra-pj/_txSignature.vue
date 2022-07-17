@@ -17,9 +17,9 @@
           </tr>
         </table>
       </div>
-
-      <MessageBox :status="buyUserStatus" :message="buyUserMessage" />
     </div>
+
+    <MessageBox :status="buyUserStatus" :message="buyUserMessage" />
   </div>
 </template>
 
@@ -28,17 +28,23 @@
 export default {
   async asyncData({ $axios, params }) {
     let buyUserMessage = "";
+    let buyUserStatus = "";
+
     const user = await $axios.$get(`market/getUserFromTransactionByTxSignature/${params.txSignature}`)
     .catch(err => {
       console.error("asyncData", err)
-      // buyUserMessage = err.message;
-      buyUserMessage = err.response.data.message;
+      buyUserStatus = "ERROR";
+      buyUserMessage = "Hubo un error...";
+
+      if (err.message.includes("401")) {
+        buyUserMessage = "Tenes que estar logeado para poder hacer la compra.."
+      }
     });
 
     return {
       user,
       buyUserMessage,
-      buyUserStatus: "",
+      buyUserStatus,
       isMercadoPagoLoaded: false,
     }
   },
