@@ -27,9 +27,9 @@ export default {
 
     const user = await $axios.$get(`market/getUserFromTransactionByTxSignature/${params.txSignature}`)
     .catch(err => {
-      console.error("asyncData", err)
+      console.error("asyncData", err.response.data.message)
       buyUserStatus = "ERROR";
-      buyUserMessage = "Hubo un error...";
+      buyUserMessage = err.response.data.message;
 
       if (err.message.includes("401")) {
         buyUserMessage = "Tenes que estar logeado para poder hacer la compra.."
