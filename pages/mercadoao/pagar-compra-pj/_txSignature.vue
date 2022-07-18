@@ -1,26 +1,21 @@
 <template>
-  <div class="container">
-    <!-- <pre class="bg-black">{{ user }}</pre> -->
-    <div v-if="user">
-      <h1 class="mb-12 text-5xl text-primary gr-gold">{{ user.name }}</h1>
-      <h4>Hacer el pago por el personaje y cerrar la transaccion.</h4>
-      <h3 class="gr-gold">Nivel: {{ user.level }}</h3>
-      <h3 class="gr-gold">Precio: {{ user.price_in_mao.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</h3>
+  <client-only>
+    <div class="container">
+      <!-- <pre class="bg-black">{{ user }}</pre> -->
+      <div v-if="user">
+        <h1 class="mb-12 text-5xl text-primary gr-gold">{{ user.name }}</h1>
+        <span>Hacer el pago por el personaje y cerrar la transaccion.</span>
+        <h3 class="gr-gold">Nivel: {{ user.level }}</h3>
+        <h3 class="gr-gold">Precio: {{ user.price_in_mao.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</h3>
 
-
-      <div style="margin-left: auto; margin-right: auto">
-        <table style="margin-left: auto; margin-right: auto">
-          <h3>Elije metodo de pago:</h3>
-          <button v-if="!isMercadoPagoLoaded" @click="buyUserWithMercadoPago()" style="color: yellow">MERCADOPAGO</button>
-          <button class="cho-container"></button>
-          <tr>
-          </tr>
-        </table>
+        <h3>Elije metodo de pago:</h3>
+        <button v-if="!isMercadoPagoLoaded" @click="buyUserWithMercadoPago()" style="color: yellow">MERCADOPAGO</button>
+        <button class="cho-container"></button>
       </div>
-    </div>
 
-    <MessageBox :status="buyUserStatus" :message="buyUserMessage" />
-  </div>
+      <MessageBox :status="buyUserStatus" :message="buyUserMessage" />
+    </div>
+  </client-only>
 </template>
 
 <script>
