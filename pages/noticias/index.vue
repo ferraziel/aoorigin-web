@@ -14,6 +14,9 @@
         <h1 class="text-2xl text-primary group-hover:text-white transition-colors duration-200 ease-out">
           {{ currentNew.title }}
         </h1>
+        <span>
+          {{ currentNew.feedlabel }}
+        </span>
         <time
           :datetime="currentNew.date"
           :title="$dayjs(currentNew.date).format('DD [de] MMMM [de] YYYY [a las] HH:mm')"
