@@ -1,26 +1,27 @@
 <template>
-  <div class="container lg:pt-36">
-    <h1>Ultimas Noticias</h1>
+  <div class="container">
     <ul
-      v-if="news.length"
-      class="max-w-screen-md mx-auto bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-6 "
+      v-if="newsItems && newsItems.length"
+      class="max-w-screen-md mx-auto bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-6"
     >
-
-      <a v-for="currentNew in news"
-        :key="currentNew.id"
-        :id="currentNew.id"
-        :href="currentNew.link"
+      <a v-for="currentNew in newsItems"
+        :key="currentNew.gid"
+        :id="currentNew.gid"
+        :href="currentNew.url"
         target="_blank"
         class="group flex flex-col p-3 md:p-6 border-b last:border-b-0 border-gray-700 hover:bg-white hover:bg-opacity-10 transition-colors duration-200 ease-out"
       >
         <h1 class="text-2xl text-primary group-hover:text-white transition-colors duration-200 ease-out">
           {{ currentNew.title }}
         </h1>
+        <span>
+          {{ currentNew.feedlabel }}
+        </span>
         <time
-          :datetime="currentNew.pubDate"
-          :title="$dayjs(currentNew.pubDate).format('DD [de] MMMM [de] YYYY [a las] HH:mm')"
+          :datetime="currentNew.date"
+          :title="$dayjs(currentNew.date).format('DD [de] MMMM [de] YYYY [a las] HH:mm')"
         >
-          {{ $dayjs(currentNew.pubDate).fromNow() }}
+          {{ $dayjs(currentNew.date).format('DD [de] MMMM [de] YYYY [a las] HH:mm') }}
         </time>
       </a>
     </ul>
@@ -32,18 +33,22 @@
 </template>
 
 <script>
-import parser from 'fast-xml-parser'
 
 export default {
   data() {
     return {
-      news: []
+      newsItems: []
     }
   },
   async fetch() {
-    const xmlRawData = await this.$axios.$get('https://www.elmesonhostigado.com/foro/external?type=rss2&nodeid=129')
-    const jsonObj = parser.parse(xmlRawData)
-    this.news = jsonObj.rss.channel.item;
+    const news = await this.$axios.$get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=1956740&count=10&maxlength=300&format=json')
+    let newsItems = news.appnews.newsitems
+
+    newsItems.forEach(element => {
+      element.date = element.date * 1000;
+    });
+
+    this.newsItems = newsItems
   },
   head() {
     return {

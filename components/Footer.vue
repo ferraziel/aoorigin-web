@@ -9,15 +9,19 @@
           </p>
           <p class="text-xs text-gray-600">
             Este sitio está protegido por reCAPTCHA. Las
-            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="underline"
-              >Políticas de Privacidad</a
-            >
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="underline">Políticas de Privacidad</a>
             y
-            <a href="https://policies.google.com/terms" target="_blank" rel="noopener" class="underline"
-              >Términos del Servicio</a
-            >
+            <a href="https://policies.google.com/terms" target="_blank" rel="noopener" class="underline">Términos del Servicio</a>
             de Google aplican.
           </p>
+
+          <p class="text-xs text-gray-600">
+            <a href="https://web.minehost.com.ar/buy/index.php" target="_blank" rel="noopener">
+              El servidor de Argentum 20 está hosteado en Minehost
+              <img width="200px" src="https://www.argentum20.com/wp-content/themes/ao20theme_2022/images/logo_minehost.png">
+            </a>
+          </p>
+
         </section>
       </div>
     </div>
