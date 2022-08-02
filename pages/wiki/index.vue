@@ -28,6 +28,7 @@
           <li class="bg-yellow-500"><NuxtLink to="/wiki/habilidades">Habilidades</NuxtLink></li>
           <li class="bg-yellow-500"><NuxtLink to="/wiki/npcs-vendedores">Npcs Vendedores</NuxtLink></li>
           <li class="bg-yellow-500"><NuxtLink to="/wiki/items-patreon">Items Patreon</NuxtLink></li>
+          <li class="bg-yellow-500"><a to="https://www.ao20helper.com.ar/">AO20 Helper</a></li>
           <li class="bg-yellow-500"><a href="https://wiki.ao20.com.ar/index.php?title=P%C3%A1gina_principal" target="_blank">Wiki Vieja (Desactualizada)</a></li>
         </ul>
       </div>
