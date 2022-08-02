@@ -133,6 +133,10 @@ export default {
           route: "/ranking-clanes",
         },
         {
+          label: "Muro de la verguenza",
+          route: "/baneados",
+        },
+        {
           label: "Manual",
           route: "/wiki",
         }
