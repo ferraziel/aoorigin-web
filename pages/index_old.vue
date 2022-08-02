@@ -187,7 +187,7 @@
               <img src="@/assets/img/ico-twitch.png" alt="icono twitch" class="w-8 lg:w-20" />
             </a>
             <a
-              href="https://elmesonhostigado.com/foro"
+              href="https://steamcommunity.com/app/1956740/discussions/"
               target="_blank"
               rel="noopener"
               class="transition-colors duration-150 ease-out text-[#009DED]"
