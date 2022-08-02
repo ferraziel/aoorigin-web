@@ -8,15 +8,19 @@
         </NuxtLink>
 
         <div class="flex items-center gap-x-16">
+          <ul class="items-center hidden tracking-wide text-gray-300 uppercase lg:flex gap-x-10">
+            <li v-for="link in linksMain" :key="link.route">
+              <NuxtLink :to="link.route" class="inline-block py-2 hover:text-gray-100">{{ link.label }}</NuxtLink>
+            </li>
+          </ul>
+
           <div class="flex items-center gap-x-4">
             <p class="hidden text-sm tracking-wide uppercase lg:block">
               <span v-if="isServerOnline">{{ onlineCount || 0 }} usuarios online</span>
               <span v-else class="p-2 font-bold text-white bg-yellow-500">Cargando...</span>
             </p>
 
-            <NuxtLink to="/mercadoao">Mercado</NuxtLink>
             <NuxtLink to="/cuenta" v-if="$auth.loggedIn">Mi cuenta</NuxtLink>
-            <NuxtLink v-else to="/login" class="px-2 py-1 text-sm border btn btn-silver">Cuenta</NuxtLink>
           </div>
         </div>
 
@@ -34,13 +38,63 @@
         </button>
       </div>
     </nav>
+    <div class="w-full h-10 lg:block hidden" style="background-color: #330a0b; opacity:70%">
+      <div class="container flex w-full">
+        <ul class="items-center hidden tracking-wide text-gray-300 uppercase lg:flex gap-x-10">
+          <li>
+            <a
+              href="https://steamcommunity.com/app/1956740/discussions/"
+              target="_blank"
+              class="inline-block py-2 hover:text-gray-100"
+              >Foro</a
+            >
+          </li>
+          <li v-for="link in links" :key="link.route">
+              <NuxtLink :to="link.route" class="inline-block py-2 hover:text-gray-100">{{ link.label }}</NuxtLink>
+          </li>
+          <li>
+            <!-- Esto se abre asi y no con nuxtLink por que sino tira error a veces.... -->
+            <a href="/market-nft/opensea" class="inline-block py-2 hover:text-gray-100">NFT Marketplace</a>
+          </li>
+      </ul>
+      </div>
+
+    </div>
+
+    <transition name="mobile-menu">
+      <nav
+        v-show="showMobileMenu"
+        class="fixed top-0 left-0 flex flex-col justify-center w-full h-screen overflow-y-scroll bg-gray-1000"
+      >
+        <ul class="text-3xl tracking-wider uppercase">
+          <li v-for="link in linksMain" :key="link.route"  @click="showMobileMenu = !showMobileMenu" >
+            <NuxtLink :to="link.route"  class="mobile-nav-link">{{ link.label }}</NuxtLink>
+          </li>
+          <li  @click="showMobileMenu = !showMobileMenu" >
+            <a
+              href="https://steamcommunity.com/app/1956740/discussions/"
+              target="_blank"
+               class="mobile-nav-link"
+              >Foro</a
+            >
+          </li>
+          <li v-for="link in links" :key="link.route"  @click="showMobileMenu = !showMobileMenu" >
+              <NuxtLink :to="link.route"  class="mobile-nav-link">{{ link.label }}</NuxtLink>
+          </li>
+          <li>
+            <!-- Esto se abre asi y no con nuxtLink por que sino tira error a veces.... -->
+            <a href="/market-nft/opensea" class="mobile-nav-link"  @click="showMobileMenu = !showMobileMenu">NFT Marketplace</a>
+          </li>
+        </ul>
+      </nav>
+    </transition>
   </header>
 </template>
 
 <script>
 export default {
   async fetch() {
-    const gameServerStatus = await this.$axios.$get("/");
+    const gameServerStatus = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/");
 
     this.onlineCount = gameServerStatus.onlineCount
     this.isServerOnline = gameServerStatus.isServerOnline
@@ -63,6 +117,10 @@ export default {
         {
           label: "Staff",
           route: "/staff",
+        },
+        {
+          label: "Mercado",
+          route: "/mercado",
         }
       ],
       links: [
@@ -77,10 +135,6 @@ export default {
         {
           label: "Manual",
           route: "/wiki",
-        },
-        {
-          label: "Mercado AO",
-          route: "/mercadoao",
         }
       ],
     };

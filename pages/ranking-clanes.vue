@@ -27,15 +27,15 @@
 
           <tbody>
             <tr v-for="guild in rankingGuilds" :key="guild.item_id">
-              <td class="text-right">{{ guild.GUILDNAME }}</td>
-              <td class="text-right">{{ guild.FOUNDER }}</td>
-              <td class="text-right">{{ guild.DATE }}</td>
-              <td class="text-right">{{ guild.ALINEACION }}</td>
-              <td class="text-right">{{ guild.ULTIMASELECCIONES }}</td>
-              <td class="text-right">{{ guild.DESC }}</td>
-              <td class="text-right">{{ guild.GUILDNEWS }}</td>
-              <td class="text-right">{{ guild.LEADER }}</td>
-              <td class="text-right">{{ guild.NIVELDECLAN }}</td>
+              <td class="text-right">{{ guild.GuildName }}</td>
+              <td class="text-right">{{ guild.Founder }}</td>
+              <td class="text-right">{{ guild.Date }}</td>
+              <td class="text-right">{{ guild.Alineacion }}</td>
+              <td class="text-right">{{ guild.UltimasElecciones }}</td>
+              <td class="text-right">{{ guild.Desc }}</td>
+              <td class="text-right">{{ guild.GuildNews }}</td>
+              <td class="text-right">{{ guild.Leader }}</td>
+              <td class="text-right">{{ guild.NivelDeClan }}</td>
               <td class="text-right">{{ guild.MEMBERS }}</td>
               <td class="text-right">{{ guild.QTY_MEMBERS }}</td>
               <td class="text-right">{{ guild.QTY_SOLICITUDES_INGRESO }}</td>
@@ -47,6 +47,7 @@
     </div>
     <section v-else class="text-center mt-24">
       <p class="text-2xl">Cargando Ranking Clanes.</p>
+      <p class="text-l">Por favor se paciente, esta pagina puede tardar varios minutos en cargar...</p>
     </section>
   </div>
 </template>
