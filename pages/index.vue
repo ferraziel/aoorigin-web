@@ -112,6 +112,15 @@
               <img src="@/assets/img/ico-discord.png" alt="icono discord" class="w-8 lg:w-20" />
             </a>
             <a
+              href="https://github.com/ao-org"
+              target="_blank"
+              rel="noopener"
+              class="transition-colors duration-150 ease-out text-[#6E85D3]"
+            >
+              <!-- <i class="fab fa-discord fa-2x"></i> -->
+              <img src="@/assets/img/ico-github.png" alt="icono github" class="w-8 lg:w-20" />
+            </a>
+            <a
               href="https://www.youtube.com/c/PabloMarquez-aka-morgolock"
               target="_blank"
               rel="noopener"
