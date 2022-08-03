@@ -41,14 +41,20 @@ export default {
     }
   },
   async fetch() {
-    const news = await this.$axios.$get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=1956740&count=10&maxlength=300&format=json')
-    let newsItems = news.appnews.newsitems
+    this.$axios.$get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=1956740&count=10&maxlength=300&format=json')
+    .then((news) => {
+      let newsItems = news.appnews.newsitems
 
-    newsItems.forEach(element => {
-      element.date = element.date * 1000;
+      newsItems.forEach(element => {
+        element.date = element.date * 1000;
+      });
+
+      this.newsItems = newsItems
+    })
+    .catch((error) => {
+      console.error(error)
     });
 
-    this.newsItems = newsItems
   },
   head() {
     return {
