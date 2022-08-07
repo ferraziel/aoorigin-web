@@ -89,11 +89,11 @@
       <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
     </section> -->
 
-    <section class="container max-w-screen-lg mx-auto">
+    <!-- <section class="container max-w-screen-lg mx-auto">
       <div class="py-3 md:py-6 lg:py-12">
         <News-Bar />
       </div>
-    </section>
+    </section> -->
 
     <section class="bg-gray-1000 mb-10">
       <div class="divider2"></div>
