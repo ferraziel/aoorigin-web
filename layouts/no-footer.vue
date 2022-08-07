@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen" style="background: url('/assets/img/bg_texture.png') repeat">
+  <div class="min-h-screen" style="background: url('/assets/img/background-gray.jpg') repeat">
     <Nav />
     <Nuxt />
   </div>

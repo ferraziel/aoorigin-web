@@ -1,0 +1,18 @@
+/*!
+ * AO20 Custom Styles - https://www.ao20.com.ar
+ */
+
+/* Text Colors  ============================ */
+
+    .text-yellow-ao20, .hover\:text-yellow-ao20:hover { color: #ECC12C !important; }
+    .text-golden-ao20, .hover\:text-golden-ao20:hover {
+        background: linear-gradient(180deg, #ECC12C 10%, #FFEA9F 33.28%, #AB880F 72.81%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+/* Background Colors  ============================ */
+
+    .bg-yellow-ao20, .hover\:bg-yellow-ao20:hover { background-color: #ECC12C !important; }
+    .bg-brown-texture { background-image: url('@/assets/img/background-brown.jpg'); }
+    .bg-gray-texture { background-image: url('@/assets/img/background-gray.jpg'); }
