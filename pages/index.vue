@@ -89,11 +89,11 @@
       <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
     </section> -->
 
-    <!-- <section class="container max-w-screen-lg mx-auto">
+    <section class="container max-w-screen-lg mx-auto">
       <div class="py-3 md:py-6 lg:py-12">
         <News-Bar />
       </div>
-    </section> -->
+    </section>
 
     <section class="bg-gray-1000 mb-10">
       <div class="divider2"></div>
@@ -325,8 +325,6 @@ export default {
   async asyncData({ $prismic }) {
     const homePage = await $prismic.api.getSingle("inicio");
 
-    // console.log(homePage);
-
     const ingameImages = homePage.data.multimedia.map((i) => ({
       url: i.ingame_image.url,
       alt: i.ingame_image.alt,
@@ -335,12 +333,9 @@ export default {
       },
     }));
 
-    // const mirrorLinks = homePage.data.body.filter((s) => s.slice_type === "mirror_link").map((s) => s.primary);
-    // console.log(mirrorLinks);
     return {
       homePage,
       ingameImages,
-      // mirrorLinks,
     };
   },
   data() {
@@ -368,6 +363,11 @@ export default {
     link(prismicObject) {
       return this.$prismic.asLink(prismicObject);
     },
+  },
+  head() {
+    return {
+      title: "AO20 - Web Oficial",
+    };
   },
 };
 </script>

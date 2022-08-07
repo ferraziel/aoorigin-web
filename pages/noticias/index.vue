@@ -46,12 +46,7 @@ export default {
     return {
       newsItems
     }
-  },
-  head() {
-    return {
-      title: "Noticias",
-    };
-  },
+  }
 };
 </script>
 

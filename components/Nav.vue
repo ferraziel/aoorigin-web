@@ -102,7 +102,7 @@
 <script>
 export default {
   async fetch() {
-    const gameServerStatus = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/");
+    const gameServerStatus = await this.$axios.$get("/");
 
     this.onlineCount = gameServerStatus.onlineCount
     this.isServerOnline = gameServerStatus.isServerOnline

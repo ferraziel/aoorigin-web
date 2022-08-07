@@ -41,8 +41,8 @@ export default {
     }
   },
   async fetch() {
-    this.$axios.$get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=1956740&count=10&maxlength=300&format=json')
-    .then((news) => {
+    try {
+      const news = await this.$axios.$get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=1956740&count=10&maxlength=300&format=json')
       let newsItems = news.appnews.newsitems
 
       newsItems.forEach(element => {
@@ -50,10 +50,9 @@ export default {
       });
 
       this.newsItems = newsItems
-    })
-    .catch((error) => {
+    } catch (error) {
       console.error(error)
-    });
+    }
 
   },
   head() {
