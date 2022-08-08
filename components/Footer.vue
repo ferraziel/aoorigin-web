@@ -7,7 +7,7 @@
           <p class="mb-4 text-sm tracking-wide text-gray-500 uppercase">
             Copyright &copy; {{ new Date().getFullYear() }} Noland Studios. Todos los derechos reservados.
           </p>
-          <p class="text-xs text-gray-600">
+          <p class="mb-4 text-xs text-gray-600">
             Este sitio está protegido por reCAPTCHA. Las
             <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="underline">Políticas de Privacidad</a>
             y
@@ -15,10 +15,10 @@
             de Google aplican.
           </p>
 
-          <p class="text-xs text-gray-600">
+          <p class="mb-4 text-xs text-gray-600">
             <a href="https://web.minehost.com.ar/buy/index.php" target="_blank" rel="noopener">
               El servidor de Argentum 20 está hosteado en Minehost
-              <img width="200px" src="https://www.argentum20.com/wp-content/themes/ao20theme_2022/images/logo_minehost.png">
+              <img width="200px" src="https://www.argentum20.com/wp-content/themes/ao20theme_2022/images/logo_minehost.png" class="mx-auto mt-2">
             </a>
           </p>
 
