@@ -38,26 +38,17 @@
         </button>
       </div>
     </nav>
-    <div class="w-full h-10 lg:block hidden" style="background-color: #330a0b; opacity:70%">
+    <div class="w-full h-10 lg:block hidden" style="background-color: #330a0b;">
       <div class="container flex w-full">
         <ul class="items-center hidden tracking-wide text-gray-300 uppercase lg:flex gap-x-10">
           <li>
-            <a
-              href="https://steamcommunity.com/app/1956740/discussions/"
-              target="_blank"
-              class="inline-block py-2 hover:text-gray-100"
-              >Foro</a
-            >
+            <a href="https://steamcommunity.com/app/1956740/discussions/" target="_blank" class="inline-block py-2 hover:text-yellow-400">Foro</a>
           </li>
           <li v-for="link in links" :key="link.route">
-              <NuxtLink :to="link.route" class="inline-block py-2 hover:text-gray-100">{{ link.label }}</NuxtLink>
+              <NuxtLink :to="link.route" class="inline-block py-2 hover:text-yellow-400">{{ link.label }}</NuxtLink>
           </li>
           <li>
-            <a href="https://estadisticas.ao20.com.ar/produccion/">Estadisticas</a>
-          </li>
-          <li>
-            <!-- Esto se abre asi y no con nuxtLink por que sino tira error a veces.... -->
-            <a href="/market-nft/opensea" class="inline-block py-2 hover:text-gray-100">NFT Marketplace</a>
+            <a href="https://estadisticas.ao20.com.ar/produccion/" class="inline-block py-2 hover:text-yellow-400">Estadisticas</a>
           </li>
       </ul>
       </div>
@@ -118,10 +109,10 @@ export default {
           label: "Jugá gratis",
           route: "/#juga-gratis",
         },
-        // {
-        //   label: "Noticias",
-        //   route: "/noticias",
-        // },
+        {
+           label: "Galería",
+           route: "/galeria",
+         },
         {
           label: "Staff",
           route: "/staff",
@@ -168,7 +159,7 @@ export default {
 
 <style scoped>
 .mobile-nav-link {
-  @apply inline-block px-8 py-6 w-full border-b border-gray-700 hover:text-gray-100;
+  @apply inline-block px-8 py-6 w-full border-b border-white hover:text-yellow-100;
 }
 
 

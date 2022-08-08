@@ -231,47 +231,6 @@
       </form>
     </section>
 
-    <div class="section-divider my-16"></div>
-
-    <!-- <Forum-Posts /> -->
-
-    <section id="galeria" class="mb-10">
-      <h2 class="section-title text-center mb-16">Galería de imágenes</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4">
-        <a v-for="image in ingameImages" :key="image.alt" :href="image.url" data-fancybox="galeria">
-          <!-- <div class="w-full overflow-hidden"> -->
-          <div class="overflow-hidden w-full">
-            <img
-              :src="image.thumb.url"
-              :alt="image.alt"
-              class="w-full transform hover:scale-150 transition duration-[0.5s] ease-out"
-            />
-          </div>
-          <!-- </div> -->
-        </a>
-      </div>
-    </section>
-
-    <div class="section-divider mb-16"></div>
-
-    <section class="bg-gray-1000 mb-10">
-      <div class="py-3 md:py-6 lg:py-12">
-        <div class="container flex justify-center items-center gap-x-6 md:gap-x-10 lg:gap-x-20">
-          <!-- <a href="/sorteo" class="btn">Participa del Sorteo de NFTs</a> -->
-
-          <h4>NFTs AO20 Collection</h4>
-          <span>
-            6420 (ERC-721) NFT's coleccionables seran creandos en esta primera edicion en una mezcla entre todos los
-            cuerpos sin equipo con todas las caras posibles. esto nos permitira en el futuro a poder expandir el
-            concepto. Todos los NFTs tienen atributos unicos asignandoles rarezas.
-          </span>
-          <img src="@/assets/img/example-nfts.gif" />
-          <a href="https://www.elmesonhostigado.com/foro/ao-20/416-nft-s-ao20-primer-coleccion-opensea-polygon">Mas informacion</a>
-          <a href="https://tinyurl.com/4nfdwk3b">Mintear Gratis</a>
-        </div>
-      </div>
-    </section>
-
     <div class="section-divider mb-16"></div>
 
     <section
@@ -325,17 +284,8 @@ export default {
   async asyncData({ $prismic }) {
     const homePage = await $prismic.api.getSingle("inicio");
 
-    const ingameImages = homePage.data.multimedia.map((i) => ({
-      url: i.ingame_image.url,
-      alt: i.ingame_image.alt,
-      thumb: {
-        url: i.ingame_image.thumb.url,
-      },
-    }));
-
     return {
       homePage,
-      ingameImages,
     };
   },
   data() {
