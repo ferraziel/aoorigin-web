@@ -1,61 +1,80 @@
 <template>
   <div class="container">
-    <div
-      v-if="shields.length"
-      class="bg-gray-900 border-2 border-gr border-gr-primary"
-    >
-      <h1>Escudos</h1>
-      <div class="xl:col-span-10 text-xs overflow-x-auto">
-        <table class="text-gray-400">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th></th>
-              <th>Nombre</th>
-              <th>Min Def</th>
-              <th>Max Def</th>
-              <th>Nivel Minimo</th>
-              <th>Resistencia Magica</th>
-              <th>Valor en Oro</th>
-              <th>Lingote de Oro</th>
-              <th>Lingote de Plata</th>
-              <th>Lingote de Bronce</th>
-              <th>Skills Herreria</th>
-              <th>Madera</th>
-              <th>Madera Elfica</th>
-              <th>Skills Carpintera</th>
-              <th>Clases Prohibidas</th>
-            </tr>
-          </thead>
+    <br>
+    <br>
+    <h2 class="section-title text-center mb-4 uppercase">Escudos</h2>
+    <div v-if="shields.length">
+        <div v-for="shield in shields" :key="shield.item_id">
+            <!-- <script>
+                //box marker styles
+                var cssMarkers = ["box-marker-red","box-marker-yellow","box-marker-brown","box-marker-orange"];
+                let randCssMarker = cssMarkers[Math.floor((Math.random() * 4))];
+            </script> -->
+            <!-- Item -->
+            <div class="w-full md:max-w-full md:flex border border-gr border-gr-silver p-4 mb-10 box-marker-yellow">
+                <div class="flex-none"><img :src="shield.Data.canvasImage" :alt="shield.Data.NAME" class="mx-auto md:mx-0"></div>
+                <div class="w-full">
+                    <div class="block border-b border-gray-700 md:flex text-center md:text-left w-full justify-between pb-2">
+                        <span class="flex-1">
+                            <span class="w-full text-2xl block md:flex text-yellow-ao20">{{ shield.Data.NAME }}</span>
+                        </span>
+                        <span v-if="shield.Data.VALOR" class="text-xl" title="Valor en oro"><span class="color-icon align-middle mr-2 color-icon-sm color-icon-gold"></span>{{ shield.Data.VALOR }}</span>
+                    </div>
 
-          <tbody>
-            <tr v-for="shield in shields" :key="shield.item_id">
-              <td class="text-right">{{ shield.item_id }}</td>
-              <td><img width="300px" :src="shield.Data.canvasImage" /></td>
-              <td class="text-right">{{ shield.Data.NAME }}</td>
-              <td class="text-right">{{ shield.Data.MINDEF }}</td>
-              <td class="text-right">{{ shield.Data.MAXDEF }}</td>
-              <td class="text-right">{{ shield.Data.MINELV }}</td>
-              <td class="text-right">{{ shield.Data.RESISTENCIAMAGICA }}</td>
-              <td class="text-right">{{ shield.Data.VALOR }}</td>
-              <td class="text-right">{{ shield.Data.LINGO }}</td>
-              <td class="text-right">{{ shield.Data.LINGP }}</td>
-              <td class="text-right">{{ shield.Data.LINGH }}</td>
-              <td class="text-right">{{ shield.Data.SKHERRERIA }}</td>
-              <td class="text-right">{{ shield.Data.MADERA }}</td>
-              <td class="text-right">{{ shield.Data.MADERAELFICA }}</td>
-              <td class="text-right">{{ shield.Data.SKCARPINTERIA }}</td>
-              <td class="text-right">{{shield.Data.CP1}} {{shield.Data.CP2}} {{shield.Data.CP3}} {{shield.Data.CP4}} {{shield.Data.CP5}} {{shield.Data.CP5}} {{shield.Data.CP7}} {{shield.Data.CP8}} {{shield.Data.CP9}} {{shield.Data.CP10}} {{shield.Data.CP11}} {{shield.Data.CP12}} {{shield.Data.CP13}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+                    <!-- Caracteristicas -->
+                    <div class="block border-b border-gray-700 md:flex text-center md:text-left py-2">
+                        <span class="w-40">Características: </span>
+                        <span class="">
+                            <span v-if="shield.Data.MINDEF" class="mr-5" title="Defensa Mínima"><span class="color-icon align-middle mr-2 color-icon-sm color-icon-mindef"></span>{{ shield.Data.MINDEF }}</span>
+                            <span v-if="shield.Data.MAXDEF" class="mr-5" title="Defensa Máxima"><span class="color-icon align-middle mr-2 color-icon-sm color-icon-maxdef"></span>{{ shield.Data.MAXDEF }}</span>
+                            <span v-if="shield.Data.MINELV" class="mr-5" title="Nivel Mínimo"><span class="color-icon align-middle mr-2 color-icon-sm color-icon-minlvl"></span>{{ shield.Data.MINELV }}</span>
+                            <span v-if="shield.Data.RESISTENCIAMAGICA" class="mr-5" title="Resistencia Mágica"><span class="color-icon align-middle mr-2 color-icon-sm color-icon-resistenciamagica"></span>{{ shield.Data.RESISTENCIAMAGICA }}</span>
+                        </span>
+                    </div>
+
+                    <!-- Crafteo -->
+                    <div v-if="shield.Data.LINGH || shield.Data.LINGP || shield.Data.LINGO || shield.Data.SKHERRERIA || shield.Data.MADERA || shield.Data.MADERAELFICA || shield.Data.SKCARPINTERIA" class="block border-b border-gray-700 md:flex text-center md:text-left py-2">
+                        <span class="w-40">Crafteo: </span>
+                        <span class="">
+                            <span v-if="shield.Data.LINGH" class="mr-5" title="Lingotes de Hierro"><span class="color-icon align-middle mr-2 color-icon-sm color-icon-lingotehierro"></span>{{ shield.Data.LINGH }}</span>
+                            <span v-if="shield.Data.LINGP" class="mr-5" title="Lingotes de Plata"><span class="color-icon align-middle mr-2 color-icon-sm color-icon-lingoteplata"></span>{{ shield.Data.LINGP }}</span>
+                            <span v-if="shield.Data.LINGO" class="mr-5" title="Lingotes de Oro"><span class="color-icon align-middle mr-2 color-icon-sm color-icon-lingoteoro"></span>{{ shield.Data.LINGO }}</span>
+                            <span v-if="shield.Data.SKHERRERIA" class="mr-5" title="Skill de herrería"><span class="color-icon align-middle mr-2 color-icon-sm color-icon-herrero"></span>{{ shield.Data.SKHERRERIA }}</span>
+                            <span v-if="shield.Data.MADERA" class="mr-5" title="Madera"><span class="color-icon align-middle mr-2 color-icon-sm color-icon-madera"></span>{{ shield.Data.MADERA }}</span>
+                            <span v-if="shield.Data.MADERAELFICA" class="mr-5" title="Madera Elfica"><span class="color-icon align-middle mr-2 color-icon-sm color-icon-maderaelfica"></span>{{ shield.Data.MADERAELFICA }}</span>
+                            <span v-if="shield.Data.SKCARPINTERIA" class="mr-5" title="Skills de carpintería"><span class="color-icon align-middle mr-2 color-icon-sm color-icon-carpintero"></span>{{ shield.Data.SKCARPINTERIA }}</span>
+                        </span>
+                    </div>
+
+                    <!-- Clases prohibidas -->
+                    <div v-if="shield.Data.CP1" class="block border-b border-gray-700 md:flex text-center md:text-left py-2">
+                        <span class="w-40">Clases Prohibidas: </span>
+                        <span>
+                            <span v-if="shield.Data.CP1">{{shield.Data.CP1}}</span>
+                            <span v-if="shield.Data.CP2">, {{shield.Data.CP2}}</span>
+                            <span v-if="shield.Data.CP3">, {{shield.Data.CP3}}</span>
+                            <span v-if="shield.Data.CP4">, {{shield.Data.CP4}}</span>
+                            <span v-if="shield.Data.CP5">, {{shield.Data.CP5}}</span>
+                            <span v-if="shield.Data.CP6">, {{shield.Data.CP6}}</span>
+                            <span v-if="shield.Data.CP7">, {{shield.Data.CP7}}</span>
+                            <span v-if="shield.Data.CP8">, {{shield.Data.CP8}}</span>
+                            <span v-if="shield.Data.CP9">, {{shield.Data.CP9}}</span>
+                            <span v-if="shield.Data.CP10">, {{shield.Data.CP10}}</span>
+                            <span v-if="shield.Data.CP11">, {{shield.Data.CP11}}</span>
+                            <span v-if="shield.Data.CP12">, {{shield.Data.CP12}}</span>
+                            <span v-if="shield.Data.CP13">, {{shield.Data.CP13}}</span>
+                        </span>
+                    </div>
+
+                </div>
+            </div><!-- /.box-marker-yellow -->
+        </div><!-- /v-for -->
+    </div><!-- /v-if -->
 
     <section v-else class="text-center mt-24">
       <p class="text-2xl">Cargando escudos.</p>
     </section>
-  </div>
+</div><!-- /container -->
 </template>
 
 <script>
@@ -84,10 +103,6 @@ select:required:invalid {
 
 option[value=""][disabled] {
   display: none;
-}
-
-td {
-  @apply bg-gray-900 p-4 border border-gray-200;
 }
 
 </style>

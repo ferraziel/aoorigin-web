@@ -16,3 +16,66 @@
     .bg-yellow-ao20, .hover\:bg-yellow-ao20:hover { background-color: #ECC12C !important; }
     .bg-brown-texture { background-image: url('@/assets/img/background-brown.jpg'); }
     .bg-gray-texture { background-image: url('@/assets/img/background-gray.jpg'); }
+
+/* Wiki  ============================ */
+
+    /* Markers */
+
+    .box-marker-yellow {
+        -webkit-box-shadow: -5px 0px 0px 0px #ECC12C;
+        box-shadow: -5px 0px 0px 0px #ECC12C;
+    }
+    .box-marker-red {
+        -webkit-box-shadow: -5px 0px 0px 0px #a52b24;
+        box-shadow: -5px 0px 0px 0px #a52b24;
+    }
+    .box-marker-brown {
+        -webkit-box-shadow: -5px 0px 0px 0px #7f5130;
+        box-shadow: -5px 0px 0px 0px #7f5130;
+    }
+    .box-marker-orange {
+        -webkit-box-shadow: -5px 0px 0px 0px #ca7f31;
+        box-shadow: -5px 0px 0px 0px #ca7f31;
+    }
+
+    /* Custom AO20 Icons
+    –––––––––––––––––––––––––––––––––––––––––––––––––– */
+        .color-icon {
+            display: inline-block;
+            background-size: contain;
+        }
+        .color-icon-sm { width: 25px; height: 25px; }
+        .color-icon-md { width: 40px; height: 40px; }
+        .color-icon-lg { width: 55px; height: 55px; }
+
+        .color-icon-gold { background-image: url('@/assets/img/wiki/ico-color-gold.png'); }
+        .color-icon-maxhit { background-image: url('@/assets/img/wiki/ico-color-maxhit.png'); }
+        .color-icon-minhit { background-image: url('@/assets/img/wiki/ico-color-minhit.png'); }
+        .color-icon-dosmanos { background-image: url('@/assets/img/wiki/ico-color-dosmanos.png'); }
+        .color-icon-unamano { background-image: url('@/assets/img/wiki/ico-color-unamano.png'); }
+        .color-icon-apunala { background-image: url('@/assets/img/wiki/ico-color-apunala.png'); }
+        .color-icon-madera { background-image: url('@/assets/img/wiki/ico-color-madera.png'); }
+        .color-icon-maderaelfica { background-image: url('@/assets/img/wiki/ico-color-maderaelfica.png'); }
+        .color-icon-lingotehierro { background-image: url('@/assets/img/wiki/ico-color-lingotehierro.png'); }
+        .color-icon-lingoteplata { background-image: url('@/assets/img/wiki/ico-color-lingoteplata.png'); }
+        .color-icon-lingoteoro { background-image: url('@/assets/img/wiki/ico-color-lingoteoro.png'); }
+        .color-icon-carpintero { background-image: url('@/assets/img/wiki/ico-color-skillcarpintero.png'); }
+        .color-icon-herrero { background-image: url('@/assets/img/wiki/ico-color-skillherrero.png'); }
+        .color-icon-mindef { background-image: url('@/assets/img/wiki/ico-color-mindef.png'); }
+        .color-icon-maxdef { background-image: url('@/assets/img/wiki/ico-color-maxdef.png'); }
+        .color-icon-minlvl { background-image: url('@/assets/img/wiki/ico-color-minlvl.png'); }
+        .color-icon-resistenciamagica { background-image: url('@/assets/img/wiki/ico-color-resistenciamagica.png'); }
+        .color-icon-skills { background-image: url('@/assets/img/wiki/ico-color-skills.png'); }
+        .color-icon-velocidad { background-image: url('@/assets/img/wiki/ico-color-velocidad.png'); }
+        .color-icon-tirable { background-image: url('@/assets/img/wiki/ico-color-tirable.png'); }
+        .color-icon-notirable { background-image: url('@/assets/img/wiki/ico-color-notirable.png'); }
+        .color-icon-transferible { background-image: url('@/assets/img/wiki/ico-color-transferible.png'); }
+        .color-icon-notransferible { background-image: url('@/assets/img/wiki/ico-color-notransferible.png'); }
+        .color-icon-nosecae { background-image: url('@/assets/img/wiki/ico-color-nosecae.png'); }
+        .color-icon-secae { background-image: url('@/assets/img/wiki/ico-color-secae.png'); }
+        .color-icon-subehp { background-image: url('@/assets/img/wiki/ico-color-subehp.png'); }
+        .color-icon-skillsmagia { background-image: url('@/assets/img/wiki/ico-color-skillsmagia.png'); }
+        .color-icon-mana { background-image: url('@/assets/img/wiki/ico-color-mana.png'); }
+        .color-icon-stamina { background-image: url('@/assets/img/wiki/ico-color-stamina.png'); }
+        .color-icon-vara { background-image: url('@/assets/img/wiki/ico-color-vara.png'); }
+        .color-icon-duraefecto { background-image: url('@/assets/img/wiki/ico-color-duraefecto.png'); }

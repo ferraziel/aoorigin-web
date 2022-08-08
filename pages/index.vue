@@ -90,7 +90,8 @@
     </section> -->
 
     <section class="container max-w-screen-lg mx-auto">
-      <div class="py-3 md:py-6 lg:py-12">
+        <h2 class="section-title text-center mb-4 md:mb-10">Novedades</h2>
+      <div class="pb-3 md:pb-6 lg:pb-12">
         <News-Bar />
       </div>
     </section>
@@ -184,11 +185,12 @@
       <div class="divider2"></div>
     </section>
 
-    <section id="juga-gratis" class="container mb-16 md:mb-24">
-      <h2 class="section-title text-center mb-4 md:mb-10">¡Jugá Gratis!</h2>
+    <section id="juga-gratis" class="container mb-8 md:mb-12">
 
-      <div class="max-w-screen-lg mx-auto grid grid-cols-1 mb-16 md:mb-24">
-        <div class="flex flex-col items-center mt-16 lg:mt-24 xl:mt-32">
+      <h2 class="section-title text-center mb-4">¡Jugá Gratis!</h2>
+
+      <div class="max-w-screen-lg mx-auto grid grid-cols-1 mb-8 md:mb-12">
+        <div class="flex flex-col items-center mt-12 lg:mt-12 xl:mt-16">
           <div class="relative mb-4 z-10">
             <!--
             No borrar matomo_download por que se usa para contar descarga en analytics.
@@ -202,7 +204,7 @@
 
           <label class="flex items-center gap-x-2">
             <span>
-              Leí y acepto
+              Al descargar el juego en Steam declaro que leí y acepto
               <NuxtLink to="/reglamento" class="text-primary hover:underline"> el reglamento de juego </NuxtLink>
             </span>
           </label>

@@ -1,7 +1,9 @@
 <template>
   <div class="container">
+      <br>
+      <br>
       <section id="galeria" class="mb-10">
-        <h2 class="section-title text-center mb-16">Galería de imágenes</h2>
+        <h2 class="section-title text-center mb-8 uppercase">Galería de imágenes</h2>
         <div class="grid grid-cols-2 md:grid-cols-4">
           <a v-for="image in ingameImages" :key="image.alt" :href="image.url" data-fancybox="galeria">
             <!-- <div class="w-full overflow-hidden"> -->
