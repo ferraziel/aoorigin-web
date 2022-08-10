@@ -1,12 +1,10 @@
 <template>
   <main class="-mt-32 -z-1">
-    <header class="h-screen relative overflow-hidden" style="background: initial">
-      <div
-        class="container h-full flex justify-center items-center sticky z-20 py-16 sm:py-24 md:py-32 lg:py-40 xl:py-48"
-      >
+    <header class="relative overflow-hidden" style="background: initial">
+      <div class="container h-full flex justify-center items-center sticky z-20 pt-32 py-16 sm:pt-24 md:pt-32 lg:pt-40 xl:pt-48">
         <div class="flex flex-col items-center">
-          <img src="@/assets/img/argentum20_logo.png" alt="Argentum 20 Logo" class="w-144 mb-3 xl:mb-6 no-select" />
-          <h1 class="text-xl sm:text-3xl lg:text-4xl text-center leading-tight text-white mb-12 normal-case">
+          <img src="@/assets/img/argentum20_logo.png" alt="Argentum 20 Logo" class="w-96 mb-3 xl:mb-6 no-select" />
+          <h1 class="text-xl sm:text-3xl text-center leading-tight text-white mb-12 normal-case">
             Aventurate en las tierras de Argentum 20<br class="hidden lg:block" />
             y escribí tu propio camino
           </h1>
@@ -16,15 +14,8 @@
 
       <div class="bg-black opacity-50 absolute top-0 left-0 w-full h-full object-cover z-10"></div>
 
-      <img
-        :src="homePage.data.banner_image.url"
-        alt=""
-        class="w-full h-full absolute top-0 left-0 object-cover bg-transparent"
-      />
+      <img :src="homePage.data.banner_image.url" alt="" class="w-full h-full absolute top-0 left-0 object-cover bg-transparent" />
 
-      <!-- <video autoplay muted loop class="w-full h-full absolute top-0 left-0 object-cover bg-transparent">
-        <source src="https://revolucionao.com/agite.mp4" type="video/mp4" />
-      </video> -->
     </header>
 
     <div class="container-flex h-3 bg-divider-texture bg-repeat-x bg-center"></div>
