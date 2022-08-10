@@ -203,9 +203,9 @@
           </div>
 
           <!-- <img src="@/assets/img/wings.png" alt class="absolute top-0 inset-x-auto" /> -->
-          <p class="text-sm text-white mb-6 lg:mb-16">Sólo disponible para Windows</p>
+          <p class="text-sm text-white mb-6">Sólo disponible para Windows</p>
 
-          <label class="flex items-center gap-x-2">
+          <label class="px-6 text-center">
             <span>
               Al descargar el juego en Steam declaro que leí y acepto
               <NuxtLink to="/reglamento" class="text-primary hover:underline"> el reglamento de juego </NuxtLink>
@@ -231,9 +231,9 @@
         <p class="text-center w-full text-xl mb-4">
           <label for="tlemail">¡Recibí las novedades en tu casilla de email!</label>
         </p>
-        <div class="grid grid-cols-2 gap-4">
-            <div class="text-right"><input type="text" style="width: 210px; height: 52px;" name="email" id="tlemail" placeholder="Escribí tu email..." /></div>
-            <div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="text-center md:text-right"><input type="text" class="w-52 h-14" name="email" id="tlemail" placeholder="Escribí tu email..." /></div>
+            <div class="text-center md:text-left">
                 <input type="hidden" value="1" name="embed" />
                 <input type="submit" class="btn btn-silver self-start text-base" value="Subscribirse" />
             </div>

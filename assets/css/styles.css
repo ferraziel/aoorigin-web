@@ -17,7 +17,7 @@
     .bg-brown-texture { background-image: url('@/assets/img/background-brown.jpg'); }
     .bg-gray-texture { background-image: url('@/assets/img/background-gray.jpg'); }
     .bg-divider-texture { background-image: url('@/assets/img/horizontal_line.jpg'); }
-    .bg-image-texture { background-image: url('@/assets/img/background-image.jpg'); }
+    .bg-image-texture { background-image: url('@/assets/img/background-image.jpg'); background-size: cover; background-position: center center; }
 
 /* Wiki  ============================ */
 
