@@ -8,26 +8,26 @@
 
       <!-- Items container -->
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full mb-6 content-rte text-xl gap-4">
-          <div><NuxtLink to="/wiki/escudos" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Escudos</NuxtLink></div>
-          <div><NuxtLink to="/wiki/armaduras" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Armaduras</NuxtLink></div>
-          <div><NuxtLink to="/wiki/armas" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Armas</NuxtLink></div>
-          <div><NuxtLink to="/wiki/cascos" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Cascos</NuxtLink></div>
-          <div><NuxtLink to="/wiki/monturas" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Monturas</NuxtLink></div>
-          <div><NuxtLink to="/wiki/hechizos" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Hechizos</NuxtLink></div>
-          <div><NuxtLink to="/wiki/npcs" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Npcs</NuxtLink></div>
-          <div><NuxtLink to="/wiki/quests" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Quests</NuxtLink></div>
-          <div><NuxtLink to="/wiki/balance" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Balance</NuxtLink></div>
-          <div><NuxtLink to="/wiki/alimentos" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Alimentos</NuxtLink></div>
-          <div><NuxtLink to="/wiki/resistencia-magica" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Resistencia Magica</NuxtLink></div>
-          <div><NuxtLink to="/wiki/instrumentos" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Instrumentos Musicales</NuxtLink></div>
-          <div><NuxtLink to="/wiki/flechas-municiones" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Flechas y municiones</NuxtLink></div>
-          <div><NuxtLink to="/wiki/herramientas" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Herramientas</NuxtLink></div>
-          <div><NuxtLink to="/wiki/pociones" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Pociones</NuxtLink></div>
-          <div><NuxtLink to="/wiki/embarcaciones" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Embarcaciones</NuxtLink></div>
-          <div><NuxtLink to="/wiki/items-magicos" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Items Magicos</NuxtLink></div>
-          <div><NuxtLink to="/wiki/habilidades" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Habilidades</NuxtLink></div>
-          <div><NuxtLink to="/wiki/npcs-vendedores" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Npcs Vendedores</NuxtLink></div>
-          <div><NuxtLink to="/wiki/items-patreon" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-4 w-full text-sm text-center normal-case">Items Patreon</NuxtLink></div>
+          <div><NuxtLink to="/wiki/escudos" class="btn-wiki-cat btn bg-brown-texture btn-silver">Escudos</NuxtLink></div>
+          <div><NuxtLink to="/wiki/armaduras" class="btn-wiki-cat btn bg-brown-texture btn-silver">Armaduras</NuxtLink></div>
+          <div><NuxtLink to="/wiki/armas" class="btn-wiki-cat btn bg-brown-texture btn-silver">Armas</NuxtLink></div>
+          <div><NuxtLink to="/wiki/cascos" class="btn-wiki-cat btn bg-brown-texture btn-silver">Cascos</NuxtLink></div>
+          <div><NuxtLink to="/wiki/monturas" class="btn-wiki-cat btn bg-brown-texture btn-silver">Monturas</NuxtLink></div>
+          <div><NuxtLink to="/wiki/hechizos" class="btn-wiki-cat btn bg-brown-texture btn-silver">Hechizos</NuxtLink></div>
+          <div><NuxtLink to="/wiki/npcs" class="btn-wiki-cat btn bg-brown-texture btn-silver">Npcs</NuxtLink></div>
+          <div><NuxtLink to="/wiki/quests" class="btn-wiki-cat btn bg-brown-texture btn-silver">Quests</NuxtLink></div>
+          <div><NuxtLink to="/wiki/balance" class="btn-wiki-cat btn bg-brown-texture btn-silver">Balance</NuxtLink></div>
+          <div><NuxtLink to="/wiki/alimentos" class="btn-wiki-cat btn bg-brown-texture btn-silver">Alimentos</NuxtLink></div>
+          <div><NuxtLink to="/wiki/resistencia-magica" class="btn-wiki-cat btn bg-brown-texture btn-silver">Resistencia Magica</NuxtLink></div>
+          <div><NuxtLink to="/wiki/instrumentos" class="btn-wiki-cat btn bg-brown-texture btn-silver">Instrumentos Musicales</NuxtLink></div>
+          <div><NuxtLink to="/wiki/flechas-municiones" class="btn-wiki-cat btn bg-brown-texture btn-silver">Flechas y municiones</NuxtLink></div>
+          <div><NuxtLink to="/wiki/herramientas" class="btn-wiki-cat btn bg-brown-texture btn-silver">Herramientas</NuxtLink></div>
+          <div><NuxtLink to="/wiki/pociones" class="btn-wiki-cat btn bg-brown-texture btn-silver">Pociones</NuxtLink></div>
+          <div><NuxtLink to="/wiki/embarcaciones" class="btn-wiki-cat btn bg-brown-texture btn-silver">Embarcaciones</NuxtLink></div>
+          <div><NuxtLink to="/wiki/items-magicos" class="btn-wiki-cat btn bg-brown-texture btn-silver">Items Magicos</NuxtLink></div>
+          <div><NuxtLink to="/wiki/habilidades" class="btn-wiki-cat btn bg-brown-texture btn-silver">Habilidades</NuxtLink></div>
+          <div><NuxtLink to="/wiki/npcs-vendedores" class="btn-wiki-cat btn bg-brown-texture btn-silver">Npcs Vendedores</NuxtLink></div>
+          <div><NuxtLink to="/wiki/items-patreon" class="btn-wiki-cat btn bg-brown-texture btn-silver">Items Patreon</NuxtLink></div>
       </div>
       <!-- /Items container -->
       <div class="text-center">
@@ -47,5 +47,7 @@
 </script>
 
 <style>
-
+    .btn-wiki-cat {
+        @apply truncate px-4 w-full text-center text-sm normal-case text-yellow-400;
+    }
 </style>
