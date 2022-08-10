@@ -2,9 +2,9 @@
   <header class="fixed top-0 left-0 z-50 w-full">
     <nav class="w-full py-2 bg-black bg-opacity-75">
       <div class="container flex items-center justify-between w-full">
-        <NuxtLink to="/" class="flex items-center gap-2 main-title flex-shrink-1" style="z-index: 999">
-          <img src="@/assets/img/logo_square.png" alt="Logo Argentum 20 cuadrado" class="w-12" />
-          <span class="hidden text-primary lg:block">Argentum 20</span>
+        <NuxtLink to="/" class="flex items-center gap-2 main-title flex-shrink-1 -my-4 -ml-2" style="z-index: 999">
+          <img src="@/assets/img/ao20_logo_sm.png" alt="Argentum 20" class="w-40" />
+          <span class="hidden">Argentum 20</span>
         </NuxtLink>
 
         <div class="flex items-center gap-x-16">
@@ -60,7 +60,7 @@
         v-show="showMobileMenu"
         class="fixed top-0 left-0 flex flex-col justify-center w-full h-screen overflow-y-scroll bg-gray-1000"
       >
-        <ul class="text-3xl tracking-wider uppercase">
+        <ul class="text-2xl tracking-wider uppercase mt-52 border-t border-white">
           <li v-for="link in linksMain" :key="link.route"  @click="showMobileMenu = !showMobileMenu" >
             <NuxtLink :to="link.route"  class="mobile-nav-link">{{ link.label }}</NuxtLink>
           </li>
@@ -80,10 +80,6 @@
             <a href="https://estadisticas.ao20.com.ar/produccion/" class="mobile-nav-link" >Estadisticas</a>
           </li>
 
-          <li>
-            <!-- Esto se abre asi y no con nuxtLink por que sino tira error a veces.... -->
-            <a href="/market-nft/opensea" class="mobile-nav-link" >NFT Marketplace</a>
-          </li>
         </ul>
       </nav>
     </transition>
@@ -159,7 +155,7 @@ export default {
 
 <style scoped>
 .mobile-nav-link {
-  @apply inline-block px-8 py-6 w-full border-b border-white hover:text-yellow-100;
+  @apply inline-block px-6 py-6 w-full border-b border-white hover:text-yellow-100;
 }
 
 

@@ -27,8 +27,9 @@
       </video> -->
     </header>
 
-    <div class="section-divider my-16"></div>
-
+    <div class="container-flex h-3 bg-divider-texture bg-repeat-x bg-center"></div>
+    <br>
+    <br>
     <section id="apoyanos" class="container max-w-screen-lg mx-auto">
       <h3 class="section-title mb-10 text-center">¡Apoyanos!</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 md:text-lg">
@@ -96,8 +97,9 @@
       </div>
     </section>
 
-    <section class="bg-gray-1000 mb-10">
-      <div class="divider2"></div>
+    <div class="container-flex h-3 bg-divider-texture bg-repeat-x bg-center"></div>
+
+    <section class="bg-gray-1000">
 
       <div class="py-3 md:py-6 lg:py-12">
         <div class="container flex justify-center items-center gap-x-6 md:gap-x-10 lg:gap-x-20">
@@ -182,14 +184,15 @@
         </div>
       </div>
 
-      <div class="divider2"></div>
     </section>
 
-    <section id="juga-gratis" class="container mb-8 md:mb-12">
+    <div class="container-flex h-3 bg-divider-texture bg-repeat-x bg-center"></div>
+
+    <section id="juga-gratis" class="container-flex py-12 bg-image-texture">
 
       <h2 class="section-title text-center mb-4">¡Jugá Gratis!</h2>
 
-      <div class="max-w-screen-lg mx-auto grid grid-cols-1 mb-8 md:mb-12">
+      <div class="max-w-screen-lg mx-auto grid grid-cols-1">
         <div class="flex flex-col items-center mt-12 lg:mt-12 xl:mt-16">
           <div class="relative mb-4 z-10">
             <!--
@@ -200,7 +203,7 @@
           </div>
 
           <!-- <img src="@/assets/img/wings.png" alt class="absolute top-0 inset-x-auto" /> -->
-          <p class="text-sm text-gray-600 mb-6 lg:mb-16">Sólo disponible para Windows</p>
+          <p class="text-sm text-white mb-6 lg:mb-16">Sólo disponible para Windows</p>
 
           <label class="flex items-center gap-x-2">
             <span>
@@ -213,27 +216,36 @@
       </div>
     </section>
 
-    <div class="section-divider my-16"></div>
+    <div class="container-flex h-3 bg-divider-texture bg-repeat-x bg-center"></div>
+    <br>
+    <br>
 
     <section id="newsletter" class="container max-w-screen-lg mx-auto">
+      <h3 class="section-title mb-6 text-center">Newsletter</h3>
       <form
-        style="border: 1px solid #ccc; padding: 3px; text-align: center"
         action="https://tinyletter.com/ao20"
         method="post"
         target="popupwindow"
         onsubmit="window.open('https://tinyletter.com/ao20', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
       >
-        <p>
-          <label for="tlemail">Newsletter: Recibi novedades al email</label>
+        <p class="text-center w-full text-xl mb-4">
+          <label for="tlemail">¡Recibí las novedades en tu casilla de email!</label>
         </p>
-        <p><input type="text" style="width: 140px" name="email" id="tlemail" /></p>
-        <br>
-        <input type="hidden" value="1" name="embed" />
-        <input type="submit" class="btn btn-silver self-start text-base" value="Subscribirse" />
+        <div class="grid grid-cols-2 gap-4">
+            <div class="text-right"><input type="text" style="width: 210px; height: 52px;" name="email" id="tlemail" placeholder="Escribí tu email..." /></div>
+            <div>
+                <input type="hidden" value="1" name="embed" />
+                <input type="submit" class="btn btn-silver self-start text-base" value="Subscribirse" />
+            </div>
+        </div>
       </form>
     </section>
 
-    <div class="section-divider mb-16"></div>
+    <br>
+    <br>
+    <div class="container-flex h-3 bg-divider-texture bg-repeat-x bg-center"></div>
+    <br>
+    <br>
 
     <section
       id="info"
