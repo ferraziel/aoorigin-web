@@ -13,7 +13,7 @@
                     <div class="block border-b border-gray-700 md:flex text-center md:text-left w-full justify-between pb-2">
                         <span class="flex-1">
                             <span class="w-full text-2xl block md:flex text-yellow-ao20">{{ weapon.Data.NAME }}</span>
-                            <span class="block md:flex text-gray-600">{{ weapon.Data.NAME }}</span>
+                            <span class="block md:flex text-gray-600">{{ weapon.Data.TEXTO }}</span>
                         </span>
                         <span v-if="weapon.Data.VALOR" class="text-xl" title="Valor en oro"><span class="color-icon color-icon-sm color-icon-gold"></span>{{ weapon.Data.VALOR }}</span>
                     </div>
@@ -87,7 +87,7 @@
                     <div class="block border-b border-gray-700 md:flex text-center md:text-left w-full justify-between pb-2">
                         <span class="flex-1">
                             <span class="w-full text-2xl block md:flex text-yellow-ao20">{{ knuckles.Data.NAME }}</span>
-                            <span class="block md:flex text-gray-600">{{ knuckles.Data.NAME }}</span>
+                            <span class="block md:flex text-gray-600">{{ knuckles.Data.TEXTO }}</span>
                         </span>
                         <span v-if="knuckles.Data.VALOR" class="text-xl" title="Valor en oro"><span class="color-icon color-icon-sm color-icon-gold"></span>{{ knuckles.Data.VALOR }}</span>
                     </div>
@@ -146,7 +146,7 @@
     <section v-else class="text-center">
       <p class="text-2xl">Cargando Nudillos para Artes Marciales</p>
     </section>
-    
+
   </div>
 </template>
 
