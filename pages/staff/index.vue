@@ -56,19 +56,9 @@
         </p>
         <h3>Game Masters</h3>
         <p>
-            Miguel Phinder «Baliam»<br>
-            Nicolás «Arandor»<br>
-            Ricardo Campos «Vox»<br>
-            Ramiro Braga «Chicken»<br>
-            Edgardo Hernan Martínez «Nakrull»<br>
-            Lorena Diaz Gomez «Lorenita»
         </p>
         <h3>Moderación de Comunidad</h3>
         <p>
-            «Chicken»<br>
-            «Neoranger»<br>
-            «Nakrull»<br>
-            «Vox»
         </p>
         <h3>Wiki</h3>
         <p>
