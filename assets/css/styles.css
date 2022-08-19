@@ -65,6 +65,7 @@
         .color-icon-herrero { background-image: url('@/assets/img/wiki/ico-color-skillherrero.png'); }
         .color-icon-mindef { background-image: url('@/assets/img/wiki/ico-color-mindef.png'); }
         .color-icon-maxdef { background-image: url('@/assets/img/wiki/ico-color-maxdef.png'); }
+        .color-icon-def { background-image: url('@/assets/img/wiki/ico-color-def.png'); }
         .color-icon-minlvl { background-image: url('@/assets/img/wiki/ico-color-minlvl.png'); }
         .color-icon-resistenciamagica { background-image: url('@/assets/img/wiki/ico-color-resistenciamagica.png'); }
         .color-icon-skills { background-image: url('@/assets/img/wiki/ico-color-skills.png'); }
@@ -75,9 +76,14 @@
         .color-icon-notransferible { background-image: url('@/assets/img/wiki/ico-color-notransferible.png'); }
         .color-icon-nosecae { background-image: url('@/assets/img/wiki/ico-color-nosecae.png'); }
         .color-icon-secae { background-image: url('@/assets/img/wiki/ico-color-secae.png'); }
+        .color-icon-minhp { background-image: url('@/assets/img/wiki/ico-color-minhp.png'); }
+        .color-icon-maxhp { background-image: url('@/assets/img/wiki/ico-color-maxhp.png'); }
+        .color-icon-hp { background-image: url('@/assets/img/wiki/ico-color-hp.png'); }
         .color-icon-subehp { background-image: url('@/assets/img/wiki/ico-color-subehp.png'); }
         .color-icon-skillsmagia { background-image: url('@/assets/img/wiki/ico-color-skillsmagia.png'); }
         .color-icon-mana { background-image: url('@/assets/img/wiki/ico-color-mana.png'); }
         .color-icon-stamina { background-image: url('@/assets/img/wiki/ico-color-stamina.png'); }
         .color-icon-vara { background-image: url('@/assets/img/wiki/ico-color-vara.png'); }
         .color-icon-duraefecto { background-image: url('@/assets/img/wiki/ico-color-duraefecto.png'); }
+        .color-icon-exp-given { background-image: url('@/assets/img/wiki/ico-color-exp-given.png'); }
+        .color-icon-exp-given-clan { background-image: url('@/assets/img/wiki/ico-color-exp-given-clan.png'); }
