@@ -3,7 +3,7 @@
       <br>
       <br>
       <h2 class="section-title text-center mb-4 uppercase">NPCs</h2>
-      <div class="text-center">
+      <div class="text-center mb-4">
           <h3>Cálculo para domar:</h3>
           <span>PuntosDomar = Carisma * Domar</span><br>
           <span>Si es Druida: PuntosDomar = PuntosDomar / 6</span><br>
@@ -82,7 +82,17 @@
 
 
     <section v-else class="text-center mt-24">
-      <p class="text-2xl">Cargando NPCs.</p>
+        <div id="circularG">
+        	<div id="circularG_1" class="circularG"></div>
+        	<div id="circularG_2" class="circularG"></div>
+        	<div id="circularG_3" class="circularG"></div>
+        	<div id="circularG_4" class="circularG"></div>
+        	<div id="circularG_5" class="circularG"></div>
+        	<div id="circularG_6" class="circularG"></div>
+        	<div id="circularG_7" class="circularG"></div>
+        	<div id="circularG_8" class="circularG"></div>
+        </div>
+        <p class="text-2xl">Cargando NPCs.</p>
     </section>
 
   </div>

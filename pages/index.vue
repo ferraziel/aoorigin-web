@@ -26,7 +26,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 md:text-lg">
         <article class="flex flex-col gap-y-6">
           <h3 class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest">
-            <img src="@/assets/img/patreon.png" alt="icono de Patreon" />
+            <img src="@/assets/img/patreon.png" alt="Patreon" />
             Patreon
           </h3>
           <p>
