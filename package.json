@@ -21,7 +21,7 @@
     "@nuxtjs/recaptcha": "^1.1.1",
     "@nuxtjs/sitemap": "^2.4.0",
     "fast-xml-parser": "^4.0.9",
-    "jquery": "^3.6.0",
+    "jquery": "^3.6.1",
     "nuxt": "^2.15.8",
     "nuxt-matomo": "^1.2.4",
     "vuelidate": "^0.7.7",
