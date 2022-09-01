@@ -40,8 +40,8 @@
         box-shadow: -5px 0px 0px 0px #ca7f31;
     }
 
-    /* Custom AO20 Icons
-    –––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* Custom AO20 Icons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
         .color-icon {
             display: inline-block;
             background-size: contain;
@@ -65,6 +65,7 @@
         .color-icon-herrero { background-image: url('@/assets/img/wiki/ico-color-skillherrero.png'); }
         .color-icon-mindef { background-image: url('@/assets/img/wiki/ico-color-mindef.png'); }
         .color-icon-maxdef { background-image: url('@/assets/img/wiki/ico-color-maxdef.png'); }
+        .color-icon-def { background-image: url('@/assets/img/wiki/ico-color-def.png'); }
         .color-icon-minlvl { background-image: url('@/assets/img/wiki/ico-color-minlvl.png'); }
         .color-icon-resistenciamagica { background-image: url('@/assets/img/wiki/ico-color-resistenciamagica.png'); }
         .color-icon-skills { background-image: url('@/assets/img/wiki/ico-color-skills.png'); }
@@ -75,9 +76,188 @@
         .color-icon-notransferible { background-image: url('@/assets/img/wiki/ico-color-notransferible.png'); }
         .color-icon-nosecae { background-image: url('@/assets/img/wiki/ico-color-nosecae.png'); }
         .color-icon-secae { background-image: url('@/assets/img/wiki/ico-color-secae.png'); }
+        .color-icon-minhp { background-image: url('@/assets/img/wiki/ico-color-minhp.png'); }
+        .color-icon-maxhp { background-image: url('@/assets/img/wiki/ico-color-maxhp.png'); }
+        .color-icon-hp { background-image: url('@/assets/img/wiki/ico-color-hp.png'); }
         .color-icon-subehp { background-image: url('@/assets/img/wiki/ico-color-subehp.png'); }
         .color-icon-skillsmagia { background-image: url('@/assets/img/wiki/ico-color-skillsmagia.png'); }
         .color-icon-mana { background-image: url('@/assets/img/wiki/ico-color-mana.png'); }
         .color-icon-stamina { background-image: url('@/assets/img/wiki/ico-color-stamina.png'); }
         .color-icon-vara { background-image: url('@/assets/img/wiki/ico-color-vara.png'); }
         .color-icon-duraefecto { background-image: url('@/assets/img/wiki/ico-color-duraefecto.png'); }
+        .color-icon-exp-given { background-image: url('@/assets/img/wiki/ico-color-exp-given.png'); }
+        .color-icon-exp-given-clan { background-image: url('@/assets/img/wiki/ico-color-exp-given-clan.png'); }
+
+/* Loading Spinner
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+        #circularG{
+            position:relative;
+            width:45px;
+            height:45px;
+            margin: auto;
+        }
+
+        .circularG{
+            position:absolute;
+            background-color:rgb(230,186,25);
+            width:10px;
+            height:10px;
+            border-radius:7px;
+            -o-border-radius:7px;
+            -ms-border-radius:7px;
+            -webkit-border-radius:7px;
+            -moz-border-radius:7px;
+            animation-name:bounce_circularG;
+            -o-animation-name:bounce_circularG;
+            -ms-animation-name:bounce_circularG;
+            -webkit-animation-name:bounce_circularG;
+            -moz-animation-name:bounce_circularG;
+            animation-duration:0.818s;
+            -o-animation-duration:0.818s;
+            -ms-animation-duration:0.818s;
+            -webkit-animation-duration:0.818s;
+            -moz-animation-duration:0.818s;
+            animation-iteration-count:infinite;
+            -o-animation-iteration-count:infinite;
+            -ms-animation-iteration-count:infinite;
+            -webkit-animation-iteration-count:infinite;
+            -moz-animation-iteration-count:infinite;
+            animation-direction:normal;
+            -o-animation-direction:normal;
+            -ms-animation-direction:normal;
+            -webkit-animation-direction:normal;
+            -moz-animation-direction:normal;
+        }
+
+        #circularG_1{
+            left:0;
+            top:18px;
+            animation-delay:0.308s;
+            -o-animation-delay:0.308s;
+            -ms-animation-delay:0.308s;
+            -webkit-animation-delay:0.308s;
+            -moz-animation-delay:0.308s;
+        }
+
+        #circularG_2{
+            left:4px;
+            top:4px;
+            animation-delay:0.404s;
+            -o-animation-delay:0.404s;
+            -ms-animation-delay:0.404s;
+            -webkit-animation-delay:0.404s;
+            -moz-animation-delay:0.404s;
+        }
+
+        #circularG_3{
+            top:0;
+            left:18px;
+            animation-delay:0.51s;
+            -o-animation-delay:0.51s;
+            -ms-animation-delay:0.51s;
+            -webkit-animation-delay:0.51s;
+            -moz-animation-delay:0.51s;
+        }
+
+        #circularG_4{
+            right:4px;
+            top:4px;
+            animation-delay:0.616s;
+            -o-animation-delay:0.616s;
+            -ms-animation-delay:0.616s;
+            -webkit-animation-delay:0.616s;
+            -moz-animation-delay:0.616s;
+        }
+
+        #circularG_5{
+            right:0;
+            top:18px;
+            animation-delay:0.712s;
+            -o-animation-delay:0.712s;
+            -ms-animation-delay:0.712s;
+            -webkit-animation-delay:0.712s;
+            -moz-animation-delay:0.712s;
+        }
+
+        #circularG_6{
+            right:4px;
+            bottom:4px;
+            animation-delay:0.818s;
+            -o-animation-delay:0.818s;
+            -ms-animation-delay:0.818s;
+            -webkit-animation-delay:0.818s;
+            -moz-animation-delay:0.818s;
+        }
+
+        #circularG_7{
+            left:18px;
+            bottom:0;
+            animation-delay:0.914s;
+            -o-animation-delay:0.914s;
+            -ms-animation-delay:0.914s;
+            -webkit-animation-delay:0.914s;
+            -moz-animation-delay:0.914s;
+        }
+
+        #circularG_8{
+            left:4px;
+            bottom:4px;
+            animation-delay:1.02s;
+            -o-animation-delay:1.02s;
+            -ms-animation-delay:1.02s;
+            -webkit-animation-delay:1.02s;
+            -moz-animation-delay:1.02s;
+        }
+
+
+
+        @keyframes bounce_circularG{
+        0%{
+        transform:scale(1);
+        }
+
+        100%{
+        transform:scale(.3);
+        }
+        }
+
+        @-o-keyframes bounce_circularG{
+        0%{
+        -o-transform:scale(1);
+        }
+
+        100%{
+        -o-transform:scale(.3);
+        }
+        }
+
+        @-ms-keyframes bounce_circularG{
+        0%{
+        -ms-transform:scale(1);
+        }
+
+        100%{
+        -ms-transform:scale(.3);
+        }
+        }
+
+        @-webkit-keyframes bounce_circularG{
+        0%{
+        -webkit-transform:scale(1);
+        }
+
+        100%{
+        -webkit-transform:scale(.3);
+        }
+        }
+
+        @-moz-keyframes bounce_circularG{
+        0%{
+        -moz-transform:scale(1);
+        }
+
+        100%{
+        -moz-transform:scale(.3);
+        }
+        }
