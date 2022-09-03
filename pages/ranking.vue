@@ -64,7 +64,7 @@
     </div>
 
     <div class="xl:col-span-10 text-xs overflow-x-auto">
-      <h1>El ranking se actualiza todos los dias a las 4am horario Argentina.</h1>
+      <h6>Se actualiza cada 1 hs con la informacion mas reciente del mundo.</h6>
       <LoadingSpinner v-if="isFetching" />
       <table v-else-if="ranking.length" class="text-gray-400">
         <thead>
