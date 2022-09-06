@@ -94,6 +94,9 @@ export default {
       if (confirm("Estas seguro que quieres retirar de la venta a tu personaje?")) {
         user.is_published = 0;
 
+        this.removeUserFromMaoStatus = "PENDING";
+        this.removeUserFromMaoMessage = "Enviando peticion al servidor, por favor espere.";
+
         this.$axios
           .$get(`/users/removeUserFromMao/${user.id}`)
           .then((data) => {
