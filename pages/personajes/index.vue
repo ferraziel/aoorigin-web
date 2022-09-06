@@ -4,6 +4,8 @@
 
     <div class="text-center mb-12">
       <h1 class="section-title">Lista de personajes!</h1>
+      <MessageBox :status="removeUserFromMaoStatus" :message="removeUserFromMaoMessage" />
+
       <ul
         v-if="users.length"
         class="max-w-screen-md mx-auto bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-6"
@@ -31,8 +33,6 @@
             </button>
 
           </div>
-          <MessageBox :status="removeUserFromMaoStatus" :message="removeUserFromMaoMessage" />
-
           <!-- <h2 v-if="user.eth_wallet_id">WalletId: {{ user.eth_wallet_id }}</h2> -->
           <hr />
           <br />
@@ -105,6 +105,8 @@ export default {
             this.removeUserFromMaoStatus = "ERROR";
             this.removeUserFromMaoMessage = error.response.data.message;
           });
+
+          window.scrollTo(0, 0)
       }
     },
 }
