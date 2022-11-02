@@ -110,7 +110,7 @@
             <td :title="`Experiencia: ${character.exp} / ${character.exp_next_level}`" class="text-right">
               <div class="flex items-center">
                 <span class="mr-1">{{ character.level }}</span>
-                <span class="text-sm text-right"> ({{ (character.exp_percentage * 100).toFixed(2) }}%) </span>
+                <span class="text-sm text-right"> ({{ character.exp_percentage }}%) </span>
               </div>
             </td>
             <td>{{ character.class_name }}</td>
