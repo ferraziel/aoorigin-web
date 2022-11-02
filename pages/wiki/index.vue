@@ -30,12 +30,6 @@
           <div><NuxtLink to="/wiki/items-patreon" class="btn-wiki-cat btn bg-brown-texture btn-silver">Items Patreon</NuxtLink></div>
       </div>
       <!-- /Items container -->
-      <div class="text-center">
-          <p class="mb-4">¿Necesitás más ayuda?</p>
-          <div><a href="https://www.ao20helper.com.ar/" class="bg-brown-texture btn btn-silver text-yellow-ao20 truncate px-8 text-sm text-center normal-case" target="_blank">AO20 Helper</a></div>
-      </div>
-
-          <!-- <li class="bg-yellow-500"><a href="https://wiki.ao20.com.ar/index.php?title=P%C3%A1gina_principal" target="_blank">Wiki Vieja (Desactualizada)</a></li> -->
 
     </section>
 
