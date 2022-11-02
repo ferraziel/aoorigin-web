@@ -30,7 +30,8 @@
             Patreon
           </h3>
           <p>
-            Convertite en un Patron para obtener beneficios exclusivos in-game y acceso a canales privados de Discord
+            Convertite en un Patron para obtener beneficios exclusivos in-game y acceso a canales privados de Discord.
+            <a href="https://www.patreon.com/posts/guia-beneficios-63817246" target="_blank">Beneficios patreons</a>
           </p>
           <div class="hidden md:flex flex-grow"></div>
           <a
@@ -38,12 +39,9 @@
             target="_blank"
             rel="noopener"
             class="btn btn-silver self-start text-base"
-            >Convertite en Patron</a
-          >
+            >Convertite en Patron
+          </a>
         </article>
-
-
-
 
         <article class="flex flex-col gap-y-6">
           <h3 class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest">
