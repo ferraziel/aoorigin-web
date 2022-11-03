@@ -29,14 +29,8 @@ export default {
         initialView: 'dayGridMonth',
         nowIndicator: true,
         editable: true,
-        dateClick: this.handleDateClick,
         initialEvents: calendario.eventos
       }
-    }
-  },
-  methods: {
-    handleDateClick: function(arg) {
-      alert('date click! ' + arg.dateStr)
     }
   }
 }
