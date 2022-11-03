@@ -1,28 +1,51 @@
 {
   "events": [
     {
-      "title": "Torneo 1 vs 1",
-      "start": "2022-11-11T12:30:00"
+      "title": "Captura de Bandera",
+      "start": "2022-11-03T13:00:00"
     },
     {
-      "title": "Torneo 1 vs 1",
-      "start": "2022-11-20T15:30:00"
+      "title": "Captura de Bandera",
+      "start": "2022-11-03T19:00:00"
     },
     {
-      "title": "Torneo 1 vs 1",
-      "start": "2022-11-16T15:30:00"
+      "title": "Captura de Bandera",
+      "start": "2022-11-03T23:00:00"
     },
     {
-      "title": "Torneo 2 vs 2",
-      "start": "2022-11-15T14:30:00"
+      "title": "Captura de Bandera",
+      "start": "2022-11-10T13:00:00"
     },
     {
-      "title": "Torneo 1 vs 1",
-      "start": "2022-11-16T15:30:00"
+      "title": "Captura de Bandera",
+      "start": "2022-11-10T19:00:00"
     },
     {
-      "title": "Garrote",
-      "start": "2022-11-05T15:30:00"
-    }
+      "title": "Captura de Bandera",
+      "start": "2022-11-10T23:00:00"
+    },
+    {
+      "title": "Captura de Bandera",
+      "start": "2022-11-17T13:00:00"
+    },
+    {
+      "title": "Captura de Bandera",
+      "start": "2022-11-17T19:00:00"
+    },
+    {
+      "title": "Captura de Bandera",
+      "start": "2022-11-17T23:00:00"
+    },
+      "title": "Captura de Bandera",
+      "start": "2022-11-24T13:00:00"
+    },
+    {
+      "title": "Captura de Bandera",
+      "start": "2022-11-24T19:00:00"
+    },
+    {
+      "title": "Captura de Bandera",
+      "start": "2022-11-24T23:00:00"
+    },
   ]
 }
