@@ -135,6 +135,10 @@ export default {
         {
           label: "Manual",
           route: "/wiki",
+        },
+        {
+          label: "Calendario Eventos",
+          route: "/calendario",
         }
       ],
     };
