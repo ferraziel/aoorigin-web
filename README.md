@@ -8,3 +8,13 @@ Esta aplicación utiliza el framework basado en Vue.js llamado [Nuxt.js](https:/
 Ambiente de testeo: https://staging.ao20.com.ar
 
 Ambiente de producción: https://ao20.com.ar
+
+
+# Requisitos
+`Node JS v16`
+
+# Como se usa?
+```
+npm install
+npm run dev
+```
