@@ -1,6 +1,8 @@
 
 <template>
   <div class='app'>
+    <br>
+    <br>
     <FullCalendar :options='calendarOptions' />
   </div>
 </template>
