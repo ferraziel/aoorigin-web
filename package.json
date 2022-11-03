@@ -20,12 +20,16 @@
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/recaptcha": "^1.1.1",
     "@nuxtjs/sitemap": "^2.4.0",
+    "@fullcalendar/interaction": "^5.8.0",
+    "@fullcalendar/timegrid": "^5.8.0",
+    "@fullcalendar/vue": "^5.8.0",
     "fast-xml-parser": "^4.0.11",
     "jquery": "^3.6.1",
     "nuxt": "^2.15.8",
     "nuxt-matomo": "^1.2.4",
     "vuelidate": "^0.7.7",
-    "web3": "^1.7.5"
+    "web3": "^1.7.5",
+    "pnp-webpack-plugin": "^1.6.4"
   },
   "devDependencies": {
     "@nuxtjs/google-analytics": "^2.4.0",

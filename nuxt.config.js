@@ -1,5 +1,7 @@
-const description =
-  "MMORPG 2D gratuito de fantasía medieval, hecho en Argentina. ¡Celebramos 20 años! Creá un personaje, subí de nivel, combatí, trabajá, ¡y viví aventuras únicas con tus amigos!";
+// No Borrar, This is for the fullcalendar.io
+import PnpWebpackPlugin from "pnp-webpack-plugin";
+
+const description = "MMORPG 2D gratuito de fantasía medieval, hecho en Argentina. ¡Celebramos 20 años! Creá un personaje, subí de nivel, combatí, trabajá, ¡y viví aventuras únicas con tus amigos!";
 
 export default {
   target: "server",
@@ -47,8 +49,7 @@ export default {
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
         rel: "stylesheet",
-        href:
-          "https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Livvic:ital,wght@0,400;0,600;1,400&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Livvic:ital,wght@0,400;0,600;1,400&display=swap",
       },
       {
         rel: "stylesheet",
@@ -181,5 +182,14 @@ export default {
   //   gzip: true,
   //   routes: createSitemapRoutes,
   // },
-  build: {},
+  // This is for the fullcalendar.io
+  build: {
+    transpile: /@fullcalendar.*/, // always needed
+
+    // this `extend` callback is only needed if using Yarn Plug-n-Play
+    extend(config) {
+      config.resolve.plugins.push(PnpWebpackPlugin);
+      config.resolveLoader.plugins.push(PnpWebpackPlugin.moduleLoader(module));
+    }
+  }
 };
