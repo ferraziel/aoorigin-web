@@ -27,7 +27,6 @@ export default {
         plugins: [interactionPlugin, timeGridPlugin, dayGridPlugin],
         initialView: 'dayGridMonth',
         nowIndicator: true,
-        editable: true,
         initialEvents: calendario.events
       }
     }
