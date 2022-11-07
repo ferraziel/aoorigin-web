@@ -107,10 +107,6 @@ export default {
           route: "/#juga-gratis",
         },
         {
-           label: "Galería",
-           route: "/galeria",
-         },
-        {
           label: "Staff",
           route: "/staff",
         },
