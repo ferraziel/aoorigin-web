@@ -5,6 +5,9 @@ const description = "MMORPG 2D gratuito de fantasía medieval, hecho en Argentin
 
 export default {
   target: "server",
+  server: {
+    host: '0.0.0.0'
+  },
   head: {
     titleTemplate: (titleChunk) => {
       return titleChunk
