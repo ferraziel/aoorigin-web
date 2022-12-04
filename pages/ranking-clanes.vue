@@ -61,7 +61,7 @@ export default {
     };
   },
   async fetch() {
-    this.rankingGuilds = await this.$axios.$get("https://api-staging.ao20.com.ar:11812/guilds/getAll");
+    this.rankingGuilds = await this.$axios.$get("/guilds/getAll");
   },
   head() {
     return {

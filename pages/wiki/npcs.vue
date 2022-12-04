@@ -108,7 +108,6 @@ export default {
   },
   async fetch() {
     this.npcs = await this.$axios.$get("/dats/getAllHostileNpcs");
-    // this.npcs = await this.$axios.$get("https://localhost:5101/dats/getAllHostileNpcs");
   },
   head() {
     return {
