@@ -49,7 +49,7 @@
               <NuxtLink :to="link.route" class="inline-block py-2 hover:text-yellow-400">{{ link.label }}</NuxtLink>
           </li>
           <li>
-            <a href="https://estadisticas.ao20.com.ar/produccion/" class="inline-block py-2 hover:text-yellow-400">Estadisticas</a>
+            <a href="http://estadisticas.ao20.com.ar/produccion/" class="inline-block py-2 hover:text-yellow-400">Estadisticas</a>
           </li>
       </ul>
       </div>
@@ -78,7 +78,7 @@
           </li>
 
           <li>
-            <a href="https://estadisticas.ao20.com.ar/produccion/" class="mobile-nav-link" >Estadisticas</a>
+            <a href="http://estadisticas.ao20.com.ar/produccion/" class="mobile-nav-link" >Estadisticas</a>
           </li>
 
         </ul>
