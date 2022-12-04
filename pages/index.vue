@@ -14,7 +14,7 @@
 
       <div class="bg-black opacity-50 absolute top-0 left-0 w-full h-full object-cover z-10"></div>
 
-      <img :src="homePage.data.banner_image.url" alt="" class="w-full h-full absolute top-0 left-0 object-cover bg-transparent" />
+      <img src="@/assets/img/home-banner.jpg" alt="" class="w-full h-full absolute top-0 left-0 object-cover bg-transparent" />
 
     </header>
 
@@ -284,13 +284,6 @@
 import $ from "jquery";
 
 export default {
-  async asyncData({ $prismic }) {
-    const homePage = await $prismic.api.getSingle("inicio");
-
-    return {
-      homePage,
-    };
-  },
   data() {
     return {
       validatedMail: false,
@@ -311,11 +304,6 @@ export default {
         this.validatedMail = false;
       }, 6000);
     }
-  },
-  methods: {
-    link(prismicObject) {
-      return this.$prismic.asLink(prismicObject);
-    },
   },
   head() {
     return {

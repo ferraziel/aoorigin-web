@@ -5,6 +5,9 @@ const description = "MMORPG 2D gratuito de fantasía medieval, hecho en Argentin
 
 export default {
   target: "server",
+  server: {
+    host: '0.0.0.0'
+  },
   head: {
     titleTemplate: (titleChunk) => {
       return titleChunk
@@ -99,15 +102,9 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     "@nuxtjs/tailwindcss",
-    "@nuxtjs/prismic",
     "@nuxtjs/google-fonts",
     '@nuxtjs/dotenv'
   ],
-  prismic: {
-    endpoint: "https://ao20.cdn.prismic.io/api/v2",
-    /* see configuration for more */
-  },
-
   googleFonts: {
     families: {
       "Alegreya+Sans": [400, 700],
