@@ -8,7 +8,11 @@
       <ul>
         <li><NuxtLink to="personajes">Mis Personajes</NuxtLink></li>
         <!-- <li><NuxtLink to="recuperar">Cambiar contraseña</NuxtLink></li> -->
-        <li v-if="!this.$auth.user.mercado_pago"><a href="https://auth.mercadopago.com.ar/authorization?client_id=6962025294834257&response_type=code&platform_id=mp&redirect_uri=https://mercado.ao20.com.ar/mercadopago/callback">Enlazar MercadoPago (solo disponible en Argentina)</a></li>
+        <li v-if="!this.$auth.user.mercado_pago">
+          <a :href=mercadoPagoRedirectUri>
+            Enlazar MercadoPago (solo disponible en Argentina)
+          </a>
+        </li>
         <li v-else @click="disableMercadoPago">Desenlazar MercadoPago</li>
         <li @click="logout">Cerrar sesión</li>
       </ul>
@@ -20,6 +24,12 @@
 <script>
 export default  {
   middleware: "auth",
+  data(){
+    return {
+      mercadoPagoRedirectUri: `https://auth.mercadopago.com.ar/authorization?client_id=${process.env.MERCADOPAGO_CLIENT_ID}&response_type=code&platform_id=mp&redirect_uri=${window.location.origin}/mercadopago/callback`
+    }
+  },
+
   methods: {
     async logout() {
       await this.$auth.logout();
