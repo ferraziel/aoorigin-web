@@ -24,7 +24,7 @@
 <script>
 export default  {
   middleware: "auth",
-  data(){
+  async asyncData() {
     console.log(666, process.env.MERCADOPAGO_CLIENT_ID )
     return {
       mercadoPagoRedirectUri: "https://auth.mercadopago.com.ar/authorization?client_id=" + process.env.MERCADOPAGO_CLIENT_ID + "&response_type=code&platform_id=mp&redirect_uri=" + location.origin + "/mercadopago/callback"
