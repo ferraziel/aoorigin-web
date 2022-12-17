@@ -1,6 +1,13 @@
 <template>
-  <div>Seteando token de mercadopago
-    <span>{{ errorDisplay }}</span>
+  <div class="container">
+    <br>
+    <br>
+    <br>
+
+    <h1>Mercado Pago Token Callback</h1>
+    <div>
+      <span>{{ errorDisplay }}</span>
+    </div>
   </div>
 </template>
 
@@ -8,8 +15,7 @@
 export default {
 
   async asyncData({ route, redirect, $axios }) {
-    let errorDisplay = "";
-    console.log(666, route.query.code);
+    let errorDisplay = "Luchando por el token....";
     try {
       await $axios.get(`mercadopago/callback?code=${route.query.code}`);
       return redirect("/cuenta");
