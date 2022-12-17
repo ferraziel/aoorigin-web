@@ -21,7 +21,7 @@ export default {
       return redirect("/cuenta");
     } catch (error) {
       console.error(error, route.query.code);
-      errorDisplay = error.message
+      errorDisplay = error.message + " -- " + err.response.data.message
     }
 
     return {
