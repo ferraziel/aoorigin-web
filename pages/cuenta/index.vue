@@ -26,21 +26,28 @@ export default  {
   middleware: "auth",
   data(){
     return {
-      mercadoPagoRedirectUri: `https://auth.mercadopago.com.ar/authorization?client_id=${process.env.MERCADOPAGO_CLIENT_ID}&response_type=code&platform_id=mp&redirect_uri=${location.origin}/mercadopago/callback`
+      mercadoPagoRedirectUri: "",
     }
+  },
+
+  mounted() {
+    this.mercadoPagoRedirectUri = `https://auth.mercadopago.com.ar/authorization?client_id=${process.env.MERCADOPAGO_CLIENT_ID}&response_type=code&platform_id=mp&redirect_uri=${location.origin}/mercadopago/callback`
   },
 
   methods: {
     async logout() {
       await this.$auth.logout();
-      window.history.go(-1)
-      // window.location.href = "/";
+      this.$router.go(0);
     },
 
     async disableMercadoPago() {
-      this.$axios.$get(`mercadopago/disable`).then(data => {
-        location.reload();
+      this.$axios.$get(`mercadopago/disable`)
+      .then(data => {
+        this.$router.go(0);
       })
+      .error(err => {
+        console.error("disableMercadoPago", err);
+      });
     },
   },
 };

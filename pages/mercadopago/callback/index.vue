@@ -20,7 +20,7 @@ export default {
       await $axios.get(`mercadopago/callback?code=${route.query.code}`);
       return redirect("/cuenta");
     } catch (error) {
-      console.log(error, route.query.code);
+      console.error(error, route.query.code);
       errorDisplay = error.message
     }
 
