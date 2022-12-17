@@ -172,7 +172,8 @@ export default {
     OPENSEA_IFRAME_URL: process.env.OPENSEA_IFRAME_URL,
     TOKEN_AOLB_CONTRACT_ADDRESS: process.env.TOKEN_AOLB_CONTRACT_ADDRESS,
     PAYMENT_ADDRESS: process.env.PAYMENT_ADDRESS,
-    MERCADOPAGO_PUBLIC_KEY: process.env.MERCADOPAGO_PUBLIC_KEY
+    MERCADOPAGO_PUBLIC_KEY: process.env.MERCADOPAGO_PUBLIC_KEY,
+    MERCADOPAGO_CLIENT_ID: process.env.MERCADOPAGO_CLIENT_ID
   },
   // sitemap: {
   //   hostname: "https://ao20.com.ar",
