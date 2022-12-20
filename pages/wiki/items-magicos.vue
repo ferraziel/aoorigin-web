@@ -23,7 +23,7 @@
           <tbody>
             <tr v-for="itemMagico in itemMagicos" :key="itemMagico.item_id">
               <td class="text-right">{{ itemMagico.item_id }}</td>
-              <td><img width="300px" :src="itemMagico.Data.canvasImage" /></td>
+              <td><img width="64px" :src="itemMagico.Data.canvasImage" /></td>
               <td class="text-right">{{ itemMagico.Data.NAME }}</td>
               <td class="text-right">{{ itemMagico.Data.TEXTO }}</td>
               <td class="text-right">{{ itemMagico.Data.MINELV }}</td>
@@ -70,8 +70,5 @@ option[value=""][disabled] {
   display: none;
 }
 
-td {
-  @apply bg-gray-900 p-4 border border-gray-200;
-}
 
 </style>

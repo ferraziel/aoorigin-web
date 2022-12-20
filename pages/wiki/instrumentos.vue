@@ -19,7 +19,7 @@
           <tbody>
             <tr v-for="instrumento in instrumentos" :key="instrumento.item_id">
               <td class="text-right">{{ instrumento.item_id }}</td>
-              <td><img width="300px" :src="instrumento.Data.canvasImage" /></td>
+              <td><img width="64px" :src="instrumento.Data.canvasImage" /></td>
               <td class="text-right">{{ instrumento.Data.NAME }}</td>
               <td class="text-right">{{ instrumento.Data.DURACIONEFECTO }}</td>
             </tr>
@@ -52,7 +52,7 @@
           <tbody>
             <tr v-for="instrumentosMagico in instrumentosMagicos" :key="instrumentosMagico.item_id">
               <td class="text-right">{{ instrumentosMagico.item_id }}</td>
-              <td><img width="300px" :src="instrumentosMagico.Data.canvasImage" /></td>
+              <td><img width="64px" :src="instrumentosMagico.Data.canvasImage" /></td>
               <td class="text-right">{{ instrumentosMagico.Data.NAME }}</td>
               <td class="text-right"><span v-if="instrumentosMagico.Data.NOSECAE">Sí</span><span v-else>No</span></td>
               <td class="text-right"><span v-if="instrumentosMagico.Data.INTIRABLE">Sí</span><span v-else>No</span></td>
@@ -97,10 +97,6 @@ select:required:invalid {
 
 option[value=""][disabled] {
   display: none;
-}
-
-td {
-  @apply bg-gray-900 p-4 border border-gray-200;
 }
 
 </style>

@@ -29,7 +29,7 @@
           <tbody>
             <tr v-for="embarcacion in embarcaciones" :key="embarcacion.item_id">
               <td class="text-right">{{ embarcacion.item_id }}</td>
-              <td><img width="300px" :src="embarcacion.Data.canvasImage" /></td>
+              <td><img width="64px" :src="embarcacion.Data.canvasImage" /></td>
               <td class="text-right">{{ embarcacion.Data.NAME }}</td>
               <td class="text-right">{{ embarcacion.Data.MINELV }}</td>
               <td class="text-right">{{ embarcacion.Data.SKILLREQUERIDO }}</td>
@@ -80,10 +80,6 @@ select:required:invalid {
 
 option[value=""][disabled] {
   display: none;
-}
-
-td {
-  @apply bg-gray-900 p-4 border border-gray-200;
 }
 
 </style>

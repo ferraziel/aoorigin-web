@@ -25,7 +25,7 @@
           <tbody>
             <tr v-for="potion in potions" :key="potion.item_id">
               <td class="text-right">{{ potion.item_id }}</td>
-              <td><img width="300px" :src="potion.Data.canvasImage" /></td>
+              <td><img width="64px" :src="potion.Data.canvasImage" /></td>
               <td class="text-right">{{ potion.Data.NAME }}</td>
               <td class="text-right">{{potion.Data.TEXTO}}</td>
               <td class="text-right">{{ potion.Data.MINMODIFICADOR }}</td>
@@ -73,10 +73,6 @@ select:required:invalid {
 
 option[value=""][disabled] {
   display: none;
-}
-
-td {
-  @apply bg-gray-900 p-4 border border-gray-200;
 }
 
 </style>

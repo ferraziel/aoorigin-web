@@ -21,7 +21,7 @@
           <tbody>
             <tr v-for="food in foods" :key="food.item_id">
               <td class="text-right">{{ food.item_id }}</td>
-              <td><img width="300px" :src="food.Data.canvasImage" /></td>
+              <td><img width="64px" :src="food.Data.canvasImage" /></td>
               <td class="text-right">{{ food.Data.NAME }}</td>
               <td class="text-right">{{ food.Data.TEXTO }}</td>
               <td class="text-right">{{ food.Data.VALOR }}</td>
@@ -53,7 +53,7 @@
           <tbody>
             <tr v-for="drink in drinks" :key="drink.item_id">
               <td class="text-right">{{ drink.item_id }}</td>
-              <td><img width="300px" :src="drink.Data.canvasImage" /></td>
+              <td><img width="64px" :src="drink.Data.canvasImage" /></td>
               <td class="text-right">{{ drink.Data.NAME }}</td>
               <td class="text-right">{{ drink.Data.TEXTO }}</td>
               <td class="text-right">{{ drink.Data.VALOR }}</td>
@@ -100,10 +100,6 @@ select:required:invalid {
 
 option[value=""][disabled] {
   display: none;
-}
-
-td {
-  @apply bg-gray-900 p-4 border border-gray-200;
 }
 
 </style>

@@ -72,4 +72,144 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+  /* Add some spacing between each item in the grid */
+  .container .grid .gap-y-4 {
+    margin-bottom: 24px;
+  }
+
+  /* Style the NuxtLink components */
+  .container .grid .flex .NuxtLink {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Style the item images */
+  .container .grid .flex .border-2 {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .container .grid .flex .border-2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Style the item details */
+  .container .grid .flex ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container .grid .flex ul li {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  /* Style the price */
+  .container .grid .flex ul li[style*="color: green"] {
+    font-weight: bold;
+  }
+
+    .section-title {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 32px;
+    color: #8B4513;
+  }
+
+  h4 {
+    font-family: "Goudy Old Style", Garamond, serif;
+    font-size: 24px;
+    color: #8B4513;
+  }
+
+  h6 {
+    font-family: "Goudy Old Style", Garamond, serif;
+    font-size: 18px;
+    color: #8B4513;
+  }
+
+  ul {
+    list-style: none;
+    font-family: "Goudy Old Style", Garamond, serif;
+    color: #8B4513;
+  }
+
+  li {
+    font-size: 16px;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-center {
+    justify-content: center;
+  }
+
+  .gap-y-4 {
+    gap: 16px;
+  }
+
+  .border-2 {
+    border-width: 2px;
+  }
+
+  .border-gr {
+    border-color: #8B4513;
+  }
+
+  .border-gr-primary {
+    border-color: #D2691E;
+  }
+
+  .bg-gray-900 {
+    background-color: #2F4F4F;
+  }
+
+  .p-12 {
+    padding: 48px;
+  }
+
+  .text-m {
+    font-size: 24px;
+  }
+
+  .text-xs {
+    font-size: 12px;
+  }
+
+  .text-gr {
+    color: #8B4513;
+  }
+
+  .gr-gold {
+    color: #DAA520;
+  }
+
+</style>
