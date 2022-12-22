@@ -94,36 +94,69 @@ export default {
 
     async buyUser() {
       if (confirm("Estas seguro que quieres comprar este personaje?.")) {
+        this.isSubmited = true;
+        this.buyUserStatus = "PENDING";
+        this.buyUserMessage = "Generando una preferencia de pago de MercadoPago por favor aguarde.";
+
         try {
           this.$axios.$post(`/market/buyUserFromMao`, {
             characterId: this.user.id,
           })
-          .then((data) => {
+          .then((preferenceIdMercadoPago) => {
+            // Agrega credenciales de SDK
+            const mp = new MercadoPago(process.env.MERCADOPAGO_PUBLIC_KEY, {
+              locale: "es-AR",
+            });
+
+            // Inicializa el checkout
+            mp.checkout({
+              preference: {
+                id: preferenceIdMercadoPago,
+              },
+              render: {
+                container: ".cho-container", // Indica el nombre de la clase donde se mostrará el botón de pago
+                label: "Pagar con MercadoPago", // Cambia el texto del botón de pago (opcional)
+              },
+              autoOpen: true,
+              theme: {
+                  elementsColor: '#8da811',
+                  headerColor: '#402a87'
+              }
+            });
+
             this.buyUserStatus = "OK";
-            this.buyUserMessage = "Tu peticion para comprar el personaje llego con exito, espera a que el vendedor apruebe la transaccion.";
-            this.isSubmited = true;
+            this.buyUserMessage = "Se genero una preferencia de pago en MercadoPago, por favor haga el pago clickeando en el boton Pagar con MercadoPago.";
+
           })
           .catch((error) => {
+            console.error(error);
             this.buyUserStatus = "ERROR";
-            this.buyUserMessage = error.response.data.message;
+            this.buyUserMessage = error.message;
+            this.isSubmited = false;
           });
 
         } catch (error) {
           console.error(error);
           this.buyUserStatus = "ERROR";
-          this.buyUserMessage = error;
+          this.buyUserMessage = error.message;
+          this.isSubmited = false;
         }
 
       }
     },
 
   },
-
   head() {
     return {
-      title: this.user ? `${this.user.name} - Personaje` : "Personaje no encontrado",
+      title: this.user && this.user.name ? `${this.user.name} ` : "Personaje no encontrado",
+      script: [
+        {
+          src: "https://sdk.mercadopago.com/js/v2",
+          async: true,
+        },
+      ]
     };
-  },
+  }
 };
 </script>
 
