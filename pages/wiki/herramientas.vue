@@ -28,7 +28,7 @@
           <tbody>
             <tr v-for="tool in tools" :key="tool.item_id">
               <td class="text-right">{{ tool.item_id }}</td>
-              <td><img width="300px" :src="tool.Data.canvasImage" /></td>
+              <td><img width="64px" :src="tool.Data.canvasImage" /></td>
               <td class="text-right">{{ tool.Data.NAME }}</td>
               <td class="text-right">{{tool.Data.TEXTO}}</td>
               <td class="text-right">{{ tool.Data.VALOR }}</td>
@@ -65,7 +65,7 @@ export default {
   },
   head() {
     return {
-      title: "Wiki - Armas",
+      title: "Wiki - Herramientas",
     };
   },
 };
@@ -79,10 +79,6 @@ select:required:invalid {
 
 option[value=""][disabled] {
   display: none;
-}
-
-td {
-  @apply bg-gray-900 p-4 border border-gray-200;
 }
 
 </style>

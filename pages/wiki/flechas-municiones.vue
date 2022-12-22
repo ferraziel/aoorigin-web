@@ -30,7 +30,7 @@
           <tbody>
             <tr v-for="flecha in flechas" :key="flecha.item_id">
               <td class="text-right">{{ flecha.item_id }}</td>
-              <td><img width="300px" :src="flecha.Data.canvasImage" /></td>
+              <td><img width="64px" :src="flecha.Data.canvasImage" /></td>
               <td class="text-right">{{ flecha.Data.NAME }}</td>
               <td class="text-right">{{flecha.Data.TEXTO}}</td>
               <td class="text-right">{{ flecha.Data.MINHIT }}</td>
@@ -83,10 +83,6 @@ select:required:invalid {
 
 option[value=""][disabled] {
   display: none;
-}
-
-td {
-  @apply bg-gray-900 p-4 border border-gray-200;
 }
 
 </style>

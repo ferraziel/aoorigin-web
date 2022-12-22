@@ -499,13 +499,10 @@
 
 <script>
 export default {
-  data() {
+  async asyncData({ $axios }) {
     return {
-      balance: {},
+      balance: await $axios.$get(`dats/getBalance`),
     };
-  },
-  async fetch() {
-    this.balance = await this.$axios.$get("/dats/getBalance");
   },
   head() {
     return {
@@ -523,10 +520,6 @@ select:required:invalid {
 
 option[value=""][disabled] {
   display: none;
-}
-
-td {
-  @apply bg-gray-900 p-4 border border-gray-200;
 }
 
 </style>

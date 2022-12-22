@@ -26,7 +26,7 @@
           <tbody>
             <tr v-for="magicResistanceItem in magicResistanceItems" :key="magicResistanceItem.item_id">
               <td class="text-right">{{ magicResistanceItem.item_id }}</td>
-              <td><img width="300px" :src="magicResistanceItem.Data.canvasImage" /></td>
+              <td><img width="64px" :src="magicResistanceItem.Data.canvasImage" /></td>
               <td class="text-right">{{ magicResistanceItem.Data.NAME }}</td>
               <td class="text-right">{{ magicResistanceItem.Data.MINELV }}</td>
               <td class="text-right">{{ magicResistanceItem.Data.RESISTENCIAMAGICA }}</td>
@@ -74,10 +74,6 @@ select:required:invalid {
 
 option[value=""][disabled] {
   display: none;
-}
-
-td {
-  @apply bg-gray-900 p-4 border border-gray-200;
 }
 
 </style>

@@ -3,7 +3,7 @@
     <Nav />
 
     <div>
-      <Nuxt class="pt-24" />
+      <Nuxt class="pt-4" />
     </div>
 
     <Footer />

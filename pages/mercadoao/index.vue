@@ -72,4 +72,40 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+  /* Add some spacing between each item in the grid */
+  .container .grid .gap-y-4 {
+    margin-bottom: 24px;
+  }
+
+  /* Style the NuxtLink components */
+  .container .grid .flex .NuxtLink {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Style the item images */
+  .container .grid .flex .border-2 {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  /* Style the item details */
+  .container .grid .flex ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container .grid .flex ul li {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  /* Style the price */
+  .container .grid .flex ul li[style*="color: green"] {
+    font-weight: bold;
+  }
+
+</style>

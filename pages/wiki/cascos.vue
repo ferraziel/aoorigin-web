@@ -112,10 +112,6 @@ export default {
       display: none;
     }
 
-    td {
-      @apply bg-gray-900 p-4 border border-gray-200;
-    }
-
     .color-icon {
         @apply align-middle mr-2;
     }
