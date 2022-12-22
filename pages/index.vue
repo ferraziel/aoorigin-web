@@ -12,9 +12,9 @@
         </div>
       </div>
 
-      <div class="bg-black opacity-50 absolute top-0 left-0 w-full h-full object-cover z-10"></div>
+      <!-- <div class="bg-black opacity-50 absolute top-0 left-0 w-full h-full object-cover z-10"></div> -->
 
-      <img src="@/assets/img/home-banner.jpg" alt="" class="w-full h-full absolute top-0 left-0 object-cover bg-transparent" />
+      <!-- <img src="@/assets/img/home-banner.jpg" alt="" class="w-full h-full absolute top-0 left-0 object-cover bg-transparent" /> -->
 
     </header>
 

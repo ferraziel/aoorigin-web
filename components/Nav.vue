@@ -26,7 +26,7 @@
         </div>
 
         <button
-          @click="showMobileMenu = !showMobileMenu"
+          @click="this.toggleMenu"
           class="py-4 pl-4 lg:hidden focus:outline-none"
           style="z-index: 999"
         >
@@ -148,7 +148,11 @@ export default {
   },
   methods: {
     toggleMenu() {
+      if (!this.showMobileMenu) {
+        window.scrollTo(0, document.body.scrollHeight);
+      }
 
+      this.showMobileMenu = !this.showMobileMenu
     },
   },
 };
