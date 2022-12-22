@@ -499,13 +499,10 @@
 
 <script>
 export default {
-  data() {
+  async asyncData({ $axios }) {
     return {
-      balance: {},
+      balance: await $axios.$get(`dats/getBalance`),
     };
-  },
-  async fetch() {
-    this.balance = await this.$axios.$get("/dats/getBalance");
   },
   head() {
     return {

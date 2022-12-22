@@ -22,7 +22,7 @@
           <div><NuxtLink to="/wiki/instrumentos" class="btn-wiki-cat btn bg-brown-texture btn-silver">Instrumentos Musicales</NuxtLink></div>
           <div><NuxtLink to="/wiki/flechas-municiones" class="btn-wiki-cat btn bg-brown-texture btn-silver">Flechas y municiones</NuxtLink></div>
           <div><NuxtLink to="/wiki/herramientas" class="btn-wiki-cat btn bg-brown-texture btn-silver">Herramientas</NuxtLink></div>
-          <div><NuxtLink to="/wiki/pociones" class="btn-wiki-cat btn bg-brown-texture btn-silver">Pociones</NuxtLink></div>
+          <div><NuxtLink to="/wiki/consumibles" class="btn-wiki-cat btn bg-brown-texture btn-silver">Consumibles</NuxtLink></div>
           <div><NuxtLink to="/wiki/embarcaciones" class="btn-wiki-cat btn bg-brown-texture btn-silver">Embarcaciones</NuxtLink></div>
           <div><NuxtLink to="/wiki/items-magicos" class="btn-wiki-cat btn bg-brown-texture btn-silver">Items Magicos</NuxtLink></div>
           <div><NuxtLink to="/wiki/habilidades" class="btn-wiki-cat btn bg-brown-texture btn-silver">Habilidades</NuxtLink></div>

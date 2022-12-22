@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <div class="text-center mb-12">
@@ -63,11 +62,9 @@
               <img :src="item.Data.canvasImage" class="" />
             </div>
 
-            <ul>
-              <li style="color: yellow">{{ item.Data.NAME }}</li>
-              <li style="color: cyan">{{ item.Data.TEXTO }}</li>
-              <li style="color: green">Cantidad: {{ item.amount }}</li>
-            </ul>
+            <span style="color: yellow">{{ item.Data.NAME }}</span>
+            <span style="color: cyan">{{ item.Data.TEXTO }}</span>
+            <span style="color: green">Cantidad: {{ item.amount }}</span>
           </div>
         </div>
       </div>

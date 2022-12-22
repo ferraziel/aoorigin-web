@@ -1,6 +1,5 @@
 <template>
   <main class="-mt-32 -z-1">
-    <PagePadding />
     <header class="h-screen relative overflow-hidden" style="background: initial">
       <div
         class="container h-full flex justify-center items-center sticky z-20 py-16 sm:py-24 md:py-32 lg:py-40 xl:py-48"
@@ -42,9 +41,6 @@
           >
         </article>
 
-
-
-
         <article class="flex flex-col gap-y-6">
           <h3 class="flex items-center gap-x-4 font-sans font-semibold text-xl md:text-2xl tracking-widest">
             <img src="@/assets/img/cafecito.png" alt="icono de cafecito" />
@@ -64,8 +60,6 @@
         </article>
 
         <!-- <img src="https://i.ibb.co/Tg22HDn/image.png" alt="Beneficios" /> -->
-
-
       </div>
     </section>
 

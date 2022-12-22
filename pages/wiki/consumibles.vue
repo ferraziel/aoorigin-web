@@ -4,7 +4,7 @@
       v-if="potions.length"
       class="bg-gray-900 border-2 border-gr border-gr-primary"
     >
-      <h1>Pociones</h1>
+      <h1>Consumibles</h1>
       <div class="xl:col-span-10 text-xs overflow-x-auto">
         <table class="text-gray-400">
           <thead>
@@ -41,7 +41,7 @@
     </div>
 
     <section v-else class="text-center mt-24">
-      <p class="text-2xl">Cargando pociones.</p>
+      <p class="text-2xl">Cargando consumibles.</p>
     </section>
   </div>
 </template>
@@ -59,7 +59,7 @@ export default {
   },
   head() {
     return {
-      title: "Wiki - Armas",
+      title: "Wiki - Consumibles",
     };
   },
 };

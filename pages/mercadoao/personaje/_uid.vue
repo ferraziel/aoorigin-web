@@ -1,29 +1,30 @@
 <template>
   <div class="container">
-    <div v-if="user" lass="text-center mb-12">
-      <h6>Se actualiza cada 1 hs con la informacion mas reciente del mundo.</h6>
+    <div v-if="user" class="text-center mb-12">
+      <h6 class="text-gray-600 text-sm">Se actualiza cada 1 hs con la informacion mas reciente del mundo.</h6>
 
-      <h1 class="section-title">{{ user.name }}</h1>
+      <h1 class="section-title text-3xl font-bold">{{ user.name }}</h1>
       <UserAndItemsRenderer :user="user" />
 
       <button @click="buyUser()"
               type="submit"
               v-if="!isSubmited"
-              class="btn btn-silver self-start"
+              class="btn btn-silver self-start py-2 px-4 rounded-full hover:bg-gray-200"
       >
         Comprar Personaje
       </button>
 
-      <NuxtLink v-else to="/mercadoao">Volver al mercado</NuxtLink>
+      <NuxtLink v-else to="/mercadoao" class="btn btn-silver self-start py-2 px-4 rounded-full hover:bg-gray-200">Volver al mercado</NuxtLink>
       <MessageBox :status="buyUserStatus" :message="buyUserMessage" />
 
     </div>
 
     <section v-else class="text-center mt-24">
-      <p class="text-2xl">El personaje no existe o no esta a la venta o el vendedor no linkeo su cuenta de MercadoPago para recibir el pago.</p>
+      <p class="text-2xl text-gray-900 font-bold">El personaje no existe o no esta a la venta o el vendedor no linkeo su cuenta de MercadoPago para recibir el pago.</p>
     </section>
   </div>
 </template>
+
 
 <script>
 
@@ -160,4 +161,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+</style>
