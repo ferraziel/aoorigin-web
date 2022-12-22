@@ -1,5 +1,5 @@
 <template>
-  <main class="-mt-32 -z-1">
+  <main>
     <header class="relative overflow-hidden" style="background: initial">
       <div class="container h-full flex justify-center items-center sticky z-20 pt-32 py-16 sm:pt-24 md:pt-32 lg:pt-40 xl:pt-48">
         <div class="flex flex-col items-center">
