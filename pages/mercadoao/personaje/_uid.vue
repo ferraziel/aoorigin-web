@@ -132,12 +132,14 @@ export default {
             console.error(error);
             this.buyUserStatus = "ERROR";
             this.buyUserMessage = error.message;
+            this.isSubmited = false;
           });
 
         } catch (error) {
           console.error(error);
           this.buyUserStatus = "ERROR";
           this.buyUserMessage = error.message;
+          this.isSubmited = false;
         }
 
       }

@@ -7,7 +7,7 @@
     <section v-else-if="statusOrderAO20 == 'failure'">Tu orden de compra no pudo ser completada, por favor intenta de nuevo con otro metodo de pago.</section>
     <section v-else>Hubo un error en tu orden de compra, por favor intentalo de nuevo.</section>
 
-    <NuxtLink to="mercadoao" class="btn">Volver al mercado</NuxtLink>
+    <NuxtLink to="/mercadoao" class="btn">Volver al mercado</NuxtLink>
 
   </div>
 </template>
