@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="text-center mb-12">
-      <h1 class="section-title">Lista de personajes!</h1>
+      <h1 class="section-title">Lista de personajes</h1>
       <MessageBox :status="removeUserFromMaoStatus" :message="removeUserFromMaoMessage" />
 
       <ul
@@ -9,18 +9,18 @@
         class="max-w-screen-md mx-auto bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-6"
       >
         <div v-for="user in users" :key="user.id" :id="user.id">
-          <NuxtLink :to="`/personajes/${user.id}`">
-            <div class="flex flex-col items-center gap-y-2">
-              <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
-                <img :src="user.canvasImage" class="" />
-              </div>
+          <!-- <NuxtLink :to="`/personajes/${user.id}`"> -->
+          <div class="flex flex-col items-center gap-y-2">
+            <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
+              <img :src="user.canvasImage" width="64px" />
             </div>
+          </div>
 
-            <h2 class="text-4xl text-gr gr-gold">{{ user.name }}</h2>
-          </NuxtLink>
+          <h2 class="text-gr gr-gold">{{ user.name }}</h2>
+          <!-- </NuxtLink> -->
 
-          <h2>Nivel: {{ user.level }}</h2>
-          <h2>Ultimo login: {{ $dayjs(user.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h2>
+          <h6>Nivel: {{ user.level }}</h6>
+          <h6>Ultimo login: {{ $dayjs(user.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h6>
           <!-- <h2>Online: {{ user.is_logged ? '🟢' : '🔴'}}</h2> -->
           <div v-if="user.is_locked_in_mao == 0 && user.deleted == 0 && user.is_published == 1">
             <button @click="removeUserFromMao(user)"
@@ -90,7 +90,7 @@ export default {
   methods: {
      async removeUserFromMao(user) {
       if (confirm("Estas seguro que quieres retirar de la venta a tu personaje?")) {
-        user.is_published = 0;
+        user.is_locked_in_mao = 0;
 
         this.removeUserFromMaoStatus = "PENDING";
         this.removeUserFromMaoMessage = "Enviando peticion al servidor, por favor espere.";
