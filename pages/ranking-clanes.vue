@@ -4,11 +4,6 @@
       v-if="rankingGuilds.length"
       class="bg-gray-900 border-2 border-gr border-gr-primary"
     >
-      <br>
-      <br>
-      <br>
-      <br>
-
       <h1>Ranking Clanes</h1>
       <h6>Ordenados por cantidad de miembros</h6>
       <div class="xl:col-span-10 text-xs overflow-x-auto">
