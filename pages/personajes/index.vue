@@ -22,7 +22,7 @@
           <h6>Nivel: {{ user.level }}</h6>
           <h6>Ultimo login: {{ $dayjs(user.fecha_ingreso).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}</h6>
           <!-- <h2>Online: {{ user.is_logged ? '🟢' : '🔴'}}</h2> -->
-          <div v-if="user.is_locked_in_mao == 0 && user.deleted == 0">
+          <div v-if="user.is_locked_in_mao == 1 && user.deleted == 0">
             <button @click="removeUserFromMao(user)"
                     type="submit"
                     class="btn btn-silver self-start"
