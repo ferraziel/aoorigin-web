@@ -1,5 +1,6 @@
 <template>
-  <main>
+  <main class="-mt-32 -z-1">
+    <PagePadding />
     <header class="relative overflow-hidden" style="background: initial">
       <div class="container h-full flex justify-center items-center sticky z-20 pt-32 py-16 sm:pt-24 md:pt-32 lg:pt-40 xl:pt-48">
         <div class="flex flex-col items-center">
@@ -12,9 +13,9 @@
         </div>
       </div>
 
-      <!-- <div class="bg-black opacity-50 absolute top-0 left-0 w-full h-full object-cover z-10"></div> -->
+      <div class="bg-black opacity-50 absolute top-0 left-0 w-full h-full object-cover z-10"></div>
 
-      <!-- <img src="@/assets/img/home-banner.jpg" alt="" class="w-full h-full absolute top-0 left-0 object-cover bg-transparent" /> -->
+      <img src="@/assets/img/home-banner.jpg" alt="" class="w-full h-full absolute top-0 left-0 object-cover bg-transparent" />
 
     </header>
 

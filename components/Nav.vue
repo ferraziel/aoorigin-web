@@ -1,5 +1,5 @@
 <template>
-  <header class="top-0 left-0 z-50 w-full">
+  <header class="fixed top-0 left-0 z-50 w-full">
     <nav class="w-full py-2 bg-black bg-opacity-75">
       <div class="container flex items-center justify-between w-full">
         <NuxtLink to="/" class="flex items-center gap-2 main-title flex-shrink-1 -my-4 -ml-2" style="z-index: 999">
@@ -26,7 +26,7 @@
         </div>
 
         <button
-          @click="this.toggleMenu"
+          @click="showMobileMenu = !showMobileMenu"
           class="py-4 pl-4 lg:hidden focus:outline-none"
           style="z-index: 999"
         >
@@ -132,10 +132,10 @@ export default {
           label: "Manual",
           route: "/wiki",
         },
-        {
-          label: "Calendario Eventos",
-          route: "/calendario",
-        }
+        // {
+        //   label: "Calendario Eventos",
+        //   route: "/calendario",
+        // }
       ],
     };
   },
@@ -148,11 +148,7 @@ export default {
   },
   methods: {
     toggleMenu() {
-      if (!this.showMobileMenu) {
-        window.scrollTo(0, document.body.scrollHeight);
-      }
 
-      this.showMobileMenu = !this.showMobileMenu
     },
   },
 };

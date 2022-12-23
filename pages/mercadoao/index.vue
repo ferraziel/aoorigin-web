@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <br>
     <div class="text-center mb-12">
       <h1 class="section-title">Mercado AO</h1>
 
