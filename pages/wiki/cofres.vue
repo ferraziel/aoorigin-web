@@ -13,7 +13,7 @@
             <tr>
               <th>Id</th>
               <th></th>
-              <!-- <th>Nombre</th> -->
+              <th>Nombre</th>
               <th>Descripcion</th>
               <th>Items</th>
             </tr>
@@ -23,9 +23,13 @@
             <tr v-for="cofre in cofres" :key="cofre.item_id">
               <td class="text-right">{{ cofre.item_id }}</td>
               <td><img width="64px" :src="cofre.Data.canvasImage" /></td>
-              <!-- <td class="text-right">{{ cofre.Data.NAME }}</td> -->
+              <td class="text-right">{{ cofre.Data.NAME }}</td>
               <td class="text-right">{{ cofre.Data.TEXTO }}</td>
-              <td class="text-right">{{ cofre.Data.ITEMSCOFRE }}</td>
+              <td class="text-right">
+                <div v-for="item in cofre.Data.ITEMSCOFRE" :key="item.item_id">
+                  <li>{{item}}</li>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
