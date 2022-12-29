@@ -1,6 +1,9 @@
 <template>
   <div class="container">
+    <br>
+    <br>
     <div>
+      <h2 class="section-title text-center mb-4 uppercase">Habilidades</h2>
       <h1>Lista de habilidades</h1>
       <table>
           <tr>
@@ -124,6 +127,33 @@
               <td>No.</td>
           </tr>
       </table>
+    </div>
+
+    <div>
+      <p>Los skills o puntos de habilidad. Son los que van a determinar nuestro poder de ataque o defensar en todos los tipos de habilidades que tenemos. Ejemplo Combate con Armas, Combate sin Armas, Escudos, Tacticas.</p>
+
+      <p>Tambien tenemos skills como Magia que dependiendo la cantidad que tengamos podremos usar hechizos mas o menos poderosos. Ya que cada hechizo nos va pedir una cantidad necesaria de Skills.</p>
+
+      <p>Otra Habilidad es la del Trabajo, depende a que cual nos dediquemos (Sastreria, Carpinteria, Talar, Mineria, Herreria, ect) Tendremos la oportunidad de extraer mas del material en caso que sea una habilidad de extraccion o tambien de crear mejores objetos, como es en Carpinteria, Herreria y Sastreria.</p>
+
+      <h6>Tenemos 2 maneras de ganas skills en Argentum20.</h6>
+
+      <p>La primera manera es la "Natural". Nuestro personaje por cada nivel que subimos va tener la oportunidad de subir una cantidad "X" de skills. Estos subiran mientras nosotros hagamos la tarea que queremos subir, Ejemplo: Si quiero subir combate con armas, pegandole a NPCS o a otros usuarios vamos a poder subirlo.</p>
+      <p>De la misma manera sirve con todos los demas skills, para subir por ejemplo "Carpinteria" nosotros tendremos que fabricar objetos con un carpintero y repetir esta accion indefinidamente hasta que suba el skill o habilidad en esa accion.</p>
+
+      <p>Luego existen los "Skills Libres", nuestro personaje aparte de poder subir una X cantidad de skills por nivel. Nos otorgaran skills cada vez que pasamos de nivel. Estos nos serviran a futuro para poder fullear un skill. Ya que en el caso del combate y las magias son necesarios para tirar mas hechizos o tener mas habilidad.</p>
+      <p>Por lo cual ambos skilles son muy importantes, pero sobre todo los "LIBRES" ya que tenemos que saber como usarlos y cuando. NO TENEMOS que agregar skills asi porque si. Cada Clase tiene su manera de skillear.</p>
+
+      <p>A continuacion les dejo 2 imagenes, En la primera encontraremos la lista de los skills NATURALES que podemos tener por Nivel y tambien los skills libres que se van a ir acumulando por cada nivel.</p>
+      <p>En cuanto a Skills Libres, En Nivel 1 arrancaremos con 10 skills libres y luego por cada nivel nos otorgaran 5 mas.</p>
+      <img src="@/assets/img/wiki/habilidades-a.png"/>
+      <img src="@/assets/img/wiki/habilidades-b.png"/>
+
+      <p>En esta imagen podemos ver marcados varios puntos, en la parte de arriba a la derecha en el simbolo de + es donde tendremos que hacer click nosotros para poder ver los skills que tenemos subidos naturales por cada habilidad y arriba de todo nos aparecera los Skills libres que disponemos. Para subir o bajar skills tenemos en cada una de las habilidades una fecha para la izquierda y otra para la derecha. Para subir nuestros puntos deberemos seleccionar la habilidad que queremos agregar y tickear en la flechita para la derecha.</p>
+
+      <span style="color:green">Una vez que ya tenemos todo agregado como nosotros queremos ponemos "ACEPTAR"</span>
+      <br>
+      <span style="color:red">OJO TEMA IMPORTANTE, Una vez que aceptamos esto no podremos volver atras.</span>
 
     </div>
   </div>

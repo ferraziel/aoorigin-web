@@ -2,7 +2,8 @@
   <div class="container">
     <br>
     <br>
-    <h1>¿Cómo consigo Insignias?</h1>
+    <h2 class="section-title text-center mb-4 uppercase">Insignias</h2>
+    <h1>¿Cómo consigo insignias?</h1>
 
     <p>
       Las insignias es uno de los items mas preciados de todo Argentum20 ya que
