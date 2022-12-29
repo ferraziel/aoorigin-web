@@ -3,6 +3,22 @@
     <br>
     <br>
     <h2 class="section-title text-center mb-4 uppercase">Hechizos</h2>
+
+    <div>
+      <h3>Donde venden cada Hechizo?</h3>
+      <h6>Ullathorpe / Nix / Arghal / Penthar</h6>
+      <span>Dargo , Curar Veneno , Curar Heridas , Flecha Mágica , Flecha Electrica, Misil Mágico , Llamado de la naturaleza , Remover Paralisis , Paralizar</span>
+
+      <h6>Banderbille / Arkhein / Lindos</h6>
+      <span>Inmovilizar , Tormenta de fuego , Curar heridas , Invocar esqueletos Guerreros , Celeridad , Fuerza</span>
+
+      <h6>Ciudad Abandonada / Eleusis</h6>
+      <span>Descarga Eléctrica , Apocalipsis, Invisibilidad , Resucitar , Disipar Magia , Grito de Guerra</span>
+
+      <h6>Eleusis</h6>
+      <span>Invocar Elemental Acuático , Invocar Elemental Terrestre , Invocar Elemental de Fuego , Invocar elemental de Viento , Invocar Mascota , Piranha Impetum , Mimetismo.</span>
+    </div>
+
     <div v-if="spells.length">
         <div v-for="spell in spells" :key="spell.item_id">
 
