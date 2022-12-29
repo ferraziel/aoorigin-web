@@ -28,7 +28,7 @@
           <div><NuxtLink to="/wiki/habilidades" class="btn-wiki-cat btn bg-brown-texture btn-silver">Habilidades</NuxtLink></div>
           <div><NuxtLink to="/wiki/npcs-vendedores" class="btn-wiki-cat btn bg-brown-texture btn-silver">Npcs Vendedores</NuxtLink></div>
           <div><NuxtLink to="/wiki/items-patreon" class="btn-wiki-cat btn bg-brown-texture btn-silver">Items Patreon</NuxtLink></div>
-          <div><NuxtLink to="/wiki/insigias" class="btn-wiki-cat btn bg-brown-texture btn-silver">Insignias</NuxtLink></div>
+          <div><NuxtLink to="/wiki/insgnias" class="btn-wiki-cat btn bg-brown-texture btn-silver">Insignias</NuxtLink></div>
       </div>
       <!-- /Items container -->
 
