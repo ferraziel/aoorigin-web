@@ -32,11 +32,11 @@
     </p>
 
     <ul>
-      <li>1Rango=100 cidadanos matados -Acólito Nivel 25</li>
-      <li>2Rango=350 cidadanos matados -Emisario del Caos Nivel 30</li>
-      <li>3Rango=700 cidadanos matados -Sanguinario Nivel 35</li>
-      <li>4Rango=1050 cidadanos matados -Caballero de la Oscuridad Nivel 40</li>
-      <li>5Rango=2000 cidadanos matados - Devorador de Almas Nivel 43</li>
+      <li>1Rango=100 ciudadanos matados -Acólito Nivel 25</li>
+      <li>2Rango=350 ciudadanos matados -Emisario del Caos Nivel 30</li>
+      <li>3Rango=700 ciudadanos matados -Sanguinario Nivel 35</li>
+      <li>4Rango=1050 ciudadanos matados -Caballero de la Oscuridad Nivel 40</li>
+      <li>5Rango=2000 ciudadanos matados - Devorador de Almas Nivel 43</li>
     </ul>
 
     <h6>Por cada rango que subamos recibiremos una mejor armadura faccionaria.</h6>
