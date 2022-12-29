@@ -2,6 +2,13 @@
   <div class="container">
     <br>
     <br>
+    <h2>Cofres por insignias</h2>
+    <ul>
+      <li>Cofre de Cascos y Escudos Legendarios | 4 Insignias Rojas | 4 Insignias Azules</li>
+      <li>Cofre de Túnicas y Armaduras Legendarias  | 5 Insignias Rojas | 5 Insignias Azules</li>
+      <li>Cofre de Armas Legendarias  | 6 Insignias Rojas | 6 Insignias Azules</li>
+      <li>Cofre de Hechizos Legendarios  | 7 Insignias Rojas | 7 Insignias Azules</li>
+    </ul>
     <div
       v-if="cofres.length"
       class="bg-gray-900 border-2 border-gr border-gr-primary"
