@@ -29,6 +29,7 @@
           <div><NuxtLink to="/wiki/npcs-vendedores" class="btn-wiki-cat btn bg-brown-texture btn-silver">Npcs Vendedores</NuxtLink></div>
           <div><NuxtLink to="/wiki/items-patreon" class="btn-wiki-cat btn bg-brown-texture btn-silver">Items Patreon</NuxtLink></div>
           <div><NuxtLink to="/wiki/insignias" class="btn-wiki-cat btn bg-brown-texture btn-silver">Insignias</NuxtLink></div>
+          <div><NuxtLink to="/wiki/Cofres" class="btn-wiki-cat btn bg-brown-texture btn-silver">Cofres</NuxtLink></div>
       </div>
       <!-- /Items container -->
 
