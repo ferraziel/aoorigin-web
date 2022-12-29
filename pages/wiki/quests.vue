@@ -36,7 +36,7 @@
               <td class="text-right">
                 <div v-if="quest.REWARDOBJSINFORMATION">
                   <div v-for="item in quest.REWARDOBJSINFORMATION" :key="item.item_id">
-                    <img v-if="item.Data" :src="item.Data.canvasImage" :alt="item.Data.NAME" :title="item.Data.NAME" />
+                    <img v-if="item.Data" :src="item.Data.canvasImage" :alt="item.Data.NAME" :title="item.Data.NAME" width="32px" />
                     <span v-if="item.Data">{{item.Data.NAME}}</span>
                   </div>
                 </div>
