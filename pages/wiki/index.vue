@@ -17,6 +17,7 @@
           <div><NuxtLink to="/wiki/npcs" class="btn-wiki-cat btn bg-brown-texture btn-silver">Npcs</NuxtLink></div>
           <div><NuxtLink to="/wiki/quests" class="btn-wiki-cat btn bg-brown-texture btn-silver">Quests</NuxtLink></div>
           <div><NuxtLink to="/wiki/balance" class="btn-wiki-cat btn bg-brown-texture btn-silver">Balance</NuxtLink></div>
+          <div><NuxtLink to="/wiki/razas" class="btn-wiki-cat btn bg-brown-texture btn-silver">Razas</NuxtLink></div>
           <div><NuxtLink to="/wiki/alimentos" class="btn-wiki-cat btn bg-brown-texture btn-silver">Alimentos</NuxtLink></div>
           <div><NuxtLink to="/wiki/resistencia-magica" class="btn-wiki-cat btn bg-brown-texture btn-silver">Resistencia Magica</NuxtLink></div>
           <div><NuxtLink to="/wiki/instrumentos" class="btn-wiki-cat btn bg-brown-texture btn-silver">Instrumentos Musicales</NuxtLink></div>
