@@ -41,6 +41,7 @@
       <p class="text-center mb-8">Esta guia de entrenamiento es solo para darles una idea y ayudarlos en el camino, hay muchas variaciones de las mismas y no hay una forma correcta de entrenar a un personaje, cada cual lo puede hacer como guste.</p>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full mb-6 content-rte text-xl gap-4">
           <div><NuxtLink to="/wiki/guia/tips" class="btn-wiki-cat btn bg-brown-texture btn-silver">Antes de empezar</NuxtLink></div>
+          <div><NuxtLink to="/wiki/guia/minar" class="btn-wiki-cat btn bg-brown-texture btn-silver">¿Cómo y dónde minar?</NuxtLink></div>
           <div><NuxtLink to="/wiki/guia/leveleo-1-12" class="btn-wiki-cat btn bg-brown-texture btn-silver">Nivel 1-12</NuxtLink></div>
           <div><NuxtLink to="/wiki/guia/leveleo-13-20" class="btn-wiki-cat btn bg-brown-texture btn-silver">Nivel 13-20</NuxtLink></div>
       </div>
