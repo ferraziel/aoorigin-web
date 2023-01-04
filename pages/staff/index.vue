@@ -39,8 +39,8 @@
         </p>
         <h3>Diseño y Desarrollo Web</h3>
         <p>
-            Lucas Recoaro «RecoX»<br>
-            Alejandro Cordara «Animal»
+            Alejandro Cordara «Animal»<br>
+            Lucas Recoaro «RecoX»
         </p>
         <h3>Arquitecto DevOps</h3>
         <p>
@@ -63,7 +63,6 @@
         <h3>Wiki</h3>
         <p>
             Lucas Recoaro «RecoX»<br>
-            Alejandro Cordara «Animal»
         </p>
 
     </section>
@@ -104,6 +103,7 @@
             <li>Erik Eleusippi «Ronin» (Balance y Mapeo)</li>
             <li>Alejo «Centorios» (Programación)</li>
             <li>Joaquín Ortíz «Jopi» (Programación)</li>
+            <li>Nicolas Capelli «Hongo» (Balance y Mapeo)</li>
         </ul>
         <p class="italic">(No recordamos los apellidos de todos, si alguno quiere figurar con su apellido por favor contactarse con el staff)</p>
 

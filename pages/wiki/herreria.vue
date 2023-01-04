@@ -1,7 +1,12 @@
 <template>
   <div class="container">
+    <br>
+    <br>
     <div v-if="craftedItems" class="bg-gray-900 border-2 border-gr border-gr-primary">
       <h2 class="section-title text-center mb-4 uppercase">Herreria</h2>
+
+      <img src="@/assets/img/wiki/lingotes-minerales.png" alt="Cantidad de Minerales por Lingote" class="w-40" />
+      <span>Cantidad de Minerales por Lingote</span>
 
       <div class="xl:col-span-10 text-xs overflow-x-auto" v-for="(items, name) in craftedItems" :key="name">
         <div v-if="items.length > 0">
