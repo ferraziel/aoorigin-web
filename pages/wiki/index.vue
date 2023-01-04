@@ -32,6 +32,9 @@
           <div><NuxtLink to="/wiki/cofres" class="btn-wiki-cat btn bg-brown-texture btn-silver">Cofres</NuxtLink></div>
           <div><NuxtLink to="/wiki/facciones" class="btn-wiki-cat btn bg-brown-texture btn-silver">Facciones</NuxtLink></div>
           <div><NuxtLink to="/wiki/perdon" class="btn-wiki-cat btn bg-brown-texture btn-silver">Perdon</NuxtLink></div>
+          <div><NuxtLink to="/wiki/sastreria" class="btn-wiki-cat btn bg-brown-texture btn-silver">Sastreria</NuxtLink></div>
+          <div><NuxtLink to="/wiki/herreria" class="btn-wiki-cat btn bg-brown-texture btn-silver">Herreria</NuxtLink></div>
+          <div><NuxtLink to="/wiki/carpinteria" class="btn-wiki-cat btn bg-brown-texture btn-silver">Carpinteria</NuxtLink></div>
       </div>
       <!-- /Items container -->
 
