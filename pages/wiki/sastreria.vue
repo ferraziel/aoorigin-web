@@ -32,7 +32,7 @@
                 <td class="text-right">{{ item.Data.NAME }}</td>
                 <td class="text-right">{{ item.Data.TEXTO }}</td>
                 <td class="text-right">{{ item.Data.MINELV }}</td>
-                <td class="text-right"><td class="text-right">{{ item.Data.MINDEF }} / {{ item.Data.MAXDEF }}</td></td>
+                <td class="text-right">{{ item.Data.MINDEF }} / {{ item.Data.MAXDEF }}</td>
                 <td class="text-right">{{ item.Data.RESISTENCIAMAGICA }}</td>
                 <td class="text-right">{{ item.Data.VALOR }}</td>
                 <td class="text-right">{{ item.Data.PIELLOBO }}</td>
