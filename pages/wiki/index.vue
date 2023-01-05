@@ -37,6 +37,7 @@
           <div><NuxtLink to="/wiki/herreria" class="btn-wiki-cat btn bg-brown-texture btn-silver">Herreria</NuxtLink></div>
           <div><NuxtLink to="/wiki/carpinteria" class="btn-wiki-cat btn bg-brown-texture btn-silver">Carpinteria</NuxtLink></div>
           <div><NuxtLink to="/wiki/pescar" class="btn-wiki-cat btn bg-brown-texture btn-silver">Pescar</NuxtLink></div>
+          <div><NuxtLink to="/wiki/clanes" class="btn-wiki-cat btn bg-brown-texture btn-silver">Clanes</NuxtLink></div>
       </div>
       <!-- /Items container -->
 
