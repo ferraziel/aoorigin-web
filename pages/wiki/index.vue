@@ -54,6 +54,7 @@
       <p class="text-center mb-8">Soporte Tecnico.</p>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full mb-6 content-rte text-xl gap-4">
           <div><NuxtLink to="/wiki/soporte/no-abre" class="btn-wiki-cat btn bg-brown-texture btn-silver">No abre el juego</NuxtLink></div>
+          <div><NuxtLink to="/wiki/soporte/no-abre-quests" class="btn-wiki-cat btn bg-brown-texture btn-silver">No abren Quests o Minimapa</NuxtLink></div>
       </div>
     </section>
 
