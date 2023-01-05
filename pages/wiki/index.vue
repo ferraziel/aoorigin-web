@@ -51,6 +51,10 @@
           <div><NuxtLink to="/wiki/guia/leveleo-13-20" class="btn-wiki-cat btn bg-brown-texture btn-silver">Nivel 13-20</NuxtLink></div>
       </div>
 
+      <p class="text-center mb-8">Soporte Tecnico.</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full mb-6 content-rte text-xl gap-4">
+          <div><NuxtLink to="/wiki/soporte/no-abre" class="btn-wiki-cat btn bg-brown-texture btn-silver">No abre el juego</NuxtLink></div>
+      </div>
     </section>
 
 
