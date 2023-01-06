@@ -1,5 +1,7 @@
 <template>
   <div class="container">
+    <br>
+    <br>
     <h2 class="section-title text-center mb-4 uppercase">Leveleo 1 - 12</h2>
     <p>
       Bienvenido al mundo de Argentum20 y Bienvenido al Newbie Dungeon. Este va ser tu primer lugar de entrenamiento, el primer dungeon que vas a visitar. Aqui encontraras criatura de bajo nivel, pero no te confies que recien empiezas y puede costar en un principio controlar y derrotar las criaturas.

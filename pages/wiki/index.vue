@@ -49,6 +49,7 @@
           <div><NuxtLink to="/wiki/guia/minar" class="btn-wiki-cat btn bg-brown-texture btn-silver">¿Cómo y dónde minar?</NuxtLink></div>
           <div><NuxtLink to="/wiki/guia/leveleo-1-12" class="btn-wiki-cat btn bg-brown-texture btn-silver">Nivel 1-12</NuxtLink></div>
           <div><NuxtLink to="/wiki/guia/leveleo-13-20" class="btn-wiki-cat btn bg-brown-texture btn-silver">Nivel 13-20</NuxtLink></div>
+          <div><NuxtLink to="/wiki/guia/leveleo-18-30" class="btn-wiki-cat btn bg-brown-texture btn-silver">Nivel 18-30</NuxtLink></div>
       </div>
 
       <p class="text-center mb-8">Soporte Tecnico.</p>

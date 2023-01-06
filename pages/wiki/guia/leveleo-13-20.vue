@@ -1,5 +1,7 @@
 <template>
   <div class="container">
+    <br>
+    <br>
     <h2 class="section-title text-center mb-4 uppercase">Leveleo 13 - 20</h2>
 
     <p>
