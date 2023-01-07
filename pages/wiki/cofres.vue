@@ -13,7 +13,7 @@
       v-if="cofres.length"
       class="bg-gray-900 border-2 border-gr border-gr-primary"
     >
-      <h1>Cofres</h1>
+      <h2 class="section-title text-center mb-4 uppercase">Cofres</h2>
       <div class="xl:col-span-10 text-xs overflow-x-auto">
         <table class="text-gray-400">
           <thead>

@@ -1,10 +1,12 @@
 <template>
   <div class="container">
+    <br>
+    <br>
     <div
       v-if="flechas.length"
       class="bg-gray-900 border-2 border-gr border-gr-primary"
     >
-      <h1>Flechas y Municiones</h1>
+      <h2 class="section-title text-center mb-4 uppercase">Flechas y Municiones</h2>
       <div class="xl:col-span-10 text-xs overflow-x-auto">
         <table class="text-gray-400">
           <thead>

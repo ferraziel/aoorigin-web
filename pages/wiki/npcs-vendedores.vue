@@ -1,10 +1,12 @@
 <template>
   <div class="container">
+    <br>
+    <br>
     <div
       v-if="npcs.length"
       class="bg-gray-900 border-2 border-gr border-gr-primary"
     >
-      <h1>Npcs Vendedores</h1>
+      <h2 class="section-title text-center mb-4 uppercase">Npcs Vendedores</h2>
       <div class="xl:col-span-10 text-xs overflow-x-auto">
         <table class="text-gray-400">
           <thead>
