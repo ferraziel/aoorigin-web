@@ -3,8 +3,6 @@
     <br>
     <br>
     <div v-if="user" class="text-center mb-12">
-      <h6 class="text-gray-600 text-sm">Se actualiza cada 1 hs con la informacion mas reciente del mundo.</h6>
-
       <h1 class="section-title text-3xl font-bold">{{ user.name }}</h1>
       <UserAndItemsRenderer :user="user" />
 
