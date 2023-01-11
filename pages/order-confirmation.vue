@@ -1,5 +1,7 @@
 <template>
   <div class="container">
+    <br>
+    <br>
     <h1 class="mb-12 text-5xl text-primary">Confirmacion de orden</h1>
 
     <section v-if="statusOrderAO20 == 'success'">Tu orden de compra esta siendo procesada correctamente, pronto recibiras un email con instrucciones. Si compraste un item sera depositado en la boveda, Si compraste un personaje asegurate de tener un slot de personaje disponible.</section>
