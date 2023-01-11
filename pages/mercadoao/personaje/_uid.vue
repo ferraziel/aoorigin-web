@@ -20,7 +20,7 @@
     </div>
 
     <section v-else class="text-center mt-24">
-      <p class="text-2xl text-gray-900 font-bold">El personaje no existe o no esta a la venta o el vendedor no linkeo su cuenta de MercadoPago para recibir el pago.</p>
+      <p class="text-2xl font-bold">El personaje no existe o no esta a la venta o el vendedor no linkeo su cuenta de MercadoPago para recibir el pago.</p>
     </section>
   </div>
 </template>
