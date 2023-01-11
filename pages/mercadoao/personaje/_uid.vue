@@ -130,10 +130,24 @@ export default {
 
           })
           .catch((error) => {
-            console.error(error);
             this.buyUserStatus = "ERROR";
-            this.buyUserMessage = error.message;
             this.isSubmited = false;
+
+            if (error.response) {
+              console.error(error.response);
+              // Request made and server responded
+              this.buyUserMessage = error.response.data.message;
+            } else if (error.request) {
+              // The request was made but no response was received
+              console.error(error.request);
+              this.buyUserMessage = error.request;
+
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              console.error('Error', error.message);
+              this.buyUserMessage = error.message;
+            }
+
           });
 
         } catch (error) {
