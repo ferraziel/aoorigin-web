@@ -1,5 +1,7 @@
 <template>
   <div class="container">
+    <br>
+    <br>
     <div v-if="user" class="text-center mb-12">
       <h6 class="text-gray-600 text-sm">Se actualiza cada 1 hs con la informacion mas reciente del mundo.</h6>
 
