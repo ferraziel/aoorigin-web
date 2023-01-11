@@ -1,6 +1,8 @@
 <template>
   <div class="container">
     <div class="text-center mb-12">
+      <br>
+      <br>
       <h1 class="section-title">¡Iniciaste sesión!</h1>
       <NuxtLink to="mercadoao" class="btn">Entrar al mercado</NuxtLink>
       <br>
