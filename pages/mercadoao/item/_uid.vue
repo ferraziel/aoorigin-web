@@ -295,7 +295,7 @@ async asyncData({ $axios, params }) {
           return;
         }
 
-        this.$axios.$post(`/market/createPreferenceForMercadoPago`, {
+        this.$axios.$post(`/market/createPreferenceForMercadoPagoToBuyItem`, {
           itemId: this.item.item_id,
           characterId: this.selectedUserId,
           itemQuantity: parseInt(this.itemQuantity),
