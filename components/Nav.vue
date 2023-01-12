@@ -51,6 +51,9 @@
           <li>
             <a href="http://estadisticas.ao20.com.ar/produccion/" class="inline-block py-2 hover:text-yellow-400">Estadisticas</a>
           </li>
+          <li>
+            <a href="http://soporte.ao20.com.ar" class="inline-block py-2 hover:text-yellow-400">Soporte</a>
+          </li>
       </ul>
       </div>
 
@@ -78,7 +81,11 @@
           </li>
 
           <li>
-            <a href="http://estadisticas.ao20.com.ar/produccion/" class="mobile-nav-link" >Estadisticas</a>
+            <a href="http://estadisticas.ao20.com.ar/produccion/" class="mobile-nav-link">Estadisticas</a>
+          </li>
+
+          <li>
+            <a href="http://soporte.ao20.com.ar" class="mobile-nav-link">Soporte</a>
           </li>
 
         </ul>
