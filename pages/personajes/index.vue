@@ -1,5 +1,7 @@
 <template>
   <div class="container">
+    <br>
+    <br>
     <div class="text-center mb-12">
       <h1 class="section-title">Lista de personajes</h1>
       <MessageBox :status="removeUserFromMaoStatus" :message="removeUserFromMaoMessage" />
