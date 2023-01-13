@@ -1,6 +1,8 @@
 <template>
   <div class="container">
     <div class="text-center mb-12">
+      <br>
+      <br>
       <h1 class="section-title">Muro de la verguenza</h1>
       <h6>Lista de personajes baneados.</h6>
       <h6>Se actualiza cada 1 hs con la informacion mas reciente del mundo.</h6>
