@@ -59,6 +59,10 @@
         <p class="text-2xl">Aún no hay personajes en venta.</p>
       </section>
     </div>
+    <span>
+      Leí y acepto
+      <NuxtLink to="/reglamento" class="text-primary hover:underline"> el reglamento de juego al utilizar MAO</NuxtLink>
+    </span>
   </div>
 </template>
 
