@@ -12,7 +12,7 @@
 
             <NuxtLink :to="`/mercadoao/item/${item.item_id}`">
               <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
-                <img :src="item.Data.canvasImage" class="" />
+                <img :src="item.Data.canvasImage" width="64px" />
               </div>
 
               <ul>
@@ -40,7 +40,7 @@
 
             <NuxtLink :to="`/mercadoao/personaje/${user.id}`">
               <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-1 bg-gray-900">
-                <img :src="user.canvasImage" class="" />
+                <img :src="user.canvasImage" width="64px" />
               </div>
 
               <ul>
