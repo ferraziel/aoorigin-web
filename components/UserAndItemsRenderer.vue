@@ -33,7 +33,7 @@
               <li class="text-xs">Fecha creacion: {{ $dayjs(user.created_at).format("DD [de] MMMM [de] YYYY") }}</li>
               <li class="text-xs">Nivel: {{ user.level }}</li>
               <li class="text-xs">Raza: {{ user.race }}</li>
-              <li class="text-xs">Experiencia: {{ user.exp }}</li>
+              <li class="text-xs">Experiencia: {{ user.exp.toLocaleString('es-AR') }}</li>
               <li class="text-xs">Sexo: {{ user.genre }}</li>
               <li class="text-xs">Clase: {{ user.class }}</li>
               <li class="text-xs">Max HP: {{ user.max_hp }}</li>
@@ -52,16 +52,36 @@
               <!-- <li class="text-xs">Recibio Armadura Legion del Caos: {{ user.recibio_armadura_caos }}</li> -->
               <!-- <li class="text-xs">Pertenece a Armada Real: {{ user.pertenece_real }}</li> -->
               <!-- <li class="text-xs">Recibio Armadura Real: {{ user.recibio_armadura_real }}</li> -->
-              <li class="text-xs">Pertenece a clan: {{ user.guild_index }}</li>
               <!-- <li class="text-xs">Lista de clanes a los cual pertenecio: {{ user.guild_member_history }}</li> -->
             </ul>
           </div>
 
           <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
+            <span v-if="user.guild_index">
+              Pertenece a un clan, buscalo en el
+              <NuxtLink class="text-primary underline text-sm" to="/ranking-clanes"> Ranking de Clanes</NuxtLink>
+            </span>
+
+            <span style="color:blue" v-if="user.pertenece_real">
+              Pertenece a la ARMADA REAL
+            </span>
+
+            <span style="color:cyan" v-if="user.pertenece_consejo_real">
+              Pertenece al CONSEJO de la ARMADA REAL
+            </span>
+
+            <span style="color:red" v-if="user.pertenece_caos">
+              Pertenece a la LEGION DEL CAOS
+            </span>
+
+            <span style="color:orange" v-if="user.pertenece_consejo_caos">
+              Pertenece aL CONSEJO DE LA LEGION DEL CAOS
+            </span>
+
             <ul>
-              <li>Oro en Inventario: {{ user.gold }}</li>
-              <li>Oro en Banco: {{ user.bank_gold }}</li>
-              <li>Oro Total: {{ user.gold + user.bank_gold }}</li>
+              <li>🪙Oro en Inventario: {{ user.gold.toLocaleString('es-AR') }}</li>
+              <li>🏦 Oro en Banco: {{ user.bank_gold.toLocaleString('es-AR') }}</li>
+              <li>💰Oro Total: {{ (user.gold + user.bank_gold).toLocaleString('es-AR') }}</li>
             </ul>
           </div>
 
@@ -99,7 +119,7 @@
             <ul>
               <li style="color: yellow">{{ item.Data.NAME }}</li>
               <li style="color: cyan">{{ item.Data.TEXTO }}</li>
-              <li style="color: green">Cantidad: {{ item.amount }}</li>
+              <li style="color: green">Cantidad: {{ item.amount.toLocaleString('es-AR') }}</li>
             </ul>
           </div>
         </div>
@@ -124,7 +144,7 @@
 
             <span style="color: yellow">{{ item.Data.NAME }}</span>
             <span style="color: cyan">{{ item.Data.TEXTO }}</span>
-            <span style="color: green">Cantidad: {{ item.amount }}</span>
+            <span style="color: green">Cantidad: {{ item.amount.toLocaleString('es-AR') }}</span>
           </div>
         </div>
       </div>
