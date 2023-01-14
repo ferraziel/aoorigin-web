@@ -112,15 +112,17 @@
             :key="item.item_id + index"
             :id="item.item_id + index"
           >
-            <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
-              <img :src="item.Data.canvasImage" width="64px" />
-            </div>
+            <div v-if="item.Data">
+              <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
+                <img :src="item.Data.canvasImage" width="64px" />
+              </div>
 
-            <ul>
-              <li style="color: yellow">{{ item.Data.NAME }}</li>
-              <li style="color: cyan">{{ item.Data.TEXTO }}</li>
-              <li style="color: green">Cantidad: {{ item.amount.toLocaleString('es-AR') }}</li>
-            </ul>
+              <ul>
+                <li style="color: yellow">{{ item.Data.NAME }}</li>
+                <li style="color: cyan">{{ item.Data.TEXTO }}</li>
+                <li style="color: green">Cantidad: {{ item.amount.toLocaleString('es-AR') }}</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -138,13 +140,15 @@
             :key="item.item_id + index"
             :id="item.item_id + index + 'banco'"
           >
-            <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
-              <img :src="item.Data.canvasImage" width="64px" />
-            </div>
+            <div v-if="item.Data">
+              <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
+                <img :src="item.Data.canvasImage" width="64px" />
+              </div>
 
-            <span style="color: yellow">{{ item.Data.NAME }}</span>
-            <span style="color: cyan">{{ item.Data.TEXTO }}</span>
-            <span style="color: green">Cantidad: {{ item.amount.toLocaleString('es-AR') }}</span>
+              <span style="color: yellow">{{ item.Data.NAME }}</span>
+              <span style="color: cyan">{{ item.Data.TEXTO }}</span>
+              <span style="color: green">Cantidad: {{ item.amount.toLocaleString('es-AR') }}</span>
+            </div>
           </div>
         </div>
       </div>
