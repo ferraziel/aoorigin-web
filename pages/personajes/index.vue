@@ -44,7 +44,7 @@
       </section>
     </div>
 
-    <div class="text-center mb-12">
+    <!-- <div class="text-center mb-12">
       <h1 class="section-title">Personajes Borrados</h1>
       <h5>Si queres podes recuperar tus personajes borrados por dinero</h5>
       <ul
@@ -74,7 +74,7 @@
       <section v-else class="text-center mt-24">
         <p class="text-2xl">Aún no hay personajes borrados en la cuenta.</p>
       </section>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -84,7 +84,7 @@ export default {
   async asyncData({ $axios }) {
     return {
       users: await $axios.$get(`users/getAllActiveUsers`),
-      deletedUsers: await $axios.$get(`users/getAllDeletedUsers`),
+      // deletedUsers: await $axios.$get(`users/getAllDeletedUsers`),
       removeUserFromMaoMessage: "",
       removeUserFromMaoStatus: null,
     };
