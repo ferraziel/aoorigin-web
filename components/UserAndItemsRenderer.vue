@@ -36,8 +36,8 @@
               <li class="text-xs">Experiencia: {{ user.exp.toLocaleString('es-AR') }}</li>
               <li class="text-xs">Sexo: {{ user.genre }}</li>
               <li class="text-xs">Clase: {{ user.class }}</li>
-              <li class="text-xs">Max HP: {{ user.max_hp }}</li>
-              <li class="text-xs">Max Stamina: {{ user.max_sta }}</li>
+              <li class="text-xs">Max HP: {{ user.max_hp.toLocaleString('es-AR') }}</li>
+              <li class="text-xs">Max Stamina: {{ user.max_sta.toLocaleString('es-AR') }}</li>
               <li class="text-xs">Max Mana: {{ user.max_man }}</li>
               <li class="text-xs">Min Golpe: {{ user.min_hit }}</li>
               <li class="text-xs">Max Golpe: {{ user.max_hit }}</li>
