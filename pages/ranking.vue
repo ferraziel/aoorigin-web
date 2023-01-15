@@ -94,17 +94,23 @@
             <td>#{{ i + 1 }}</td>
             <td class="xl:break-all">
               <div class="flex items-center">
-                <CharacterHead
-                  :id="character.head_id"
-                  :scale="i === 0 ? 4 : i === 1 ? 3 : 2"
-                  class="flex-shrink-0 mr-4"
-                />
-                <br>
-                {{
-                  character.character_name.length > 16 && i === 0
-                    ? character.character_name.substring(0, 16) + "..."
-                    : character.character_name
-                }}
+                <ul>
+                  <li>
+                    <CharacterHead
+                      :id="character.head_id"
+                      :scale="i === 0 ? 4 : i === 1 ? 3 : 2"
+                      class="flex-shrink-0 mr-4"
+                    />
+                    {{
+                      character.character_name.length > 16 && i === 0
+                        ? character.character_name.substring(0, 16) + "..."
+                        : character.character_name
+                    }}
+                  </li>
+                  <li>
+                    <NuxtLink v-if="character.is_locked_in_mao" :to="`/mercadoao/personaje/${character.id}`">💸 Comprar en MAO</NuxtLink>
+                  </li>
+                </ul>
               </div>
             </td>
             <td :title="`Experiencia: ${character.exp} / ${character.exp_next_level}`" class="text-right">
