@@ -6,6 +6,20 @@
       <h1 class="section-title text-3xl font-bold">{{ user.name }}</h1>
       <UserAndItemsRenderer :user="user" />
 
+      <div v-if="user.mao_history.length > 0">
+        <hr>
+        <h2 class="section-title text-3xl font-bold">Historial de venta</h2>
+        <ul>
+          <li v-for="transaction in user.mao_history" :key="transaction.updated_at">
+            {{ $dayjs(transaction.updated_at).format("DD [de] MMMM [de] YYYY") }} - {{ transaction.price.toLocaleString('es-AR') }}
+          </li>
+        </ul>
+      </div>
+
+      <br>
+      <hr>
+      <br>
+
       <button @click="buyUser()"
               type="submit"
               v-if="!isSubmited"
