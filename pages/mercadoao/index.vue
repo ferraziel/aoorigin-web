@@ -4,7 +4,7 @@
     <div class="text-center mb-12">
       <h1 class="section-title">Mercado AO</h1>
 
-      <h4>Lista de items a la venta.</h4>
+      <h3>Lista de items a la venta.</h3>
 
       <div v-if="itemsOnSale.length">
         <div class="container grid grid-cols-4">
@@ -30,8 +30,8 @@
 
       <PagePadding />
 
-      <h4>Lista de personajes en Venta!</h4>
-      <h6>Se actualiza cada 1 hs con la informacion mas reciente del mundo.</h6>
+      <h3>Lista de personajes en venta.</h3>
+      <h4>Se actualiza cada 1 hs con la informacion mas reciente del mundo.</h4>
 
       <div v-if="usersOnSale.length">
         <div class="container grid grid-cols-4">
