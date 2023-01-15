@@ -38,6 +38,7 @@
           <div><NuxtLink to="/wiki/carpinteria" class="btn-wiki-cat btn bg-brown-texture btn-silver">Carpinteria</NuxtLink></div>
           <div><NuxtLink to="/wiki/pescar" class="btn-wiki-cat btn bg-brown-texture btn-silver">Pescar</NuxtLink></div>
           <div><NuxtLink to="/wiki/clanes" class="btn-wiki-cat btn bg-brown-texture btn-silver">Clanes</NuxtLink></div>
+          <div><NuxtLink to="/wiki/vender-en-mao" class="btn-wiki-cat btn bg-brown-texture btn-silver">Vender en MAO</NuxtLink></div>
       </div>
       <!-- /Items container -->
 
