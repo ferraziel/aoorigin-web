@@ -45,9 +45,6 @@
         <p>
             «ReyarB»
         </p>
-        <h3>Game Masters</h3>
-        <p>
-        </p>
         <h3>Moderación de Comunidad</h3>
         <p>
             «Plus»
