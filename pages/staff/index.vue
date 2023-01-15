@@ -9,14 +9,11 @@
         <p>
             «Gulfas Morgolock»<br>
         </p>
-        <h3>Líder de Programación</h3>
-        <p>
-            «Gulfas Morgolock»<br>
-        </p>
         <h3>Programación</h3>
         <p>
             Lucas Recoaro «RecoX»<br>
             Matias Calegaris «Tute»
+            «Gulfas Morgolock»
         </p>
         <h3>Desarrollo de Herramientas</h3>
         <p>
@@ -26,11 +23,7 @@
         <p>
             Alejandro Cordara «Animal»
         </p>
-        <h3>Indexación</h3>
-        <p>
-            «ReyarB»
-        </p>
-        <h3>Mapeo</h3>
+        <h3>Lideres diseño de mundo</h3>
         <p>
             Horacio Garofalo «Haracin»<br>
             «ReyarB»
@@ -57,10 +50,12 @@
         </p>
         <h3>Moderación de Comunidad</h3>
         <p>
+            Plus
         </p>
         <h3>Wiki</h3>
         <p>
             Lucas Recoaro «RecoX»<br>
+            «Comunidad» de AO20
         </p>
 
     </section>
