@@ -8,8 +8,6 @@
         <h3>Líderes de Proyecto</h3>
         <p>
             «Gulfas Morgolock»<br>
-            Horacio Garofalo «Haracin»<br>
-            Alejandro Cordara «Animal»
         </p>
         <h3>Líder de Programación</h3>
         <p>
