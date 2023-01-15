@@ -11,9 +11,9 @@
         </p>
         <h3>Programación</h3>
         <p>
-            Lucas Recoaro «RecoX»<br>
-            Matias Calegaris «Tute»
-            «Gulfas Morgolock»
+            Matias Calegaris «Tute»<br>
+            «Gulfas Morgolock»<br>
+            Lucas Recoaro «RecoX»
         </p>
         <h3>Desarrollo de Herramientas</h3>
         <p>
@@ -50,7 +50,7 @@
         </p>
         <h3>Moderación de Comunidad</h3>
         <p>
-            Plus
+            «Plus»
         </p>
         <h3>Wiki</h3>
         <p>
@@ -76,10 +76,10 @@
     <section class="agradecimientos">
 
         <h2>Agradecimientos Especiales</h2>
-        <p>A Alexis Caraballo «WyroX» por su dedicación y aporte de conocimientos que ayudaron a que Argentum 20 sea lo que es hoy en día.</p>
         <p>A todos los ex miembros que cumplieron un rol dentro del staff cuyo trabajo fue muy importante para poder sacar adelante este proyecto:</p>
         <ul>
             <li>A Pablo Mercavides «Ladder» y a su staff de Revolución AO por ceder los códigos originales de servidor y cliente los cuales fueron tomados de base para encarar Argentum 20.</li>
+            <li>A Alexis Caraballo «WyroX» por su dedicación y aporte de conocimientos que ayudaron a que Argentum 20 sea lo que es hoy en día.</li>
             <li>Xavier Viger Navarro «Sensui» (Idea original, Mapeo, Dateo, Game Design)</li>
             <li>Sergio Perez «Neosefirot» (Idea original y Coordinación)</li>
             <li>Bruno De Angelis «SimP» (Diseño y desarrollo web)</li>
