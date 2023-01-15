@@ -589,7 +589,7 @@ export default {
             {
               notHeader: true,
               label:
-                `¿Como hago para vender items con MAO? MAO es fundamentalmente una herramienta para vender personajes, Recomendamos los items los incorpores al PJ a vender y le des el valor extra que quieras al precio final del PJ teniendo en cuenta los items o el oro que dejes en el mismo. El PJ se vende completamente con todo lo que tiene tanto en inventario como en Bóveda.`,
+                `¿Como hago para vender items con MAO? MAO es fundamentalmente una herramienta para vender personajes. Recomendamos que los items los incorpores al PJ a vender y le des el valor extra que quieras al precio final del PJ teniendo en cuenta los items o el oro que dejes en el mismo. El PJ se vende completamente con todo lo que tiene tanto en inventario como en Bóveda.`,
             },
             {
               notHeader: true,
