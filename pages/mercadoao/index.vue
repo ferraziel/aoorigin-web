@@ -46,7 +46,7 @@
               <ul>
                 <h4 class="text-gr gr-gold">{{ user.name }}</h4>
                 <li class="text-m gr-gold">Nivel: {{ user.level }}</li>
-                <li style="text-m gr-gold">Precio: {{ user.price_in_mao.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</li>
+                <li style="text-m gr-gold">{{ user.price_in_mao.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</li>
               </ul>
             </NuxtLink>
             <br>
