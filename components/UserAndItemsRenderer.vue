@@ -109,8 +109,8 @@
           <div
             class="flex flex-col items-center gap-y-4"
             v-for="(item, index) in user.inventoryItem"
-            :key="item.item_id + index"
-            :id="item.item_id + index"
+            :key="index + item.item_id + '-inventario'"
+            :id="index + item.item_id + '-inventario'"
           >
             <div v-if="item.Data">
               <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
@@ -137,17 +137,20 @@
           <div
             class="flex flex-col items-center gap-y-4"
             v-for="(item, index) in user.bankInventoryItem"
-            :key="item.item_id + index"
-            :id="item.item_id + index + 'banco'"
+            :key="index + item.item_id + '-banco'"
+            :id="index + item.item_id + '-banco'"
           >
+
             <div v-if="item.Data">
               <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
                 <img :src="item.Data.canvasImage" width="64px" />
               </div>
 
-              <span style="color: yellow">{{ item.Data.NAME }}</span>
-              <span style="color: cyan">{{ item.Data.TEXTO }}</span>
-              <span style="color: green">Cantidad: {{ item.amount.toLocaleString('es-AR') }}</span>
+              <ul>
+                <li style="color: yellow">{{ item.Data.NAME }}</li>
+                <li style="color: cyan">{{ item.Data.TEXTO }}</li>
+                <li style="color: green">Cantidad: {{ item.amount.toLocaleString('es-AR') }}</li>
+              </ul>
             </div>
           </div>
         </div>
