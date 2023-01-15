@@ -573,28 +573,34 @@ export default {
           ],
         },
         {
-          label: "Venta de personajes y comercio entre mismos",
+          label: "MAO: Venta de personajes entre la comunidad",
           subItems: [
+
             {
               notHeader: true,
               label:
-                "Ningún miembro del staff podrá avalar la realización de la operación de venta o comercio entre usuarios. Estando absolutamente prohibido solicitar esto al Staff.",
+                "MAO es un sistema que permite la compra / venta de personajes del juego de forma segura, brindandole proteccion tanto al vendedor como al comprador.",
             },
             {
               notHeader: true,
               label:
-                "El único medio reconocido para el intercambio / compra / venta de personajes por monedas de oro del juego es el denominado MercadoAo. El cual se puede acceder desde la web del servidor: https://ao20.com.ar/",
+                "AO20 obtendra una comision del 10% del total de la transaccion, el vendedor obtendra el valor total de la venta menos la comision de AO20 y gastos por servicios de terceros.",
             },
             {
               notHeader: true,
               label:
-                "La venta o cambio de personajes por dinero real o por fuera del sistema de MercadoAo quedan a total responsabilidad de las personas involucradas. No pudiendo bajo ningún concepto formular reclamos al Staff en caso de ser engañados o estafados.",
+                `¿Como hago para vender items con MAO? MAO es fundamentalmente una herramienta para vender personajes, Recomendamos los items los incorpores al PJ a vender y le des el valor extra que quieras al precio final del PJ teniendo en cuenta los items o el oro que dejes en el mismo. El PJ se vende completamente con todo lo que tiene tanto en inventario como en Bóveda.`,
             },
             {
               notHeader: true,
               label:
-                "Asimismo el cambio de mail de un personaje mediante el sistema presente en https://ao20.com.ar/ queda bajo la total responsabilidad del dueño del personaje. Sin lugar a reclamos o quejas por daños o perdidas ocasionadas por dicho acto.",
+                `¿Si me arrepiento de publicar un personaje puedo cancelar la venta del mismo? En la seccion Mi Cuenta-> Mis Personajes, buscas el PJ y clickear el boton "Sacar personaje de Mercado AO". El proceso va a requerir que cierres el cliente, desloguees y esperes unos minutos para que se complete la sincronización del PJ retirado y tu cuenta.`,
             },
+            {
+              notHeader: true,
+              label:
+                `Queda totalmente prohibida la comercializacion de personajes e items por dinero por fuera del sistema.`,
+            }
           ],
         },
       ],
