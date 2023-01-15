@@ -5,7 +5,7 @@
         <br>
         <h1 class="section-title text-center mb-4 uppercase">Nosotros</h1>
         <h2>Staff de Argentum 20</h2>
-        <h3>Líderes de Proyecto</h3>
+        <h3>Líder de Proyecto</h3>
         <p>
             «Gulfas Morgolock»<br>
         </p>
