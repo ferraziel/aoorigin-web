@@ -18,6 +18,7 @@
       Una de las variadas criaturas que encontraras en todo el mapa la cual rinde en cualquiera de los niveles son la
       “Araña Gigante” , los "Ogros" y los "Gorilas Marron" las cuales habitan en gran parte del mundo de Argentum20
     </p>
+    <hr>
 
     <h2>Arañas - Ogros - Gorilas</h2>
     <img src="@/assets/img/wiki/leveleo18-30-a.png" />
@@ -56,6 +57,7 @@
     </p>
     <img src="@/assets/img/wiki/leveleo18-30-d.png" />
 
+    <hr>
     <h2>DUNGEONS</h2>
     <h3>Catacumbas Nivel 1</h3>
     <img src="@/assets/img/wiki/leveleo18-30-e.png" />
@@ -87,6 +89,83 @@
       Entradas de Catacumbas Ciudad de Ullathorpe
       <img src="@/assets/img/wiki/leveleo18-30-i.png" />
     </span>
+
+    <hr>
+    <h3>Catacumbas Nivel 2</h3>
+    <img src="@/assets/img/wiki/leveleo18-30-j.png" />
+
+    <p>Entrada de Catas Nivel 2 esta en el segundo nivel de catacumbas. Para acceder a este nivel vas a necesitas conseguir las llaves de la puerta ubicada en las catas de Ullathorpe. La llave la conseguiremos matando arañas en las catacumbas de ulla, estas tiene un % de drop de dicha llave.</p>
+    <br>
+
+    <span>
+      Entrada Catas 2
+      <img src="@/assets/img/wiki/leveleo18-30-k.png" />
+    </span>
+
+    <span>
+      Catas Nivel 2
+      <img src="@/assets/img/wiki/leveleo18-30-l.png" />
+    </span>
+
+    <br>
+    <p>
+      Al abrir la puerta veremos una cueva dentro en donde nos entraremos para ver este nuevo nivel.
+    </p>
+
+    <img src="@/assets/img/wiki/leveleo18-30-ll.png" />
+
+    <p>
+      Aqui podremos realizar varias quest y encontraremos a un nuevo nivel de arañas que tendran mas vida como tambien experiencia que las normales.
+    </p>
+
+    <img src="@/assets/img/wiki/leveleo18-30-n.png" />
+
+    <hr>
+    <h3>Piramide</h3>
+    <img src="@/assets/img/wiki/leveleo18-30-o.png" />
+
+    <p>Piramide es un Dungeon que podemos ubicarlo en medio del desierto. Este dungeon podemos entrar en cualquier nivel. Es muy bueno para entrenar siendo level muy bajo y con posibilidad de tirar magias. Ya que por su modo de laberinto podemos trabar a las criaturas en las paredes y atacarlas.</p>
+
+    <p>Para llegar deberemos ir al mapa 21 en el desierto a este de Ullathorp. Encontraremos la entrada cerca de 2 estatuas egipcias.</p>
+    <br>
+    <img src="@/assets/img/wiki/leveleo18-30-p.png" />
+    <img src="@/assets/img/wiki/leveleo18-30-t.png" />
+    <span>Este dungeon contiene esta constituido por varios mapas. Pero solo 2 de ellos son los que contienen criaturas. El mapa 564 y 567.</span>
+    <img src="@/assets/img/wiki/leveleo18-30-q.png" />
+    <img src="@/assets/img/wiki/leveleo18-30-r.png" />
+    <img src="@/assets/img/wiki/leveleo18-30-s.png" />
+
+    <hr>
+    <h3>Dungeon Dragons</h3>
+    <img src="@/assets/img/wiki/leveleo18-30-u.png" />
+    <img src="@/assets/img/wiki/leveleo18-30-v.png" />
+
+    <hr>
+    <h3>Dungeon Marabel</h3>
+
+    <span>MAPA 76</span>
+    <img src="@/assets/img/wiki/leveleo18-30-w.png" />
+
+    <p>
+      El Dungeon Marabel es por mucho el mejor dungeon que puedes visitar en el continente. En el encontraras grandes criaturas, poderosas y con muy buenas recompenzas. Para entrar a este dungeon necesitas al menos ser NIVEL 18.
+    </p>
+
+    <p>
+      Esta ubicado muy cerca del bosque elfico al oeste de la ciudad de Penthar.
+      Exactamente en el Mapa 76 Posicion 46/51
+      Dentro el Dungeon se compone de 2 mapas. Mapa 115 y Mapa 116
+      Aqui podremos realizar varias Quest que pueden ser tomadas en la ciudad de Ullathorp
+    </p>
+
+    <img src="@/assets/img/wiki/leveleo18-30-x.png" />
+    <img src="@/assets/img/wiki/leveleo18-30-y.png" />
+
+    <br>
+    <img src="@/assets/img/wiki/leveleo18-30-z.png" />
+    <img src="@/assets/img/wiki/leveleo18-30-zz.png" />
+    <img src="@/assets/img/wiki/leveleo18-30-zzz.png" />
+    <img src="@/assets/img/wiki/leveleo18-30-zzzz.png" />
+
   </div>
 </template>
 
