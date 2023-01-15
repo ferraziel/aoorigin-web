@@ -30,7 +30,6 @@
 
           <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
             <ul>
-              <li class="text-xs">Fecha creacion: {{ $dayjs(user.created_at).format("DD [de] MMMM [de] YYYY") }}</li>
               <li class="text-xs">Nivel: {{ user.level }}</li>
               <li class="text-xs">Raza: {{ user.race }}</li>
               <li class="text-xs">Experiencia: {{ user.exp.toLocaleString('es-AR') }}</li>
@@ -47,6 +46,8 @@
               <li class="text-xs">Criminales Matados: {{ user.criminales_matados }}</li>
               <li class="text-xs">Nivel de inventario: {{ user.invent_level }}</li>
               <li class="text-xs">Mascotas salvadas: {{ user.pets_saved }}</li>
+              <li class="text-xs">Fecha creacion: {{ $dayjs(user.created_at).format("DD [de] MMMM [de] YYYY") }}</li>
+              <li class="text-xs">Ultimo login: {{ $dayjs(user.fecha_ingreso).format("DD [de] MMMM [de] YYYY") }}</li>
               <!-- <li class="text-xs">Penas: {{ user.counter_pena }}</li> -->
               <!-- <li class="text-xs">Pertenece a Legion del Caos: {{ user.pertenece_real }}</li> -->
               <!-- <li class="text-xs">Recibio Armadura Legion del Caos: {{ user.recibio_armadura_caos }}</li> -->

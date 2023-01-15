@@ -47,7 +47,6 @@
                 <h4 class="text-gr gr-gold">{{ user.name }}</h4>
                 <li class="text-m gr-gold">Nivel: {{ user.level }}</li>
                 <li style="text-m gr-gold">Precio: {{ user.price_in_mao.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</li>
-                <li class="text-xs gr-gold">Ultimo login: {{ $dayjs(user.fecha_ingreso).format("DD [de] MMMM [de] YYYY") }}</li>
               </ul>
             </NuxtLink>
             <br>
