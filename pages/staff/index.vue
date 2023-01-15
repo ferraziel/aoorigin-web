@@ -19,11 +19,11 @@
         <p>
             «ReyarB»
         </p>
-        <h3>Diseño y Arte Gráfico</h3>
+        <h3>Lider de Diseño y Arte Gráfico</h3>
         <p>
             Alejandro Cordara «Animal»
         </p>
-        <h3>Lideres diseño de mundo</h3>
+        <h3>Lideres Diseño del Mundo</h3>
         <p>
             Horacio Garofalo «Haracin»<br>
             «ReyarB»
