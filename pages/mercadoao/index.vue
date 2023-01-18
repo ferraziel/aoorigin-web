@@ -16,7 +16,7 @@
               </div>
 
               <ul>
-                <h4 class="text-gr gr-gold text-lg md:text-xl lg:text-2xl">{{ item.Data.NAME }}</h4>
+                <li class="text-s">{{ item.Data.NAME }}</li>
                 <li class="text-xs md:text-sm lg:text-base">{{ item.Data.NAME == item.Data.TEXTO ? "" : item.Data.TEXTO }}</li>
                 <li class="text-green text-sm md:text-base lg:text-lg">Precio: {{ item.price_in_pesos.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</li>
               </ul>
