@@ -38,9 +38,9 @@
 
         <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
           <div class="flex flex-col items-center gap-y-4"
-              v-for="user in usersOnSale" :key="user.id" :id="user.id">
+              v-for="user in usersOnSale" :key="user.name" :id="user.name">
 
-            <NuxtLink :to="`/mercadoao/personaje/${user.id}`">
+            <NuxtLink :to="`/mercadoao/personaje/${user.name}`">
               <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-1 bg-gray-900">
                 <img :src="user.canvasImage" width="64px"/>
               </div>
