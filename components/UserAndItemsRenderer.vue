@@ -106,7 +106,7 @@
       </div>
       <div v-if="user.inventoryItem.length > 0" class="text-center mb-12">
         <h2>Items de inventario</h2>
-        <div class="container grid grid-cols-4">
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <div
             class="flex flex-col items-center gap-y-4"
             v-for="(item, index) in user.inventoryItem"
@@ -119,13 +119,15 @@
               </div>
 
               <ul>
-                <li style="color: yellow">{{ item.Data.NAME }}</li>
-                <li style="color: cyan">{{ item.Data.TEXTO }}</li>
-                <li style="color: green">Cantidad: {{ item.amount.toLocaleString('es-AR') }}</li>
+                <li class="text-yellow text-lg md:text-xl lg:text-2xl">{{ item.Data.NAME }}</li>
+                <li class="text-cyan text-sm md:text-base lg:text-lg">{{ item.Data.NAME == item.Data.TEXTO ? "" : item.Data.TEXTO }}</li>
+                <li class="text-green text-sm md:text-base lg:text-lg">Cantidad: {{ item.amount.toLocaleString('es-AR') }}</li>
               </ul>
+
             </div>
           </div>
         </div>
+
       </div>
 
       <div v-else class="text-center mt-24">
@@ -134,27 +136,28 @@
 
       <div v-if="user.bankInventoryItem.length > 0" class="text-center mb-12">
         <h2>Items de Banco</h2>
-        <div class="container grid grid-cols-4">
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <div
             class="flex flex-col items-center gap-y-4"
             v-for="(item, index) in user.bankInventoryItem"
             :key="index + item.item_id + '-banco'"
             :id="index + item.item_id + '-banco'"
           >
-
             <div v-if="item.Data">
               <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
                 <img :src="item.Data.canvasImage" width="64px" />
               </div>
 
               <ul>
-                <li style="color: yellow">{{ item.Data.NAME }}</li>
-                <li style="color: cyan">{{ item.Data.TEXTO }}</li>
-                <li style="color: green">Cantidad: {{ item.amount.toLocaleString('es-AR') }}</li>
+                <li class="text-yellow text-lg md:text-xl lg:text-2xl">{{ item.Data.NAME }}</li>
+                <li class="text-cyan text-sm md:text-base lg:text-lg">{{ item.Data.NAME == item.Data.TEXTO ? "" : item.Data.TEXTO }}</li>
+                <li class="text-green text-sm md:text-base lg:text-lg">Cantidad: {{ item.amount.toLocaleString('es-AR') }}</li>
               </ul>
+
             </div>
           </div>
         </div>
+
       </div>
       <div v-else class="text-center mt-24">
         <p class="text-2xl">No hay items en el banco.</p>
