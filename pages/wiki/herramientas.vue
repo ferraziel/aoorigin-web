@@ -2,6 +2,9 @@
   <div class="container">
     <br>
     <br>
+
+    <img src="@/assets/img/wiki/trabajadores-carritos.png" alt="Carritos de Trabajadores"/>
+
     <div
       v-if="tools.length"
       class="bg-gray-900 border-2 border-gr border-gr-primary"
