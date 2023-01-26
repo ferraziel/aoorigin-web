@@ -12,7 +12,7 @@
     <hr>
     <h3>Dungeon Magma</h3>
 
-    <span>Uno de los Dungeons mas visitados, A partir de nivel 40 donde por fin, podremos entrenar hasta nivel 47 cuenta con 3 Mapas donde podremos encontrar distintas criaturas, que brindan una considerable experiencia y oro, también podremos encontrar en su ultimo nivel Al Devorador del Inframundo El cual tiene el 100% de arrojar al morir insignias rojas y azules y Nos brinda 250 puntos de clan.</span>
+    <span>Uno de los Dungeons mas visitados, A partir de nivel 40 donde por fin, podremos entrenar hasta nivel 47 cuenta con 3 Mapas donde podremos encontrar distintas criaturas, que brindan una considerable experiencia y oro, también podremos encontrar en su ultimo nivel Al Devorador del Inframundo el cual tiene el 100% de arrojar al morir insignias rojas y azules y nos brinda 250 puntos de clan.</span>
     <img src="@/assets/img/wiki/leveleo25-40-b.png" />
 
   </div>
