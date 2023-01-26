@@ -52,6 +52,9 @@
           <div><NuxtLink to="/wiki/guia/leveleo-13-20" class="btn-wiki-cat btn bg-brown-texture btn-silver">Nivel 13-20</NuxtLink></div>
           <div><NuxtLink to="/wiki/guia/leveleo-18-30" class="btn-wiki-cat btn bg-brown-texture btn-silver">Nivel 18-30</NuxtLink></div>
           <div><NuxtLink to="/wiki/guia/leveleo-25-40" class="btn-wiki-cat btn bg-brown-texture btn-silver">Nivel 25-40</NuxtLink></div>
+          <div><NuxtLink to="/wiki/guia/leveleo-40-47" class="btn-wiki-cat btn bg-brown-texture btn-silver">Nivel 40-47</NuxtLink></div>
+          <div><NuxtLink to="/wiki/guia/leveleo-40-47" class="btn-wiki-cat btn bg-brown-texture btn-silver">Mapas NO Magicos</NuxtLink></div>
+          <div><NuxtLink to="/wiki/guia/leveleo-fans" class="btn-wiki-cat btn bg-brown-texture btn-silver">Video Guias Fans</NuxtLink></div>
       </div>
 
       <p class="text-center mb-8">Soporte Tecnico.</p>

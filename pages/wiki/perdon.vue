@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <br>
+    <br>
+
     <h2 class="section-title text-center mb-4 uppercase">Perdon</h2>
     <h4>Convertirse de Criminal a Ciudadano</h4>
 
