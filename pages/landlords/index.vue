@@ -18,18 +18,18 @@
 
           <tbody>
             <tr v-for="landlord in landlords" :key="landlord.description" :id="landlord.description">
-              <th>{{landlord.description}}</th>
-              <th>{{landlord.patron_tier}}</th>
-              <th>
+              <td>{{landlord.description}}</td>
+              <td>{{landlord.patron_tier}}</td>
+              <td>
                 <div v-for="user in landlord.users" :key="user.name" :id="user.name">
                   <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-1 bg-gray-900">
-                    <img :src="user.canvasImage" width="64px"/>
+                    <img :src="user.canvasImage" width="32px"/>
                   </div>
 
                   <span>{{user.name}}</span>
                 </div>
 
-              </th>
+              </td>
             </tr>
           </tbody>
         </table>
