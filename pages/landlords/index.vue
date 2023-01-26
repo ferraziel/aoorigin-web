@@ -4,6 +4,8 @@
       <br>
       <br>
       <h1 class="section-title">Landlords</h1>
+      <span>Para ser un miembro de "Landlords" tenes que ser Patreon. Mas informacion en el siguiente <a target="blank" href="https://www.patreon.com/posts/guia-beneficios-63817246">link</a></span>
+
 
       <div v-if="landlords.length">
         <!-- create table with landlord data -->
