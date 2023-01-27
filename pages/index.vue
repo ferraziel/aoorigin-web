@@ -254,7 +254,7 @@
       "
     >
       <div class="flex flex-col gap-y-6 col-span-1 order-2 lg:order-1 md:col-span-4 lg:col-span-8">
-        <h2 class="text-4xl text-gr gr-gold text-center lg:text-left">El primer MMORPG 100% argentino</h2>
+        <h2 class="text-4xl text-gr gr-gold text-center lg:text-left">Open-Source</h2>
         <p class="text-xl">
           Argentum es un juego online multijugador, donde podés tomar el rol de un guerrero, mago, paladín y muchas
           otras clases, y explorar las tierras míticas de Argentum.
