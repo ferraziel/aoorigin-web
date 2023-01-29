@@ -329,7 +329,7 @@
         </table>
       </div>
 
-      <h1>Daño con Armas</h1>
+      <h1>Daño con Proyectiles</h1>
       <div class="xl:col-span-10 text-xs overflow-x-auto">
         <table class="text-gray-400">
           <tbody>
