@@ -98,7 +98,7 @@ export default {
         this.removeUserFromMaoMessage = "Enviando peticion al servidor, por favor espere.";
 
         this.$axios
-          .$get(`/users/removeUserFromMao/${user.id}`)
+          .$get(`/users/removeUserFromMao/${user.name}`)
           .then((data) => {
             this.removeUserFromMaoStatus = "OK";
             this.removeUserFromMaoMessage = data.message;
