@@ -23,12 +23,12 @@
               <td>{{landlord.description}}</td>
               <td>{{landlord.patron_tier}}</td>
               <td>
-                <div v-for="user in landlord.users" :key="user.name" :id="user.name">
+                <div v-if="landlord.user">
                   <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-1 bg-gray-900">
-                    <img :src="user.canvasImage" width="32px"/>
+                    <img :src="landlord.user.canvasImage" width="32px"/>
                   </div>
 
-                  <span>{{user.name}}</span>
+                  <span>{{landlord.user.name}}</span>
                 </div>
 
               </td>

@@ -141,7 +141,7 @@ export default {
         },
           {
           label: "Landlords",
-          route: "/Landlords",
+          route: "/landlords",
         },
         // {
         //   label: "Calendario Eventos",
