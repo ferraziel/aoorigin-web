@@ -7,6 +7,7 @@
       class="bg-gray-900 border-2 border-gr border-gr-primary"
     >
       <h2 class="section-title text-center mb-4 uppercase">Quests</h2>
+      <a target="_blank" href="https://discord.com/channels/761213868352471040/1010629954297413652/1046796008551620659">Guia completementaria de Quests</a>
       <div class="xl:col-span-10 text-xs overflow-x-auto">
         <table class="text-gray-400">
           <thead>
