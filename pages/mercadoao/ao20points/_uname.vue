@@ -1,12 +1,10 @@
 <template>
   <div class="container">
-
     <div v-if="tier" lass="text-center mb-12">
-
+      <br>
+      <br>
       <h1 class="section-title">{{ tier.name }}</h1>
-      <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-2 bg-gray-900">
-          <img :src="require(`~/assets/img/mao/${tier.image}`)"/>
-      </div>
+        <img :src="require(`~/assets/img/mao/${tier.image}`)" width="300px"/>
 
       <ul>
         <!-- <li style="color: green">
@@ -22,48 +20,34 @@
           Precio: {{ tier.price_in_pesos.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS
         </li>
 
+        <li style="color: red">
+          Puntos AO20: {{ tier.qty_points}}
+        </li>
+
+
       </ul>
 
       <h1 style="color: red" v-if="!$auth.loggedIn">Debes de iniciar sesion para poder comprar items.</h1>
 
-      <h3 style="color: red" v-if="$auth.loggedIn && usersWithFreeSlots.length == 0 && !orderConfirmed">
-        Debes de crear una cuenta en los bancos Goliath del juego con tu personaje. Esto se realiza dentro del juego, depositando un item en la boveda. En la boveda debe de haber slots disponibles para hacer el deposito de compra.
-      </h3>
-
       <MessageBox :status="buyItemStatus" :message="buyItemMessage" />
 
-      <div v-if="usersWithFreeSlots.length > 0">
-        <h1>Para que personaje queres comprar el item?</h1>
 
-        <div v-for="user in usersWithFreeSlots" :key="user.name" :id="user.id">
-          <ul>
-            <li @click="selectCharacter(user.id)">
-              {{ user.name }}
-              <span v-if="selectedUserId == user.id">✔️</span>
-            </li>
-          </ul>
-        </div>
-        <br />
+      <h3>Elije metodo de pago:</h3>
+      <!-- <th style="color: cyan">AOLB (AO Libre Token B)</th> -->
+      <button v-if="!isMercadoPagoLoaded" @click="buyItemWithMercadoPago()" style="color: yellow">MERCADOPAGO</button>
+      <button class="cho-container"></button>
 
-        <table v-if="selectedUserId" style="margin-left: auto; margin-right: auto">
-          <h3>Elije metodo de pago:</h3>
-          <!-- <th style="color: cyan">AOLB (AO Libre Token B)</th> -->
-          <button v-if="!isMercadoPagoLoaded" @click="buyItemWithMercadoPago()" style="color: yellow">MERCADOPAGO</button>
-          <button class="cho-container"></button>
-
-          <tr>
-            <!-- <td>
-              <img
-                src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png"
-                class="w-32 h-32 rounded-full mb-4"
-              />
-            </td> -->
-            <!-- <td>
-                  <img @click="buyItemWithNativeToken()" src="https://assets.trustwalletapp.com/blockchains/binance/info/logo.png" class="w-32 h-32 rounded-full mb-4" />
-              </td> -->
-          </tr>
-        </table>
-      </div>
+      <tr>
+        <!-- <td>
+          <img
+            src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png"
+            class="w-32 h-32 rounded-full mb-4"
+          />
+        </td> -->
+        <!-- <td>
+              <img @click="buyItemWithNativeToken()" src="https://assets.trustwalletapp.com/blockchains/binance/info/logo.png" class="w-32 h-32 rounded-full mb-4" />
+          </td> -->
+      </tr>
 <!--
       <h1 style="color: purple">PREGUNTAS FRECUENTES / FAQS</h1>
       <span>Debes estar conectado a la red Binance Smart Chain!</span>
@@ -123,7 +107,6 @@ async asyncData({ $axios, params }) {
       tier: await $axios.$get(`market/getAO20PointsOnSaleByTierName/${params.uname}`),
       itemQuantity: 1,
       selectedUserId: null,
-      usersWithFreeSlots: [],
       buyItemMessage: "",
       buyItemStatus: null,
       abi,
@@ -182,7 +165,6 @@ async asyncData({ $axios, params }) {
               .then((response) => {
                 this.buyItemStatus = "OK";
                 this.buyItemMessage = "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se deposite el item en tu boveda del banco.";
-                this.usersWithFreeSlots.length = 0;
                 this.orderConfirmed = true;
               })
               .catch((error) => {
@@ -234,7 +216,6 @@ async asyncData({ $axios, params }) {
               this.buyItemStatus = "OK";
               this.buyItemMessage =
                 "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se deposite el item en tu boveda del banco.";
-              this.usersWithFreeSlots.length = 0;
             })
             .catch((error) => {
               this.buyItemStatus = "ERROR";
