@@ -4,6 +4,31 @@
     <div class="text-center mb-12">
       <h1 class="section-title">Mercado AO</h1>
 
+      <h3>Lista de tiers para comprar Puntos AO20.</h3>
+
+      <div v-if="a020pointsOnSale.length">
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div class="flex flex-col items-center gap-y-4" v-for="tier in a020pointsOnSale" :key="tier.name" :id="tier.name">
+
+            <NuxtLink :to="`/mercadoao/ao20points/${tier.name}`">
+              <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
+                <img :src="require(`~/assets/img/mao/${tier.image}`)"/>
+              </div>
+
+              <ul>
+                <li class="text-s">{{ tier.name }}</li>
+                <li class="text-green text-sm md:text-base lg:text-lg">Puntos AO20: {{ tier.points }} </li>
+                <li class="text-green text-sm md:text-base lg:text-lg">Precio: {{ tier.price_in_pesos.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</li>
+              </ul>
+            </NuxtLink>
+          </div>
+        </div>
+      </div>
+
+      <section v-else class="text-center mt-24">
+        <p class="text-2xl">No hay AO20 Points en venta.</p>
+      </section>
+
       <h3>Lista de items a la venta.</h3>
 
       <div v-if="itemsOnSale.length">
@@ -71,6 +96,7 @@ export default {
     return {
       usersOnSale: await $axios.$post(`users/getAllUsersOnSaleInMao`),
       itemsOnSale: await $axios.$get(`market/getAllItemsOnSale`),
+      a020pointsOnSale: await $axios.$get(`market/getAllAO20PointsOnSale`),
     };
   },
 };
