@@ -2,7 +2,7 @@
   <div class="container">
     <br>
     <div class="text-center mb-12">
-      <h2 class="section-title text-center mb-4 uppercase">Mercado</h2> <h2 style="color:red">A</h2><h2 style="color:blue">O</h2>
+      <h2 class="section-title text-center mb-4 uppercase">Mercado AO</h2>
 
       <h3>Paquetes de Puntos AO20.</h3>
 

@@ -27,7 +27,7 @@
 
       <h1 style="color: red" v-if="!$auth.loggedIn">Debes de iniciar sesion para poder comprar puntos.</h1>
 
-      <PaymentMethodSelector :item="tier" saleType="AO20POINTS"/>
+      <PaymentMethodSelector :item="tier" qtyItems="1" saleType="AO20POINTS"/>
     </div>
 
     <section v-else class="text-center mt-24">

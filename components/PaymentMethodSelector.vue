@@ -2,7 +2,6 @@
   <div>
     <MessageBox :status="buyStatus" :message="buyMessage" />
     <div v-if="$auth.loggedIn && !isMercadoPagoLoaded">
-
       <h3>Elije metodo de pago:</h3>
       <tr>
         <td>
@@ -13,13 +12,13 @@
         </td>
 
         <td>
-          <button @click="buyItemWithNativeToken()">
+          <button @click="buyWithEthereum()">
             <img src="@/assets/img/mao/ethereum-logo.png" class="w-32 h-32 rounded-full mb-4" />
           </button>
         </td>
 
         <td v-for="token in tokens" :key="token.name">
-          <button @click="buyItem(token.name)">
+          <button @click="buyWithERC20Token(token.name)">
             <img :src="token.image" class="w-32 h-32 rounded-full mb-4" />
           </button>
         </td>
@@ -73,46 +72,8 @@ import abiAolb from "@/assets/contracts/0xEA17E48C988D64e92d64550C787B17281F6182
 import abiTheter from "@/assets/contracts/0xEA17E48C988D64e92d64550C787B17281F61828e.json";
 import Web3 from "web3";
 
-function buyAO20PointsMao(scope) {
-  scope.$axios
-    .$post(`/market/buyAO20PointsMao`, {
-      tierName: scope.item.name,
-      txHash: data.transactionHash,
-    })
-    .then((response) => {
-      scope.buyStatus = "OK";
-      scope.buyMessage =
-        "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se depositen tus puntos.";
-      scope.orderConfirmed = true;
-    })
-    .catch((error) => {
-      scope.buyStatus = "ERROR";
-      scope.buyMessage = error.response.data.message;
-    });
-}
-
-function buyItemMao(scope) {
-  scope.$axios
-      .$post(`/market/buyItemMao`, {
-        itemId: scope.item.item_id,
-        itemQuantity: 1,
-        userId: scope.selectedUserId,
-        txHash: data.transactionHash,
-      })
-      .then((response) => {
-        scope.buyItemStatus = "OK";
-        scope.buyItemMessage = "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se deposite el item en tu boveda del banco.";
-        scope.usersWithFreeSlots.length = 0;
-        scope.orderConfirmed = true;
-      })
-      .catch((error) => {
-        scope.buyItemStatus = "ERROR";
-        scope.buyItemMessage = error.response.data.message;
-      });
-}
-
 export default {
-  props: ["item", "saleType", "selectedUserId"],
+  props: ["item", "saleType", "selectedUserId", "qtyItems", "selectedUserId"],
   head() {
     return {
       script: [
@@ -120,7 +81,7 @@ export default {
           src: "https://sdk.mercadopago.com/js/v2",
           async: true,
         },
-      ]
+      ],
     };
   },
   data() {
@@ -144,11 +105,36 @@ export default {
       paymentAddress: process.env.PAYMENT_ADDRESS,
       orderConfirmed: false,
       isMercadoPagoLoaded: false,
-      itemQuantity: 1,
     };
   },
   methods: {
-    async buyItem(tokenName) {
+    async createPurchaseTransaction(transactionHash) {
+      // Handle the result
+      console.log(transactionHash);
+
+      let endpoint = ""
+      let payload = ""
+      if (this.saleType === "AO20POINTS") {
+        endpoint = "/market/buyAO20PointsMao"
+        payload = {
+          tierName: this.item.name,
+          txHash: transactionHash,
+        }
+
+      } else {
+        endpoint = "/market/buyItemMao"
+        payload = {
+          itemId: this.item.item_id,
+          itemQuantity: qtyItems,
+          userId: this.selectedUserId,
+          txHash: transactionHash,
+        }
+      }
+
+      requestPurchaseTransaction(endpoint, payload);
+    },
+
+    async buyWithERC20Token(tokenName) {
       if (confirm("Estas seguro que quieres comprar estos AO20 Points?.")) {
         await ethereum.enable();
 
@@ -157,9 +143,9 @@ export default {
         this.buyMessage = `Comprando con ${tokenName} token. Esperando aprobar transaccion.`;
 
         var web3 = new Web3(window.ethereum);
+        const token = this.tokens.find((x) => x.name === tokenName);
         debugger;
-        const token = this.tokens.find((x) => x.name === "tokenName");
-        console.log(666, token);
+
         const tokenContract = new web3.eth.Contract(token.abi, token.address);
         const accounts = await ethereum.request({ method: "eth_accounts" });
         const priceInWei = Web3.utils.toWei(this.item.price_in_tokens.toString(), "ether");
@@ -177,15 +163,7 @@ export default {
             gas: estimatedGas,
           })
           .then((data) => {
-            // Handle the result
-            console.log(data.transactionHash);
-
-            if (this.saleType === "AO20POINTS") {
-              buyAO20PointsMao(this);
-            } else {
-              buyItemMao(this)
-            }
-
+            createPurchaseTransaction(data.transactionHash)
           })
           .catch((error) => {
             this.buyStatus = "ERROR";
@@ -194,7 +172,7 @@ export default {
       }
     },
 
-    async buyItemWithNativeToken() {
+    async buyWithEthereum() {
       if (confirm("Estas seguro que quieres comprar este item?.")) {
         await ethereum.enable();
 
@@ -202,7 +180,7 @@ export default {
 
         this.buyStatus = "PENDING";
         this.buyMessage =
-        "Esperando aprobar transaccion. Esto puede tardar varios minutos dependiendo la congestion de la red Ethereum";
+          "Esperando aprobar transaccion. Esto puede tardar varios minutos dependiendo la congestion de la red Ethereum";
 
         try {
           const transactionHash = await ethereum.request({
@@ -216,13 +194,7 @@ export default {
             ],
           });
 
-          // Handle the result
-          console.log(transactionHash);
-          if (this.saleType === "AO20POINTS") {
-            buyAO20PointsMao(this);
-          } else {
-            buyItemMao(this)
-          }
+          createPurchaseTransaction(transactionHash)
 
         } catch (error) {
           console.error(error);
@@ -239,48 +211,86 @@ export default {
         this.buyStatus = "PENDING";
         this.buyMessage = "Generando orden de compra con MercadoPago";
 
-        if (this.itemQuantity <= 0 || this.itemQuantity > 10000) {
+        if (this.qtyItems <= 0 || this.qtyItems > 10000) {
           this.buyMessage = "Numero no valido, debe ser mayor a 0 y menor a 10.000";
           this.buyStatus = "ERROR";
           return;
         }
 
-        this.$axios
-          .$post(`/market/createPreferenceForMercadoPagoToBuyAO20Points`, {
+        let endpoint = "";
+        let payload = "";
+
+        if (this.saleType === "AO20POINTS") {
+          endpoint = "/market/createPreferenceForMercadoPagoToBuyAO20Points";
+          payload = {
             tierName: this.item.name,
-          })
-          .then((preferenceIdMercadoPago) => {
-            // Agrega credenciales de SDK
-            const mp = new MercadoPago(process.env.MERCADOPAGO_PUBLIC_KEY, {
-              locale: "es-AR",
-            });
+          };
+        } else {
+          endpoint = "/market/createPreferenceForMercadoPagoToBuyItem";
+          payload = {
+            itemId: this.item.item_id,
+            characterId: this.selectedUserId,
+            itemQuantity: parseInt(this.qtyItems),
+          };
+        }
 
-            // Inicializa el checkout
-            mp.checkout({
-              preference: {
-                id: preferenceIdMercadoPago,
-              },
-              render: {
-                container: ".cho-container", // Indica el nombre de la clase donde se mostrará el botón de pago
-                label: "Pagar con MercadoPago", // Cambia el texto del botón de pago (opcional)
-              },
-              autoOpen: true,
-              theme: {
-                elementsColor: "#8da811",
-                headerColor: "#402a87",
-              },
-            });
-
-            this.buyStatus = "OK";
-            this.buyMessage =
-              "Se genero una preferencia de pago en MercadoPago, por favor haga el pago clickeando en el boton Pagar con MercadoPago.";
-          })
-          .catch((error) => {
-            this.buyStatus = "ERROR";
-            this.buyMessage = error.response.data.message;
-          });
+        this.buyWithMercadoPagoRequest(endpoint, payload);
       }
     },
+
+    async buyWithMercadoPagoRequest(endpoint, payload) {
+      this.$axios
+        .$post(endpoint, payload)
+        .then((preferenceIdMercadoPago) => {
+          // Agrega credenciales de SDK
+          const mp = new MercadoPago(process.env.MERCADOPAGO_PUBLIC_KEY, {
+            locale: "es-AR",
+          });
+
+          // Inicializa el checkout
+          mp.checkout({
+            preference: {
+              id: preferenceIdMercadoPago,
+            },
+            render: {
+              container: ".cho-container", // Indica el nombre de la clase donde se mostrará el botón de pago
+              label: "Pagar con MercadoPago", // Cambia el texto del botón de pago (opcional)
+            },
+            autoOpen: true,
+            theme: {
+              elementsColor: "#8da811",
+              headerColor: "#402a87",
+            },
+          });
+
+          this.buyStatus = "OK";
+          this.buyMessage =
+            "Se genero una preferencia de pago en MercadoPago, por favor haga el pago clickeando en el boton Pagar con MercadoPago.";
+        })
+        .catch((error) => {
+          this.buyStatus = "ERROR";
+          this.buyMessage = error.response.data.message;
+        });
+    },
+
+    async requestPurchaseTransaction(endpoint, payload) {
+      this.$axios
+        .$post(endpoint, payload)
+        .then((response) => {
+          this.buyStatus = "OK";
+          this.buyMessage =
+            "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se depositen tus puntos.";
+          this.orderConfirmed = true;
+
+          if (this.usersWithFreeSlots) {
+            this.usersWithFreeSlots.length = 0;
+          }
+        })
+        .catch((error) => {
+          this.buyStatus = "ERROR";
+          this.buyMessage = error.response.data.message;
+        });
+    }
   },
 };
 </script>
