@@ -21,7 +21,7 @@
         </li>
 
         <li style="color: red">
-          Puntos AO20: {{ tier.qty_points}}
+          Puntos AO20: {{ tier.qty_points }}
         </li>
 
 

@@ -17,7 +17,7 @@
 
               <ul>
                 <li class="text-s">{{ tier.name }}</li>
-                <li class="text-green text-sm md:text-base lg:text-lg">Puntos AO20: {{ tier.points }} </li>
+                <li class="text-green text-sm md:text-base lg:text-lg">Puntos AO20: {{ tier.qty_points }} </li>
                 <li class="text-green text-sm md:text-base lg:text-lg">Precio: {{ tier.price_in_pesos.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</li>
               </ul>
             </NuxtLink>
