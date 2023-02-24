@@ -4,7 +4,7 @@
       <br>
       <br>
       <h1 class="section-title">{{ tier.name }}</h1>
-        <img :src="require(`~/assets/img/mao/${tier.image}`)" width="300px"/>
+      <img :src="require(`~/assets/img/mao/${tier.image}`)" width="300px"/>
 
       <ul>
         <!-- <li style="color: green">

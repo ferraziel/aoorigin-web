@@ -2,9 +2,9 @@
   <div class="container">
     <br>
     <div class="text-center mb-12">
-      <h1 class="section-title">Mercado AO</h1>
+      <h2 class="section-title text-center mb-4 uppercase">Mercado</h2> <h2 style="color:red">A</h2><h2 style="color:blue">O</h2>
 
-      <h3>Lista de tiers para comprar Puntos AO20.</h3>
+      <h3>Paquetes de Puntos AO20.</h3>
 
       <div v-if="a020pointsOnSale.length">
         <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -29,7 +29,8 @@
         <p class="text-2xl">No hay AO20 Points en venta.</p>
       </section>
 
-      <h3>Lista de items a la venta.</h3>
+      <PagePadding />
+      <h3>Items unicos.</h3>
 
       <div v-if="itemsOnSale.length">
         <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -56,7 +57,7 @@
 
       <PagePadding />
 
-      <h3>Lista de personajes en venta.</h3>
+      <h3>Personajes en venta.</h3>
       <h4>Se actualiza cada 1 hs con la informacion mas reciente del mundo.</h4>
       <div v-if="usersOnSale.length">
         <span>Hay <strong>{{usersOnSale.length}}</strong> personajes listados.</span>
