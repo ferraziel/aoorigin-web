@@ -20,74 +20,81 @@
           Precio: {{ tier.price_in_pesos.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS
         </li>
 
-        <li style="color: red">
+        <li style="color: purple">
           Puntos AO20: {{ tier.qty_points }}
         </li>
 
 
       </ul>
 
-      <h1 style="color: red" v-if="!$auth.loggedIn">Debes de iniciar sesion para poder comprar items.</h1>
+      <h1 style="color: red" v-if="!$auth.loggedIn">Debes de iniciar sesion para poder comprar puntos.</h1>
 
-      <MessageBox :status="buyItemStatus" :message="buyItemMessage" />
+      <MessageBox :status="buyStatus" :message="buyMessage" />
 
+      <div v-if="$auth.loggedIn && !isMercadoPagoLoaded">
+        <h3>Elije metodo de pago:</h3>
+        <tr>
+          <td>
+            <button v-if="!isMercadoPagoLoaded" @click="buyWithMercadoPago()">
+              <img src="@/assets/img/mao/mercadopago-logo.png" class="w-32 h-32 rounded-full mb-4" />
+            </button>
+            <button class="cho-container"></button>
+          </td>
 
-      <h3>Elije metodo de pago:</h3>
-      <!-- <th style="color: cyan">AOLB (AO Libre Token B)</th> -->
-      <button v-if="!isMercadoPagoLoaded" @click="buyItemWithMercadoPago()" style="color: yellow">MERCADOPAGO</button>
-      <button class="cho-container"></button>
+          <!-- <td>
+            <button @click="buyItemWithNativeToken()">
+              <img src="@/assets/img/mao/ethereum-logo.png" class="w-32 h-32 rounded-full mb-4" />
+            </button>
+          </td>
 
-      <tr>
-        <!-- <td>
-          <img
-            src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png"
-            class="w-32 h-32 rounded-full mb-4"
-          />
-        </td> -->
-        <!-- <td>
-              <img @click="buyItemWithNativeToken()" src="https://assets.trustwalletapp.com/blockchains/binance/info/logo.png" class="w-32 h-32 rounded-full mb-4" />
+          <td v-for="token in tokens" :key="token.name">
+            <button @click="buyItem(token.name)">
+              <img :src="token.image" class="w-32 h-32 rounded-full mb-4" />
+            </button>
           </td> -->
-      </tr>
+        </tr>
 <!--
-      <h1 style="color: purple">PREGUNTAS FRECUENTES / FAQS</h1>
-      <span>Debes estar conectado a la red Binance Smart Chain!</span>
-      <img
-        src="https://www.asiacryptotoday.com/wp-content/uploads/2020/08/Binance-Smart-Chain-scaled.jpeg"
-        class="w-64 h-32 mb-4"
-      />
-      <a
-        style="color: cyan"
-        href="https://academy.binance.com/es/articles/connecting-metamask-to-binance-smart-chain"
-        target="_blank"
-      >
-        Tutorial para Agregar Binance Smart Chain a Metamask
-      </a>
-      <hr />
-      <br />
+        <h1 style="color: purple">PREGUNTAS FRECUENTES / FAQS</h1>
+        <span>Debes estar conectado a la red Binance Smart Chain!</span>
+        <img
+          src="https://www.asiacryptotoday.com/wp-content/uploads/2020/08/Binance-Smart-Chain-scaled.jpeg"
+          class="w-64 h-32 mb-4"
+        />
+        <a
+          style="color: cyan"
+          href="https://academy.binance.com/es/articles/connecting-metamask-to-binance-smart-chain"
+          target="_blank"
+        >
+          Tutorial para Agregar Binance Smart Chain a Metamask
+        </a>
+        <hr />
+        <br />
 
-      <h4>Comprar AOLB (Argentum Online Libre B) Token</h4>
-      <img
-        src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png"
-        alt="AOLB Token"
-        class="w-32 h-32 rounded-full mb-4"
-      />
+        <h4>Comprar AOLB (Argentum Online Libre B) Token</h4>
+        <img
+          src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png"
+          alt="AOLB Token"
+          class="w-32 h-32 rounded-full mb-4"
+        />
 
-      <a
-        style="color: cyan"
-        href="https://pancakeswap.finance/info/token/0xea17e48c988d64e92d64550c787b17281f61828e"
-        target="_blank"
-      >
-        COMPRAR EN PANCAKE SWAP
-      </a>
-      <br />
-      <a
-        style="color: cyan"
-        href="https://dex.guru/token/0xea17e48c988d64e92d64550c787b17281f61828e-bsc"
-        target="_blank"
-      >
-        COMPRAR EN DEX GURU
-      </a>
-      <hr /> -->
+        <a
+          style="color: cyan"
+          href="https://pancakeswap.finance/info/token/0xea17e48c988d64e92d64550c787b17281f61828e"
+          target="_blank"
+        >
+          COMPRAR EN PANCAKE SWAP
+        </a>
+        <br />
+        <a
+          style="color: cyan"
+          href="https://dex.guru/token/0xea17e48c988d64e92d64550c787b17281f61828e-bsc"
+          target="_blank"
+        >
+          COMPRAR EN DEX GURU
+        </a>
+        <hr /> -->
+
+      </div>
     </div>
 
     <section v-else class="text-center mt-24">
@@ -97,20 +104,33 @@
 </template>
 
 <script>
-import abi from "@/assets/contracts/0xEA17E48C988D64e92d64550C787B17281F61828e.json";
+import abiAolb from "@/assets/contracts/0xEA17E48C988D64e92d64550C787B17281F61828e.json";
+import abiTheter from "@/assets/contracts/0xEA17E48C988D64e92d64550C787B17281F61828e.json";
 import Web3 from "web3";
 
 export default {
 
-async asyncData({ $axios, params }) {
+  async asyncData({ $axios, params }) {
     return {
       tier: await $axios.$get(`market/getAO20PointsOnSaleByTierName/${params.uname}`),
       itemQuantity: 1,
       selectedUserId: null,
-      buyItemMessage: "",
-      buyItemStatus: null,
-      abi,
-      aolbContractAddress: process.env.TOKEN_AOLB_CONTRACT_ADDRESS,
+      buyMessage: "",
+      buyStatus: null,
+      tokens: [
+        {
+          name: "AOLB",
+          address: process.env.TOKEN_AOLB_CONTRACT_ADDRESS,
+          abi: abiAolb,
+          image: "https://argentumonline.org/aoclasico/assets/images/ao-libre-aolb-logo.png"
+        },
+        {
+          name: "Theter",
+          address: "0xdac17f958d2ee523a2206206994597c13d831ec7",
+          abi: abiTheter,
+          image: "https://spng.pngfind.com/pngs/s/142-1429336_tether-and-the-role-of-stable-coins-tether.png"
+        }
+      ],
       paymentAddress: process.env.PAYMENT_ADDRESS,
       orderConfirmed: false,
       isMercadoPagoLoaded: false
@@ -118,26 +138,23 @@ async asyncData({ $axios, params }) {
   },
 
   methods: {
-    selectCharacter(userId) {
-      this.selectedUserId = userId;
-    },
-
-    async buyItem() {
+    async buyItem(tokenName) {
       if (confirm("Estas seguro que quieres comprar estos AO20 Points?.")) {
         await ethereum.enable();
 
-        console.log("Comprando con AOLB Token.");
-        this.buyItemStatus = "PENDING";
-        this.buyItemMessage = "Esperando aprobar transaccion en Metamask.";
+        console.log(`Comprando con ${tokenName} Token.`);
+        this.buyStatus = "PENDING";
+        this.buyMessage = `Comprando con ${tokenName} token. Esperando aprobar transaccion.`;
 
         var web3 = new Web3(window.ethereum);
-
-        // const aolTokenContract = new web3.eth.Contract(this.abi, "0xEA17E48C988D64e92d64550C787B17281F61828e");
-        const aolTokenContract = new web3.eth.Contract(this.abi, this.aolbContractAddress);
+      debugger;
+        const token = this.tokens.find(x => x.name === "tokenName");
+        console.log(666, token)
+        const tokenContract = new web3.eth.Contract(token.abi, token.address);
         const accounts = await ethereum.request({ method: "eth_accounts" });
-        const priceInWei = Web3.utils.toWei(this.item.price_in_tokens.toString(), 'ether')
+        const priceInWei = Web3.utils.toWei(this.tier.price_in_tokens.toString(), 'ether')
 
-        const estimatedGas = await aolTokenContract.methods
+        const estimatedGas = await tokenContract.methods
           .transfer(this.paymentAddress, priceInWei)
           .estimateGas({
             from: accounts[0],
@@ -145,7 +162,7 @@ async asyncData({ $axios, params }) {
 
         console.log("Estimated gas: " + estimatedGas);
 
-        aolTokenContract.methods
+        tokenContract.methods
           .transfer(this.paymentAddress, priceInWei)
           .send({
             from: accounts[0],
@@ -156,26 +173,23 @@ async asyncData({ $axios, params }) {
             console.log(data.transactionHash);
 
           this.$axios
-              .$post(`/market/buyItemMao`, {
-                itemId: this.item.item_id,
-                itemQuantity: 1,
-                userId: this.selectedUserId,
+              .$post(`/market/buyAO20PointsMao`, {
+                tierName: this.tier.name,
                 txHash: data.transactionHash,
               })
               .then((response) => {
-                this.buyItemStatus = "OK";
-                this.buyItemMessage = "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se deposite el item en tu boveda del banco.";
+                this.buyStatus = "OK";
+                this.buyMessage = "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se deposite el item en tu boveda del banco.";
                 this.orderConfirmed = true;
               })
               .catch((error) => {
-                this.buyItemStatus = "ERROR";
-                this.buyItemMessage = error.response.data.message;
+                this.buyStatus = "ERROR";
+                this.buyMessage = error.response.data.message;
               });
           })
           .catch((error) => {
-            debugger;
-            this.buyItemStatus = "ERROR";
-            this.buyItemMessage = error.message;
+            this.buyStatus = "ERROR";
+            this.buyMessage = error.message;
           });
       }
     },
@@ -186,8 +200,8 @@ async asyncData({ $axios, params }) {
 
         const accounts = await ethereum.request({ method: "eth_accounts" });
 
-        this.buyItemStatus = "PENDING";
-        this.buyItemMessage =
+        this.buyStatus = "PENDING";
+        this.buyMessage =
           "Esperando aprobar transaccion. Esto puede tardar varios minutos dependiendo la congestion de la red Binance Smart Chain";
 
         try {
@@ -196,7 +210,7 @@ async asyncData({ $axios, params }) {
             params: [
               {
                 to: this.paymentAddress,
-                value: this.item.price_in_tokens.toString(),
+                value: this.tier.price_in_tokens.toString(),
                 from: accounts[0],
               },
             ],
@@ -206,38 +220,36 @@ async asyncData({ $axios, params }) {
           console.log(transactionHash);
 
           this.$axios
-            .$post(`/market/buyItemMao`, {
-              itemId: this.item.item_id,
-              itemQuantity: 1,
-              userId: this.selectedUserId,
+            .$post(`/market/buyAO20PointsMao`, {
+              qtyPoints: this.item.item_id,
               txHash: transactionHash,
             })
             .then((data) => {
-              this.buyItemStatus = "OK";
-              this.buyItemMessage =
+              this.buyStatus = "OK";
+              this.buyMessage =
                 "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se deposite el item en tu boveda del banco.";
             })
             .catch((error) => {
-              this.buyItemStatus = "ERROR";
-              this.buyItemMessage = error.response.data.message;
+              this.buyStatus = "ERROR";
+              this.buyMessage = error.response.data.message;
             });
         } catch (error) {
           console.error(error);
-          this.buyItemStatus = "ERROR";
-          this.buyItemMessage = error;
+          this.buyStatus = "ERROR";
+          this.buyMessage = error;
         }
       }
     },
 
-    async buyItemWithMercadoPago() {
+    async buyWithMercadoPago() {
         this.isMercadoPagoLoaded = true;
         console.log("Comprando con MercadoPago.");
-        this.buyItemStatus = "PENDING";
-        this.buyItemMessage = "Generando orden de compra con MercadoPago";
+        this.buyStatus = "PENDING";
+        this.buyMessage = "Generando orden de compra con MercadoPago";
 
 		    if (this.itemQuantity <= 0 || this.itemQuantity > 10000) {
-          this.buyItemMessage = "Numero no valido, debe ser mayor a 0 y menor a 10.000";
-          this.buyItemStatus = "ERROR";
+          this.buyMessage = "Numero no valido, debe ser mayor a 0 y menor a 10.000";
+          this.buyStatus = "ERROR";
           return;
         }
 
@@ -267,19 +279,19 @@ async asyncData({ $axios, params }) {
             }
           });
 
-          this.buyItemStatus = "OK";
-          this.buyItemMessage = "Se genero una preferencia de pago en MercadoPago, por favor haga el pago clickeando en el boton Pagar con MercadoPago.";
+          this.buyStatus = "OK";
+          this.buyMessage = "Se genero una preferencia de pago en MercadoPago, por favor haga el pago clickeando en el boton Pagar con MercadoPago.";
 
         })
         .catch((error) => {
-          this.buyItemStatus = "ERROR";
-          this.buyItemMessage = error.response.data.message;
+          this.buyStatus = "ERROR";
+          this.buyMessage = error.response.data.message;
         });
     },
   },
   head() {
     return {
-      title: this.item ? `${this.item.Data.NAME} - AO20 Points Tier` : "AO20 Points Tier no encontrado",
+      title: this.tier ? `${this.tier.name} - AO20 Points Tier` : "AO20 Points Tier no encontrado",
       script: [
         {
           src: "https://sdk.mercadopago.com/js/v2",

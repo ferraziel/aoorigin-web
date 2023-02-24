@@ -55,22 +55,25 @@
         <br />
 
         <table v-if="selectedUserId" style="margin-left: auto; margin-right: auto">
-          <h3>Elije metodo de pago:</h3>
-          <!-- <th style="color: cyan">AOLB (AO Libre Token B)</th> -->
-          <button v-if="!isMercadoPagoLoaded" @click="buyItemWithMercadoPago()" style="color: yellow">MERCADOPAGO</button>
-          <button class="cho-container"></button>
+          <div v-if="$auth.loggedIn">
+            <h3>Elije metodo de pago:</h3>
+            <!-- <th style="color: cyan">AOLB (AO Libre Token B)</th> -->
+            <button v-if="!isMercadoPagoLoaded" @click="buyItemWithMercadoPago()" style="color: yellow">MERCADOPAGO</button>
+            <button class="cho-container"></button>
 
-          <tr>
-            <!-- <td>
-              <img
-                src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png"
-                class="w-32 h-32 rounded-full mb-4"
-              />
-            </td> -->
-            <!-- <td>
-                  <img @click="buyItemWithNativeToken()" src="https://assets.trustwalletapp.com/blockchains/binance/info/logo.png" class="w-32 h-32 rounded-full mb-4" />
+            <tr>
+              <!-- <td>
+                <img
+                  src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png"
+                  class="w-32 h-32 rounded-full mb-4"
+                />
               </td> -->
-          </tr>
+              <!-- <td>
+                    <img @click="buyItemWithNativeToken()" src="https://assets.trustwalletapp.com/blockchains/binance/info/logo.png" class="w-32 h-32 rounded-full mb-4" />
+                </td> -->
+            </tr>
+          </div>
+
         </table>
       </div>
 <!--
