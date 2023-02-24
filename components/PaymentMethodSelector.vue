@@ -11,7 +11,7 @@
           <button class="cho-container"></button>
         </td>
 
-        <td>
+        <!-- <td>
           <button @click="buyWithEthereum()">
             <img src="@/assets/img/mao/ethereum-logo.png" class="w-32 h-32 rounded-full mb-4" />
           </button>
@@ -21,7 +21,7 @@
           <button @click="buyWithERC20Token(token.name)">
             <img :src="token.image" class="w-32 h-32 rounded-full mb-4" />
           </button>
-        </td>
+        </td> -->
       </tr>
       <!--
           <h1 style="color: purple">PREGUNTAS FRECUENTES / FAQS</h1>
