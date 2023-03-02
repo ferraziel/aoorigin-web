@@ -4,7 +4,7 @@
     <div class="text-center mb-12">
       <h2 class="section-title text-center mb-4 uppercase">Mercado AO</h2>
 
-      <!-- <h3>Paquetes de Puntos Patreon.</h3>
+      <h3>Paquetes de Puntos Patreon.</h3>
 
       <div v-if="a020pointsOnSale.length">
         <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -27,7 +27,7 @@
 
       <section v-else class="text-center mt-24">
         <p class="text-2xl">No hay Puntos Patreon en venta.</p>
-      </section> -->
+      </section>
 
       <PagePadding />
       <!-- <h3>Items unicos.</h3>

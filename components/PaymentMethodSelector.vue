@@ -135,7 +135,7 @@ export default {
     },
 
     async buyWithERC20Token(tokenName) {
-      if (confirm(`Estas seguro que quieres efecturar la compra con ${tokenName}?.`)) {
+      if (confirm(`Estas seguro que quieres efectuar la compra con ${tokenName}?.`)) {
         await ethereum.enable();
 
         console.log(`Comprando con ${tokenName} Token.`);
@@ -144,7 +144,6 @@ export default {
 
         var web3 = new Web3(window.ethereum);
         const token = this.tokens.find((x) => x.name === tokenName);
-        debugger;
 
         const tokenContract = new web3.eth.Contract(token.abi, token.address);
         const accounts = await ethereum.request({ method: "eth_accounts" });
@@ -205,7 +204,7 @@ export default {
     },
 
     async buyWithMercadoPago() {
-      if (confirm("Estas seguro que quieres comprar este item?.")) {
+      if (confirm("Estas seguro que quieres efectuar la comprar con MercadoPago?.")) {
         this.isMercadoPagoLoaded = true;
         console.log("Comprando con MercadoPago.");
         this.buyStatus = "PENDING";
