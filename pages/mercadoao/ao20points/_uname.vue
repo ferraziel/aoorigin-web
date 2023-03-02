@@ -21,7 +21,7 @@
         </li>
 
         <li style="color: purple">
-          Puntos AO20: {{ tier.qty_points }}
+          Puntos Patreon: {{ tier.qty_points }}
         </li>
       </ul>
 
@@ -49,7 +49,7 @@ export default {
   },
   head() {
     return {
-      title: this.tier ? `${this.tier.name} - AO20 Points Tier` : "AO20 Points Tier no encontrado"
+      title: this.tier ? `${this.tier.name} - AO20 Puntos Patreon Tier` : "Puntos Tier no encontrado"
     };
   },
 };
