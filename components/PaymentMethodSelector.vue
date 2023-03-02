@@ -135,7 +135,7 @@ export default {
     },
 
     async buyWithERC20Token(tokenName) {
-      if (confirm("Estas seguro que quieres comprar estos AO20 Points?.")) {
+      if (confirm(`Estas seguro que quieres efecturar la compra con ${tokenName}?.`)) {
         await ethereum.enable();
 
         console.log(`Comprando con ${tokenName} Token.`);
@@ -173,7 +173,7 @@ export default {
     },
 
     async buyWithEthereum() {
-      if (confirm("Estas seguro que quieres comprar este item?.")) {
+      if (confirm("Estas seguro que quieres efectuar la compra con Ethereum?.")) {
         await ethereum.enable();
 
         const accounts = await ethereum.request({ method: "eth_accounts" });
