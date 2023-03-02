@@ -21,17 +21,17 @@
         </li>
 
         <li style="color: purple">
-          Puntos Patreon: {{ tier.qty_points }}
+          Cantidad creditos: {{ tier.qty_points }}
         </li>
       </ul>
 
-      <h1 style="color: red" v-if="!$auth.loggedIn">Debes de iniciar sesion para poder comprar puntos.</h1>
+      <h1 style="color: red" v-if="!$auth.loggedIn">Debes de iniciar sesion para poder comprar creditos.</h1>
 
       <PaymentMethodSelector :item="tier" qtyItems="1" saleType="AO20POINTS"/>
     </div>
 
     <section v-else class="text-center mt-24">
-      <p class="text-2xl">El item no existe o no esta a la venta.</p>
+      <p class="text-2xl">El tier no existe o no esta a la venta.</p>
     </section>
   </div>
 </template>
@@ -49,7 +49,7 @@ export default {
   },
   head() {
     return {
-      title: this.tier ? `${this.tier.name} - AO20 Puntos Patreon Tier` : "Puntos Tier no encontrado"
+      title: this.tier ? `${this.tier.name} - AO20 Creditos` : "Credutis Tier no encontrado"
     };
   },
 };

@@ -4,7 +4,7 @@
     <div class="text-center mb-12">
       <h2 class="section-title text-center mb-4 uppercase">Mercado AO</h2>
 
-      <h3>Paquetes de Puntos Patreon.</h3>
+      <h3>Paquetes de Creditos AO20.</h3>
 
       <div v-if="a020pointsOnSale.length">
         <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -17,7 +17,7 @@
 
               <ul>
                 <li class="text-s">{{ tier.name }}</li>
-                <li class="text-green text-sm md:text-base lg:text-lg">Puntos Patreon: {{ tier.qty_points }} </li>
+                <li class="text-green text-sm md:text-base lg:text-lg">Cantidad Creditos: {{ tier.qty_points }} </li>
                 <li class="text-green text-sm md:text-base lg:text-lg">Precio: {{ tier.price_in_pesos.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</li>
               </ul>
             </NuxtLink>
