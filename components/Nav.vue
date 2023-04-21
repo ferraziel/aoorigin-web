@@ -139,9 +139,13 @@ export default {
           label: "Manual",
           route: "/wiki",
         },
-          {
+        {
           label: "Landlords",
           route: "/landlords",
+        },
+        {
+          label: "Reglamento",
+          route: "/reglamento",
         },
         // {
         //   label: "Calendario Eventos",
