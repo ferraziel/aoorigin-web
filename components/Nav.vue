@@ -72,7 +72,7 @@
             <a
               href="https://steamcommunity.com/app/1956740/discussions/"
               target="_blank"
-               class="mobile-nav-link"
+              class="mobile-nav-link"
               >Foro</a
             >
           </li>
@@ -97,10 +97,16 @@
 <script>
 export default {
   async fetch() {
-    const gameServerStatus = await this.$axios.$get("/");
+    this.$axios.$get("/")
+    .then(data => {
+      this.onlineCount = data.onlineCount
+      this.isServerOnline = data.isServerOnline
+    })
+    .error(err => {
+      this.onlineCount = 9999
+      this.isServerOnline = false
+    });
 
-    this.onlineCount = gameServerStatus.onlineCount
-    this.isServerOnline = gameServerStatus.isServerOnline
   },
 
   data() {
