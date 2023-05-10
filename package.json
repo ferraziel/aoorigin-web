@@ -21,7 +21,7 @@
     "@nuxtjs/dayjs": "^1.4.1",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/gtm": "^2.4.0",
-    "@nuxtjs/recaptcha": "^1.1.1",
+    "@nuxtjs/recaptcha": "^1.1.2",
     "@nuxtjs/sitemap": "^2.4.0",
     "fast-xml-parser": "^4.2.2",
     "jquery": "^3.6.4",
