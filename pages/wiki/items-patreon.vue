@@ -8,9 +8,8 @@
     >
       <h2 class="section-title text-center mb-4 uppercase">Items Patreon</h2>
       <p>
-        Convertite en un Patron para obtener beneficios exclusivos in-game y acceso a canales privados de Discord.
+        Convertite en un Patron para obtener beneficios exclusivos in-game y acceso a canales privados de Discord. <a class="section-title" href="https://www.patreon.com/posts/guia-beneficios-63817246" target="_blank">Ver beneficios patreons</a>
       </p>
-      <a href="https://www.patreon.com/posts/guia-beneficios-63817246" target="_blank">Ver beneficios patreon</a>
 
       <div class="xl:col-span-10 text-xs overflow-x-auto">
         <table class="text-gray-400">
