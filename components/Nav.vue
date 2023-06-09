@@ -96,22 +96,9 @@
 
 <script>
 export default {
-  async fetch() {
-    this.$axios.$get("/")
-    .then(data => {
-      this.onlineCount = data.onlineCount
-      this.isServerOnline = data.isServerOnline
-    })
-    .error(err => {
-      this.onlineCount = 9999
-      this.isServerOnline = false
-    });
-
-  },
-
   data() {
     return {
-      onlineCount: null,
+      onlineCount: 0,
       isServerOnline: false,
       showMobileMenu: false,
       linksMain: [
@@ -159,6 +146,18 @@ export default {
         // }
       ],
     };
+  },
+  async fetch() {
+    this.$axios.$get("/")
+    .then(result => {
+      this.onlineCount = result.onlineCount
+      this.isServerOnline = result.isServerOnline
+    })
+    .catch(err => {
+      console.error("Nav.vue fetch error: " + err)
+      this.onlineCount = 1
+      this.isServerOnline = false
+    });
   },
   mounted() {
     window.addEventListener("resize", () => {

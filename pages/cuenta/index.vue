@@ -47,7 +47,7 @@ export default  {
       .then(data => {
         this.$router.go(0);
       })
-      .error(err => {
+      .catch(err => {
         console.error("disableMercadoPago", err);
       });
     },

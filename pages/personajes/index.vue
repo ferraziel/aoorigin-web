@@ -104,7 +104,7 @@ export default {
             this.removeUserFromMaoMessage = data.message;
           })
           .catch((error) => {
-            this.user.is_locked_in_mao = true;
+            user.is_locked_in_mao = true;
             this.removeUserFromMaoStatus = "ERROR";
             this.removeUserFromMaoMessage = error.response.data.message;
           });
