@@ -45,12 +45,14 @@
               <li class="text-s">{{ tier.name }}</li>
             </ul>
 
+            <div>Estas son subscripciones que se pagan mensualmente, <a href="https://www.patreon.com/posts/guia-beneficios-63817246">VER BENEFICIOS</a> </div>
+
             <ul>
               <li v-if="tier.mercadopago_payment_url" class="text-green text-sm md:text-base lg:text-lg">
-                <a :href="tier.mercadopago_payment_url">Pagar con MercadoPago</a>
+                <a :href="tier.mercadopago_payment_url">Subscribirse con MercadoPago</a>
               </li>
               <li v-if="tier.patreon_payment_url" class="text-green text-sm md:text-base lg:text-lg">
-                <a :href="tier.patreon_payment_url">Pagar con Patreon</a>
+                <a :href="tier.patreon_payment_url">Subscribirse con Patreon</a>
               </li>
             </ul>
 
