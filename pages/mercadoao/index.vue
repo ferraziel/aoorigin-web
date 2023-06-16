@@ -32,6 +32,7 @@
       <PagePadding />
 
       <h3>Tiers de Creditos AO20.</h3>
+      <div>Estas son subscripciones que se pagan mensualmente, <a href="https://www.patreon.com/posts/guia-beneficios-63817246">VER BENEFICIOS</a> </div>
 
       <div v-if="a020pointsTiersOnSale.length">
         <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -44,8 +45,6 @@
             <ul>
               <li class="text-s">{{ tier.name }}</li>
             </ul>
-
-            <div>Estas son subscripciones que se pagan mensualmente, <a href="https://www.patreon.com/posts/guia-beneficios-63817246">VER BENEFICIOS</a> </div>
 
             <ul>
               <li v-if="tier.mercadopago_payment_url" class="text-green text-sm md:text-base lg:text-lg">
