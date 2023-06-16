@@ -8,17 +8,17 @@
 
       <div v-if="a020pointsOnSale.length">
         <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <div class="flex flex-col items-center gap-y-4" v-for="tier in a020pointsOnSale" :key="tier.name" :id="tier.name">
+          <div class="flex flex-col items-center gap-y-4" v-for="points in a020pointsOnSale" :key="points.name" :id="points.name">
 
-            <NuxtLink :to="`/mercadoao/ao20points/${tier.name}`">
+            <NuxtLink :to="`/mercadoao/ao20points/${points.name}`">
               <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
-                <img :src="require(`~/assets/img/mao/${tier.image}`)"/>
+                <img :src="require(`~/assets/img/mao/${points.image}`)"/>
               </div>
 
               <ul>
-                <li class="text-s">{{ tier.name }}</li>
-                <li class="text-green text-sm md:text-base lg:text-lg">Cantidad Creditos: {{ tier.qty_points }} </li>
-                <li class="text-green text-sm md:text-base lg:text-lg">Precio: {{ tier.price_in_pesos.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</li>
+                <li class="text-s">{{ points.name }}</li>
+                <li class="text-green text-sm md:text-base lg:text-lg">Cantidad Creditos: {{ points.qty_points }} </li>
+                <li class="text-green text-sm md:text-base lg:text-lg">Precio: {{ points.price_in_pesos.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</li>
               </ul>
             </NuxtLink>
           </div>
@@ -28,6 +28,40 @@
       <section v-else class="text-center mt-24">
         <p class="text-2xl">No hay Puntos Patreon en venta.</p>
       </section>
+
+      <PagePadding />
+
+      <h3>Tiers de Creditos AO20.</h3>
+
+      <div v-if="a020pointsTiersOnSale.length">
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div class="flex flex-col items-center gap-y-4" v-for="tier in a020pointsTiersOnSale" :key="tier.name" :id="tier.name">
+
+            <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
+              <img :src="require(`~/assets/img/mao/${tier.image}`)"/>
+            </div>
+
+            <ul>
+              <li class="text-s">{{ tier.name }}</li>
+            </ul>
+
+            <ul>
+              <li v-if="tier.mercadopago_payment_url" class="text-green text-sm md:text-base lg:text-lg">
+                <a :href="tier.mercadopago_payment_url">Pagar con MercadoPago</a>
+              </li>
+              <li v-if="tier.patreon_payment_url" class="text-green text-sm md:text-base lg:text-lg">
+                <a :href="tier.patreon_payment_url">Pagar con Patreon</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+      <section v-else class="text-center mt-24">
+        <p class="text-2xl">No hay Puntos Patreon en venta.</p>
+      </section>
+
 
       <PagePadding />
       <!-- <h3>Items unicos.</h3>
@@ -98,6 +132,7 @@ export default {
       usersOnSale: await $axios.$post(`users/getAllUsersOnSaleInMao`),
       itemsOnSale: await $axios.$get(`market/getAllItemsOnSale`),
       a020pointsOnSale: await $axios.$get(`market/getAllAO20PointsOnSale`),
+      a020pointsTiersOnSale: await $axios.$get(`market/getAllAO20PointsTiersOnSale`),
     };
   },
 };
