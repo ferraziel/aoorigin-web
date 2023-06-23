@@ -25,7 +25,7 @@
               <th>Madera</th>
               <th>Madera Elfica</th>
               <th>Skills Carpintera</th>
-              <th>Clases Prohibidas</th>
+              <th>Clases Permitidas</th>
             </tr>
           </thead>
 
@@ -45,7 +45,7 @@
               <td class="text-right">{{ flecha.Data.MADERA }}</td>
               <td class="text-right">{{ flecha.Data.MADERAELFICA }}</td>
               <td class="text-right">{{ flecha.Data.SKCARPINTERIA }}</td>
-              <td class="text-right">{{flecha.Data.CP1}} {{flecha.Data.CP2}} {{flecha.Data.CP3}} {{flecha.Data.CP4}} {{flecha.Data.CP5}} {{flecha.Data.CP5}} {{flecha.Data.CP7}} {{flecha.Data.CP8}} {{flecha.Data.CP9}} {{flecha.Data.CP10}} {{flecha.Data.CP11}} {{flecha.Data.CP12}} {{flecha.Data.CP13}}</td>
+              <td class="text-right">{{flecha.Data.ClasesPermitidas}}</td>
             </tr>
           </tbody>
         </table>

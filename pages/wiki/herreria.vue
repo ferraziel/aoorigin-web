@@ -24,7 +24,7 @@
                 <th>Lingote de Plata</th>
                 <th>Lingote de Bronce</th>
                 <th>Skills Herreria</th>
-                <th>Clases Prohibidas</th>
+                <th>Clases Permitidas</th>
               </tr>
             </thead>
 
@@ -40,11 +40,7 @@
                 <td class="text-right">{{ item.Data.LINGP }}</td>
                 <td class="text-right">{{ item.Data.LINGH }}</td>
                 <td class="text-right">{{ item.Data.SKHERRERIA }}</td>
-                <td class="text-right">
-                  {{ item.Data.CP1 }} {{ item.Data.CP2 }} {{ item.Data.CP3 }} {{ item.Data.CP4 }} {{ item.Data.CP5 }}
-                  {{ item.Data.CP5 }} {{ item.Data.CP7 }} {{ item.Data.CP8 }} {{ item.Data.CP9 }} {{ item.Data.CP10 }}
-                  {{ item.Data.CP11 }} {{ item.Data.CP12 }} {{ item.Data.CP13 }}
-                </td>
+                <td class="text-right">{{ item.Data.ClasesPermitidas }}</td>
               </tr>
             </tbody>
           </table>

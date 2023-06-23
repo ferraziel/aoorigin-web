@@ -35,23 +35,11 @@
                           </span>
                       </div>
 
-                      <!-- Clases prohibidas -->
-                      <div v-if="montura.Data.CP1" class="block-info">
-                          <span class="w-40">Clases Prohibidas: </span>
+                      <!-- Clases Permitidas -->
+                      <div v-if="montura.Data.ClasesPermitidas" class="block-info">
+                          <span class="w-40">Clases Permitidas: </span>
                           <span>
-                              <span v-if="montura.Data.CP1">{{montura.Data.CP1}}</span>
-                              <span v-if="montura.Data.CP2">, {{montura.Data.CP2}}</span>
-                              <span v-if="montura.Data.CP3">, {{montura.Data.CP3}}</span>
-                              <span v-if="montura.Data.CP4">, {{montura.Data.CP4}}</span>
-                              <span v-if="montura.Data.CP5">, {{montura.Data.CP5}}</span>
-                              <span v-if="montura.Data.CP6">, {{montura.Data.CP6}}</span>
-                              <span v-if="montura.Data.CP7">, {{montura.Data.CP7}}</span>
-                              <span v-if="montura.Data.CP8">, {{montura.Data.CP8}}</span>
-                              <span v-if="montura.Data.CP9">, {{montura.Data.CP9}}</span>
-                              <span v-if="montura.Data.CP10">, {{montura.Data.CP10}}</span>
-                              <span v-if="montura.Data.CP11">, {{montura.Data.CP11}}</span>
-                              <span v-if="montura.Data.CP12">, {{montura.Data.CP12}}</span>
-                              <span v-if="montura.Data.CP13">, {{montura.Data.CP13}}</span>
+                              <span>{{montura.Data.ClasesPermitidas}}</span>
                           </span>
                       </div>
 

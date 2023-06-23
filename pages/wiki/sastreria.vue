@@ -23,7 +23,7 @@
                 <th><img src="@/assets/img/wiki/piel-oso-pardo.png" title="Piel Oso Pardo" alt="Piel Oso Pardo"/></th>
                 <th><img src="@/assets/img/wiki/piel-oso-polar.png" title="Piel Oso Polar" alt="Piel Oso Polar"/></th>
                 <th>Skills Sastreria</th>
-                <th>Clases Prohibidas</th>
+                <th>Clases Permitidas</th>
               </tr>
             </thead>
 
@@ -41,11 +41,7 @@
                 <td class="text-right">{{ item.Data.PIELOSOPARDO }}</td>
                 <td class="text-right">{{ item.Data.PIELOSOPOLAR }}</td>
                 <td class="text-right">{{ item.Data.SKSASTRERIA }}</td>
-                <td class="text-right">
-                  {{ item.Data.CP1 }} {{ item.Data.CP2 }} {{ item.Data.CP3 }} {{ item.Data.CP4 }} {{ item.Data.CP5 }}
-                  {{ item.Data.CP5 }} {{ item.Data.CP7 }} {{ item.Data.CP8 }} {{ item.Data.CP9 }} {{ item.Data.CP10 }}
-                  {{ item.Data.CP11 }} {{ item.Data.CP12 }} {{ item.Data.CP13 }}
-                </td>
+                <td class="text-right">{{ item.Data.ClasesPermitidas }}</td>
               </tr>
             </tbody>
           </table>

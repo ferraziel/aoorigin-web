@@ -42,24 +42,10 @@
                         </span>
                     </div>
 
-                    <!-- Clases prohibidas -->
-                    <div v-if="shield.Data.CP1" class="block-info">
-                        <span class="w-40">Clases Prohibidas: </span>
-                        <span>
-                            <span v-if="shield.Data.CP1">{{shield.Data.CP1}}</span>
-                            <span v-if="shield.Data.CP2">, {{shield.Data.CP2}}</span>
-                            <span v-if="shield.Data.CP3">, {{shield.Data.CP3}}</span>
-                            <span v-if="shield.Data.CP4">, {{shield.Data.CP4}}</span>
-                            <span v-if="shield.Data.CP5">, {{shield.Data.CP5}}</span>
-                            <span v-if="shield.Data.CP6">, {{shield.Data.CP6}}</span>
-                            <span v-if="shield.Data.CP7">, {{shield.Data.CP7}}</span>
-                            <span v-if="shield.Data.CP8">, {{shield.Data.CP8}}</span>
-                            <span v-if="shield.Data.CP9">, {{shield.Data.CP9}}</span>
-                            <span v-if="shield.Data.CP10">, {{shield.Data.CP10}}</span>
-                            <span v-if="shield.Data.CP11">, {{shield.Data.CP11}}</span>
-                            <span v-if="shield.Data.CP12">, {{shield.Data.CP12}}</span>
-                            <span v-if="shield.Data.CP13">, {{shield.Data.CP13}}</span>
-                        </span>
+                    <!-- Clases permitidas -->
+                    <div v-if="shield.Data.ClasesPermitidas" class="block-info">
+                        <span class="w-40">Clases Permitidas: </span>
+                        <span>{{shield.Data.ClasesPermitidas}}</span>
                     </div>
 
                 </div>

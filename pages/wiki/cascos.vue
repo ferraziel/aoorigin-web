@@ -42,23 +42,11 @@
                           </span>
                       </div>
 
-                      <!-- Clases prohibidas -->
-                      <div v-if="helmet.Data.CP1" class="block-info">
-                          <span class="w-40">Clases Prohibidas: </span>
+                      <!-- Clases Permitidas -->
+                      <div v-if="helmet.Data.ClasesPermitidas" class="block-info">
+                          <span class="w-40">Clases Permitidas: </span>
                           <span>
-                              <span v-if="helmet.Data.CP1">{{helmet.Data.CP1}}</span>
-                              <span v-if="helmet.Data.CP2">, {{helmet.Data.CP2}}</span>
-                              <span v-if="helmet.Data.CP3">, {{helmet.Data.CP3}}</span>
-                              <span v-if="helmet.Data.CP4">, {{helmet.Data.CP4}}</span>
-                              <span v-if="helmet.Data.CP5">, {{helmet.Data.CP5}}</span>
-                              <span v-if="helmet.Data.CP6">, {{helmet.Data.CP6}}</span>
-                              <span v-if="helmet.Data.CP7">, {{helmet.Data.CP7}}</span>
-                              <span v-if="helmet.Data.CP8">, {{helmet.Data.CP8}}</span>
-                              <span v-if="helmet.Data.CP9">, {{helmet.Data.CP9}}</span>
-                              <span v-if="helmet.Data.CP10">, {{helmet.Data.CP10}}</span>
-                              <span v-if="helmet.Data.CP11">, {{helmet.Data.CP11}}</span>
-                              <span v-if="helmet.Data.CP12">, {{helmet.Data.CP12}}</span>
-                              <span v-if="helmet.Data.CP13">, {{helmet.Data.CP13}}</span>
+                              <span>{{helmet.Data.ClasesPermitidas}}</span>
                           </span>
                       </div>
 

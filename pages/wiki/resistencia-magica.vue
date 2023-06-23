@@ -19,7 +19,7 @@
               <th>Lingote de Plata</th>
               <th>Lingote de Bronce</th>
               <th>Skills Herreria</th>
-              <th>Clases Prohibidas</th>
+              <th>Clases Permitidas</th>
             </tr>
           </thead>
 
@@ -35,7 +35,7 @@
               <td class="text-right">{{ magicResistanceItem.Data.LINGP }}</td>
               <td class="text-right">{{ magicResistanceItem.Data.LINGH }}</td>
               <td class="text-right">{{ magicResistanceItem.Data.SKHERRERIA }}</td>
-              <td class="text-right">{{magicResistanceItem.Data.CP1}} {{magicResistanceItem.Data.CP2}} {{magicResistanceItem.Data.CP3}} {{magicResistanceItem.Data.CP4}} {{magicResistanceItem.Data.CP5}} {{magicResistanceItem.Data.CP5}} {{magicResistanceItem.Data.CP7}} {{magicResistanceItem.Data.CP8}} {{magicResistanceItem.Data.CP9}} {{magicResistanceItem.Data.CP10}} {{magicResistanceItem.Data.CP11}} {{magicResistanceItem.Data.CP12}} {{magicResistanceItem.Data.CP13}}</td>
+              <td class="text-right">{{ magicResistanceItem.Data.ClasesPermitidas }}</td>
             </tr>
           </tbody>
         </table>

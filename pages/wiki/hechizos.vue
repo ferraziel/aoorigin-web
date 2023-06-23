@@ -50,23 +50,11 @@
                         </span>
                     </div>
 
-                    <!-- Clases prohibidas -->
+                    <!-- Clases permitidas -->
                     <div v-if="spell.Data" class="block-info">
-                        <span class="w-40">Clases Prohibidas: </span>
+                        <span class="w-40">Clases Permitidas: </span>
                         <span>
-                            <span v-if="spell.Data.CP1">{{spell.Data.CP1}}</span>
-                            <span v-if="spell.Data.CP2">, {{spell.Data.CP2}}</span>
-                            <span v-if="spell.Data.CP3">, {{spell.Data.CP3}}</span>
-                            <span v-if="spell.Data.CP4">, {{spell.Data.CP4}}</span>
-                            <span v-if="spell.Data.CP5">, {{spell.Data.CP5}}</span>
-                            <span v-if="spell.Data.CP6">, {{spell.Data.CP6}}</span>
-                            <span v-if="spell.Data.CP7">, {{spell.Data.CP7}}</span>
-                            <span v-if="spell.Data.CP8">, {{spell.Data.CP8}}</span>
-                            <span v-if="spell.Data.CP9">, {{spell.Data.CP9}}</span>
-                            <span v-if="spell.Data.CP10">, {{spell.Data.CP10}}</span>
-                            <span v-if="spell.Data.CP11">, {{spell.Data.CP11}}</span>
-                            <span v-if="spell.Data.CP12">, {{spell.Data.CP12}}</span>
-                            <span v-if="spell.Data.CP13">, {{spell.Data.CP13}}</span>
+                            <span>{{spell.Data.ClasesPermitidas}}</span>
                         </span>
                     </div>
 

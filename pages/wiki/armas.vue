@@ -44,23 +44,11 @@
                         </span>
                     </div>
 
-                    <!-- Clases prohibidas -->
-                    <div v-if="weapon.Data.CP1" class="block-info">
-                        <span class="w-40">Clases Prohibidas: </span>
+                    <!-- Clases Permitidas -->
+                    <div v-if="weapon.Data.ClasesPermitidas" class="block-info">
+                        <span class="w-40">Clases Permitidas: </span>
                         <span>
-                            <span v-if="weapon.Data.CP1">{{weapon.Data.CP1}}</span>
-                            <span v-if="weapon.Data.CP2">, {{weapon.Data.CP2}}</span>
-                            <span v-if="weapon.Data.CP3">, {{weapon.Data.CP3}}</span>
-                            <span v-if="weapon.Data.CP4">, {{weapon.Data.CP4}}</span>
-                            <span v-if="weapon.Data.CP5">, {{weapon.Data.CP5}}</span>
-                            <span v-if="weapon.Data.CP6">, {{weapon.Data.CP6}}</span>
-                            <span v-if="weapon.Data.CP7">, {{weapon.Data.CP7}}</span>
-                            <span v-if="weapon.Data.CP8">, {{weapon.Data.CP8}}</span>
-                            <span v-if="weapon.Data.CP9">, {{weapon.Data.CP9}}</span>
-                            <span v-if="weapon.Data.CP10">, {{weapon.Data.CP10}}</span>
-                            <span v-if="weapon.Data.CP11">, {{weapon.Data.CP11}}</span>
-                            <span v-if="weapon.Data.CP12">, {{weapon.Data.CP12}}</span>
-                            <span v-if="weapon.Data.CP13">, {{weapon.Data.CP13}}</span>
+                            <span>{{weapon.Data.ClasesPermitidas}}</span>
                         </span>
                     </div>
 
@@ -128,23 +116,11 @@
                         </span>
                     </div>
 
-                    <!-- Clases prohibidas -->
-                    <div v-if="knuckles.Data.CP1" class="block-info">
-                        <span class="w-40">Clases Prohibidas: </span>
+                    <!-- Clases Permitidas -->
+                    <div v-if="knuckles.Data.ClasesPermitidas" class="block-info">
+                        <span class="w-40">Clases Permitidas: </span>
                         <span>
-                            <span v-if="knuckles.Data.CP1">{{knuckles.Data.CP1}}</span>
-                            <span v-if="knuckles.Data.CP2">, {{knuckles.Data.CP2}}</span>
-                            <span v-if="knuckles.Data.CP3">, {{knuckles.Data.CP3}}</span>
-                            <span v-if="knuckles.Data.CP4">, {{knuckles.Data.CP4}}</span>
-                            <span v-if="knuckles.Data.CP5">, {{knuckles.Data.CP5}}</span>
-                            <span v-if="knuckles.Data.CP6">, {{knuckles.Data.CP6}}</span>
-                            <span v-if="knuckles.Data.CP7">, {{knuckles.Data.CP7}}</span>
-                            <span v-if="knuckles.Data.CP8">, {{knuckles.Data.CP8}}</span>
-                            <span v-if="knuckles.Data.CP9">, {{knuckles.Data.CP9}}</span>
-                            <span v-if="knuckles.Data.CP10">, {{knuckles.Data.CP10}}</span>
-                            <span v-if="knuckles.Data.CP11">, {{knuckles.Data.CP11}}</span>
-                            <span v-if="knuckles.Data.CP12">, {{knuckles.Data.CP12}}</span>
-                            <span v-if="knuckles.Data.CP13">, {{knuckles.Data.CP13}}</span>
+                            <span>{{knuckles.Data.ClasesPermitidas}}</span>
                         </span>
                     </div>
 

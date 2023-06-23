@@ -25,7 +25,7 @@
               <th>No se Cae</th>
               <th>Intirable</th>
               <th>Intransferible</th>
-              <th>Clases Prohibidas</th>
+              <th>Clases Permitidas</th>
             </tr>
           </thead>
 
@@ -44,7 +44,7 @@
               <td class="text-right"><span v-if="embarcacion.Data.NOSECAE">Sí</span><span v-else>No</span></td>
               <td class="text-right"><span v-if="embarcacion.Data.INTIRABLE">Sí</span><span v-else>No</span></td>
               <td class="text-right"><span v-if="embarcacion.Data.INSTRANSFERIBLE">Sí</span><span v-else>No</span></td>
-              <td class="text-right">{{embarcacion.Data.CP1}} {{embarcacion.Data.CP2}} {{embarcacion.Data.CP3}} {{embarcacion.Data.CP4}} {{embarcacion.Data.CP5}} {{embarcacion.Data.CP5}} {{embarcacion.Data.CP7}} {{embarcacion.Data.CP8}} {{embarcacion.Data.CP9}} {{embarcacion.Data.CP10}} {{embarcacion.Data.CP11}} {{embarcacion.Data.CP12}} {{embarcacion.Data.CP13}}</td>
+              <td class="text-right">{{embarcacion.Data.ClasesPermitidas}}</td>
             </tr>
           </tbody>
         </table>

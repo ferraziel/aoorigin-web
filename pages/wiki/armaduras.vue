@@ -42,24 +42,10 @@
                         </span>
                     </div>
 
-                    <!-- Clases prohibidas -->
-                    <div v-if="armour.Data.CP1" class="block-info">
-                        <span class="w-40">Clases Prohibidas: </span>
-                        <span>
-                            <span v-if="armour.Data.CP1">{{armour.Data.CP1}}</span>
-                            <span v-if="armour.Data.CP2">, {{armour.Data.CP2}}</span>
-                            <span v-if="armour.Data.CP3">, {{armour.Data.CP3}}</span>
-                            <span v-if="armour.Data.CP4">, {{armour.Data.CP4}}</span>
-                            <span v-if="armour.Data.CP5">, {{armour.Data.CP5}}</span>
-                            <span v-if="armour.Data.CP6">, {{armour.Data.CP6}}</span>
-                            <span v-if="armour.Data.CP7">, {{armour.Data.CP7}}</span>
-                            <span v-if="armour.Data.CP8">, {{armour.Data.CP8}}</span>
-                            <span v-if="armour.Data.CP9">, {{armour.Data.CP9}}</span>
-                            <span v-if="armour.Data.CP10">, {{armour.Data.CP10}}</span>
-                            <span v-if="armour.Data.CP11">, {{armour.Data.CP11}}</span>
-                            <span v-if="armour.Data.CP12">, {{armour.Data.CP12}}</span>
-                            <span v-if="armour.Data.CP13">, {{armour.Data.CP13}}</span>
-                        </span>
+                    <!-- Clases Permitidas -->
+                    <div v-if="armour.Data.ClasesPermitidas" class="block-info">
+                        <span class="w-40">Clases Permitidas: </span>
+                        <span>{{armour.Data.ClasesPermitidas}}</span>
                     </div>
 
                 </div><!-- /.w-full -->
@@ -123,23 +109,11 @@
                         </span>
                     </div>
 
-                    <!-- Clases prohibidas -->
-                    <div v-if="armourFacciones.Data.CP1" class="block-info">
-                        <span class="w-40">Clases Prohibidas: </span>
+                    <!-- Clases permitidas -->
+                    <div v-if="armourFacciones.Data.ClasesPermitidas" class="block-info">
+                        <span class="w-40">Clases permitidas: </span>
                         <span>
-                            <span v-if="armourFacciones.Data.CP1">{{armourFacciones.Data.CP1}}</span>
-                            <span v-if="armourFacciones.Data.CP2">, {{armourFacciones.Data.CP2}}</span>
-                            <span v-if="armourFacciones.Data.CP3">, {{armourFacciones.Data.CP3}}</span>
-                            <span v-if="armourFacciones.Data.CP4">, {{armourFacciones.Data.CP4}}</span>
-                            <span v-if="armourFacciones.Data.CP5">, {{armourFacciones.Data.CP5}}</span>
-                            <span v-if="armourFacciones.Data.CP6">, {{armourFacciones.Data.CP6}}</span>
-                            <span v-if="armourFacciones.Data.CP7">, {{armourFacciones.Data.CP7}}</span>
-                            <span v-if="armourFacciones.Data.CP8">, {{armourFacciones.Data.CP8}}</span>
-                            <span v-if="armourFacciones.Data.CP9">, {{armourFacciones.Data.CP9}}</span>
-                            <span v-if="armourFacciones.Data.CP10">, {{armourFacciones.Data.CP10}}</span>
-                            <span v-if="armourFacciones.Data.CP11">, {{armourFacciones.Data.CP11}}</span>
-                            <span v-if="armourFacciones.Data.CP12">, {{armourFacciones.Data.CP12}}</span>
-                            <span v-if="armourFacciones.Data.CP13">, {{armourFacciones.Data.CP13}}</span>
+                            <span>{{armourFacciones.Data.ClasesPermitidas}}</span>
                         </span>
                     </div>
 
