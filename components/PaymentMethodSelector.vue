@@ -11,13 +11,13 @@
           <button class="cho-container"></button>
         </td>
 
-        <!-- <td>
+        <td>
           <button @click="buyWithEthereum()">
             <img src="@/assets/img/mao/ethereum-logo.png" class="w-32 h-32 rounded-full mb-4" />
           </button>
         </td>
 
-        <td v-for="token in tokens" :key="token.name">
+        <!-- <td v-for="token in tokens" :key="token.name">
           <button @click="buyWithERC20Token(token.name)">
             <img :src="token.image" class="w-32 h-32 rounded-full mb-4" />
           </button>

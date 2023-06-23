@@ -20,12 +20,20 @@
       <hr>
       <br>
 
-      <button @click="buyUser()"
+      <button @click="processPayment('MercadoPago')"
               type="submit"
               v-if="!isSubmited"
               class="btn btn-silver self-start py-2 px-4 rounded-full hover:bg-gray-200"
       >
-        Comprar Personaje
+        Comprar Personaje Mercado Pago
+      </button>
+
+      <button @click="processPayment('Ethereum')"
+              type="submit"
+              v-if="!isSubmited"
+              class="btn btn-silver self-start py-2 px-4 rounded-full hover:bg-gray-200"
+      >
+        Comprar Personaje Ethereum
       </button>
 
       <NuxtLink v-else to="/mercadoao" class="btn btn-silver self-start py-2 px-4 rounded-full hover:bg-gray-200">Volver al mercado</NuxtLink>
@@ -53,61 +61,79 @@ export default {
   },
 
   async mounted() {
-    // if (!ethereum) {
-    //   alert("Necesitas Metamask para poder poner la wallet en tu personaje.");
-    //   console.log("Non-Ethereum browser detected. You should consider trying MetaMask!");
-    // }
+    if (!ethereum) {
+      alert("Non-Ethereum browser detected. You should consider trying MetaMask!");
+    }
   },
 
   methods: {
-    async buyUserEthereum() {
-      if (confirm("Estas seguro que quieres comprar este personaje?.")) {
-        // await ethereum.enable();
-
-        // const accounts = await ethereum.request({ method: 'eth_accounts' });
-
-        // this.buyUserStatus = "PENDING";
-        // this.buyUserMessage = "Esperando aprobar transaccion. Esto puede tardar varios minutos dependiendo la congestion de la red ethereum";
-
-        // try {
-        //   const transactionHash = await ethereum.request({
-        //     method: 'eth_sendTransaction',
-        //     params: [
-        //       {
-        //         to: '0x94f5bA56B06a6097f25D6b658f7abE2f78880B79',
-        //         value: "10000000000000",
-        //         from: accounts[0],
-        //       },
-        //     ],
-        //   });
-
-        //   // Handle the result
-        //   console.log(transactionHash);
-
-        //   this.$axios.$post(`/users/buyUserFromMao/${this.user.id}`, {
-        //     txHash: "asds",
-        //   })
-        //   .then((data) => {
-        //     this.buyUserStatus = "OK";
-        //     this.buyUserMessage = "Tu peticion para eliminar el personaje de MercadoAO llego con exito, espera a que se confirme la transaccion.";
-        //   })
-        //   .catch((error) => {
-        //     this.user.is_locked_in_mao = true;
-        //     this.buyUserStatus = "ERROR";
-        //     this.buyUserMessage = error.response.data.message;
-        //   });
-
-        // } catch (error) {
-        //   console.error(error);
-        //   this.user.is_locked_in_mao = true;
-        //   this.buyUserStatus = "ERROR";
-        //   this.buyUserMessage = error;
-        // }
-
+    async processPayment(paymentGateway) {
+      switch (paymentGateway) {
+        case 'MercadoPago':
+          buyUserMercadoPago();
+          break;
+        case 'Ethereum':
+          buyUserEthereum();
+          break;
+        case 'Stripe':
+          break;
+        default:
+          // Default case
+          console.error('Invalid payment gateway');
+          break;
       }
     },
 
-    async buyUser() {
+    async buyUserEthereum() {
+      if (confirm("Estas seguro que quieres comprar este personaje?.")) {
+        await ethereum.enable();
+
+        const accounts = await ethereum.request({ method: 'eth_accounts' });
+
+        this.buyUserStatus = "PENDING";
+        this.buyUserMessage = "Esperando aprobar transaccion. Esto puede tardar varios minutos dependiendo la congestion de la red ethereum";
+
+        const contractAddress = 'YOUR_CONTRACT_ADDRESS'; // Replace with your smart contract address
+        const contractABI = [...]; // Replace with your smart contract ABI
+
+        const web3 = new Web3(ethereum);
+        const contractInstance = new web3.eth.Contract(contractABI, contractAddress);
+
+        // Call the transfer function of your smart contract
+        contractInstance.methods.transfer(recipient, amount).send({
+          from: accounts[0]
+        })
+        .on('transactionHash', (hash) => {
+          // Transaction hash is available here
+          this.buyUserStatus = "PENDING";
+          this.buyUserMessage = "Transaccion enviada. Esperando confirmacion en la red ethereum...";
+
+          //TODO:
+          // createErc20TokenTransaction()
+        })
+        .on('confirmation', (confirmationNumber, receipt) => {
+          // Transaction confirmed
+          if (confirmationNumber === 1) {
+            this.buyUserStatus = "SUCCESS";
+            this.buyUserMessage = "Transaccion exitosa. El personaje ha sido comprado.";
+          }
+        })
+        .on('error', (error) => {
+          // Error occurred during transaction
+          this.buyUserStatus = "ERROR";
+          this.buyUserMessage = "Error al procesar la transaccion.";
+        });
+      }
+    },
+
+    /**
+     * Executes the process of buying a user from Mao through MercadoPago.
+     * Asks for confirmation from the user before processing the payment.
+     * Handles errors and displays messages according to the results.
+     *
+     * @return {void}
+     */
+    async buyUserMercadoPago() {
       if (confirm("Estas seguro que quieres comprar este personaje?.")) {
         this.isSubmited = true;
         this.buyUserStatus = "PENDING";
