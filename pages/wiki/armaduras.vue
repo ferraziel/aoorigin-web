@@ -45,7 +45,9 @@
                     <!-- Clases Permitidas -->
                     <div v-if="armour.Data.ClasesPermitidas" class="block-info">
                         <span class="w-40">Clases Permitidas: </span>
-                        <span>{{armour.Data.ClasesPermitidas}}</span>
+                        <span>
+                          <span>{{armour.Data.ClasesPermitidas}}</span>
+                        </span>
                     </div>
 
                 </div><!-- /.w-full -->
