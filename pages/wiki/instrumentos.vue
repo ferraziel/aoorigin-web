@@ -45,9 +45,9 @@
               <th>Id</th>
               <th></th>
               <th>Nombre</th>
-              <th>No se Cae</th>
-              <th>Intirable</th>
-              <th>Intransferible</th>
+              <th><span title="No se Cae" class="color-icon color-icon-md color-icon-nosecae"></span></th>
+              <th><span title="Intirable" class="color-icon color-icon-md color-icon-notirable"></span></th>
+              <th><span title="Intransferible" class="color-icon color-icon-md color-icon-notransferible"></span></th>
             </tr>
           </thead>
 

@@ -8,41 +8,41 @@
     >
       <h2 class="section-title text-center mb-4 uppercase">Ranking Clanes</h2>
       <h6>Ordenados por cantidad de miembros</h6>
-      <div class="xl:col-span-10 text-xs overflow-x-auto">
-        <table class="text-gray-400">
+      <div class="overflow-x-auto">
+        <table class="text-gray-400 table-auto">
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th>Fundador</th>
-              <th>Fecha Creacion</th>
-              <th>Alineacion</th>
-              <th>Ultimas Elecciones</th>
-              <th>Descripcion</th>
-              <th>Novedades</th>
-              <th>Lider</th>
-              <th>Nivel</th>
-              <th>Miembros</th>
-              <th>Cantidad Miembros</th>
-              <th>Cantidad Solicitudes para Ingreso</th>
-              <!-- <th>Oro total de todos los miembros</th> -->
+              <th class="w-1/12">Nombre</th>
+              <th class="w-1/12">Fundador</th>
+              <th class="w-1/12">Fecha Creacion</th>
+              <th class="w-1/12">Alineacion</th>
+              <th class="w-1/12">Ultimas Elecciones</th>
+              <th class="w-2/12">Descripcion</th>
+              <th class="w-2/12">Novedades</th>
+              <th class="w-1/12">Lider</th>
+              <th class="w-1/12">Nivel</th>
+              <th class="w-1/12">Miembros</th>
+              <th class="w-1/12">Cantidad Miembros</th>
+              <th class="w-1/12">Cantidad Solicitudes para Ingreso</th>
+              <!-- <th class="w-1/12">Oro total de todos los miembros</th> -->
             </tr>
           </thead>
 
           <tbody>
             <tr v-for="guild in rankingGuilds" :key="guild.item_id">
-              <td class="text-right">{{ guild.GuildName }}</td>
-              <td class="text-right">{{ guild.Founder }}</td>
-              <td class="text-right">{{ guild.Date }}</td>
-              <td class="text-right">{{ guild.Alineacion }}</td>
-              <td class="text-right">{{ guild.UltimasElecciones }}</td>
-              <td class="text-right">{{ guild.Desc }}</td>
-              <td class="text-right">{{ guild.GuildNews }}</td>
-              <td class="text-right">{{ guild.Leader }}</td>
-              <td class="text-right">{{ guild.NivelDeClan }}</td>
-              <td class="text-right">{{ guild.MEMBERS }}</td>
-              <td class="text-right">{{ guild.QTY_MEMBERS }}</td>
-              <td class="text-right">{{ guild.QTY_SOLICITUDES_INGRESO }}</td>
-              <!-- <td class="text-right">{{ guild.TOTAL_GOLD_FROM_MEMBERS }}</td> -->
+              <td class="w-1/12">{{ guild.GuildName }}</td>
+              <td class="w-1/12">{{ guild.Founder }}</td>
+              <td class="w-1/12">{{ guild.Date }}</td>
+              <td class="w-1/12">{{ guild.Alineacion }}</td>
+              <td class="w-1/12">{{ guild.UltimasElecciones }}</td>
+              <td class="w-2/12">{{ guild.Desc }}</td>
+              <td class="w-2/12">{{ guild.GuildNews }}</td>
+              <td class="w-1/12">{{ guild.Leader }}</td>
+              <td class="w-1/12">{{ guild.NivelDeClan }}</td>
+              <td class="w-1/12">{{ guild.MEMBERS }}</td>
+              <td class="w-1/12">{{ guild.QTY_MEMBERS }}</td>
+              <td class="w-1/12">{{ guild.QTY_SOLICITUDES_INGRESO }}</td>
+              <!-- <td class="w-1/12">{{ guild.TOTAL_GOLD_FROM_MEMBERS }}</td> -->
             </tr>
           </tbody>
         </table>

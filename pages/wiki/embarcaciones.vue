@@ -15,16 +15,15 @@
               <th>Id</th>
               <th></th>
               <th>Nombre</th>
-              <th>Nivel Minimo</th>
-              <th>Skills Requeridos</th>
-              <th>Valor en Oro</th>
-              <th>Velocidad</th>
-              <th>Madera</th>
-              <th>Madera Elfica</th>
-              <th>Skills Carpinteria</th>
-              <th>No se Cae</th>
-              <th>Intirable</th>
-              <th>Intransferible</th>
+              <th><span title="Skills Requeridos" class="color-icon color-icon-md color-icon-skills"></span></th>
+              <th><span title="Valor en oro" class="color-icon color-icon-md color-icon-gold"></span></th>
+              <th><span title="Velocidad" class="color-icon color-icon-md color-icon-velocidad"></span></th>
+              <th><span title="Madera" class="color-icon color-icon-md color-icon-madera"></span></th>
+              <th><span title="Madera Elfica" class="color-icon color-icon-md color-icon-maderaelfica"></span></th>
+              <th><span title="Skills Carpinteria" class="color-icon color-icon-md color-icon-carpintero"></span></th>
+              <th><span title="No se Cae" class="color-icon color-icon-md color-icon-nosecae"></span></th>
+              <th><span title="Intirable" class="color-icon color-icon-md color-icon-notirable"></span></th>
+              <th><span title="Intransferible" class="color-icon color-icon-md color-icon-notransferible"></span></th>
               <th>Clases Permitidas</th>
             </tr>
           </thead>
@@ -34,8 +33,7 @@
               <td class="text-right">{{ embarcacion.item_id }}</td>
               <td><img width="64px" :src="embarcacion.Data.canvasImage" /></td>
               <td class="text-right">{{ embarcacion.Data.NAME }}</td>
-              <td class="text-right">{{ embarcacion.Data.MINELV }}</td>
-              <td class="text-right">{{ embarcacion.Data.SKILLREQUERIDO }}</td>
+              <td class="text-right">{{ embarcacion.Data.MINSKILL }}</td>
               <td class="text-right">{{ embarcacion.Data.VALOR }}</td>
               <td class="text-right">{{ embarcacion.Data.VELOCIDAD }}</td>
               <td class="text-right">{{ embarcacion.Data.MADERA }}</td>

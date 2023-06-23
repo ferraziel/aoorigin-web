@@ -18,10 +18,10 @@
                 <th>Ataque</th>
                 <th>Defensa</th>
                 <th>Daño Magico</th>
-                <th>Valor en Oro</th>
-                <th>Madera</th>
-                <th>Madera Elfica</th>
-                <th>Skills Carpinteria</th>
+                <th title="Valor en oro" class="color-icon color-icon-lg color-icon-gold"></th>
+                <th title="Madera" class="color-icon color-icon-lg color-icon-madera"></th>
+                <th title="Madera Elfica" class="color-icon color-icon-lg color-icon-maderaelfica"></th>
+                <th><span title="Skills Carpinteria" class="color-icon color-icon-md color-icon-carpintero"></span></th>
                 <th>Clases Permitidas</th>
               </tr>
             </thead>

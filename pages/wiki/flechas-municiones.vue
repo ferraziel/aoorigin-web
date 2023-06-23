@@ -22,8 +22,8 @@
               <th>Lingote de Plata</th>
               <th>Lingote de Bronce</th>
               <th>Skills Herreria</th>
-              <th>Madera</th>
-              <th>Madera Elfica</th>
+              <th title="Madera" class="color-icon color-icon-lg color-icon-madera"></th>
+              <th title="Madera Elfica" class="color-icon color-icon-lg color-icon-maderaelfica"></th>
               <th>Skills Carpintera</th>
               <th>Clases Permitidas</th>
             </tr>

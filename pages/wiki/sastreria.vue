@@ -15,10 +15,10 @@
                 <th></th>
                 <th>Nombre</th>
                 <th>Descripcion</th>
-                <th>Nivel Minimo</th>
+                <th><span title="Nivel Minimo" class="color-icon color-icon-md color-icon-minlvl"></span></th>
                 <th>Defensa</th>
                 <th>Resistencia Magica</th>
-                <th>Valor en Oro</th>
+                <th title="Valor en oro" class="color-icon color-icon-lg color-icon-gold"></th>
                 <th><img src="@/assets/img/wiki/piel-lobo.png" title="Piel Lobo" alt="Piel Lobo"/></th>
                 <th><img src="@/assets/img/wiki/piel-oso-pardo.png" title="Piel Oso Pardo" alt="Piel Oso Pardo"/></th>
                 <th><img src="@/assets/img/wiki/piel-oso-polar.png" title="Piel Oso Polar" alt="Piel Oso Polar"/></th>

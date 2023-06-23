@@ -12,9 +12,9 @@
               <th>Id</th>
               <th></th>
               <th>Nombre</th>
-              <th>Nivel Minimo</th>
+              <th><span title="Nivel Minimo" class="color-icon color-icon-md color-icon-minlvl"></span></th>
               <th>Resistencia Magica</th>
-              <th>Valor en Oro</th>
+              <th title="Valor en oro" class="color-icon color-icon-lg color-icon-gold"></th>
               <th>Lingote de Oro</th>
               <th>Lingote de Plata</th>
               <th>Lingote de Bronce</th>
