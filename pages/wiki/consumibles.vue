@@ -17,10 +17,10 @@
               <th>Caracteristicas</th>
               <th>Min Modificador</th>
               <th>Max Modificador</th>
-              <th>Valor Oro</th>
-              <th>Se puede tirar? </th>
-              <th>Se cae al morir? </th>
-              <th>Se puede transferir? </th>
+              <th><span title="Valor en oro" class="color-icon color-icon-md color-icon-gold"></span></th>
+              <th><span title="Intirable" class="color-icon color-icon-md color-icon-notirable"></span></th>
+              <th><span title="No se Cae" class="color-icon color-icon-md color-icon-nosecae"></span></th>
+              <th><span title="Intransferible" class="color-icon color-icon-md color-icon-notransferible"></span></th>
             </tr>
           </thead>
 

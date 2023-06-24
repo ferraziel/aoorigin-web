@@ -15,7 +15,7 @@
               <th></th>
               <th>Nombre</th>
               <th>Caracteristicas</th>
-              <th>Valor Oro</th>
+              <th><span title="Valor en oro" class="color-icon color-icon-md color-icon-gold"></span></th>
               <th>Restaura Hambre</th>
             </tr>
           </thead>
@@ -47,7 +47,7 @@
               <th></th>
               <th>Nombre</th>
               <th>Caracteristicas</th>
-              <th>Valor Oro</th>
+              <th><span title="Valor en oro" class="color-icon color-icon-md color-icon-gold"></span></th>
               <th>Restaura Sed</th>
             </tr>
           </thead>

@@ -18,12 +18,12 @@
                 <th></th>
                 <th>Nombre</th>
                 <th>Descripcion</th>
-                <th>Ataque</th>
-                <th>Defensa</th>
-                <th>Lingote de Oro</th>
-                <th>Lingote de Plata</th>
-                <th>Lingote de Bronce</th>
-                <th>Skills Herreria</th>
+                <th><span title="Ataque" class="color-icon color-icon-md color-icon-maxhit"></span></th>
+                <th><span title="Defensa" class="color-icon color-icon-md color-icon-maxdef"></span></th>
+                <th><span title="Lingotes de Oro" class="color-icon color-icon-md color-icon-lingoteoro"></span></th>
+                <th><span title="Lingotes de Plata" class="color-icon color-icon-md color-icon-lingoteplata"></span></th>
+                <th><span title="Lingotes de Bronce" class="color-icon color-icon-md color-icon-lingotehierro"></span></th>
+                <th><span title="Skills Herreria" class="color-icon color-icon-md color-icon-herrero"></span></th>
                 <th>Clases Permitidas</th>
               </tr>
             </thead>

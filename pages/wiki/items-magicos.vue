@@ -18,7 +18,7 @@
               <th><span title="Nivel Minimo" class="color-icon color-icon-md color-icon-minlvl"></span></th>
               <th>Efecto Magico</th>
               <th>Aumento</th>
-              <th title="Valor en oro" class="color-icon color-icon-lg color-icon-gold"></th>
+              <th><span title="Valor en oro" class="color-icon color-icon-md color-icon-gold"></span></th>
             </tr>
           </thead>
 

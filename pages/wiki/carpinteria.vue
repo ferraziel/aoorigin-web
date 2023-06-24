@@ -15,12 +15,12 @@
                 <th></th>
                 <th>Nombre</th>
                 <th>Descripcion</th>
-                <th>Ataque</th>
-                <th>Defensa</th>
-                <th>Daño Magico</th>
-                <th title="Valor en oro" class="color-icon color-icon-lg color-icon-gold"></th>
-                <th title="Madera" class="color-icon color-icon-lg color-icon-madera"></th>
-                <th title="Madera Elfica" class="color-icon color-icon-lg color-icon-maderaelfica"></th>
+                <th><span title="Ataque" class="color-icon color-icon-md color-icon-maxhit"></span></th>
+                <th><span title="Defensa" class="color-icon color-icon-md color-icon-maxdef"></span></th>
+                <th><span title="Daño Magico" class="color-icon color-icon-md color-icon-vara"></span></th>
+                <th><span title="Valor en oro" class="color-icon color-icon-md color-icon-gold"></span></th>
+                <th><span title="Madera" class="color-icon color-icon-md color-icon-madera"></span></th>
+                <th><span title="Madera Elfica" class="color-icon color-icon-md color-icon-maderaelfica"></span></th>
                 <th><span title="Skills Carpinteria" class="color-icon color-icon-md color-icon-carpintero"></span></th>
                 <th>Clases Permitidas</th>
               </tr>

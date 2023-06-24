@@ -18,13 +18,13 @@
               <th></th>
               <th>Nombre</th>
               <th>Caracteristicas</th>
-              <th>Valor Oro</th>
-              <th>Skills Herreria</th>
-              <th>Lingote de Oro</th>
-              <th>Lingote de Plata</th>
-              <th>Lingote de Bronce</th>
-              <th title="Madera" class="color-icon color-icon-lg color-icon-madera"></th>
-              <th title="Madera Elfica" class="color-icon color-icon-lg color-icon-maderaelfica"></th>
+              <th><span title="Valor en oro" class="color-icon color-icon-md color-icon-gold"></span></th>
+              <th><span title="Skills Herreria" class="color-icon color-icon-md color-icon-herrero"></span></th>
+              <th><span title="Lingotes de Oro" class="color-icon color-icon-md color-icon-lingoteoro"></span></th>
+              <th><span title="Lingotes de Plata" class="color-icon color-icon-md color-icon-lingoteplata"></span></th>
+              <th><span title="Lingotes de Bronce" class="color-icon color-icon-md color-icon-lingotehierro"></span></th>
+              <th><span title="Madera" class="color-icon color-icon-md color-icon-madera"></span></th>
+              <th><span title="Madera Elfica" class="color-icon color-icon-md color-icon-maderaelfica"></span></th>
               <th><span title="Skills Carpinteria" class="color-icon color-icon-md color-icon-carpintero"></span></th>
 
               <th>Clases Permitidas</th>

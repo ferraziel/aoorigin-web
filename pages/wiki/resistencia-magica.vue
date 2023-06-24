@@ -1,10 +1,12 @@
 <template>
   <div class="container">
+    <br>
+    <br>
     <div
       v-if="magicResistanceItems.length"
       class="bg-gray-900 border-2 border-gr border-gr-primary"
     >
-      <h1>Resistencia Magica</h1>
+      <h2 class="section-title text-center mb-4 uppercase">Resistencia Magica</h2>
       <div class="xl:col-span-10 text-xs overflow-x-auto">
         <table class="text-gray-400">
           <thead>
@@ -13,12 +15,12 @@
               <th></th>
               <th>Nombre</th>
               <th><span title="Nivel Minimo" class="color-icon color-icon-md color-icon-minlvl"></span></th>
-              <th>Resistencia Magica</th>
-              <th title="Valor en oro" class="color-icon color-icon-lg color-icon-gold"></th>
-              <th>Lingote de Oro</th>
-              <th>Lingote de Plata</th>
-              <th>Lingote de Bronce</th>
-              <th>Skills Herreria</th>
+              <th><span title="Resistencia Magica" class="color-icon color-icon-md color-icon-resistenciamagica"></span></th>
+              <th><span title="Valor en oro" class="color-icon color-icon-md color-icon-gold"></span></th>
+              <th><span title="Lingotes de Oro" class="color-icon color-icon-md color-icon-lingoteoro"></span></th>
+              <th><span title="Lingotes de Plata" class="color-icon color-icon-md color-icon-lingoteplata"></span></th>
+              <th><span title="Lingotes de Bronce" class="color-icon color-icon-md color-icon-lingotehierro"></span></th>
+              <th><span title="Skills Herreria" class="color-icon color-icon-md color-icon-herrero"></span></th>
               <th>Clases Permitidas</th>
             </tr>
           </thead>
