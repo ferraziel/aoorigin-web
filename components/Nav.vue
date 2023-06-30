@@ -39,24 +39,30 @@
         </button>
       </div>
     </nav>
-    <div class="w-full h-10 lg:block hidden" style="background-color: #330a0b;">
+    <div class="w-full h-10 lg:block hidden" style="background-color: #330a0b">
       <div class="container flex w-full">
         <ul class="items-center hidden tracking-wide text-gray-300 uppercase lg:flex gap-x-10">
           <li>
-            <a href="https://steamcommunity.com/app/1956740/discussions/" target="_blank" class="inline-block py-2 hover:text-yellow-400">Foro</a>
+            <a
+              href="https://steamcommunity.com/app/1956740/discussions/"
+              target="_blank"
+              class="inline-block py-2 hover:text-yellow-400"
+              >Foro</a
+            >
           </li>
           <li v-for="link in links" :key="link.route">
-              <NuxtLink :to="link.route" class="inline-block py-2 hover:text-yellow-400">{{ link.label }}</NuxtLink>
+            <NuxtLink :to="link.route" class="inline-block py-2 hover:text-yellow-400">{{ link.label }}</NuxtLink>
           </li>
           <li>
-            <a href="https://estadisticas.ao20.com.ar/produccion/" class="inline-block py-2 hover:text-yellow-400">Estadisticas</a>
+            <a href="https://estadisticas.ao20.com.ar/produccion/" class="inline-block py-2 hover:text-yellow-400"
+              >Estadisticas</a
+            >
           </li>
           <li>
             <a href="https://soporte.ao20.com.ar" class="inline-block py-2 hover:text-yellow-400">Soporte</a>
           </li>
-      </ul>
+        </ul>
       </div>
-
     </div>
 
     <transition name="mobile-menu">
@@ -65,19 +71,16 @@
         class="fixed top-0 left-0 flex flex-col justify-center w-full h-screen overflow-y-scroll bg-gray-1000"
       >
         <ul class="text-2xl tracking-wider uppercase mt-52 border-t border-white">
-          <li v-for="link in linksMain" :key="link.route"  @click="showMobileMenu = !showMobileMenu" >
-            <NuxtLink :to="link.route"  class="mobile-nav-link">{{ link.label }}</NuxtLink>
+          <li v-for="link in linksMain" :key="link.route" @click="showMobileMenu = !showMobileMenu">
+            <NuxtLink :to="link.route" class="mobile-nav-link">{{ link.label }}</NuxtLink>
           </li>
-          <li @click="showMobileMenu = !showMobileMenu" >
-            <a
-              href="https://steamcommunity.com/app/1956740/discussions/"
-              target="_blank"
-              class="mobile-nav-link"
+          <li @click="showMobileMenu = !showMobileMenu">
+            <a href="https://steamcommunity.com/app/1956740/discussions/" target="_blank" class="mobile-nav-link"
               >Foro</a
             >
           </li>
-          <li v-for="link in links" :key="link.route" >
-              <NuxtLink :to="link.route"  class="mobile-nav-link">{{ link.label }}</NuxtLink>
+          <li v-for="link in links" :key="link.route">
+            <NuxtLink :to="link.route" class="mobile-nav-link">{{ link.label }}</NuxtLink>
           </li>
 
           <li>
@@ -87,7 +90,6 @@
           <li>
             <a href="https://soporte.ao20.com.ar" class="mobile-nav-link">Soporte</a>
           </li>
-
         </ul>
       </nav>
     </transition>
@@ -113,7 +115,7 @@ export default {
         {
           label: "Mercado",
           route: "/mercadoao",
-        }
+        },
       ],
       links: [
         {
@@ -147,18 +149,18 @@ export default {
       ],
     };
   },
-  async fetch() {
-    this.$axios.$get("/")
-    .then(result => {
-      this.onlineCount = result.onlineCount
-      this.isServerOnline = result.isServerOnline
-    })
-    .catch(err => {
-      console.error("Nav.vue fetch error: " + err)
-      this.onlineCount = 1
-      this.isServerOnline = false
-    });
+  async created() {
+    try {
+      const response = await this.$axios.$get("/");
+      this.onlineCount = response.onlineCount;
+      this.isServerOnline = response.isServerOnline;
+    } catch (error) {
+      console.error("Nav.vue fetch error:", error);
+      this.onlineCount = 1;
+      this.isServerOnline = false;
+    }
   },
+
   mounted() {
     window.addEventListener("resize", () => {
       if (window.screen.width > 1024) {
@@ -167,9 +169,7 @@ export default {
     });
   },
   methods: {
-    toggleMenu() {
-
-    },
+    toggleMenu() {},
   },
 };
 </script>
@@ -178,6 +178,4 @@ export default {
 .mobile-nav-link {
   @apply inline-block px-6 py-6 w-full border-b border-white hover:text-yellow-100;
 }
-
-
 </style>
