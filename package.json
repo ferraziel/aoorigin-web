@@ -29,7 +29,7 @@
     "nuxt-matomo": "^1.2.4",
     "pnp-webpack-plugin": "^1.6.4",
     "vuelidate": "^0.7.7",
-    "web3": "^1.10.0"
+    "web3": "^4.0.2"
   },
   "devDependencies": {
     "@nuxtjs/google-analytics": "^2.4.0",
