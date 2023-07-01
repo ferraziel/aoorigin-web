@@ -1,86 +1,90 @@
 <template>
   <div>
     <MessageBox :status="buyStatus" :message="buyMessage" />
-    <div v-if="$auth.loggedIn && !isPaymentGatewayLoaded">
+    <div v-if="$auth.loggedIn && !isPaymentGatewayLoaded" class="payment-options">
+      <div class="payment-container">
+        <h3 class="payment-heading">Elije método de pago:</h3>
 
-      <h3>Elije metodo de pago:</h3>
-      <tr>
-        <td>
-          <button v-if="!isPaymentGatewayLoaded" @click="submitOrder('MercadoPago')">
-            <img src="@/assets/img/mao/mercadopago-logo.png" class="w-32 h-32 rounded-full mb-4" />
-            <b>Solo Argentina 🇦🇷</b>
+        <div class="payment-option">
+          <button v-if="!isPaymentGatewayLoaded" @click="submitOrder('MercadoPago')" class="payment-button">
+            <img src="@/assets/img/mao/mercadopago-logo.png" class="payment-logo" />
+            <span class="payment-label">MercadoPago (Solo Argentina 🇦🇷)</span>
           </button>
-          <button class="cho-container"></button>
-        </td>
+        </div>
 
-        <td>
-          <button v-if="!isPaymentGatewayLoaded" @click="submitOrder('Stripe')">
-            <img src="@/assets/img/mao/stripe-logo.png" class="w-32 h-32 rounded-full mb-4" />
+        <div class="payment-option">
+          <button v-if="!isPaymentGatewayLoaded" @click="submitOrder('Stripe')" class="payment-button">
+            <img src="@/assets/img/mao/stripe-logo.png" class="payment-logo" />
+            <span class="payment-label">Stripe (Internacional 🌏)</span>
           </button>
-          <button class="cho-container"></button>
-        </td>
+        </div>
 
-        <!--
-        <td>
-          <button v-if="!isPaymentGatewayLoaded" @click="submitOrder('Web3')">
-            <img src="@/assets/img/mao/ethereum-logo.png" class="w-32 h-32 rounded-full mb-4" />
-          </button>
-        </td>
-
-
-        <td v-for="token in tokens" :key="token.name">
-          <button @click="buyWithERC20Token(token.name)">
-            <img :src="token.image" class="w-32 h-32 rounded-full mb-4" />
-          </button>
-        </td> -->
-      </tr>
-      <!--
-          <h1 style="color: purple">PREGUNTAS FRECUENTES / FAQS</h1>
-          <span>Debes estar conectado a la red Binance Smart Chain!</span>
-          <img
-            src="https://www.asiacryptotoday.com/wp-content/uploads/2020/08/Binance-Smart-Chain-scaled.jpeg"
-            class="w-64 h-32 mb-4"
-          />
-          <a
-            style="color: cyan"
-            href="https://academy.binance.com/es/articles/connecting-metamask-to-binance-smart-chain"
-            target="_blank"
-          >
-            Tutorial para Agregar Binance Smart Chain a Metamask
-          </a>
-          <hr />
-          <br />
-
-          <h4>Comprar AOLB (Argentum Online Libre B) Token</h4>
-          <img
-            src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png"
-            alt="AOLB Token"
-            class="w-32 h-32 rounded-full mb-4"
-          />
-
-          <a
-            style="color: cyan"
-            href="https://pancakeswap.finance/info/token/0xea17e48c988d64e92d64550c787b17281f61828e"
-            target="_blank"
-          >
-            COMPRAR EN PANCAKE SWAP
-          </a>
-          <br />
-          <a
-            style="color: cyan"
-            href="https://dex.guru/token/0xea17e48c988d64e92d64550c787b17281f61828e-bsc"
-            target="_blank"
-          >
-            COMPRAR EN DEX GURU
-          </a>
-          <hr /> -->
+      </div>
     </div>
 
-    <div v-if="!$auth.loggedIn" class="text-center mt-24">
-      <h1 style="color: red">Debes de iniciar sesion para poder efectuar el pago.</h1>
+    <div v-if="!$auth.loggedIn" class="text-center">
+      <h1 class="login-message">Debes iniciar sesión para poder efectuar el pago.</h1>
     </div>
   </div>
 </template>
+
+<style>
+.payment-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.payment-option {
+  text-align: center;
+  flex: 1;
+}
+
+.payment-button:hover {
+  background-color: #4e88de;
+}
+
+.text-center {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.login-message {
+  color: red;
+  margin-top: 24px;
+}
+
+.payment-heading {
+  display: block;
+  margin-bottom: 10px; /* Adjust the spacing as needed */
+}
+
+.payment-button {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  width: 500px; /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.payment-logo {
+  width: 90px; /* Adjust the logo width as needed */
+  height: 100px; /* Adjust the logo height as needed */
+  margin-right: 10px; /* Adjust the spacing between the logo and label */
+}
+
+.payment-label {
+  font-size: 20px; /* Adjust the label font size as needed */
+}
+
+
+</style>
+
 
 <script>
 import abiAolb from "@/assets/contracts/0xEA17E48C988D64e92d64550C787B17281F61828e.json";
