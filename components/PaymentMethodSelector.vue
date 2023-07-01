@@ -6,7 +6,6 @@
       <h3>Elije metodo de pago:</h3>
       <tr>
         <td>
-          <!-- <button v-if="!isPaymentGatewayLoaded" @click="buyWithMercadoPago()"> -->
           <button v-if="!isPaymentGatewayLoaded" @click="submitOrder('MercadoPago')">
             <img src="@/assets/img/mao/mercadopago-logo.png" class="w-32 h-32 rounded-full mb-4" />
           </button>
