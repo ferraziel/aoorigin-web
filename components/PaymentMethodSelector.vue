@@ -135,7 +135,7 @@ export default {
         };
 
         if (this.saleType === "AO20POINTS") {
-          endpoint = "/market/buyAO20Points";
+          endpoint = "/market/buyAO20PointsMao";
           payload.tierName = this.item.name
 
         } else if (this.saleType === "USER") {
@@ -173,7 +173,7 @@ export default {
 
       let endpoint = ""
       let payload = {
-        paymentGateway: "AO20Token"
+        paymentGateway: "Web3"
       };
 
       if (this.saleType === "AO20POINTS") {
