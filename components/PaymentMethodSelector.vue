@@ -7,6 +7,7 @@
       <tr>
         <td>
           <button v-if="!isPaymentGatewayLoaded" @click="submitOrder('MercadoPago')">
+            <b>Solo Argentina 🇦🇷</b>
             <img src="@/assets/img/mao/mercadopago-logo.png" class="w-32 h-32 rounded-full mb-4" />
           </button>
           <button class="cho-container"></button>
@@ -14,6 +15,7 @@
 
         <td>
           <button v-if="!isPaymentGatewayLoaded" @click="submitOrder('Stripe')">
+            <b>Resto del mundo 🌏</b>
             <img src="@/assets/img/mao/stripe-logo.png" class="w-32 h-32 rounded-full mb-4" />
           </button>
           <button class="cho-container"></button>
@@ -121,7 +123,7 @@ export default {
   },
   methods: {
     async submitOrder(paymentGateway) {
-      if (confirm("Estas seguro que quieres efectuar la comprar con Stripe?")) {
+      if (confirm(`¿Estas seguro que quieres efectuar la comprar con ${paymentGateway}?`)) {
         this.isPaymentGatewayLoaded = true;
 
         this.buyStatus = "PENDING";
@@ -156,6 +158,7 @@ export default {
         switch (paymentGateway) {
           case "MercadoPago":
             this.buyWithMercadoPagoRequest(endpoint, payload);
+            break;
 
           case "Stripe":
             this.buyWithStripeRequest(endpoint, payload);
@@ -288,8 +291,7 @@ export default {
           });
 
           this.buyStatus = "OK";
-          this.buyMessage =
-            "Se genero una preferencia de pago en MercadoPago, por favor haga el pago clickeando en el boton Pagar con MercadoPago.";
+          this.buyMessage = "Se genero una preferencia de pago en MercadoPago, por favor termine el pago.";
         })
         .catch((error) => {
           this.buyStatus = "ERROR";
@@ -302,7 +304,7 @@ export default {
         .$post(endpoint, payload)
         .then((data) => {
           this.buyStatus = "OK";
-          this.buyMessage = "Se una sesion de pago con Stripe, por favor termine el pago.";
+          this.buyMessage = "Se creo una sesion de pago con Stripe, por favor termine el pago.";
 
           window.location.href = data.stripeSessionUrl;
         })
