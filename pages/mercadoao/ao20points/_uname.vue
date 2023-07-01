@@ -25,8 +25,6 @@
         </li>
       </ul>
 
-      <h1 style="color: red" v-if="!$auth.loggedIn">Debes de iniciar sesion para poder comprar creditos.</h1>
-
       <PaymentMethodSelector :item="tier" qtyItems="1" saleType="AO20POINTS"/>
     </div>
 
@@ -37,11 +35,7 @@
 </template>
 
 <script>
-import PaymentMethodSelector from '~/components/PaymentMethodSelector.vue';
-
 export default {
-  components: { PaymentMethodSelector },
-
   async asyncData({ $axios, params }) {
     return {
       tier: await $axios.$get(`market/getAO20PointsOnSaleByTierName/${params.uname}`)

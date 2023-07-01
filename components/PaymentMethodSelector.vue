@@ -1,12 +1,21 @@
 <template>
   <div>
     <MessageBox :status="buyStatus" :message="buyMessage" />
-    <div v-if="$auth.loggedIn && !isMercadoPagoLoaded">
+    <div v-if="$auth.loggedIn && !isPaymentGatewayLoaded">
+
       <h3>Elije metodo de pago:</h3>
       <tr>
         <td>
-          <button v-if="!isMercadoPagoLoaded" @click="buyWithMercadoPago()">
+          <!-- <button v-if="!isPaymentGatewayLoaded" @click="buyWithMercadoPago()"> -->
+          <button v-if="!isPaymentGatewayLoaded" @click="submitOrder('MercadoPago')">
             <img src="@/assets/img/mao/mercadopago-logo.png" class="w-32 h-32 rounded-full mb-4" />
+          </button>
+          <button class="cho-container"></button>
+        </td>
+
+        <td>
+          <button v-if="!isPaymentGatewayLoaded" @click="submitOrder('Stripe')">
+            <img src="@/assets/img/mao/stripe-logo.png" class="w-32 h-32 rounded-full mb-4" />
           </button>
           <button class="cho-container"></button>
         </td>
@@ -64,6 +73,10 @@
           </a>
           <hr /> -->
     </div>
+
+    <div v-if="!$auth.loggedIn" class="text-center mt-24">
+      <h1 style="color: red">Debes de iniciar sesion para poder efectuar el pago.</h1>
+    </div>
   </div>
 </template>
 
@@ -73,7 +86,7 @@ import abiTheter from "@/assets/contracts/0xEA17E48C988D64e92d64550C787B17281F61
 import Web3 from "web3";
 
 export default {
-  props: ["item", "saleType", "selectedUserId", "qtyItems", "selectedUserId"],
+  props: ["item", "saleType", "selectedUserId", "qtyItems", "user"],
   head() {
     return {
       script: [
@@ -104,31 +117,83 @@ export default {
       ],
       paymentAddress: process.env.PAYMENT_ADDRESS,
       orderConfirmed: false,
-      isMercadoPagoLoaded: false,
+      isPaymentGatewayLoaded: false
     };
   },
   methods: {
+    async submitOrder(paymentGateway) {
+      if (confirm("Estas seguro que quieres efectuar la comprar con Stripe?")) {
+        this.isPaymentGatewayLoaded = true;
+
+        this.buyStatus = "PENDING";
+        this.buyMessage = "Generando orden de compra con " + paymentGateway;
+
+        let endpoint = "";
+        let payload = {
+          paymentGateway: paymentGateway
+        };
+
+        if (this.saleType === "AO20POINTS") {
+          endpoint = "/market/buyAO20Points";
+          payload.tierName = this.item.name
+
+        } else if (this.saleType === "USER") {
+          endpoint = "/market/buyUserMao";
+          payload.userName = this.user.name
+
+        } else if (this.saleType === "ITEM") {
+          if (this.qtyItems <= 0 || this.qtyItems > 10000) {
+            this.buyMessage = "Numero no valido, debe ser mayor a 0 y menor a 10.000";
+            this.buyStatus = "ERROR";
+            return;
+          }
+
+          endpoint = "/market/buyItemMao";
+          payload.itemId = this.item.item_id
+          payload.characterId = this.selectedUserId
+          payload.itemQuantity = parseInt(this.qtyItems)
+        }
+
+        switch (paymentGateway) {
+          case "MercadoPago":
+            this.buyWithMercadoPagoRequest(endpoint, payload);
+
+          case "Stripe":
+            this.buyWithStripeRequest(endpoint, payload);
+            break;
+        }
+      }
+    },
+
     async createPurchaseTransaction(transactionHash) {
       // Handle the result
       console.log(transactionHash);
 
       let endpoint = ""
-      let payload = ""
+      let payload = {
+        paymentGateway: "AO20Token"
+      };
+
       if (this.saleType === "AO20POINTS") {
         endpoint = "/market/buyAO20PointsMao"
-        payload = {
-          tierName: this.item.name,
-          txHash: transactionHash,
-        }
 
-      } else {
+        payload.tierName = this.item.name
+        payload.txHash = transactionHash
+
+      } else if (this.saleType === "USER") {
+        //TODO = Check that this work
+        endpoint = "/market/buyUserMao"
+
+        payload.userName = this.user.name
+        payload.txHash = transactionHash
+
+      } else if (this.saleType === "ITEM") {
         endpoint = "/market/buyItemMao"
-        payload = {
-          itemId: this.item.item_id,
-          itemQuantity: qtyItems,
-          userId: this.selectedUserId,
-          txHash: transactionHash,
-        }
+
+        payload.itemId = this.item.item_id
+        payload.itemQuantity = qtyItems
+        payload.userId = this.selectedUserId
+        payload.txHash = transactionHash
       }
 
       requestPurchaseTransaction(endpoint, payload);
@@ -178,8 +243,7 @@ export default {
         const accounts = await ethereum.request({ method: "eth_accounts" });
 
         this.buyStatus = "PENDING";
-        this.buyMessage =
-          "Esperando aprobar transaccion. Esto puede tardar varios minutos dependiendo la congestion de la red Ethereum";
+        this.buyMessage = "Esperando aprobar transaccion. Esto puede tardar varios minutos dependiendo la congestion de la red Ethereum";
 
         try {
           const transactionHash = await ethereum.request({
@@ -203,40 +267,6 @@ export default {
       }
     },
 
-    async buyWithMercadoPago() {
-      if (confirm("Estas seguro que quieres efectuar la comprar con MercadoPago?.")) {
-        this.isMercadoPagoLoaded = true;
-        console.log("Comprando con MercadoPago.");
-        this.buyStatus = "PENDING";
-        this.buyMessage = "Generando orden de compra con MercadoPago";
-
-        if (this.qtyItems <= 0 || this.qtyItems > 10000) {
-          this.buyMessage = "Numero no valido, debe ser mayor a 0 y menor a 10.000";
-          this.buyStatus = "ERROR";
-          return;
-        }
-
-        let endpoint = "";
-        let payload = "";
-
-        if (this.saleType === "AO20POINTS") {
-          endpoint = "/market/createPreferenceForMercadoPagoToBuyAO20Points";
-          payload = {
-            tierName: this.item.name,
-          };
-        } else {
-          endpoint = "/market/createPreferenceForMercadoPagoToBuyItem";
-          payload = {
-            itemId: this.item.item_id,
-            characterId: this.selectedUserId,
-            itemQuantity: parseInt(this.qtyItems),
-          };
-        }
-
-        this.buyWithMercadoPagoRequest(endpoint, payload);
-      }
-    },
-
     async buyWithMercadoPagoRequest(endpoint, payload) {
       this.$axios
         .$post(endpoint, payload)
@@ -250,10 +280,6 @@ export default {
           mp.checkout({
             preference: {
               id: preferenceIdMercadoPago,
-            },
-            render: {
-              container: ".cho-container", // Indica el nombre de la clase donde se mostrará el botón de pago
-              label: "Pagar con MercadoPago", // Cambia el texto del botón de pago (opcional)
             },
             autoOpen: true,
             theme: {
@@ -269,6 +295,21 @@ export default {
         .catch((error) => {
           this.buyStatus = "ERROR";
           this.buyMessage = error.response.data.message;
+        });
+    },
+
+    async buyWithStripeRequest(endpoint, payload) {
+      this.$axios
+        .$post(endpoint, payload)
+        .then((data) => {
+          this.buyStatus = "OK";
+          this.buyMessage = "Se una sesion de pago con Stripe, por favor termine el pago.";
+
+          window.location.href = data.stripeSessionUrl;
+        })
+        .catch((error) => {
+          this.buyStatus = "ERROR";
+          this.buyMessage = error.message;
         });
     },
 
