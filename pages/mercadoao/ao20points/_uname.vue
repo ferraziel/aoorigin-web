@@ -43,7 +43,7 @@ export default {
   },
   head() {
     return {
-      title: this.tier ? `${this.tier.name} - AO20 Creditos` : "Credutis Tier no encontrado"
+      title: this.tier ? `${this.tier.name} - AO20 Creditos` : "Creditos Tier no encontrado"
     };
   },
 };

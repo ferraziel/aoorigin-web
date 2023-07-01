@@ -7,25 +7,26 @@
       <tr>
         <td>
           <button v-if="!isPaymentGatewayLoaded" @click="submitOrder('MercadoPago')">
-            <b>Solo Argentina 🇦🇷</b>
             <img src="@/assets/img/mao/mercadopago-logo.png" class="w-32 h-32 rounded-full mb-4" />
+            <b>Solo Argentina 🇦🇷</b>
           </button>
           <button class="cho-container"></button>
         </td>
 
         <td>
           <button v-if="!isPaymentGatewayLoaded" @click="submitOrder('Stripe')">
-            <b>Resto del mundo 🌏</b>
             <img src="@/assets/img/mao/stripe-logo.png" class="w-32 h-32 rounded-full mb-4" />
           </button>
           <button class="cho-container"></button>
         </td>
 
-        <!-- <td>
-          <button @click="buyWithEthereum()">
+        <!--
+        <td>
+          <button v-if="!isPaymentGatewayLoaded" @click="submitOrder('Web3')">
             <img src="@/assets/img/mao/ethereum-logo.png" class="w-32 h-32 rounded-full mb-4" />
           </button>
         </td>
+
 
         <td v-for="token in tokens" :key="token.name">
           <button @click="buyWithERC20Token(token.name)">
@@ -163,42 +164,25 @@ export default {
           case "Stripe":
             this.buyWithStripeRequest(endpoint, payload);
             break;
+
+          case "Ethereum":
+            const transactionHash = await ethereum.request({
+              method: "eth_sendTransaction",
+              params: [
+                {
+                  to: this.paymentAddress,
+                  value: this.item.price_in_tokens.toString(),
+                  from: accounts[0],
+                },
+              ],
+            });
+
+            payload.txHash = transactionHash
+
+            this.buyWithEthereumRequest(endpoint, payload);
+            break;
         }
       }
-    },
-
-    async createPurchaseTransaction(transactionHash) {
-      // Handle the result
-      console.log(transactionHash);
-
-      let endpoint = ""
-      let payload = {
-        paymentGateway: "Web3"
-      };
-
-      if (this.saleType === "AO20POINTS") {
-        endpoint = "/market/buyAO20PointsMao"
-
-        payload.tierName = this.item.name
-        payload.txHash = transactionHash
-
-      } else if (this.saleType === "USER") {
-        //TODO = Check that this work
-        endpoint = "/market/buyUserMao"
-
-        payload.userName = this.user.name
-        payload.txHash = transactionHash
-
-      } else if (this.saleType === "ITEM") {
-        endpoint = "/market/buyItemMao"
-
-        payload.itemId = this.item.item_id
-        payload.itemQuantity = qtyItems
-        payload.userId = this.selectedUserId
-        payload.txHash = transactionHash
-      }
-
-      requestPurchaseTransaction(endpoint, payload);
     },
 
     async buyWithERC20Token(tokenName) {
@@ -314,13 +298,12 @@ export default {
         });
     },
 
-    async requestPurchaseTransaction(endpoint, payload) {
+    async buyWithEthereumRequest(endpoint, payload) {
       this.$axios
         .$post(endpoint, payload)
         .then((response) => {
           this.buyStatus = "OK";
-          this.buyMessage =
-            "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se depositen tus puntos.";
+          this.buyMessage = "Tu pedido ingreso a nuestro sistema con exito, espera a que se confirme la transaccion para que se concrete la operacion.";
           this.orderConfirmed = true;
 
           if (this.usersWithFreeSlots) {
