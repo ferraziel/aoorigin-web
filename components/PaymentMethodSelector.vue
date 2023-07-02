@@ -221,7 +221,7 @@ export default {
           })
           .catch((error) => {
             this.buyStatus = "ERROR";
-            this.buyMessage = error.message;
+            this.buyMessage = error.response.data.message;
           });
       }
     },
@@ -298,7 +298,7 @@ export default {
         })
         .catch((error) => {
           this.buyStatus = "ERROR";
-          this.buyMessage = error.message;
+          this.buyMessage = error.response.data.message;
         });
     },
 
