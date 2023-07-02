@@ -5,6 +5,7 @@ This application uses the Vue.js framework called [Nuxt.js](https://nuxtjs.org).
 ## URLs
 
 Staging Environment (Pre-Production): [https://staging.ao20.com.ar](https://staging.ao20.com.ar)
+(Note: Staging website and api is connected to the staging on-game server so all the actions even MAO can be done with the Staging game server data)
 
 Production Environment: [https://ao20.com.ar](https://ao20.com.ar)
 
@@ -12,7 +13,7 @@ Production Environment: [https://ao20.com.ar](https://ao20.com.ar)
 
 ### Mercadopago
 
-MercadoPago Developer Portal: [https://www.mercadopago.com.ar/developers](https://www.mercadopago.com.ar/developers)
+MercadoPago Developer Documentation: [https://www.mercadopago.com.ar/developers/es/docs](https://www.mercadopago.com.ar/developers/es/docs)
 
 Test User Credentials for making payments with MercadoPago:
 
