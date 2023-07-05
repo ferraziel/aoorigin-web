@@ -31,7 +31,7 @@
             Patreon
           </h3>
           <p>
-            Convertite en un Patron para obtener beneficios exclusivos in-game y acceso a canales privados de Discord.
+            Convertite en un Patreon para obtener beneficios exclusivos in-game y acceso a canales privados de Discord.
             <a class="section-title" href="https://www.patreon.com/posts/guia-beneficios-63817246" target="_blank">Ver beneficios patreons</a>
           </p>
           <div class="hidden md:flex flex-grow"></div>
