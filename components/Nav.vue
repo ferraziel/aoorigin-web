@@ -142,10 +142,10 @@ export default {
           label: "Reglamento",
           route: "/reglamento",
         },
-        // {
-        //   label: "Calendario Eventos",
-        //   route: "/calendario",
-        // }
+        {
+          label: "Calendario Eventos",
+          route: "/calendario",
+        }
       ],
     };
   },
