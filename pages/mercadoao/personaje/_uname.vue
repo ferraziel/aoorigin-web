@@ -11,7 +11,7 @@
         <h2 class="section-title text-3xl font-bold">Historial de venta</h2>
         <ul>
           <li v-for="transaction in user.mao_history" :key="transaction.updated_at">
-            {{ $dayjs(transaction.updated_at).format("DD [de] MMMM [de] YYYY") }} - ${{ transaction.price.toLocaleString('es-AR') }}
+            {{ $dayjs(transaction.updated_at).format("DD [de] MMMM [de] YYYY") }} - ${{ transaction.price.toLocaleString('es-AR') }} ARS
           </li>
         </ul>
       </div>
