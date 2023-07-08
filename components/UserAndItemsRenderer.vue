@@ -2,18 +2,10 @@
   <div>
     <div class="text-center mb-20">
       <div class="container grid">
-        <h6 v-if="user.price_in_mao">
-          Precio:
-          {{
-            user.price_in_mao.toLocaleString("es-AR", {
-              style: "currency",
-              currency: "ARS",
-              minimumFractionDigits: 0,
-              maximumFractionDigits: 0,
-            })
-          }}
-          ARS
-        </h6>
+        <div v-if="user.price_in_mao">
+          <h6>{{ formatPrice(user.price_in_usd, 'USD') }}</h6>
+          <h6>{{ formatPrice(user.price_in_mao, 'ARS') }} ARS</h6>
+        </div>
 
         <div class="container grid">
           <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
@@ -179,7 +171,10 @@
 </template>
 
 <script>
+import { priceMixin } from '@/mixins/priceMixin.js';
+
 export default {
+  mixins: [priceMixin],
   props: ["user"],
 };
 </script>

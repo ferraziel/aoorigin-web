@@ -18,18 +18,8 @@
           />
         </li> -->
 
-        <li style="color: green">
-          Precio:
-          {{
-            item.price_in_pesos.toLocaleString("es-AR", {
-              style: "currency",
-              currency: "ARS",
-              minimumFractionDigits: 0,
-              maximumFractionDigits: 0,
-            })
-          }}
-          ARS
-        </li>
+        <li style="color: green">{{ formatPrice(item.price_in_usd, 'USD') }}</li>
+        <li style="color: green">{{ formatPrice(item.price_in_pesos, 'ARS') }} ARS</li>
 
         <li v-if="item.Data.DESC" style="color: green">Descripcion: {{ item.Data.DESC }}</li>
         <li style="color: green">Tipo de Objeto: {{ gameObjTypes[item.Data.OBJTYPE - 1] }}</li>
@@ -74,8 +64,10 @@
 
 <script>
 import gameObjTypes from "@/assets/gameObjTypes.json";
+import { priceMixin } from '@/mixins/priceMixin.js';
 
 export default {
+  mixins: [priceMixin],
   async asyncData({ $axios, params }) {
     return {
       item: await $axios.$get(`market/getItemOnSaleById/${params.uid}`),

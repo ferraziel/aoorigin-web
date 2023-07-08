@@ -18,7 +18,8 @@
               <ul>
                 <li class="text-s">{{ points.name }}</li>
                 <li class="text-green text-sm md:text-base lg:text-lg">Cantidad Creditos: {{ points.qty_points }} </li>
-                <li class="text-green text-sm md:text-base lg:text-lg">Precio: {{ points.price_in_pesos.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</li>
+                <li class="points-list-item points-list-item-text">{{ formatPrice(points.price_in_usd, 'USD') }}</li>
+                <li class="points-list-item points-list-item-text">{{ formatPrice(points.price_in_pesos, 'ARS') }} ARS</li>
               </ul>
             </NuxtLink>
           </div>
@@ -65,9 +66,9 @@
 
 
       <PagePadding />
-      <!-- <h3>Items unicos.</h3>
-
       <div v-if="itemsOnSale.length">
+        <h3>Items unicos.</h3>
+
         <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <div class="flex flex-col items-center gap-y-4" v-for="item in itemsOnSale" :key="item.item_id" :id="item.item_id">
 
@@ -79,7 +80,8 @@
               <ul>
                 <li class="text-s">{{ item.Data.NAME }}</li>
                 <li class="text-xs md:text-sm lg:text-base">{{ item.Data.NAME == item.Data.TEXTO ? "" : item.Data.TEXTO }}</li>
-                <li class="text-green text-sm md:text-base lg:text-lg">Precio: {{ item.price_in_pesos.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</li>
+                <li class="points-list-item points-list-item-text">{{ formatPrice(item.price_in_usd, 'USD') }}</li>
+                <li class="points-list-item points-list-item-text">{{ formatPrice(item.price_in_pesos, 'ARS') }} ARS</li>
               </ul>
             </NuxtLink>
           </div>
@@ -90,7 +92,7 @@
         <p class="text-2xl">No hay items en venta.</p>
       </section>
 
-      <PagePadding /> -->
+      <PagePadding />
 
       <h3>Personajes en venta.</h3>
       <h4>Se actualiza cada 1 hs con la informacion mas reciente del mundo.</h4>
@@ -108,7 +110,8 @@
               <ul>
                 <h4 class="text-gr gr-gold text-lg md:text-xl lg:text-2xl">{{ user.name }}</h4>
                 <li class="text-m gr-gold text-sm md:text-base lg:text-lg">Nivel: {{ user.level }}</li>
-                <li class="text-m gr-gold text-sm md:text-base lg:text-lg">{{ user.price_in_mao.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS</li>
+                <li class="points-list-item points-list-item-text">{{ formatPrice(user.price_in_usd, 'USD') }}</li>
+                <li class="points-list-item points-list-item-text">{{ formatPrice(user.price_in_mao, 'ARS') }} ARS</li>
               </ul>
             </NuxtLink>
           </div>
@@ -127,7 +130,11 @@
 </template>
 
 <script>
+import { priceMixin } from '@/mixins/priceMixin.js';
+
 export default {
+  mixins: [priceMixin],
+
   async asyncData({ $axios }) {
     return {
       usersOnSale: await $axios.$post(`users/getAllUsersOnSaleInMao`),
@@ -135,11 +142,28 @@ export default {
       a020pointsOnSale: await $axios.$get(`market/getAllAO20PointsOnSale`),
       a020pointsTiersOnSale: await $axios.$get(`market/getAllAO20PointsTiersOnSale`),
     };
-  },
+  }
 };
 </script>
 
 <style>
+  .points-list-item {
+    /* Your preferred styling here */
+  }
+  .points-list-item-text {
+    color: green;
+  }
+  @media screen and (min-width: 768px) {
+    .points-list-item-text {
+      font-size: 1rem; /* or another value for base text size */
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .points-list-item-text {
+      font-size: 1.125rem; /* or another value for large text size */
+    }
+  }
+
   /* Add some spacing between each item in the grid */
   .container .grid .gap-y-4 {
     margin-bottom: 24px;

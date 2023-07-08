@@ -1,41 +1,30 @@
 <template>
-  <div class="container">
-    <div v-if="tier" lass="text-center mb-12">
-      <br>
-      <br>
-      <h1 class="section-title">{{ tier.name }}</h1>
-      <img :src="require(`~/assets/img/mao/${tier.image}`)" width="300px"/>
+  <div class="container py-10 mx-auto">
+    <div v-if="tier" class="product-card mx-auto text-center">
+      <h1 class="product-title text-3xl mb-5">{{ tier.name }}</h1>
+      <img :src="require(`~/assets/img/mao/${tier.image}`)" class="product-image mx-auto mb-5" alt="Product image" />
 
-      <ul>
-        <!-- <li style="color: green">
-          Precio: {{ item.price_in_tokens }} AOLB Tokens
-          <img
-            src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png"
-            alt="AOLB Token"
-            class="w-8 h-8 rounded-full"
-          />
-        </li> -->
-
-        <li style="color: green">
-          Precio: {{ tier.price_in_pesos.toLocaleString('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0, maximumFractionDigits: 0 }) }} ARS
-        </li>
-
-        <li style="color: purple">
-          Cantidad creditos: {{ tier.qty_points }}
-        </li>
+      <ul class="product-pricing list-disc list-inside text-left">
+        <li class="price-ars text-green-500"> {{ formatPrice(tier.price_in_pesos, 'ARS') }} ARS</li>
+        <li class="price-usd text-green-500"> {{ formatPrice(tier.price_in_usd, 'USD') }}</li>
+        <li class="credits-qty text-purple-500">Cantidad creditos: {{ tier.qty_points }}</li>
       </ul>
 
-      <PaymentMethodSelector :item="tier" qtyItems="1" saleType="AO20POINTS"/>
+      <PaymentMethodSelector :item="tier" qtyItems="1" saleType="AO20POINTS" />
     </div>
 
-    <section v-else class="text-center mt-24">
+    <section v-else class="error-message text-center mt-24">
       <p class="text-2xl">El tier no existe o no esta a la venta.</p>
     </section>
   </div>
 </template>
 
 <script>
+import { priceMixin } from '@/mixins/priceMixin.js';
+
 export default {
+  mixins: [priceMixin],
+
   async asyncData({ $axios, params }) {
     return {
       tier: await $axios.$get(`market/getAO20PointsOnSaleByTierName/${params.uname}`)
@@ -49,4 +38,26 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.product-card {
+  max-width: 600px;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+}
+
+.product-title {
+  color: #333;
+}
+
+.cta-button {
+  background-color: #f60;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+</style>
