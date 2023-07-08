@@ -65,7 +65,7 @@
       </section>
 
 
-      <PagePadding />
+      <!-- <PagePadding />
       <div v-if="itemsOnSale.length">
         <h3>Items unicos.</h3>
 
@@ -90,7 +90,7 @@
 
       <section v-else class="text-center mt-24">
         <p class="text-2xl">No hay items en venta.</p>
-      </section>
+      </section> -->
 
       <PagePadding />
 
