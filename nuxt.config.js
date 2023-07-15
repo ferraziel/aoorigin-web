@@ -174,7 +174,8 @@ export default {
     PAYMENT_ADDRESS: process.env.PAYMENT_ADDRESS,
     MERCADOPAGO_PUBLIC_KEY: process.env.MERCADOPAGO_PUBLIC_KEY,
     MERCADOPAGO_CLIENT_ID: process.env.MERCADOPAGO_CLIENT_ID,
-    STRIPE_PUBLISHABLE_KEY: process.env.STRIPE_PUBLISHABLE_KEY
+    STRIPE_PUBLISHABLE_KEY: process.env.STRIPE_PUBLISHABLE_KEY,
+    FEATURE_FLAG_MAO_ITEMS: process.env.FEATURE_FLAG_MAO_ITEMS
   },
   // sitemap: {
   //   hostname: "https://ao20.com.ar",

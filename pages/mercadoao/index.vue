@@ -65,32 +65,35 @@
       </section>
 
 
-      <!-- <PagePadding />
-      <div v-if="itemsOnSale.length">
-        <h3>Items unicos.</h3>
+        <div v-if="FEATURE_FLAG_MAO_ITEMS">
+          <PagePadding />
+          <div v-if="itemsOnSale.length">
+          <h3>Items unicos.</h3>
 
-        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <div class="flex flex-col items-center gap-y-4" v-for="item in itemsOnSale" :key="item.item_id" :id="item.item_id">
+            <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              <div class="flex flex-col items-center gap-y-4" v-for="item in itemsOnSale" :key="item.item_id" :id="item.item_id">
 
-            <NuxtLink :to="`/mercadoao/item/${item.item_id}`">
-              <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
-                <img :src="item.Data.canvasImage" width="64px" />
+                <NuxtLink :to="`/mercadoao/item/${item.item_id}`">
+                  <div class="flex items-center justify-center border-2 border-gr border-gr-primary p-12 bg-gray-900">
+                    <img :src="item.Data.canvasImage" width="64px" />
+                  </div>
+
+                  <ul>
+                    <li class="text-s">{{ item.Data.NAME }}</li>
+                    <li class="text-xs md:text-sm lg:text-base">{{ item.Data.NAME == item.Data.TEXTO ? "" : item.Data.TEXTO }}</li>
+                    <li class="points-list-item points-list-item-text">{{ formatPrice(item.price_in_usd, 'USD') }}</li>
+                    <li class="points-list-item points-list-item-text">{{ formatPrice(item.price_in_pesos, 'ARS') }} ARS</li>
+                  </ul>
+                </NuxtLink>
               </div>
-
-              <ul>
-                <li class="text-s">{{ item.Data.NAME }}</li>
-                <li class="text-xs md:text-sm lg:text-base">{{ item.Data.NAME == item.Data.TEXTO ? "" : item.Data.TEXTO }}</li>
-                <li class="points-list-item points-list-item-text">{{ formatPrice(item.price_in_usd, 'USD') }}</li>
-                <li class="points-list-item points-list-item-text">{{ formatPrice(item.price_in_pesos, 'ARS') }} ARS</li>
-              </ul>
-            </NuxtLink>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <section v-else class="text-center mt-24">
-        <p class="text-2xl">No hay items en venta.</p>
-      </section> -->
+          <section v-else class="text-center mt-24">
+            <p class="text-2xl">No hay items en venta.</p>
+          </section>
+
+        </div>
 
       <PagePadding />
 
@@ -142,7 +145,13 @@ export default {
       a020pointsOnSale: await $axios.$get(`market/getAllAO20PointsOnSale`),
       a020pointsTiersOnSale: await $axios.$get(`market/getAllAO20PointsTiersOnSale`),
     };
-  }
+  },
+
+  data() {
+    return {
+      FEATURE_FLAG_MAO_ITEMS: process.env.FEATURE_FLAG_MAO_ITEMS
+    }
+  },
 };
 </script>
 
