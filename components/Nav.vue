@@ -39,7 +39,7 @@
         </button>
       </div>
     </nav>
-    <div class="w-full h-10 lg:block hidden" style="background-color: #330a0b">
+    <div class="w-full lg:block hidden" style="background-color: #330a0b">
       <div class="container flex w-full">
         <ul class="items-center hidden tracking-wide text-gray-300 uppercase lg:flex gap-x-10">
           <li>
