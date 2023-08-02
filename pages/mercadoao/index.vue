@@ -65,7 +65,7 @@
       </section>
 
 
-        <div v-if="FEATURE_FLAG_MAO_ITEMS === true">
+        <div v-if="FEATURE_FLAG_MAO_ITEMS != 0">
           <PagePadding />
           <div v-if="itemsOnSale.length">
           <h3>Items unicos.</h3>
