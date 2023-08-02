@@ -4,7 +4,8 @@
       v-if="newsItems && newsItems.length"
       class="max-w-screen-md mx-auto bg-gray-900 border-2 border-gr border-gr-primary p-4 md:p-6"
     >
-      <a v-for="currentNew in newsItems"
+      <a
+        v-for="currentNew in newsItems"
         :key="currentNew.gid"
         :id="currentNew.gid"
         :href="currentNew.url"
@@ -21,7 +22,7 @@
           :datetime="currentNew.date"
           :title="$dayjs(currentNew.date).format('DD [de] MMMM [de] YYYY [a las] HH:mm')"
         >
-          {{ $dayjs(currentNew.date).format('DD [de] MMMM [de] YYYY [a las] HH:mm') }}
+          {{ $dayjs(currentNew.date).format("DD [de] MMMM [de] YYYY [a las] HH:mm") }}
         </time>
       </a>
     </ul>
@@ -33,27 +34,27 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
-      newsItems: []
-    }
+      newsItems: [],
+    };
   },
   async fetch() {
     try {
-      const news = await this.$axios.$get('https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=1956740&count=10&maxlength=300&format=json')
-      let newsItems = news.appnews.newsitems
+      const news = await this.$axios.$get(
+        "https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=1956740&count=10&maxlength=300&format=json"
+      );
+      let newsItems = news.appnews.newsitems;
 
-      newsItems.forEach(element => {
+      newsItems.forEach((element) => {
         element.date = element.date * 1000;
       });
 
-      this.newsItems = newsItems
+      this.newsItems = newsItems;
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-
   },
   head() {
     return {

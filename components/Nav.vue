@@ -15,7 +15,7 @@
           </ul>
 
           <div class="flex items-center gap-x-4">
-            <p class="hidden text-sm tracking-wide uppercase lg:block">
+            <p class="mb-0 hidden text-sm tracking-wide uppercase lg:block">
               <span v-if="isServerOnline">{{ onlineCount || 0 }} usuarios online</span>
               <span v-else class="p-2 font-bold text-white bg-yellow-500">Cargando...</span>
             </p>
@@ -39,7 +39,7 @@
         </button>
       </div>
     </nav>
-    <div class="w-full h-10 lg:block hidden" style="background-color: #330a0b">
+    <div class="w-full lg:block hidden" style="background-color: #330a0b">
       <div class="container flex w-full">
         <ul class="items-center hidden tracking-wide text-gray-300 uppercase lg:flex gap-x-10">
           <li>
@@ -145,7 +145,7 @@ export default {
         {
           label: "Calendario Eventos",
           route: "/calendario",
-        }
+        },
       ],
     };
   },
