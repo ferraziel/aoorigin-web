@@ -19,7 +19,7 @@
 
       <img
         :src="require(`@/assets/img/home-banner${randomHomeImage}.jpg`)"
-        alt=""
+        alt="Imagen de ciudad de Argentum 20"
         class="w-full h-full absolute top-0 left-0 object-cover bg-transparent"
       />
     </header>
