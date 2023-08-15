@@ -6,9 +6,9 @@
         class="container h-full flex justify-center items-center sticky z-20 pt-32 py-16 sm:pt-24 md:pt-32 lg:pt-40 xl:pt-48"
       >
         <div class="flex flex-col items-center">
-          <img src="@/assets/img/argentum20_logo.png" alt="Argentum 20 Logo" class="w-96 mb-3 xl:mb-6 no-select" />
+          <img src="@/assets/img/argentumorigin_logo.png" alt="Argentum Origin Logo" class="w-96 mb-3 xl:mb-6 no-select" />
           <h1 class="text-xl sm:text-3xl text-center leading-tight text-white mb-12 normal-case">
-            Aventurate en las tierras de Argentum 20<br class="hidden lg:block" />
+            Aventurate en las tierras de Argentum Origin<br class="hidden lg:block" />
             y escribí tu propio camino
           </h1>
           <a href="/#juga-gratis" class="btn btn-cta">Jugá gratis</a>
@@ -19,7 +19,7 @@
 
       <img
         :src="require(`@/assets/img/home-banner${randomHomeImage}.jpg`)"
-        alt="Imagen de ciudad de Argentum 20"
+        alt="Imagen de ciudad de Argentum Origin"
         class="w-full h-full absolute top-0 left-0 object-cover bg-transparent"
       />
     </header>

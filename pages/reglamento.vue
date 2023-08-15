@@ -43,7 +43,7 @@ export default {
                 },
                 {
                   label:
-                    "Por el solo hecho de conectarse a Argentum20 o descargarse nuestro software, el usuario acepta el deber de dar cumplimiento a las cláusulas contenidas en el presente.",
+                    "Por el solo hecho de conectarse a Argentum Origin o descargarse nuestro software, el usuario acepta el deber de dar cumplimiento a las cláusulas contenidas en el presente.",
                 },
               ],
             },
@@ -52,7 +52,7 @@ export default {
               subItems: [
                 {
                   label:
-                    "El staff de Argentum20 se reserva el derecho de suprimir, agregar o modificar cláusulas del presente reglamento, según lo crea conveniente, sin necesidad de previo aviso.",
+                    "El staff de Argentum Origin se reserva el derecho de suprimir, agregar o modificar cláusulas del presente reglamento, según lo crea conveniente, sin necesidad de previo aviso.",
                 },
                 {
                   label:
@@ -204,7 +204,7 @@ export default {
               subItems: [
                 {
                   label:
-                    "Aquel usuario que a través del Foro Oficial del servidor o las redes sociales de Argentum20, tenga una conducta temeraria con el Staff y con los demás miembros de la comunidad, utilizando ese lugar para el insulto sistemático, como para la acusación falsa o injuriosa, como así también cualquier modo de falta de respeto y vejación hacia el Proyecto, será pasible de graves sanciones por parte del Staff que pueden llegar hasta la “Tolerancia Cero” dentro del Foro, las redes sociales y el mismo juego.",
+                    "Aquel usuario que a través del Foro Oficial del servidor o las redes sociales de Argentum Origin, tenga una conducta temeraria con el Staff y con los demás miembros de la comunidad, utilizando ese lugar para el insulto sistemático, como para la acusación falsa o injuriosa, como así también cualquier modo de falta de respeto y vejación hacia el Proyecto, será pasible de graves sanciones por parte del Staff que pueden llegar hasta la “Tolerancia Cero” dentro del Foro, las redes sociales y el mismo juego.",
                 },
               ],
             },
@@ -213,7 +213,7 @@ export default {
               subItems: [
                 {
                   label:
-                    "Los Directivos del Staff de Argentum20, a su criterio, podrán aplicar sanciones especiales, a los usuarios que, tanto en el juego como en la comunidad, demuestren un comportamiento y una actitud injustificadamente hostil para con el juego, sus autoridades o su comunidad; como así también aquellos usuarios que -sin llegar a violar expresamente este reglamento- a través de sus actos y sus dichos, tanto dentro como fuera del juego, perjudiquen el normal desenvolvimiento de los jugadores, atenten contra la armonía de la comunidad, o menoscaben el desarrollo del juego y agravien a su Staff.",
+                    "Los Directivos del Staff de Argentum Origin, a su criterio, podrán aplicar sanciones especiales, a los usuarios que, tanto en el juego como en la comunidad, demuestren un comportamiento y una actitud injustificadamente hostil para con el juego, sus autoridades o su comunidad; como así también aquellos usuarios que -sin llegar a violar expresamente este reglamento- a través de sus actos y sus dichos, tanto dentro como fuera del juego, perjudiquen el normal desenvolvimiento de los jugadores, atenten contra la armonía de la comunidad, o menoscaben el desarrollo del juego y agravien a su Staff.",
                 },
                 {
                   label:
@@ -318,7 +318,7 @@ export default {
               ],
             },
             {
-              label: "Discrepancias con decisiones del Staff de Argentum20",
+              label: "Discrepancias con decisiones del Staff de Argentum Origin",
               subItems: [
                 {
                   label:
@@ -507,43 +507,43 @@ export default {
           subItems: [
             {
               label:
-                "El Staff de Argentum20, se reserva el derecho de admisión y permanencia de los usuarios en la comunidad.",
+                "El Staff de Argentum Origin, se reserva el derecho de admisión y permanencia de los usuarios en la comunidad.",
               notHeader: true,
             },
             {
               notHeader: true,
               label:
-                "El Staff de Argentum20, no es responsable de las actitudes o accionares de los usuarios, si no que cada usuario es responsable de sus propias acciones y actitudes.",
+                "El Staff de Argentum Origin, no es responsable de las actitudes o accionares de los usuarios, si no que cada usuario es responsable de sus propias acciones y actitudes.",
             },
             {
               notHeader: true,
               label:
-                "El Staff de Argentum20, no se hace responsable por cualquier daño ocasionado por nuestro software, el mismo es instalado en todo caso bajo propio riesgo del usuario.",
+                "El Staff de Argentum Origin, no se hace responsable por cualquier daño ocasionado por nuestro software, el mismo es instalado en todo caso bajo propio riesgo del usuario.",
             },
             {
               notHeader: true,
               label:
-                "Los GMs, Consejeros y personal del Staff, no son empleados nuestros ni se encuentran en posición remunerativa, y por ende el Staff de Argentum20 no es responsable por su accionar.",
+                "Los GMs, Consejeros y personal del Staff, no son empleados nuestros ni se encuentran en posición remunerativa, y por ende el Staff de Argentum Origin no es responsable por su accionar.",
             },
             {
               notHeader: true,
               label:
-                "El Staff de Argentum20, no está obligado a responder por fallas en el servicio, caídas del mismo o interrupciones sin previo aviso, así como cualquier mal funcionamiento en el extremo del lado del servidor o del cliente.",
+                "El Staff de Argentum Origin, no está obligado a responder por fallas en el servicio, caídas del mismo o interrupciones sin previo aviso, así como cualquier mal funcionamiento en el extremo del lado del servidor o del cliente.",
             },
             {
               notHeader: true,
               label:
-                "El Staff de Argentum20, no está obligado a responder por la violación del reglamento por parte de terceros o personas que cooperen con el Staf de manera externa, como es el ejemplo del grupo de GMs.",
+                "El Staff de Argentum Origin, no está obligado a responder por la violación del reglamento por parte de terceros o personas que cooperen con el Staf de manera externa, como es el ejemplo del grupo de GMs.",
             },
             {
               notHeader: true,
               label:
-                "El Staff de Argentum20, deja constancia de que si los encargados del juego lo entienden pertinente, a los efectos de proteger el juego, de la utilización de programas externos por parte de los usuarios, se podrá hacer uso de los medios necesarios para conocer los programas que éstos ejecuten simultáneamente con el juego.",
+                "El Staff de Argentum Origin, deja constancia de que si los encargados del juego lo entienden pertinente, a los efectos de proteger el juego, de la utilización de programas externos por parte de los usuarios, se podrá hacer uso de los medios necesarios para conocer los programas que éstos ejecuten simultáneamente con el juego.",
             },
             {
               notHeader: true,
               label:
-                "Todos los servicios prestados por el servidor de Argentum20, son totalmente gratuitos, por lo tanto el usuario no tiene derecho a crear demandas, exigencias o reclamos. Estas demandas y reclamos sólo serán atendidos de acuerdo a la buena voluntad, disponibilidad y posibilidades de Noland Studios. En caso de no estar de acuerdo con el funcionamiento del servicio, las actitudes de otros usuarios, así como la de nuestros personales, sus decisiones tomadas, medidas aplicadas, el funcionamiento de los servicios, administración y dirección de los mismos, como también respecto de la administración y dirección de nuestro personal y la manera de actuar de las personas que colaboran en este proyecto, el usuario sólo deberá abandonar nuestro servicio y borrar el software instalado en su PC, sin posibilidad a ninguna otra acción, o reclamo, a causa del desacuerdo.",
+                "Todos los servicios prestados por el servidor de Argentum Origin, son totalmente gratuitos, por lo tanto el usuario no tiene derecho a crear demandas, exigencias o reclamos. Estas demandas y reclamos sólo serán atendidos de acuerdo a la buena voluntad, disponibilidad y posibilidades de Noland Studios. En caso de no estar de acuerdo con el funcionamiento del servicio, las actitudes de otros usuarios, así como la de nuestros personales, sus decisiones tomadas, medidas aplicadas, el funcionamiento de los servicios, administración y dirección de los mismos, como también respecto de la administración y dirección de nuestro personal y la manera de actuar de las personas que colaboran en este proyecto, el usuario sólo deberá abandonar nuestro servicio y borrar el software instalado en su PC, sin posibilidad a ninguna otra acción, o reclamo, a causa del desacuerdo.",
               subItems: [
                 {
                   label:
@@ -562,11 +562,11 @@ export default {
                 },
                 {
                   label:
-                    "En caso de robo de e-mail, el usuario deberá tratar el problema con la empresa proveedora del mismo. El Staff de Argentum20 no tiene relación en absoluto con dichas empresas, y por lo tanto no tiene razón por la cual tomar acción alguna al respecto.",
+                    "En caso de robo de e-mail, el usuario deberá tratar el problema con la empresa proveedora del mismo. El Staff de Argentum Origin no tiene relación en absoluto con dichas empresas, y por lo tanto no tiene razón por la cual tomar acción alguna al respecto.",
                 },
                 {
                   label:
-                    "El cuidado de la seguridad del personaje, corre por cuenta exclusiva de su dueño, por lo que el Staff de Argentum20, no se hace cargo los daños ocasionados ya sea por robo de e-mail o robo del personaje.",
+                    "El cuidado de la seguridad del personaje, corre por cuenta exclusiva de su dueño, por lo que el Staff de Argentum Origin, no se hace cargo los daños ocasionados ya sea por robo de e-mail o robo del personaje.",
                 },
               ],
             },
