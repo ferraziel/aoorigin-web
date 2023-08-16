@@ -1,6 +1,6 @@
 <template>
   <header class="fixed top-0 left-0 z-50 w-full">
-    <nav class="w-full py-2 bg-black bg-opacity-10">
+    <nav class="w-full py-2 bg-black bg-opacity-40">
       <div class="container flex items-center justify-between w-full">
         <NuxtLink to="/" class="flex items-center gap-2 main-title flex-shrink-1 -my-4 -ml-2" style="z-index: 999">
           <img src="@/assets/img/aoorigin_logo3_sm.png" alt="Argentum Origin" class="w-40" />
@@ -10,7 +10,7 @@
         <div class="flex items-center gap-x-16">
           <ul class="items-center hidden tracking-wide text-gray-300 uppercase lg:flex gap-x-10">
             <li v-for="link in linksMain" :key="link.route">
-              <NuxtLink :to="link.route" class="inline-block py-2 hover:text-gray-100">{{ link.label }}</NuxtLink>
+              <NuxtLink :to="link.route" class="inline-block py-2 hover:text-gray-00">{{ link.label }}</NuxtLink>
             </li>
           </ul>
 
