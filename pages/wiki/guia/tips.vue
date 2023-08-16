@@ -8,7 +8,7 @@
     </p>
 
     <p>
-      El mismo juego tiene informacion de las criaturas que tiene cada mapa alrededor del mundo de argentum 20. Para poder ver esta opcion deberian precionar doble click en el mini mapa situado al lado de la consola de chat.
+      El mismo juego tiene informacion de las criaturas que tiene cada mapa alrededor del mundo de Argentum Origin. Para poder ver esta opcion deberian precionar doble click en el mini mapa situado al lado de la consola de chat.
     </p>
 
     <p>

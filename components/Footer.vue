@@ -17,7 +17,7 @@
 
           <p class="mb-4 text-xs text-gray-600">
             <a href="https://web.minehost.com.ar/buy/index.php" target="_blank" rel="noopener">
-              El servidor de Argentum 20 está hosteado en Minehost
+              El servidor de Argentum Origin está hosteado en Minehost
               <img width="200px" src="@/assets/img/logo_minehost.png" class="mx-auto mt-2">
             </a>
           </p>

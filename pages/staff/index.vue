@@ -4,55 +4,57 @@
         <br>
         <br>
         <h1 class="section-title text-center mb-4 uppercase">Nosotros</h1>
-        <h2>Staff de Argentum 20</h2>
+        <h2>Staff de Argentum Origin</h2>
         <h3>Líder de Proyecto</h3>
         <p>
-            «Gulfas Morgolock»<br>
+            «Azmodan»<br>
         </p>
         <h3>Programación</h3>
         <p>
-            Matias Calegaris «Tute»<br>
-            «Gulfas Morgolock»<br>
+            «Azmodan»<br>
+            UnderCode<br>
             Lucas Recoaro «RecoX»
         </p>
         <h3>Desarrollo de Herramientas</h3>
         <p>
-            «ReyarB»
+            «Azmodan»
         </p>
         <h3>Lider de Diseño y Arte Gráfico</h3>
         <p>
-            Alejandro Cordara «Animal»
+             «Azmodan»
         </p>
         <h3>Lideres Diseño del Mundo</h3>
         <p>
-            Horacio Garofalo «Haracin»<br>
-            «ReyarB»
+            Azmodan<br>
         </p>
         <h3>Diseño y Desarrollo Web</h3>
         <p>
-            Alejandro Cordara «Animal»<br>
-            Lucas Recoaro «RecoX»
+            Azmodan<br>
+            «Raziel»
         </p>
         <h3>Arquitecto DevOps</h3>
         <p>
-            Lucas Recoaro «RecoX»
+            UnderCode
         </p>
         <h3>Musicalización</h3>
         <p>
-            Jorge Gabriel Leni «Sonic»
+            -
         </p>
         <h3>Lider soporte y Game Masters</h3>
         <p>
-            «ReyarB»
+            «Raziel»
         </p>
         <h3>Moderación de Comunidad</h3>
         <p>
-            «Plus»
+            «Raziel»<br>
+            «Rodro»
+            «DoPa»
+
         </p>
         <h3>Wiki</h3>
         <p>
-            Lucas Recoaro «RecoX»<br>
-            «Comunidad» de AO20
+            «Raziel»<br>
+            «Comunidad» de AOOrigin
         </p>
 
     </section>
@@ -62,7 +64,7 @@
     <section>
 
         <h2>Proyecto Argentum Online en SourceForge</h2>
-        <p>Argentum20 está basado en el juego Argentum Online original: <a href="https://sourceforge.net/projects/morgoao/" rel="noopener" target="_blank" class="text-primary underline">https://sourceforge.net/projects/morgoao/</a>.</p>
+        <p>Argentum Origin está basado en el juego Argentum Online original: <a href="https://sourceforge.net/projects/morgoao/" rel="noopener" target="_blank" class="text-primary underline">https://sourceforge.net/projects/morgoao/</a>.</p>
         <p>Mucha gente ha colaborado a este proyecto y si considerás que aportaste de alguna manera a la creación de AO20 por favor contactanos así te agregamos en la sección de créditos.</p>
         <p>Para ver los créditos del AO original, <a href="/aostaff.txt" target="_blank" class="text-primary underline">ingrese aquí.</a></p>
 
@@ -75,8 +77,8 @@
         <h2>Agradecimientos Especiales</h2>
         <p>A todos los ex miembros que cumplieron un rol dentro del staff cuyo trabajo fue muy importante para poder sacar adelante este proyecto:</p>
         <ul>
-            <li>A Pablo Mercavides «Ladder» y a su staff de Revolución AO por ceder los códigos originales de servidor y cliente los cuales fueron tomados de base para encarar Argentum 20.</li>
-            <li>A Alexis Caraballo «WyroX» por su dedicación y aporte de conocimientos que ayudaron a que Argentum 20 sea lo que es hoy en día.</li>
+            <li>A Pablo Mercavides «Ladder» y a su staff de Revolución AO por ceder los códigos originales de servidor y cliente los cuales fueron tomados de base para encarar Argentum Origin.</li>
+            <li>A Alexis Caraballo «WyroX» por su dedicación y aporte de conocimientos que ayudaron a que Argentum Origin sea lo que es hoy en día.</li>
             <li>Xavier Viger Navarro «Sensui» (Idea original, Mapeo, Dateo, Game Design)</li>
             <li>Sergio Perez «Neosefirot» (Idea original y Coordinación)</li>
             <li>Bruno De Angelis «SimP» (Diseño y desarrollo web)</li>
