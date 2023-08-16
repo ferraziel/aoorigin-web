@@ -5,7 +5,7 @@
       <div class="container">
         <section class="text-center">
           <p class="mb-4 text-sm tracking-wide text-gray-500 uppercase">
-            Copyright &copy; {{ new Date().getFullYear() }} Noland Studios. Todos los derechos reservados.
+            Copyright &copy; {{ new Date().getFullYear() }} Argentum Origin Staff. Todos los derechos reservados.
           </p>
           <p class="mb-4 text-xs text-gray-600">
             Este sitio está protegido por reCAPTCHA. Las
