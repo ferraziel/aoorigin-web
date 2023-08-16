@@ -312,7 +312,7 @@ export default {
   },
   head() {
     return {
-      title: "AO20 - Web Oficial",
+      title: "Argentum Origin - Web Oficial",
     };
   },
 };
