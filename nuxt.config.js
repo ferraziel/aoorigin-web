@@ -11,8 +11,8 @@ export default {
   head: {
     titleTemplate: (titleChunk) => {
       return titleChunk
-        ? `${titleChunk} - Argentum 20 - El MMORPG 2D gratuito argentino`
-        : "Argentum 20 - El MMORPG 2D gratuito argentino";
+        ? `${titleChunk} - Argentum Origin - El MMORPG 2D gratuito argentino`
+        : "Argentum Origin - El MMORPG 2D gratuito argentino";
     },
     htmlAttrs: {
       lang: "es",
@@ -24,7 +24,7 @@ export default {
         hid: "keywords",
         name: "keywords",
         content:
-          "mmorpg, juego, argentino, gratuito, código libre, edad media, medieval, open source, noland studios, argentum online, servidor oficial",
+          "mmorpg, juego, argentino, gratuito, código libre, edad media, medieval, open source, argentum online, servidor oficial",
       },
       {
         hid: "description",
@@ -37,7 +37,7 @@ export default {
       },
       {
         property: "og:title",
-        content: "Argentum 20 - El MMORPG 2D gratuito argentino",
+        content: "Argentum Origin - El MMORPG 2D gratuito argentino",
       },
       { hid: "og:url", property: "og:url", content: "https://ao20.com.ar" },
       {
