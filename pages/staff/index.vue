@@ -46,7 +46,7 @@
         <h3>Moderación de Comunidad</h3>
         <p>
             «Raziel»<br>
-            «Rodro»
+            «Rodro»<br>
             «DoPa»
 
         </p>
