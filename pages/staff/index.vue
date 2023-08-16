@@ -13,7 +13,6 @@
         <p>
             «Azmodan»<br>
             UnderCode<br>
-            Lucas Recoaro «RecoX»
         </p>
         <h3>Desarrollo de Herramientas</h3>
         <p>
