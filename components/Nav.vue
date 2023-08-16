@@ -3,7 +3,7 @@
     <nav class="w-full py-2 bg-black bg-opacity-10">
       <div class="container flex items-center justify-between w-full">
         <NuxtLink to="/" class="flex items-center gap-2 main-title flex-shrink-1 -my-4 -ml-2" style="z-index: 999">
-          <img src="@/assets/img/aoorigin_logo2_sm.png" alt="Argentum Origin" class="w-40" />
+          <img src="@/assets/img/aoorigin_logo3_sm.png" alt="Argentum Origin" class="w-40" />
           <span class="hidden">Argentum Origin</span>
         </NuxtLink>
 
