@@ -14,12 +14,12 @@
             </li>
           </ul>
 
-         * <div class="flex items-center gap-x-4">
-          *  <p class="mb-0 hidden text-sm tracking-wide uppercase lg:block">
-           *   <span v-if="isServerOnline">{{ onlineCount || 0 }} usuarios online</span>
-            *  <span v-else class="p-2 font-bold text-white bg-yellow-500">Cargando...</span>
-            *</p>
-
+         /* <div class="flex items-center gap-x-4">
+            <p class="mb-0 hidden text-sm tracking-wide uppercase lg:block">
+              <span v-if="isServerOnline">{{ onlineCount || 0 }} usuarios online</span>
+              <span v-else class="p-2 font-bold text-white bg-yellow-500">Cargando...</span>
+            </p>
+/*
             <NuxtLink to="/cuenta" v-if="$auth.loggedIn">Mi cuenta</NuxtLink>
             <NuxtLink v-else to="/login" class="px-2 py-1 text-sm border btn btn-silver">Login</NuxtLink>
           </div>
