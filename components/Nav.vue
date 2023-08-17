@@ -105,10 +105,6 @@ export default {
       showMobileMenu: false,
       linksMain: [
         {
-          label: "Jugá gratis",
-          route: "/#juga-gratis",
-        },
-        {
           label: "Staff",
           route: "/staff",
         },
